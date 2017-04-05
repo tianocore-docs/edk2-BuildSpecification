@@ -1332,7 +1332,7 @@ If (Number of UNLOAD_IMAGE in INF > 1) {
 }
 ```
 
-8.3.6.7 Global variables
+#### 8.3.6.7 Global variables
 
 These are generated from "Guids", "Protocols", "Ppis", "xxxPcd" sections of the
 `.inf` file and `.uni` files.
