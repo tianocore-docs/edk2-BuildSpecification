@@ -52,7 +52,7 @@ within this virtual FD is laid out per Figure 4.
 
 ![](../media/image4.png)
 
-#### Figure 4 - NT32 Flash Device Layout
+###### Figure 4 NT32 Flash Device Layout
 
 Figure 5 represents a typical IA32/X64 FD layout, where SEC and PEI code is
 located in the FV Recovery section, and the remaining drivers are located in a
