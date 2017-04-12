@@ -410,8 +410,8 @@ in the DSC file can be used for file names, paths, PCD values, in the
 conditional directives. Macros can also be defined or used in the `[Defines]`,
 `[LibraryClasses]`, `[Libraries]`, `[Components]` and all PCD sections.
 
-Macros defined by the user cannot be used in the !include statements in either
-the DSC or FDF file.
+Macros defined by the user may be used in the !include statements in DSC and
+FDF files.
 
 `EDK_GLOBAL` type macros defined in the DSC file can be used in later sections
 of the DSC, FDF and any of the included EDK INF files.
