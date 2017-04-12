@@ -465,7 +465,8 @@ from a sources section.
 
 ### 8.7.14 [UserExtensions] Section
 
-The build tools must copy all of the source INF's `[UserExtensions]` sections
-into the generated INF. The EDK II build tools will ignore these sections,
-however other vendors may provide tools that have a priori knowledge of how to
-process these sections.
+Any `[UserExtensions]` sections that are present in the source INF with a
+UserId of "TianoCore" will be copied into the generated INF. `[UserExtensions]`
+sections with other UserId values will not be copied to the generated INF.
+The EDK II build tools will ignore these sections, however other vendors may
+provide tools that have a priori knowledge of how to process these sections.
