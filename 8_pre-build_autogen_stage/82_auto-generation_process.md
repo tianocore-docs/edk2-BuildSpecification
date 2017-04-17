@@ -958,6 +958,39 @@ If the `[Defines]` section has the `PCD_VAR_CHECK_GENERATION` entry set to
 TRUE, then a binary file will be created in the FV directory for Dynamic and
 DynamicEx PCD HII Variable checking.
 
+#### 8.2.4.13 Pre Build Processing
+
+The DSC file is parsed after the tool meta-data files. If the `[Defines]`
+section of the DSC file contains a `PREBUILD = entry` statement, processing
+of the DSC file is suspended and the script specified in the `PREBUILD`
+statement is executed. If the script file is not found, the **build** command
+exits with an appropriate error message. If the script fails, it must terminate
+with a non-zero exit code and the **build** command terminates with the exit
+value from the pre-build script. The script is required to generate error
+messages that provide the reason for the termination.
+
+All of the command line options passed into the **build** command are also
+passed  into the script along with the command line options for `TARGET`,
+`ARCH`, and `TOOL_CHAIN_TAG`. The values for `TARGET`, `ARCH`, and
+`TOOL_CHAIN_TAG` are from the command line options passed into the **build**
+command. If these values are not passed into the **build** command, then they
+are retrieved from `target.txt`.
+
+If the script terminates successfully (exit value of 0), parsing of the DSC
+file continues, and build tools may retrieve environment variables that have
+been updated by the script.
+
+**********
+**Note:** This entry may be wrapped in a conditional directive that uses the
+value of the `TOOL_CHAIN_TAG` determined earlier. Using a MACRO value other
+than `$(TOOL_CHAIN_TAG)` is prohibited, as the DSC file has not been processed
+at the time the ENTRY was found.
+**********
+**Note:** Quotes are needed when the script's additional options are present.
+Quotes are also required if the path to the pre-build command contains space
+or special characters.
+**********
+
 ### 8.2.5 Post processing
 
 Once all files are parsed, the build tools will do following work for each EDK

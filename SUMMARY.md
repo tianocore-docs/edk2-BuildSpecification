@@ -90,6 +90,7 @@
   * [10.3 Build Intermediate Images](10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.md#103-build-intermediate-images)
   * [10.4 Create the FV Image File(s)](10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.md#104-create-the-fv-image-files)
   * [10.5 Create the FD image file(s)](10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.md#105-create-the-fd-image-files)
+  * [10.6 Post Build Processing](10_post-build_imagegen_stage_-_flash/106_post_build_processing.md#106_post_build_processing)
 * [11 Post-Build ImageGen Stage - Other](11_post-build_imagegen_stage_-_other/README.md#11-post-build-imagegen-stage---other)
   * [11.1 EFI PCI Option ROM Images](11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.md#111-efi-pci-option-rom-images)
   * [11.2 UEFI Applications](11_post-build_imagegen_stage_-_other/112_uefi_applications.md#112-uefi-applications)
