@@ -1077,6 +1077,9 @@ permissible to set them here.
 * Determine if a module has specified Unicode file names, designated by the
   `.uni` file extension, in the INF file.
 
+* Determine if a module has specified Image definition file names, designated
+  by the `.idf` file extension, in the INF file.
+
 * Any Visual Forms Representation (.vfr) files found during the pre-processing
   steps will be processed during the $(MAKE) stage. Refer to the "VFR
   Programming Language" document for additional details.

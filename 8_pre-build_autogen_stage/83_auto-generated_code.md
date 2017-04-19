@@ -53,6 +53,7 @@ processing rules for generating the Makefiles for the $(MAKE) stage.
 | .i        | IPF Assembly include files                                                                 | ASCII Text, DOS EOL |
 | .vfr      | Visual Forms Representation files                                                          | ASCII Text, DOS EOL |
 | .uni      | HII Unicode string files                                                                   | UCS-2 Characters    |
+| .idf      | HII Image Definition files                                                                 | ASCII Text, DOS EOL |
 | .asl      | C formatted ACPI code files - these files are processed independent from the C code files  | ASCII Text, DOS EOL |
 | .asi      | ACPI Header Files                                                                          | ASCII Text, DOS EOL |
 | .aslc     | C formatted ACPI table files - these files are processed independent from the C code files | ASCII Text, DOS EOL |
@@ -278,7 +279,78 @@ these files are as follows. If one Unicode file uses a `#include` statement to
 include other Unicode files, these secondary Unicode files must also be listed
 in the INF file's [Sources] section.
 
-### 8.3.5 AutoGen.h file
+### 8.3.5 HII Image Pack
+
+The HII Image package data is stored in `.idf` files. The build tools perform
+the following steps to convert the image information into an HII Image package
+data structure.
+
+* The build tools retrieve all the image IDs, the optional `TRANSPARENT` setting
+  and the associated image file name from the `.idf` files. The `TRANSPARENT`
+  setting is optional. If it is specified, build tools apply the `TRANS` image
+  block type to the input image file. The _UEFI Specification_ does not define
+  the `TRANS` block type for JPG or PNG images. The `TRANSPARENT` setting is
+  ignored for JPG and PNG images. The image file name should be listed in the
+  `[Sources]` section of the INF file, and the extension of the image file must
+  be one of `.bmp`, `.jpg`, or `.png`. The extension is case insensitive.
+
+* Search all source files in the include path of the module to find out which
+  image IDs are used. Macros are generated in `AutoGen.h` for the image IDs
+  used. For example:
+  ```c
+  include_statement(AutoGen.h, "
+    //
+    //Image ID
+    //
+    #define IMG_FULL_LOGO  0x0001
+    #define IMG_OEM_LOGO   0x0002
+  ");
+  ```
+
+* The HII Image package data is generated in `<ModuleBaseName>Idf.hpk` or in
+  `AutoGen.c` in the form of a data array, with array name
+  `<ModuleBaseName>Images`. For example:
+  ```c
+  include_statement(AutoGen.c, "
+    //
+    //Image Pack Definition
+    //
+    unsigned char HelloWorldImages[] = {
+      // STRGATHER_OUTPUT_HEADER
+      0xD9, 0xCA, 0x01, 0x00,
+      // Image PACKAGE HEADER
+      0xD5, 0xCA, 0x01, 0x06, 0x0C, 0x00, 0x00, 0x00, 0x97, 0xC7, 0x01, 0x00,
+      // Image DATA
+      // 0x0001: IMG_FULL_LOGO: 0x0001
+      0x12, 0x01, 0x90, 0x01, 0xDC, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+      ...
+      ...
+      // 0x0002: IMG_OEM_LOGO: 0x0002
+      0x14, 0x02, 0x25, 0x01, 0xDC, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+      ...
+      ...
+      // End of the Image Info
+      0x00,
+      // Palette Header
+      0x03, 0x00,
+      // Palette Data
+      // 0x0001: IMG_FULL_LOGO: 0x0001
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x80, 0x80, 0x80, 0x00, 0x00, 0x80,
+      0x00, 0x80, 0x80, 0x80, 0x00, 0x80, 0x80, 0x80, 0xC0, 0xC0, 0xC0, 0x00, 0x00, 0xFF, 0x00, 0xFF,
+      ...
+      ...
+      // 0x0002: IMG_OEM_LOGO: 0x0002
+       0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x80, 0x80,
+      ...
+      ...
+    };
+  ");
+  ```
+
+* If more than one image definition file is required by a module, the build tools
+  combine the images from the multiple `.idf` files into a single HII Image Pack.
+
+### 8.3.6 AutoGen.h file
 
 The code generated in AutoGen.h includes:
 
@@ -289,10 +361,11 @@ The code generated in AutoGen.h includes:
   extern definitions
 * Global variable definitions and the database of PCDs used
 * Unicode string database definitions.
+* Image package database definitions.
 
 The file will contain:
 
-#### 8.3.5.1 Header prologue
+#### 8.3.6.1 Header prologue
 
 The macro name is composed with GUID value of INF file.
 
@@ -307,7 +380,7 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-#### 8.3.5.2 Global macro definitions
+#### 8.3.6.2 Global macro definitions
 
 If they are defined in INF file, un-defining them first is for backward
 compatibility with EDK module build, because these macros are not defined in
@@ -323,7 +396,7 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-#### 8.3.5.3 Header file inclusion.
+#### 8.3.6.3 Header file inclusion.
 
 Only one header file is included.
 
@@ -333,7 +406,7 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-#### 8.3.5.4 Caller ID GUID definition.
+#### 8.3.6.4 Caller ID GUID definition.
 
 The GUID value is the same as INF file GUID. The macro, `EFI_CALLER_ID_GUID`,
 is generated only for non - library module.
@@ -348,12 +421,12 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-#### 8.3.5.5 PCD definitions
+#### 8.3.6.5 PCD definitions
 
 There are differences in the generated code for library and non-library
 modules, which are illustrated in pseudo-code below.
 
-##### 8.3.5.5.1 Non-library Module
+##### 8.3.6.5.1 Non-library Module
 
 ```c
 include_statement(AutoGen.h, "
@@ -470,7 +543,7 @@ If (PCD_type == DYNAMIC_EX) {
 }
 ```
 
-##### 8.3.5.5.2 Library Module
+##### 8.3.6.5.2 Library Module
 
 ```c
 nclude_statement(AutoGen.h, "
@@ -555,7 +628,7 @@ If (PCD_type == DYNAMIC_EX) {
 }
 ```
 
-##### 8.3.5.5.3 HII string pack definitions,
+##### 8.3.6.5.3 HII string pack definitions,
 
 These are generated only if `.uni` files are found. For details, please refer
 to section 7.3.2.
@@ -580,7 +653,24 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-#### 8.3.5.6 AutoGen Epilogue
+##### 8.3.6.5.4 HII image pack definitions
+
+These are generated only if `.idf` files are found.
+```
+include_statement(AutoGen.h, "
+  //
+  //Image ID
+  //
+  #define IMG_FULL_LOGO  0x0001
+  #define IMG_OEM_LOGO   0x0002
+
+  extern unsigned char  HelloWorldImages[];
+
+  #define IMAGE_ARRAY_NAME  HelloWorldImages
+");
+```
+
+#### 8.3.6.6 AutoGen Epilogue
 
 ```c
 #ifdef __cplusplus
@@ -590,7 +680,7 @@ include_statement (AutoGen.h, "
 #endif
 ```
 
-### 8.3.6 AutoGen.c file
+### 8.3.7 AutoGen.c file
 
 The code generated in AutoGen.c includes:
 
@@ -600,6 +690,7 @@ The code generated in AutoGen.c includes:
 * Global variables for GUID/Protocol/PPIs value used, global variables and
   database for PCDs used
 * Unicode string pack definition.
+* Image pack definition.
 
 `AutoGen.c` file is only generated for EDK II non-library modules. The following
 sections identify what lines of information are included in the file as well as
@@ -607,7 +698,7 @@ pseudo-code to references on to how a variable (<var_name>) might be generated.
 
 The file will contain:
 
-#### 8.3.6.1 Header files inclusion.
+#### 8.3.7.1 Header files inclusion.
 
 Which files are included is determined by module type.
 
@@ -664,7 +755,7 @@ included.
 Where the `<ModuleName>` is the value of the `BASE_NAME` from the module INF
 file's `[Defines]` section.
 
-#### 8.3.6.2 Caller ID GUID variable definition.
+#### 8.3.7.2 Caller ID GUID variable definition.
 
 Because not all GUID variables are required, a link-time optimization removes
 items that are not referenced by other parts of the code to save on space in
@@ -677,7 +768,7 @@ include_statement (AutoGen.c, "
 ");
 ```
 
-#### 8.3.6.3 Library Constructor Statements
+#### 8.3.7.3 Library Constructor Statements
 
 If there are `CONSTRUCTOR`s defined in `[Defines]` section in INF file of the
 library instances that are being linked to.
@@ -811,7 +902,7 @@ include_statement (AutoGen.c, "
 ");
 ```
 
-####8.3.6.4 Library Destructor Statements
+#### 8.3.7.4 Library Destructor Statements
 
 Contained if there are `DESTRUCTOR`s defined in `[Defines]` section in INF file
 of the library instances that are being linked to.
@@ -939,7 +1030,7 @@ include_statement (AutoGen.c, "
 ");
 ```
 
-#### 8.3.6.5 Module Entry Point Statements
+#### 8.3.7.5 Module Entry Point Statements
 
 Contained if there are `ENTRY_POINT`s defined `[Defines]` section in INF file.
 
@@ -1247,7 +1338,7 @@ If (ENTRY_POINT defined in INF) {
 }
 ```
 
-#### 8.3.6.6 Module Unload Image Statements
+#### 8.3.7.6 Module Unload Image Statements
 
 The following algorithm is used to process potential `UNLOAD_IMAGE` statements
 that might be defined in the `[Defines]` section in the INF file.
@@ -1332,10 +1423,10 @@ If (Number of UNLOAD_IMAGE in INF > 1) {
 }
 ```
 
-#### 8.3.6.7 Global variables
+#### 8.3.7.7 Global variables
 
 These are generated from "Guids", "Protocols", "Ppis", "xxxPcd" sections of the
-`.inf` file and `.uni` files.
+`.inf` file and `.uni` and `.idf` files.
 
 ```c
 InfList = [];
@@ -1397,6 +1488,14 @@ foreach INF in InfList {
   If (.UNI file found in INF SourcesSection) {
     include_statement (AutoGen.c, "
       unsigned char MiscSubclassStrings[] = {
+        ......
+      }
+    ");
+  }
+
+  If (.IDF file found in INF SourcesSection) {
+    include_statement (AutoGen.c, "
+      unsigned char  HelloWorldImages[] = {
         ......
       }
     ");
