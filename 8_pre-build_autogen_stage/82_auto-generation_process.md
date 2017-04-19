@@ -991,6 +991,26 @@ Quotes are also required if the path to the pre-build command contains space
 or special characters.
 **********
 
+#### 8.2.4.14 NMAKE Command line limitation handling
+
+`NMAKE` is limited to command-line length of 4096 characters.  Due to the large
+number of `/I` directives specified on command line (one per include directory),
+the path length of `WORKSPACE` is multiplied by the number of `/I` directives
+and can exceed this command-line length limitation. When this issue occurs, the
+build tools pass the command line options via a response file instead of
+directly on the command line.  The contents of the response file is combination
+of `FLAGS` options and `INC` options. If a build fails, the build tools print
+the response file's file location and the contents of the response file.
+
+The **build** command supports the options `-l` and `--cmd-len` to set the
+maximum command line length.  The default value is 4096.
+
+**********
+**Note:** The following `FLAGS` options are included in the response file:
+`PP_FLAGS`, `CC_FLAGS`, `VFRPP_FLAGS`, `APP_FLAGS`, `ASLPP_FLAGS`, `ASLCC_FLAGS`,
+and `ASM_FLAGS`.
+**********
+
 ### 8.2.5 Post processing
 
 Once all files are parsed, the build tools will do following work for each EDK
