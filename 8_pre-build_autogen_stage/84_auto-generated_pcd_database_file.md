@@ -142,50 +142,61 @@ module does not follow the DEC file's access method declarations.
     PCD to use the `PcdsDynamicExDefault` access method for all INF files that
     use the PCD. The PCD must be added to the Platform's PCD Database.
 
-2. When building modules, a PCD can only use one access method for all modules
-   in a platform; a PCD cannot use the patch access method in one source module
-   and fixed access method in another source module in the same platform. The
-   build parser must break with an error message if this occurs.
+2. When building modules from source INFs, a PCD can only use one access method
+   for all modules in a platform; a PCD cannot use the patch access method in
+   one source module and fixed access method in another source module in the
+   same platform. The build parser must break with an error message if this
+   occurs.
 
-3. If the PCD is listed under different access methods in all INF files in the
-   platform that use the PCD, the build parser must break with an appropriate
-   error message.
+3. Binary modules included in a platform build are permitted to use the
+   PatchableInModule or DynamicEx access methods (the Binary module must specify
+   which of these two methods were used to create the binary module) regardless
+   of the method used for a given PCD in modules built from source. The build
+   supports binary modules that use the same or different PCD access method than
+   the source modules or other binary modules. The build parser must break with
+   an error if a PCD is listed as FixedAtBuild or Dynamic (not DynamicEx) in the
+   Binary INF.
 
-4. If the PCD is listed in a `[Pcd]` section in all of the modules using that
-   PCD that are listed in the DSC file, AND the PCD is listed in the DEC file
-   under `[PcdsDynamicEx]` and/or `[PcdsDynamic]` and/or
+4. If the PCD is listed under different access methods in all source INF files
+   in the platform that use the PCD, the build parser must break with an
+   appropriate error message.
+
+5. If the PCD is listed in a `[Pcd]` section in all of the source modules using
+   that PCD that are listed in the DSC file, AND the PCD is listed in the DEC
+   file under `[PcdsDynamicEx]` and/or `[PcdsDynamic]` and/or
    `[PcdsPatchableInModule]` and `[PcdsFixedAtBuild]` sections, the build must
-   use the PcdsFixedAtBuild access method for this PCD in all modules in the
-   platform that use this PCD.
+   use the PcdsFixedAtBuild access method for this PCD in all source modules in
+   the platform that use this PCD.
 
-5. If the PCD is listed in a `[Pcd]` section in all of the modules using that
-   PCD that are listed in the DSC file, AND the PCD is listed in the DEC file
-   under `[PcdsDynamicEx]` and/or `[PcdsDynamic]` and `[PcdsPatchableInModule]`
-   sections, the build must use the `PcdsPatchableInModule` access method for
-   this PCD in all modules in the platform that use this PCD.
+6. If the PCD is listed in a `[Pcd]` section in all of the source modules using
+   that PCD that are listed in the DSC file, AND the PCD is listed in the DEC
+   file under `[PcdsDynamicEx]` and/or `[PcdsDynamic]` and
+   `[PcdsPatchableInModule]` sections, the build must use the
+   `PcdsPatchableInModule` access method for this PCD in all source modules in
+   the platform that use this PCD.
 
-6. If the PCD is listed in a `[Pcd]` section in all of the modules using that
-   PCD that are listed in the DSC file, AND the PCD is listed in the DEC file
-   under `[PcdsDynamicEx]` and `[PcdsDynamic]` sections, the build must use the
-   `PcdsDynamicDefault` access method for this PCD in all modules in the
-   platform that use this PCD.
+7. If the PCD is listed in a `[Pcd]` section in all of the source modules using
+   that PCD that are listed in the DSC file, AND the PCD is listed in the DEC
+   file under `[PcdsDynamicEx]` and `[PcdsDynamic]` sections, the build must use
+   the `PcdsDynamicDefault` access method for this PCD in all source modules in
+   the platform that use this PCD.
 
-7. If the PCD is listed in a `[Pcd]` section in all of the modules using that
-   PCD that are listed in the DSC file, AND the PCD is listed in the DEC file
-   under `[PcdsDynamicEx]` sections, the build must use the
-   `PcdsDynamicExDefault` access method for this PCD in all modules in the
-   platform that use this PCD.
+8. If the PCD is listed in a `[Pcd]` section in all of the source modules using
+   that PCD that are listed in the DSC file, AND the PCD is listed in the DEC
+   file under `[PcdsDynamicEx]` sections, the build must use the
+   `PcdsDynamicExDefault` access method for this PCD in all source modules in
+   the platform that use this PCD.
 
-8. If multiple modules set the `Dynamic` or `DynamicEx` PCD to the different
-   value in a platform, and the PCD is not listed in the DSC file, the build
-   should break with an appropriate error message.
+9. If multiple source modules set the `Dynamic` or `DynamicEx` PCD to the
+   different value in the same platform, and the PCD is not listed in the DSC
+   file, the build should break with an appropriate error message.
 
-9. If a PCD is used in a module listed in the DSC or FDF file and the PCD is
-   not declared in any of the DEC files that the module depends on (listed in
-   the `[Packages]` section) the build must break with an appropriate error
-   message.
+10. If a PCD is used in a module listed in the DSC or FDF file and the PCD is
+    not declared in any of the DEC files that the module depends on (listed in
+    the `[Packages]` section) the build must break with an appropriate error
+    message.
 
-10. If a PCD is listed in the DSC or FDF file and the PCD is not declared in any
+11. If a PCD is listed in the DSC or FDF file and the PCD is not declared in any
     of the DEC files AND the PCD is not used by any of the modules listed in the
     DSC or FDF file, the build must break with an appropriate error message.
 
