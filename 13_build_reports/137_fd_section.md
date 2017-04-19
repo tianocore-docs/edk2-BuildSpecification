@@ -1,5 +1,5 @@
 <!--- @file
-  13.6 FD Section
+  13.7 FD Section
 
   Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
 
@@ -29,11 +29,11 @@
 
 -->
 
-## 13.6 FD Section
+## 13.7 FD Section
 
 This section contains platform flash device information and its layout.
 
-### 13.6.1 FD Section Header
+### 13.7.1 FD Section Header
 
 Given that a platform may have multi-Firmware device, this section may appear
 more than once in the output report. The section header lists the name of FD
@@ -59,7 +59,7 @@ Size:             0x2a0000(2688KB)
 <==========================================================================>
 ```
 
-### 13.6.2 FD Region Sub-section
+### 13.7.2 FD Region Sub-section
 
 This sub-section contains FD region information of platform flash device. If
 the region is a firmware volume, it lists the set of modules and its space
@@ -122,7 +122,7 @@ Size:             0x2000 (8K)
 ...(More list of FD regions)
 ```
 
-### 13.6.3 VPD PCD Sub-section
+### 13.7.3 VPD PCD Sub-section
 
 This section lists, in Offset order, every VPD PCD specified in the DSC file.
 The line format for this section is PcdName SkuId Offset PcdSize PcdValue.

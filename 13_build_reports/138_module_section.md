@@ -1,5 +1,5 @@
 <!--- @file
-  13.7 Module Section
+  13.8 Module Section
 
   Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
 
@@ -29,14 +29,14 @@
 
 -->
 
-## 13.7 Module Section
+## 13.8 Module Section
 
 Module section lists all modules involved in the platform build. If the
 **EXECUTION_ORDER** option is specified in **-Y** option, the module sections
 are sorted according to their PEI or DXE dispatch order; otherwise the module
 sections are listed according to their DSC position.
 
-### 13.7.1 Module Section Summary
+### 13.8.1 Module Section Summary
 
 This sub-section lists the module basic information: Module name: INF file,
 file GUID, module size, module build time stamp and driver type.
@@ -99,7 +99,7 @@ Driver Type:        0x7 (DRIVER)
 <==========================================================================>
 ```
 
-### 13.7.2 Library Sub-section
+### 13.8.2 Library Sub-section
 
 This sub-section, which follows each Module Summary section, holds the
 information for all libraries used in this module. If it is an EDKII style
@@ -208,7 +208,7 @@ s:\edk2\EdkCompatibilityPkg\Foundation\Framework\Guid\EdkFrameworkGuidLib.inf
 option.
 **********
 
-### 13.7.3 PCD Sub-section
+### 13.8.3 PCD Sub-section
 
 This sub-section (following the Module Summary information) holds the
 information for all PCDs used in this module. The content of module PCD
@@ -281,7 +281,7 @@ Each PCD may contain up to four lines:
 option.
 **********
 
-### 13.7.4 DEPEX Sub-section
+### 13.8.4 DEPEX Sub-section
 
 This sub-section (following the Module Summary information) holds module
 dependency expression (DEPEX) information. The sub-section header holds the
@@ -353,7 +353,7 @@ EFI_HII_DATABASE_PROTOCOL_GUID
 option.
 **********
 
-### 13.7.5 Build Flags Sub-section
+### 13.8.5 Build Flags Sub-section
 
 This sub-section (following the Module Summary information) holds module build
 flags information. The sub-section header holds the module tool chain tag and
@@ -387,7 +387,7 @@ EHs-c- /GR- /GF /Gy /Zi /Gm
 `-Y` option.
 **********
 
-### 13.7.6 Fixed Address Prediction Sub-section
+### 13.8.6 Fixed Address Prediction Sub-section
 
 This sub-section (following the Module Summary information) contains module
 notification function information. All the notification functions are listed

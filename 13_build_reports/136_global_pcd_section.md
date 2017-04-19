@@ -1,5 +1,5 @@
 <!--- @file
-  13.5 Global PCD Section
+  13.6 Global PCD Section
 
   Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
 
@@ -29,7 +29,7 @@
 
 -->
 
-## 13.5 Global PCD Section
+## 13.6 Global PCD Section
 
 This section contains the information for all PCDs whose values are the same
 for all modules in a platform. The content of global PCD sub-section is grouped
@@ -47,7 +47,7 @@ gEfiMdeModulePkgTokenSpaceGuid
 
 Each global PCD item contains one or more lines:
 
-### 13.5.1 Required line
+### 13.6.1 Required line
 
 The first line is required:
 
@@ -67,9 +67,9 @@ The first line is required:
                                                   DEC DEFAULT = 0x0
 ```
 
-### 13.5.2 Optional lines
+### 13.6.2 Optional lines
 
-#### 13.5.2.1 Dynamic/DynamicEx
+#### 13.6.2.1 Dynamic/DynamicEx
 
 * if `<PcdType>` is DYN-HII
 
@@ -93,7 +93,7 @@ The first line is required:
                   0x0001FFF
 ```
 
-#### 13.5.2.2 Default (optional) line
+#### 13.6.2.2 Default (optional) line
 
 The second optional line is present if the value from the DEC was overridden.
 It is formatted as follows:
@@ -107,7 +107,7 @@ It is formatted as follows:
                               DEC DEFAULT = 0x0
 ```
 
-#### 13.5.2.3 Additional optional lines
+#### 13.6.2.3 Additional optional lines
 
 Additional lines are optional and show if the PCD's value was obtained from the
 INF file. This will be listed if the module's final PCD value is not the same

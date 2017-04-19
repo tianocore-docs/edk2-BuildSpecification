@@ -51,6 +51,7 @@ The layout of the text report file:
 
 ```
 |---- Platform summary
+    |----- Mixed PCD section
     |----- Global PCD section
     |----- FD section*
         |---- FD Region sub-section*

@@ -1,5 +1,5 @@
 <!--- @file
-  13.9 Execution Order Prediction Section
+  13.5 Mixed PCD Section
 
   Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
 
@@ -29,43 +29,26 @@
 
 -->
 
-## 13.9 Execution Order Prediction Section
+## 13.5 Mixed PCD Section
 
-This section contains platform level prediction for the execution flow. Each
-phase list the following triple in their predicted order:
+There is an optional sub-section that, when present, lists the PCDs in the
+platform that use multiple access methods. This sub-section is only present if
+there are Binary modules included in the platform build and the binary module
+uses a different PCD access method than other modules in the same platform
+build.
 
-`(Type, Name, Module INF Path)`
-
-%The entry point or notification function name%
-
-#### Example
+The sub-section header is:
 
 ```
->======================================================================<
-Execution Order Prediction
-*P PEI phase
-*D DXE phase
-*E Module INF entry point name
-*N Module notification function name
-Type Symbol          Module INF Path
-========================================================================
-*PE   PeiCore        s:\edk2\MdeModulePkg\Core\Pei\PeiMain.inf
-*PE   PcdPeimInit    s:\edk2\MdeModulePkg\Universal\Pcd\Pei\Pcd.inf
-...
-*PN EndOfPeiCallback s:\edk2\MyPlatform\PlatformPei\PlatformPei.inf
-*DE DxeMain          s:\edk2\MdeModulePkg\Core\Dxe\DxeMain.inf
-*DE PcdDxeInit       s:\edk2\MdeModulePkg\Universal\Pcd\Dxe\Pcd.inf
-...
-<======================================================================>
+>===============================================================================<
+The following PCDs use different access methods:
+=================================================================================
+.. (List of PCDs)
+<===============================================================================>
 ```
 
-**********
-**Note:** This section is present when **EXECUTIONORDER** is specified in
-**-Y** option.
-**********
+Format for the entries in this section:
 
-The following figure shows the HTML format with an entry expanded.
-
-![](../media/image24.png)
-
-###### Figure 24 Report.html
+```
+<PcdTokenSpaceGuid>.<PcdCName>
+```
