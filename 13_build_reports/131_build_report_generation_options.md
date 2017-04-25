@@ -61,6 +61,10 @@ notification invoking sequence; Also the predicted addresses of module image
 loading, entry point and notification functions. Generating this report does
 take a significant amount of time, more than 2x the standard build time.
 
+**_Module Information_**
+
+Details of the module, may include the HASH of the `.efi` file.
+
 **********
 **Note:** The execution order prediction report output is an html file,
 separate from the rest of the reports. All remaining reports are generated in a

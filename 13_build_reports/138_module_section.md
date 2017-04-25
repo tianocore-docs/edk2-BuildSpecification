@@ -51,6 +51,8 @@ file GUID, module size, module build time stamp and driver type.
 
 The following entries are options:
 
+* If using defaults or the `HASH` flag is specified:
+  - SHA1 HASH: %SHA1 HASH% and *%Module .efi file name%
 * UEFI Specification Version: %The UEFI specification
   version:'`UEFI_SPECIFICATION_VERSION`' in INF `[Defines]` section%
 * PI Specification Version: %The PI specification
@@ -75,6 +77,7 @@ Module Name:        SmbiosDxe
 Module INF Path:    MdeModule\Universal\SmbiosDxe\SmbiosDxe.inf
 File GUID:          F9D88642-0737-49BC-81B5-6889CD57D9EA
 Size:               0x7000 (28.00K)
+SHA1 HASH:          d94c3f180f25d6b562f477bc4a16b286cb66a8b6 *SmbiosDxe.efi
 Build Time Stamp:   1969-12-31 16:00:00
 Driver Type:        0x7 (DRIVER)
 ============================================================================
@@ -91,6 +94,7 @@ Module Name:        EbcDxe
 Module INF Path:    MdeModule\Universal\EbcDxe\EbcDxe.inf
 File GUID:          13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
 Size:               0x9000 (36.00K)
+SHA1 HASH:          ff4c019345614afe5c88e7fc37219c30a07f4af4 *EbcDxe.efi
 Time Stamp:         1969-12-31 16:00:00
 Driver Type:        0x7 (DRIVER)
 ============================================================================

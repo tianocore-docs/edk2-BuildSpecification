@@ -101,7 +101,7 @@ Target:             DEBUG
 Output Path:        s:\edk2\Build\NT32IA32
 Build Environment:  Windows-7-6.1.7601-SP1
 Build Duration:     00:01:53
-Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, FLASH, FIXED_ADDRESS
+Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, HASH, FLASH, FIXED_ADDRESS
 >==========================================================================<
 Firmware Device (FD)
 FD Name:            NT32

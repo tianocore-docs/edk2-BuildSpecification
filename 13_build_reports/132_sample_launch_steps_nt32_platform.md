@@ -42,17 +42,18 @@ command. The following steps output the build report for NT32 platform:
 5. Run **build.exe -a IA32 -p Nt32Pkg\Nt32Pkg.dsc -y ReportFile.txt**
   * **-y**: This option specifies the output file name for build report.
   * **-Y**: This option specifies flags that control the type of build report.
-    It must be from the set of **PCD**, **LIBRARY**, **DEPEX**, **BUILD_FLAGS**,
-    **FLASH**, **FIXED_ADDRESS** and **EXECUTION_ORDER**. To specify more than
-    one flag, repeat the option on the command line. Example of usage:
+    It must be from the set of **PCD**, **LIBRARY**, **DEPEX**, **HASH**,
+    **BUILD_FLAGS**, **FLASH**, **FIXED_ADDRESS** and **EXECUTION_ORDER**. To
+    specify more than one flag, repeat the option on the command line. Example
+    of usage:
 
     On the command line, append the following arguments:
 
     **-y report_filename.txt -Y PCD -Y FLASH -Y DEPEX**
 
     The default set of flags (if **-Y** is not specified) is: **PCD**,
-    **LIBRARY**, **FLASH**, **DEPEX**, **BUILD_FLAGS** and **FIXED_ADDRESS**.
-
+    **LIBRARY**, **FLASH**, **DEPEX**, **HASH**, **BUILD_FLAGS** and
+    **FIXED_ADDRESS**.
 
 [^1] On Microsoft Windows 7, you must be an administrator to create a directory
 in the root of the C: drive. It recommended that you checkout edk2 into your

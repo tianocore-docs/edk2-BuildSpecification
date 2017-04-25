@@ -96,11 +96,12 @@ Options:
                         Create/overwrite the report to the specified filename.
   -Y REPORTTYPE, --report-type=REPORTTYPE
                         Flags that control the type of build report to
-                        generate.  Must be one of: [PCD, LIBRARY, FLASH,
-                        DEPEX, BUILD_FLAGS, FIXED_ADDRESS, EXECUTION_ORDER].
+                        generate. Must be one of: [PCD, LIBRARY, FLASH, DEPEX,
+                        HASH, BUILD_FLAGS, FIXED_ADDRESS, EXECUTION_ORDER].
                         To specify more than one flag, repeat this option on
                         the command line and the default flag set is [PCD,
-                        LIBRARY, FLASH, DEPEX, BUILD_FLAGS, FIXED_ADDRESS]
+                        LIBRARY, FLASH, DEPEX, HASH, BUILD_FLAGS,
+                        FIXED_ADDRESS]
   -F FLAG, --flag=FLAG  Specify the specific option to parse EDK UNI file.
                         Must be one of: [-c, -s]. -c is for EDK framework UNI
                         file, and -s is for EDK UEFI UNI file. This option can
