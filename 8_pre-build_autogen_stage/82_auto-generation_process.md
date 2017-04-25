@@ -417,15 +417,16 @@ FDF files.
 of the DSC, FDF and any of the included EDK INF files.
 
 Macro values must be defined prior to using them in directive statements or for
-PCD values. The following provides the rules for obtaining macro values.
+PCD values. The following provides the precedence (high to low) for obtaining
+macro values.
 
-* Highest - Command-line, `-D` flags (left most has higher priority)
+* Command-line, `-D` flags (left most has higher priority)
 * FDF file, `DEFINE` statements override previous definitions in the
   `[Defines]` section
 * FDF file, `DEFINE` statements in the `[Defines]` section
 * DSC file, Component INF `DEFINE` statements embedded in `<subsections>`
 * DSC file, `DEFINE` statements in sections following the `[Defines]` section
-* Lowest - DSC file, `DEFINE` statements in the `[Defines]` section
+* DSC file, `DEFINE` statements in the `[Defines]` section
 
 **********
 **Note:** Macros defined in the DSC file's `[Defines]` section are common to
@@ -852,15 +853,16 @@ create a platform scoped PCD Database.
 
 The values that are assigned to individual PCDs required by a build may come
 from different locations and different meta-data files. The following provides
-the rules required to assign a value to a PCD.
+the precedence (high to low) to assign a value to a PCD.
 
-* Highest - FDF file, SET statements within a section
+* Command-line, `--pcd` flags (left most has higher priority)
+* FDF file, SET statements within a section
 * FDF file, grammar describing automatic assignment of PCD values
 * FDF file, SET statement in the [Defines] section
 * DSC file, Component INF `<Pcd*>` section statements
 * DSC file, global [Pcd*] sections
 * INF file, PCD sections, Default Values
-* Lowest - DEC file, PCD sections, Default Values
+* DEC file, PCD sections, Default Values
 
 In addition to the above precedence rules, PCDs set in sections with
 architectural modifiers take precedence over PCD sections that are common to
@@ -868,6 +870,26 @@ all architectures.
 
 When listed in the same section. If listed multiple times, the last one will be
 used.
+
+A PCD value set on the command-line has the highest precedence. It overrides
+all instances of the PCD value specified in the DSC or FDF file. The following
+is the syntax to override the value of a PCD on the command line:
+
+`--pcd [<TokenSpaceGuidCname>.]<PcdCName>=<Value>`
+
+For `VOID*` type PCDs, `<Value>` supports the following syntax:
+
+* ASCII string value for a `VOID*` PCD
+
+  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>="String"`
+
+*  Unicode string value for a `VOID*` PCD
+
+  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>=L"String"`
+
+*  Byte array value for a `VOID*` PCD
+
+  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>= H"{0x1, 0x2}"`
 
 **********
 **Note:** The EDK II meta-data specs have changed to permit a PCD entry (or any
@@ -1059,6 +1081,7 @@ II module:
   module, the tools must obtain unique PCD values using the following
   precedence (high to low):
 
+  - Command-line, `--pcd` flags (left most has higher priority)
   - The DSC file's component INF scoping `<Pcds*>` sections
   - The DSC file's `[Pcd*.arch.skuid]` sections
   - The DSC file's `[Pcd*.common.skuid]` sections

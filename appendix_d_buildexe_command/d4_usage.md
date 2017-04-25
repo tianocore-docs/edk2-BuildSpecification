@@ -113,6 +113,7 @@ Options:
   --conf=CONFDIRECTORY  Specify the customized Conf directory.
   --check-usage         Check usage content of entries listed in INF file.
   --ignore-sources      Focus to a binary build and ignore all source files
+  --pcd=OPTIONPCD       Set PCD value by command line. Format: "PcdName=Value"
 ```
 
 ### D.4.1 Debug Levels

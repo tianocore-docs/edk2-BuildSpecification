@@ -97,9 +97,7 @@ DSC, INF or DEC files.
    only contain `[PcdEx]` and `[PatchPcd]` Sections - if they contain any other
    type of PCD, break the build.
 
-5. Command line cannot be used to set the PCD value.
-
-6. If a PCD has a Token Space GUID specified in DEC file and the `[Guids]`
+5. If a PCD has a Token Space GUID specified in DEC file and the `[Guids]`
    section tag contains the `Private` modifier (`[Guids.common.Private]` for
    example), the PCD may only be used by modules in the package containing the
    DEC file. If a module outside of that package attempts to use the PCD, the
@@ -212,50 +210,56 @@ The rules are listed in order, such that the first match stops any additional
 processing. The following rules apply to Binary modules listed in a platform
 DSC file.
 
-1. PCD assignments are not permitted in the FDF file except through SET
+1. PCD value assignment from command-line using `--pcd` flag takes precedence
+   over all other assignments.
+
+2. PCD assignments are not permitted in the FDF file except through SET
    statements or the automatic assignments from the [FD] section regions.
 
-2. PCD value assignment in a module scoping section take precedence over values
+3. PCD value assignment in a module scoping section take precedence over values
    specified in the global section for PatchableInModule PCDs.
 
-3. PCD value assignment in a global PCD section with an architectural modifier
+4. PCD value assignment in a global PCD section with an architectural modifier
    take precedence over assignments in a global section.
 
-4. PCD value assignment in a global PCD section without an architectural
+5. PCD value assignment in a global PCD section without an architectural
    modifier.
 
-5. The value specified in the Binary INF has the lowest precedence; the DEC
+6. The value specified in the Binary INF has the lowest precedence; the DEC
    file is never used to determine a PCD value for a Binary INF.
 
 The following rules apply to modules listed in a platform DSC file.
 
-1. PCD assignments in an FDF file are positional, with the last value taking
+1. PCD value assignment from command-line using `--pcd` flag takes precedence
+   over all other assignments.
+
+2. PCD assignments in an FDF file are positional, with the last value taking
    precedence over previous assignments in the FDF file.
 
-2. A PCD assignment in an FDF file takes precedence over PCD values assigned in
+3. A PCD assignment in an FDF file takes precedence over PCD values assigned in
    the DSC file's module scoping section.
 
-3. A PCD value of an entry listed in a module scoping section take precedence
+4. A PCD value of an entry listed in a module scoping section take precedence
    over the PCD value listed in a global section that has an architectural
    modifier in the DSC file.
 
-4. A PCD value of an entry listed in a global section that has an architectural
+5. A PCD value of an entry listed in a global section that has an architectural
    modifier takes precedence over the PCD value listed in a global section
    without an architectural modifier in the DSC file.
 
-5. A PCD value of an entry listed in a global section without architectural
+6. A PCD value of an entry listed in a global section without architectural
    modifiers in the DSC file takes precedence over the PCD value listed in an
    INF file in a section with an architectural modifier.
 
-6. A PCD value of an entry listed in an INF file section with an architectural
+7. A PCD value of an entry listed in an INF file section with an architectural
    modifier takes precedence over an entry listed in an INF file section
    without an architectural modifier.
 
-7. A PCD value of an entry listed in an INF file section without an
+8. A PCD value of an entry listed in an INF file section without an
    architectural modifier takes precedence over a PCD value listed in a DEC
    file in a section with an architectural modifier.
 
-8. A PCD value of an entry listed in a DEC file section with an architectural
+9. A PCD value of an entry listed in a DEC file section with an architectural
    modifier takes precedence over a PCD value listed in a DEC file in a section
    without an architectural modifier.
 

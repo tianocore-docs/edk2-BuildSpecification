@@ -213,9 +213,10 @@ directory name and the `BASE_NAME` of the module's INF file.
      system parses the name of the 'map' file that contains an ordered list
      of VPD PCDs.
 
-   * There are some PCD values that get set in the FDF file, listed in binary
-     INF files or listed in source INF files, so generating the C files is
-     delayed until all PCD values have been finalized.
+   * There are some PCD values that get set on the command line, in the FDF
+     file, listed in binary INF files or listed in source INF files, so
+     generating the C files is delayed until all PCD values have been
+     finalized.
 
 4. Obtain the FDF filename and obtain the Flash related PCDs from the FDF file.
    FeatureFlag and FixedAtBuild PCD names which are defined in the DSC file can
@@ -230,9 +231,9 @@ directory name and the `BASE_NAME` of the module's INF file.
 
    * Create the Library Instance's AutoGen.c files containing PCD, Guid,
      Protocol, Ppi and EntryPoint definitions and data structures. PCD values
-     come from FDF file, DSC's INF scoped section, DSC's global PCD sections,
-     default values in the INF file's PCD section, or the DEC file's default
-     values.
+     come from command line, FDF file, DSC's INF scoped section, DSC's global
+     PCD sections, default values in the INF file's PCD section, or the DEC
+     file's default values.
 
    * Create the module's library instance Makefiles
 
