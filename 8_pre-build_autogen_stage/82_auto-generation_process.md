@@ -772,7 +772,7 @@ that is unique to the GUID known as the TokenSpaceGuidCName.
 
 The following list defines the five PCD access methods.
 
-* **FeatureFlag PCD**; used in conditional directive statements in code.
+* **FeatureFlag PCD** - used in conditional directive statements in code.
 
 * **PatchableInModule PCD** - a volatile variable that can be updated either
   during a build or by a tool that knows the offset and data size of the

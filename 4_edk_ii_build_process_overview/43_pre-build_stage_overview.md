@@ -250,21 +250,19 @@ directory name and the `BASE_NAME` of the module's INF file.
 
    * Create the module Makefiles
 
-   Individual modules may require different compilation options, over-riding any
-   global definitions. If an INF file is not listed in the DSC file and is listed
-   in the FDF file, the parsing tools must check if the INF in the FDF file
-   contains `PatchableInModule` or `DynamicEX` entries. If the INF lists other PCD
-   access methods (FeatureFlag,
-
-   FixedAtBuild or Dynamic), and the INF contains files listed in a `[Sources]`
-   section and does not contain a `[Binaries]` section, then the build tools must
-   break the build with an appropriate error message.
+   Individual modules may require different compilation options, over-riding
+   any global definitions. If an INF file is not listed in the DSC file and is
+   listed in the FDF file, the parsing tools must check if the INF in the FDF
+   file contains `PatchableInModule` or `DynamicEX` entries. If the INF lists
+   other PCD access methods (FeatureFlag, FixedAtBuild or Dynamic), and the INF
+   contains files listed in a `[Sources]` section and does not contain a
+   `[Binaries]` section, then the build tools must break the build with an
+   appropriate error message.
 
 6. The tools are also responsible for creating binary files containing all
    `DynamicEx` PCDs that are listed in the DSC, FDF and Binary INF files
-   (listed in the FDF file).
-   These binaries are automatically placed into the (PEIM and DXE) PCD driver FFS
-   files.
+   (listed in the FDF file). These binaries are automatically placed into the
+   (PEIM and DXE) PCD driver FFS files.
 
 7. If the build option, --ignore-sources is present on the build command-line,
    none of the source files listed in a [Sources] section will be processed,

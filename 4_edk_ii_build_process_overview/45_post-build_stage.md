@@ -64,12 +64,12 @@ following must occur.
    that entry must be ignored - these files are not to be placed into an
    `EFI_SECTION_DISPOSABLE` encapsulation section.
 
-2. If an INF not listed in the DSC file. is listed in the FDF file and the INF
-   contains a `[PatchPcd]` section, the tools must test to determine if the PCD
-   is listed in the DSC (or FDF) file, and whether the value listed in the DSC
-   (or FDF) file is different from the value in the INF file. If the value is
-   different, the tools must patch the binary .efi file with the value from the
-   FDF or DSC file prior to creating the EFI leaf section.
+2. If an INF not listed in the DSC file, but is listed in the FDF file and the
+   INF contains a `[PatchPcd]` section, the tools must test to determine if the
+   PCD is listed in the DSC (or FDF) file, and whether the value listed in the
+   DSC (or FDF) file is different from the value in the INF file. If the value
+   is different, the tools must patch the binary .efi file with the value from
+   the FDF or DSC file prior to creating the EFI leaf section.
 
 3. The tools are also responsible for creating binary files containing all
    DynamicEx PCDs that are listed in the DSC, FDF and Binary INF files (listed

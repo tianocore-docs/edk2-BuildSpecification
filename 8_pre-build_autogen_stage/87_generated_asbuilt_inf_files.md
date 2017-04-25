@@ -431,7 +431,7 @@ For ACPI files from a platform, the entry must use the following format:
 
 `<TS> ACPI|Filename.acpi <EOL>`
 
-For a Binary or raw binary file, the entry may use either of the the following
+For a Binary or raw binary file, the entry may use either of the following
 two formats:
 
 ```
