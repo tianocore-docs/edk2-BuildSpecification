@@ -1034,15 +1034,24 @@ II module:
   - DSC file's architecture specific modifier only `[LibraryClasses.arch]`
   - The DSC file's common `[LibraryClasses]` section
 
-**********
-**Note:** For modules of type **USER_DEFINED**_, if a `NULL` library class
-is required, the library instance should be listed in the INF scoping
-`<LibraryClasses>` section of the component.
-**********
+  **********
+  **Note:** For modules of type **USER_DEFINED**_, if a `NULL` library class
+  is required, the library instance should be listed in the INF scoping
+  `<LibraryClasses>` section of the component.
+  **********
 
 * Inherit GUIDs, Protocols and PPIs from all library instances obtained above,
   and determine values or type of them. The value of a GUID, Protocol or PPI is
   defined in DEC file.
+
+  **********
+  **Note:** If GUID, Protocol or PPI is listed in a DEC file, where the
+  `Private` modifier is used in the section tag (`[Guids.common.Private]` for
+  example), only modules within the package are permitted to use the GUID,
+  Protocol or PPI. If a module or library instance outside of the package
+  attempts to use the item, the build must fail with an appropriate error
+  message.
+  **********
 
 * Inherit PCDs from all library instances obtained above and determine values
   and type. The value and type of a PCD are obtained from a DSC file, INF file
@@ -1058,14 +1067,14 @@ is required, the library instance should be listed in the INF scoping
   - The INF file's PCD sections
   - The DEC file's PCD sections
 
-**********
-**Note:** Values of PCDs using the FeatureFlag, PatchableInModule and
-FixedAtBuild access methods set for this INF file are local to the INF file and
-do not pertain to any other INF files. Dynamic and DynamicEx access method PCD
-values are global to a platform and should not be overridden by specifying them
-here. If, however, the dynamic PCDs are only valid for this INF, it is
-permissible to set them here.
-**********
+  **********
+  **Note:** Values of PCDs using the FeatureFlag, PatchableInModule and
+  FixedAtBuild access methods set for this INF file are local to the INF file and
+  do not pertain to any other INF files. Dynamic and DynamicEx access method PCD
+  values are global to a platform and should not be overridden by specifying them
+  here. If, however, the dynamic PCDs are only valid for this INF, it is
+  permissible to set them here.
+  **********
 
 * Inherit library instance dependency (`[Depex]` sections) expressions if a
   module does not list a separate dependency file.

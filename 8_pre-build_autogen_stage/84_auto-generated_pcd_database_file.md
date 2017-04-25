@@ -99,6 +99,12 @@ DSC, INF or DEC files.
 
 5. Command line cannot be used to set the PCD value.
 
+6. If a PCD has a Token Space GUID specified in DEC file and the `[Guids]`
+   section tag contains the `Private` modifier (`[Guids.common.Private]` for
+   example), the PCD may only be used by modules in the package containing the
+   DEC file. If a module outside of that package attempts to use the PCD, the
+   build must break with an appropriate error message.
+
 #### 8.4.1.2 Precedence Rules for PCDs not listed in the DSC or FDF Files:
 
 This subsection covers PCDs that are used by modules listed in the DSC file,
