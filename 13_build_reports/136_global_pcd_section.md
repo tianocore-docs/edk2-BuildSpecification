@@ -45,25 +45,33 @@ gEfiMdeModulePkgTokenSpaceGuid
 ...
 ```
 
+PCD values derived from expressions or other PCDs are not differentiated in the
+report. Only the final value is displayed.
+
 Each global PCD item contains one or more lines:
 
 ### 13.6.1 Required line
 
 The first line is required:
 
-`[*P|*F| ] <PcdCName>: <PcdType> (<DatumType>) = <PcdValue>`
+`[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) = <PcdValue>`
 
-* *P means the Pcd's value was obtained from the DSC file
-* *F means the PCD's value was obtained from the FDF file.
-* If no *P or *F is given, the PCD's value comes from DEC file. If the value
-  obtained from either the DSC or FDF is the same as the value in the DEC, then
-  neither *P nor *F will be shown in the report.
+* `*P` means the Pcd's value was obtained from the DSC file
+* `*F` means the PCD's value was obtained from the FDF file.
+* `*B` means the PCD's value was obtained from a build option.
+* If no `*P`, `*F` or `*B` is shown, the PCD's value comes from DEC file. If the
+  value obtained from either a build option, the DSC or FDF is the same as the
+  value in the DEC, then `*B`, `*P` or `*F` will not be shown in the report.
 
 #### Examples
 
 ```
 *P PcdWinNtFirmwareVolume               : FIXED   (VOID*) = L"..\\Fv\\Nt32.fd"
 *F PcdWinNtFlashNvStorageFtwWorkingBase : FIXED   (UINT32) = 0x0028E000
+                                                  DEC DEFAULT = 0x0
+
+gTokenSpaceGuid
+*B LogEnable                            : FIXED   (UNIT32) = 0x1
                                                   DEC DEFAULT = 0x0
 ```
 

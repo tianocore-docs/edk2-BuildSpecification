@@ -51,6 +51,8 @@ The layout of the text report file:
 
 ```
 |---- Platform summary
+    |----- Conditional directives section
+    |----- Unused PCDs section
     |----- Mixed PCD section
     |----- Global PCD section
     |----- FD section*

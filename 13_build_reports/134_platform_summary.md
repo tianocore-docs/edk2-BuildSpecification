@@ -63,3 +63,96 @@ Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, FLASH, FIXED_ADDRESS
 **Note:** Platform Summary is always present and appears at the beginning of
 report.
 **********
+
+If the DSC or FDF file contains conditional directive statements (`!if`,
+`!elseif`, `!ifdef` or `!ifndef`) or the value of PCD is not used by a module is
+set in the DSC file (PCD Sections) or the FDF file (`SET` statements for
+example), the following sub-section is generated.
+
+```
+==========================================================================<
+Conditional Directives used by the build system
+============================================================================
+```
+
+If the DSC or FDF file define values for PCDs that are not used by any module
+and are not used in conditional directive statements, the following sub-section
+is generated.
+
+```
+==========================================================================<
+PCDs not used by modules or in conditional directives
+============================================================================
+```
+
+### 13.4.1 PCDs in Conditional Directives
+
+If a PCD is used in a conditional directive statement, the PCD section is
+generated.
+
+PCD values derived from expressions or other PCDs are not differentiated in the
+report. Only the final value is displayed.
+
+The first line is required:
+
+`[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) = <PcdValue>`
+
+* `*P` means the Pcd's value was obtained from the DSC file
+* `*F` means the PCD's value was obtained from the FDF file.
+* `*B` means the PCD's value set by a build option.
+
+Additional lines may be displayed showing default values when the value is not a
+default value.
+
+### Example
+
+```
+>==========================================================================<
+Conditional Directives used by the build system
+============================================================================
+PCD statements
+>--------------------------------------------------------------------------<
+gMyTokenSpaceGuid
+*P SmmEnable                   : FEATURE (BOOLEAN) = 0x0
+                                         DEC DEFAULT = 0x1
+*B LogEnable                   : FIXED   (UNIT32) = 0x1
+                                         DEC DEFAULT = 0x0
+<-------------------------------------------------------------------------->
+>==========================================================================<
+```
+
+### 13.4.2 PCDs not used
+
+If a PCD is not used in a conditional directive statement or by a module, the
+not used PCD section is generated.
+
+PCD values derived from expressions or other PCDs are not differentiated in the
+report. Only the final value is displayed.
+
+The first line is required:
+
+`[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) = <PcdValue>`
+
+* `*P` means the Pcd's value was obtained from the DSC file
+* `*F` means the PCD's value was obtained from the FDF file.
+* `*B` means the PCD's value set by a build option.
+
+Additional lines may be displayed showing default values when the value is not a
+default value.
+
+### Example
+
+```
+>==========================================================================<
+PCDs not used by modules or in conditional directives
+============================================================================
+PCD statements
+>--------------------------------------------------------------------------<
+gMyTokenSpaceGuid
+*P SmmEnable                   : FEATURE (BOOLEAN) = 0x0
+                                         DEC DEFAULT = 0x1
+*B UsbEnable                   : FIXED   (UNIT32) = 0x1
+                                         DEC DEFAULT = 0x0
+<-------------------------------------------------------------------------->
+>==========================================================================<
+```
