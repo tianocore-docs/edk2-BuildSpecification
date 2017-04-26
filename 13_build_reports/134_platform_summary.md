@@ -140,6 +140,11 @@ The first line is required:
 Additional lines may be displayed showing default values when the value is not a
 default value.
 
+Since the PCDs in this section are not used by any module, the PCD value is not
+evaluated to determine if it is a valid value or in a value in a valid range.
+Instead, the PCD value from the DSC file, FDF file, or build option are
+displayed exactly as they were entered.
+
 ### Example
 
 ```
