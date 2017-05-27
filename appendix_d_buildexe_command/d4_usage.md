@@ -173,3 +173,35 @@ precedence over Macros defined in the DSC and FDF files.
 <H12>            ::= <H4> <H4> <H4>
 <RegFmtGUID>     ::= <H8> "-" <H4> "-" <H4> "-" <H4> "-" <H12>
 ```
+
+### D.4.3 PCD Option Definition
+
+This section provides the EBNF for the `--pcd` option, which allows users to
+specify PCD values on the command-line. PCD values on the command-line take
+precedence over PCD provided in DSC, FDF, INF, and DEC files.
+
+#### Prototype
+
+```c
+<PcdOption>       ::= "--pcd" <PcdName> ["=" <PcdValue>] <MTS>
+<SP>              ::= 0x20
+<MTS>             ::= <SP>+
+<PcdName>         ::= [<TokenSpaceCName> "."] <PcdCName>
+<TokenSpaceCName> ::= C Variable Name of the Token Space GUID
+<PcdCName>        ::= C Variable Name of the PCD
+<PcdValue>        ::= {<Boolean>} {<Number>} {<CString>} {<CArray>}
+<Number>          ::= {<Integer>} {<HexNumber>}
+<Integer>         ::= {(0-9)} {(1-9)(0-9)+}
+<HexNumber>       ::= {"0x"} {"0X"} (a-fA-F0-9){1,16}
+<Boolean>         ::= {<True>} {<False>}
+<True>            ::= {"TRUE"} {"True"} {"true"} {"1"} {"0x1"} {"0x01"}
+<False>           ::= {"FALSE"} {"False"} {"false"} {"0"} {"0x0"} {"0x00"}
+<CString>         ::= ["L"] <QuotedString>
+<QuotedString>    ::= <DblQuote> <CChars>* <DblQuote>
+<DblQuote>        ::= 0x22
+<CChars>          ::= {0x21} {(0x23 - 0x5B)} {(0x5D - 0x7E)} {<EscapeSequence>}
+<EscapeSequence>  ::= "\" {"n"} {"t"} {"f"} {"r"} {"b"} {"0"} {"\"} {0x22}
+<CArray>          ::= "H" "{" <NList> "}"
+<NList>           ::= <HexByte> ["," <HexByte>]*
+<HexByte>         ::= {"0x"} {"0X"} (a-fA-F0-9){1,2}
+```
