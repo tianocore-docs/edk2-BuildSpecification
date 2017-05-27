@@ -149,6 +149,18 @@ There are four GUIDed tools that are provided by the EDK II build system.
     with the `Rsa2048Sha256Sign` tool and this tool definition can be updated to
     use a custom tool/script.
 
+* `BROTLI` - `3D532050-5CDA-4FD0-879E-0F7F630D5AFB`
+  + This tool provides Brotli Compression using the `BrotliCompress`
+    application.
+
+* `PKCS7SIGN` - `4AAFD29D-68DF-49EE-8AA9-347D375665A7`
+  + This tool provide PKCS7 signing using the `Pkcs7Sign` application.
+    This tool definition uses a test signing key for development purposes only.
+    New keys can be generated and be used to set the
+    `gEfiSecurityPkgTokenSpaceGuid.PcdPkcs7CertBuffer` PCD value. A custom
+    tool/script can be implemented using the new keys with the `Pkcs7Sign` tool
+    and this tool definition can be updated to use a custom tool/script.
+
 Additional GUIDed tools may be added. If the GUID value is used in the FDF
 file's GUIDed Encapsulation, the tool, named by the GUID, will be called using
 a **-e** option to encode the content.
