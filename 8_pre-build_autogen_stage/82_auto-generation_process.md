@@ -856,10 +856,10 @@ from different locations and different meta-data files. The following provides
 the precedence (high to low) to assign a value to a PCD.
 
 * Command-line, `--pcd` flags (left most has higher priority)
-* FDF file, SET statements within a section
-* FDF file, grammar describing automatic assignment of PCD values
-* FDF file, SET statement in the [Defines] section
 * DSC file, Component INF `<Pcd*>` section statements
+* FDF file, grammar describing automatic assignment of PCD values
+* FDF file, SET statements within a section
+* FDF file, SET statement in the [Defines] section
 * DSC file, global [Pcd*] sections
 * INF file, PCD sections, Default Values
 * DEC file, PCD sections, Default Values
@@ -1083,6 +1083,9 @@ II module:
 
   - Command-line, `--pcd` flags (left most has higher priority)
   - The DSC file's component INF scoping `<Pcds*>` sections
+  - FDF file, grammar describing automatic assignment of PCD values
+  - FDF file, SET statements within a section
+  - FDF file, SET statement in the [Defines] section
   - The DSC file's `[Pcd*.arch.skuid]` sections
   - The DSC file's `[Pcd*.common.skuid]` sections
   - The DSC file's `[Pcd*.arch]` sections
