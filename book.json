@@ -1,6 +1,5 @@
 {
   "variables" : {
-    "draft"   : "yes",
     "title"   : "EDK II Build Specification",
     "version" : "Revision 1.27"
   },
