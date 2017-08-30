@@ -985,18 +985,17 @@ DynamicEx PCD HII Variable checking.
 The DSC file is parsed after the tool meta-data files. If the `[Defines]`
 section of the DSC file contains a `PREBUILD = entry` statement, processing
 of the DSC file is suspended and the script specified in the `PREBUILD`
-statement is executed. If the script file is not found, the **build** command
+statement is executed. The entry of `PREBUILD` support multiple arguments. And
+Tool will convert arguments that are `WORKSPACE` or `PACKAGES_PATH` relative
+paths to absolute paths. If the script file is not found, the **build** command
 exits with an appropriate error message. If the script fails, it must terminate
 with a non-zero exit code and the **build** command terminates with the exit
 value from the pre-build script. The script is required to generate error
 messages that provide the reason for the termination.
 
 All of the command line options passed into the **build** command are also
-passed  into the script along with the command line options for `TARGET`,
-`ARCH`, and `TOOL_CHAIN_TAG`. The values for `TARGET`, `ARCH`, and
-`TOOL_CHAIN_TAG` are from the command line options passed into the **build**
-command. If these values are not passed into the **build** command, then they
-are retrieved from `target.txt`.
+passed into the script along with the options for `TARGET`, `ARCH`,
+`TOOL_CHAIN_TAG`, `ACTIVE_PLATFORM`, `Conf Directory`, and `build target`.
 
 If the script terminates successfully (exit value of 0), parsing of the DSC
 file continues, and build tools may retrieve environment variables that have
@@ -1010,7 +1009,8 @@ at the time the ENTRY was found.
 **********
 **Note:** Quotes are needed when the script's additional options are present.
 Quotes are also required if the path to the pre-build command contains space
-or special characters.
+or special characters. Quotes may be used for arguments that have spaces or
+special characters.
 **********
 
 #### 8.2.4.14 NMAKE Command line limitation handling
