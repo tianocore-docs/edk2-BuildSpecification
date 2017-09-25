@@ -47,6 +47,7 @@ file GUID, module size, module build time stamp and driver type.
 * Size: %Module EFI image size%
 * Build time stamp: %The time stamp in module PE32 image% (If the time stamp is
   cleared to be zero, the build time stamp is 1970-01-01 00:00:00 UTC time.)
+* Module Build Time: %The time string for this module's build%
 * Driver Type: %The driver's file type code[^2] and name in firmware volume%
 
 The following entries are options:
@@ -79,6 +80,7 @@ File GUID:          F9D88642-0737-49BC-81B5-6889CD57D9EA
 Size:               0x7000 (28.00K)
 SHA1 HASH:          d94c3f180f25d6b562f477bc4a16b286cb66a8b6 *SmbiosDxe.efi
 Build Time Stamp:   1969-12-31 16:00:00
+Module Build Time:  1060ms
 Driver Type:        0x7 (DRIVER)
 ============================================================================
 ... (Module Section Details for SmbiosDxe)
@@ -96,6 +98,7 @@ File GUID:          13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
 Size:               0x9000 (36.00K)
 SHA1 HASH:          ff4c019345614afe5c88e7fc37219c30a07f4af4 *EbcDxe.efi
 Time Stamp:         1969-12-31 16:00:00
+Module Build Time:  1731ms
 Driver Type:        0x7 (DRIVER)
 ============================================================================
 ... (Module Section Details for EbcDxe)
@@ -116,6 +119,7 @@ destructor calling sequence.
 * Class\*: The library class name of the library instance
 * C\*: The library constructor if it exists
 * D\*: The library destructor if it exists
+* Time: The build time of this library if it exists
 
 The items marked with \* are only available when the module is an EDKII style
 module and they must be listed in the next line immediately after library
@@ -143,6 +147,11 @@ format is:
      D = DestructorCname
      ```
 
+   * Display the build time.
+     ```
+     Time = TimeString
+     ```
+
 #### Example1:
 
 ```c
@@ -150,39 +159,39 @@ format is:
 Library
 ---------------------------------------------------------------------------
 s:\edk2\MdePkg\Library\UefiDevicePathLib\UefiDevicePathLib.inf
-{DevicePathLib}
+{DevicePathLib: Time = 643ms}
 s:\edk2\MdePkg\Library\BaseLib\BaseLib.inf
-{BaseLib}
+{BaseLib: Time = 14702ms}
 s:\edk2\MdePkg\Library\BaseMemoryLib\BaseMemoryLib.inf
-{BaseMemoryLib}
+{BaseMemoryLib: Time = 284ms}
 s:\edk2\MdePkg\Library\UefiMemoryAllocationLib\UefiMemoryAllocationLib.inf
-{MemoryAllocationLib}
+{MemoryAllocationLib: Time = 249ms}
 s:\edk2\MdePkg\Library\UefiBootServicesTableLib\UefiBootServicesTableLib.inf
-{UefiBootServicesTableLib: C = UefiBootServicesTableLibConstructor}
+{UefiBootServicesTableLib: C = UefiBootServicesTableLibConstructor Time = 219ms}
 s:\edk2\MdePkg\Library\DxePcdLib\DxePcdLib.inf
-{PcdLib: C = PcdLibConstructor}
+{PcdLib: C = PcdLibConstructor Time = 265ms}
 s:\edk2\MdePkg\Library\UefiRuntimeServicesTableLib\UefiRuntimeServicesTableLib.inf
-{UefiRuntimeServicesTableLib: C = UefiRuntimeServicesLibConstructor}
+{UefiRuntimeServicesTableLib: C = UefiRuntimeServicesLibConstructor Time = 203ms}
 s:\edk2\MdePkg\Library\BaseIoLibIntrinsic\BaseIoLibIntrinsic.inf
-{IoLib}
+{IoLib: Time = 702ms}
 s:\edk2\MdePkg\Library\BasePciCf8Lib\BasePciCf8Lib.inf
-{PciCf8Lib}
+{PciCf8Lib: Time = 345ms}
 s:\edk2\MdePkg\Library\BasePciLibCf8\BasePciLibCf8.inf
-{PciLib}
+{PciLib: Time = 341ms}
 s:\edk2\MdePkg\Library\BasePrintLib\BasePrintLib.inf
-{PrintLib}
+{PrintLib: Time = 312ms}
 s:\edk2\Ich9Pkg\Library\IntelIchAcpiTimerLib\IntelIchAcpiTimerLib.inf
-{TimerLib: C = IntelAcpiTimerLibConstructor}
+{TimerLib: C = IntelAcpiTimerLibConstructor Time = 282ms}
 s:\edk2\MdePkg\Library\UefiLib\UefiLib.inf
-{UefiLib}
+{UefiLib: Time = 733ms}
 s:\edk2\MdePkg\Library\BaseSynchronizationLib\BaseSynchronizationLib.inf
-{SynchronizationLib}
+{SynchronizationLib: Time = 920ms}
 s:\edk2\MdePkg\Library\DxeHobLib\DxeHobLib.inf
-{HobLib: C = DxeHobLibConstructor}
+{HobLib: C = DxeHobLibConstructor Time = 218ms}
 s:\edk2\MdePkg\Library\UefiDriverEntryPoint\UefiDriverEntryPoint.inf
-{UefiDriverEntryPoint}
+{UefiDriverEntryPoint Time = 234ms}
 s:\edk2\MdePkg\Library\UefiRuntimeLib\UefiRuntimeLib.inf
-{UefiRuntimeLib: C = UefiRuntimeLibConstructor D = UefiRuntimeLibDestructor}
+{UefiRuntimeLib: C = UefiRuntimeLibConstructor D = UefiRuntimeLibDestructor Time = 265ms}
 <-------------------------------------------------------------------------->
 ```
 

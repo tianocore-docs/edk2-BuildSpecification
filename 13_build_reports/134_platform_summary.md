@@ -43,6 +43,9 @@ following items:
 * Output Path : %Path to platform build directory%
 * Build Environment : %Environment string reported by Python%
 * Build Duration : %Build duration time string%
+* AutoGen Duration : %AutoGen duration time string if it exists%
+* Make Duration : %Make duration time string if it exists%
+* GenFds Duration : %GenFds duration time string if it exists%
 * Report Content : %List of flags the control the report content%
 
 #### Example
@@ -55,7 +58,10 @@ Tool Chain:         VS2008x86
 Target:             DEBUG
 Output Path:        s:\edk2\Build\NT32IA32
 Build Environment:  Windows-7-6.1.7601-SP1
-Build Duration:     00:01:53
+Build Duration:     00:01:29
+AutoGen Duration:   00:00:10
+Make Duration:      00:01:02
+GenFds Duration:    00:00:15
 Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, FLASH, FIXED_ADDRESS
 ```
 
