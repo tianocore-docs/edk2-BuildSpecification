@@ -34,15 +34,16 @@
 ```ini
 Usage: build.exe [options]
 [all|fds|genc|genmake|clean|cleanall|cleanlib|modules|libraries|run]
-Copyright (c) 2007 - 2014, Intel Corporation All rights reserved.
+Copyright (c) 2007 - 2017, Intel Corporation All rights reserved.
 
 Options:
   --version             show program's version number and exit
   -h, --help            show this help message and exit
   -a TARGETARCH, --arch=TARGETARCH
-                        ARCHS is one of list: IA32, X64, IPF, ARM, or EBC,
-                        which overrides target.txt's TARGET_ARCH definition.
-                        To specify more archs, please repeat this option.
+                        ARCHS is one of list: IA32, X64, IPF, ARM, AARCH64 or
+                        EBC, which overrides target.txt's TARGET_ARCH
+                        definition. To specify more archs, please repeat this
+                        option.
   -p PLATFORMFILE, --platform=PLATFORMFILE
                         Build the platform specified by the DSC file name
                         argument, overriding target.txt's ACTIVE_PLATFORM
@@ -114,6 +115,16 @@ Options:
   --check-usage         Check usage content of entries listed in INF file.
   --ignore-sources      Focus to a binary build and ignore all source files
   --pcd=OPTIONPCD       Set PCD value by command line. Format: "PcdName=Value"
+  -l COMMANDLENGTH, --cmd-len=COMMANDLENGTH
+                        Specify the maximum line length of build command.
+                        Default is 4096.
+  --hash                Enable hash-based caching during build process.
+  --binary-destination=BINCACHEDEST
+                        Generate a cache of binary files in the specified
+                        directory.
+  --binary-source=BINCACHESOURCE
+                        Consume a cache of binary files from the specified
+                        directory.
 ```
 
 ### D.4.1 Debug Levels

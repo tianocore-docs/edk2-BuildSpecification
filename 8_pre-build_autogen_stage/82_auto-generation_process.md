@@ -1033,6 +1033,26 @@ maximum command line length.  The default value is 4096.
 and `ASM_FLAGS`.
 **********
 
+#### 8.2.4.15 Build with Binary Cache
+
+**build** tool provides three new options for binary cache feature.
+--hash enables hash-based caching during build process. when --hash is enabled,
+build tool will base on the module hash value to do the incremental build, without
+--hash, build tool will base on the timestamp to do the incremental build. --hash
+option use md5 method to get every hash value, DSC/FDF, tools_def.txt, build_rule.txt
+and build command are calculated as global hash value, Package DEC and its include
+header files are calculated as package hash value, Module source files and its INF
+file are calculated as module hash value. Library hash value will combine the global
+hash value and its dependent package hash value. Driver hash value will combine the
+global hash value, its dependent package hash value and its linked library hash value.
+When --hash and --binary-destination are specified, build tool will copy the generated
+binary files for each module into the directory specified by binary-destination at the
+build phase. Binary-destination directory caches all the generated binary files.
+When --hash and --binary-source are specified, build tool will try to get the binary
+files from the binary source directory at the build phase. If the cached binary has
+the same hash value, it will be directly used. Otherwise, build tool will compile the
+source files and generate the binary files.
+
 ### 8.2.5 Post processing
 
 Once all files are parsed, the build tools will do following work for each EDK
