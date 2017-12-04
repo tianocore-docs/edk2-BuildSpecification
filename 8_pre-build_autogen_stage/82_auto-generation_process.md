@@ -1045,9 +1045,9 @@ header files are calculated as package hash value, Module source files and its I
 file are calculated as module hash value. Library hash value will combine the global
 hash value and its dependent package hash value. Driver hash value will combine the
 global hash value, its dependent package hash value and its linked library hash value.
-When --hash and --binary-destination are specified, build tool will copy the generated
-binary files for each module into the directory specified by binary-destination at the
-build phase. Binary-destination directory caches all the generated binary files.
+When --hash and --binary-destination are specified, build tool will copy each module's
+"As Built" inf file, binary files that in "As built" inf file's [Binaries] section and
+hash value file into the directory specified by binary-destination at the build phase.
 When --hash and --binary-source are specified, build tool will try to get the binary
 files from the binary source directory at the build phase. If the cached binary has
 the same hash value, it will be directly used. Otherwise, build tool will compile the
