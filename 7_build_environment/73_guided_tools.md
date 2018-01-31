@@ -121,8 +121,8 @@ file required by the build system is provided in the appendix, VPD Tool.
   If using automatic offset feature, the build tools byte-align numeric values,
   while `VOID*` PCD types will be aligned using the following rules:
 
-  * ASCII strings, "string", will be byte aligned.
-  * Unicode strings, L"string" will be two-byte aligned.
+  * ASCII strings, "string" or 'string', will be byte aligned.
+  * Unicode strings, L"string" or L'string' will be two-byte aligned.
   * Byte arrays, {0x00, 0x01} will be 8-byte aligned.
 
   If the developer manually assigns offset values in the DSC file, the developer
@@ -130,8 +130,8 @@ file required by the build system is provided in the appendix, VPD Tool.
 
   **********
   **Note:** If a developer manually sets the offset of a `VOID*` PCD with
-  Unicode string, L"string", style to a value that is not 2-byte aligned, then
-  an error is generated and the build halts.
+  Unicode string, L"string"/L'string' style to a value that is not 2-byte aligned,
+  then an error is generated and the build halts.
   **********
   **Note:** If a developer manually sets the offset of a `VOID*` PCD with byte
   array {} style to a value that is not 8-byte aligned, then a warning is

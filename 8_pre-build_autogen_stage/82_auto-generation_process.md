@@ -873,31 +873,30 @@ used.
 
 A PCD value set on the command-line has the highest precedence. It overrides
 all instances of the PCD value specified in the DSC or FDF file. The following
-is the syntax to override the value of a PCD on the command line:
+is the syntax to override the value of a PCD on the command line, please refer to
+appendix D.4 Usage for detail EBNF format.
 
-`--pcd [<TokenSpaceGuidCname>.]<PcdCName>=<Value>`
+`--pcd [<TokenSpaceGuidCname>.]<PcdCName>[.Field]=<Value>`
 
-For `VOID*` type PCDs, `<Value>` supports the following syntax:
+`<Value>` supports the following syntax:
 
-* ASCII string value for a `VOID*` PCD
+* ASCII string value for a PCD
 
-  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>="String"`
+  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>[.Field]="String"`
+  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>[.Field]="'String'"`
 
-*  Unicode string value for a `VOID*` PCD
+* Unicode string value for a PCD
 
-  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>=L"String"`
+  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>[.Field]=L"String"`
+  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>[.Field]=L"'String'"`
 
-*  Byte array value for a `VOID*` PCD
+* Byte array value for a PCD
 
-  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>= H"{0x1, 0x2}"`
+  `--pcd  [<TokenSpaceGuidCname>.]<PcdCName>[.Field]= H"{0x1, 0x2}"`
 
 **********
 **Note:** The EDK II meta-data specs have changed to permit a PCD entry (or any
 other entry) to be listed only one time per section.
-**********
-**Caution:** Dynamic and DynamicEx `VOID*` VPD PCD array values must be hex byte
-arrays. Using a Registry or C format GUID value in the value field of a `VOID*`
-VPD PCD is not permitted.
 **********
 
 If the maximum size of a `VOID*` PCD is not specified in the DSC file, then the
@@ -907,7 +906,9 @@ array in the DEC file. If the value is a quoted text string, the size of the
 string will be incremented by one to handle string termination. If the quoted
 string is preceded by L, as in `L"This is a string"`, then the size of the string
 will be incremented by two to handle unicode string termination. If the value
-is a byte array, then the size of the byte array is not modified.
+is a byte array, then the size of the byte array is not modified. If the value is
+a single quoted string, as in 'string' or L'string', the size of the string doesn't
+need to include string null termination character.
 
 For example, if the string in the DSC file is `L"DSC Length"`, the INF file has
 `L"Module Length"` and the DEC file declares the default as `L"Length"`, then

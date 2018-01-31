@@ -200,22 +200,88 @@ precedence over PCD provided in DSC, FDF, INF, and DEC files.
 <PcdOption>       ::= "--pcd" <PcdName> ["=" <PcdValue>] <MTS>
 <SP>              ::= 0x20
 <MTS>             ::= <SP>+
-<PcdName>         ::= [<TokenSpaceCName> "."] <PcdCName>
+<TS>              ::= <SP>*
+<CommaSpace>      ::= "," <SP>*
+<HexDigit>        ::= (a-fA-F0-9)
+<CName>           ::= A valid C variable name.
+<PcdName>         ::= [<TokenSpaceCName> "."] <PcdCName> ["." <Field>]
 <TokenSpaceCName> ::= C Variable Name of the Token Space GUID
 <PcdCName>        ::= C Variable Name of the PCD
-<PcdValue>        ::= {<Boolean>} {<Number>} {<CString>} {<CArray>}
+<Field>           ::= C Variable Name of the Structure PCD field
+<PcdValue>        ::= {<Boolean>} {<Number>} {<String>} {<Array>}
 <Number>          ::= {<Integer>} {<HexNumber>}
 <Integer>         ::= {(0-9)} {(1-9)(0-9)+}
 <HexNumber>       ::= {"0x"} {"0X"} (a-fA-F0-9){1,16}
 <Boolean>         ::= {<True>} {<False>}
 <True>            ::= {"TRUE"} {"True"} {"true"} {"1"} {"0x1"} {"0x01"}
 <False>           ::= {"FALSE"} {"False"} {"false"} {"0"} {"0x0"} {"0x00"}
-<CString>         ::= ["L"] <QuotedString>
-<QuotedString>    ::= <DblQuote> <CChars>* <DblQuote>
+<String>          ::= {<QuotedStr>} {<SglQuotedStr>}
+<QuotedStr>       ::= ["L"] <DblQuote> <PrintChars>* <DblQuote>
+<SglQuotedStr>    ::= ["L"] <DblQuote> "\" <SglQuote> <PrintChars>*
+                      "\" <SglQuote> <DblQuote>
+<PrintChars>      ::= {<TS>} {<CChars>}
 <DblQuote>        ::= 0x22
-<CChars>          ::= {0x21} {(0x23 - 0x5B)} {(0x5D - 0x7E)} {<EscapeSequence>}
-<EscapeSequence>  ::= "\" {"n"} {"t"} {"f"} {"r"} {"b"} {"0"} {"\"} {0x22}
-<CArray>          ::= "H" "{" <NList> "}"
-<NList>           ::= <HexByte> ["," <HexByte>]*
-<HexByte>         ::= {"0x"} {"0X"} (a-fA-F0-9){1,2}
+<SglQuote>        ::= 0x27
+<CChars>          ::= {0x21} {(0x23 - 0x26)} {(0x28 - 0x5B)} {(0x5D - 0x7E)}
+                      {<EscapeSequence>}
+<EscapeSequence>  ::= "\" {"n"} {"t"} {"f"} {"r"} {"b"} {"0"} {"\"}
+                      {<DblQuote>} {<SglQuote>}
+<Array>           ::= "H" <DblQuote> "{"[<Lable>] <ArrayVal>
+                      [<CommaSpace> [<Lable>] <ArrayVal>]*"}" <DblQuote>
+<ArrayVal>        ::= {<Num8Array>} {<GuidStr>} {<DevicePath>}
+<ShortNum>        ::= (0-255)
+<IntNum>          ::= (0-65535)
+<LongNum>         ::= (0-4294967295)
+<LongLongNum>     ::= (0-18446744073709551615)
+<UINT8>           ::= {"0x"} {"0X"} (a-fA-F0-9){1,2}
+<UINT16>          ::= {"0x"} {"0X"} (a-fA-F0-9){1,4}
+<UINT32>          ::= {"0x"} {"0X"} (a-fA-F0-9){1,8}
+<UINT64>          ::= <HexNumber>
+<ArrayString>     ::= {<ArrayQuotedStr>} {<ArraySglQuotedStr>}
+<ArrayQuotedStr>  ::= ["L"] "\" <DblQuote> <PrintChars>* "\" <DblQuote>
+<ArraySglQuotedStr>::= ["L"] "\" <SglQuote> <PrintChars>* "\" <SglQuote>
+<NonNumType>      ::= {<Boolean>} {<ArrayString>} {<Offset>} {<UintMac>}
+<Num8Array>       ::= {<NonNumType>} {<ShortNum>} {<UINT8>}
+<Num16Array>      ::= {<NonNumType>} {<IntNum>} {<UINT16>}
+<Num32Array>      ::= {<NonNumType>} {<LongNum>} {<UINT32>}
+<Num64Array>      ::= {<NonNumType>} {<LongLongNum>} {<UINT64>}
+<GuidStr>         ::= "GUID(" <GuidVal> ")"
+<GuidVal>         ::= {"\"<DblQuote> <RegistryFormatGUID> "\"<DblQuote>}
+                      {<CFormatGUID>} {<CName>}
+<RegistryFormatGUID>::= <RHex8> "-" <RHex4> "-" <RHex4> "-" <RHex4> "-"
+                      <RHex12>
+<RHex4>           ::= <HexDigit> <HexDigit> <HexDigit> <HexDigit>
+<RHex8>           ::= <RHex4> <RHex4>
+<RHex12>          ::= <RHex4> <RHex4> <RHex4>
+<RawH2>           ::= <HexDigit>? <HexDigit>
+<RawH4>           ::= <HexDigit>? <HexDigit>? <HexDigit>? <HexDigit>
+<OptRawH4>        ::= <HexDigit>? <HexDigit>? <HexDigit>? <HexDigit>?
+<Hex2>            ::= {"0x"} {"0X"} <RawH2>
+<Hex4>            ::= {"0x"} {"0X"} <RawH4>
+<Hex8>            ::= {"0x"} {"0X"} <OptRawH4> <RawH4>
+<Hex12>           ::= {"0x"} {"0X"} <OptRawH4> <OptRawH4> <RawH4>
+<Hex16>           ::= {"0x"} {"0X"} <OptRawH4> <OptRawH4> <OptRawH4>
+                      <RawH4>
+<CFormatGUID>     ::= "{" <Hex8> <CommaSpace> <Hex4> <CommaSpace>
+                      <Hex4> <CommaSpace> "{"
+                      <Hex2> <CommaSpace> <Hex2> <CommaSpace>
+                      <Hex2> <CommaSpace> <Hex2> <CommaSpace>
+                      <Hex2> <CommaSpace> <Hex2> <CommaSpace>
+                      <Hex2> <CommaSpace> <Hex2> "}" "}"
+<DevicePath>      ::= "DEVICE_PATH(" <DevicePathStr> ")"
+<DevicePathStr>   ::= A double quoted string that follow the device path
+                      as string format defined in UEFI Specification 2.6
+                      Section 9.6
+<UintMac>         ::= {<Uint8Mac>} {<Uint16Mac>} {<Uint32Mac>} {<Uint64Mac>}
+<Uint8Mac>        ::= "UINT8(" <Num8Array> ")"
+<Uint16Mac>       ::= "UINT16(" <Num16Array> ")"
+<Uint32Mac>       ::= "UINT32(" <Num32Array> ")"
+<Uint64Mac>       ::= "UINT64(" <Num64Array> ")"
+<Lable>           ::= "LABEL(" <CName> ")"
+<Offset>          ::= "OFFSET_OF(" <CName> ")"
+
+**********
+**Note:** The " and ' inside the string, must use escape character format (\", \').
+**********
+
 ```
