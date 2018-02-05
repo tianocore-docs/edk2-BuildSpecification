@@ -118,9 +118,11 @@ command-line, then the build will break.
 
 **_Integer_**
 
-The number of concurrent threads. The default, if not specified or set to zero,
-is 2 Recommend setting this value to one more than the number of computer cores
-or CPUs of the development workstation.
+The number of concurrent threads. If not specified or set to zero, tool
+automatically detect number of processor threads. Recommend setting this
+value to one less than the number of computer cores or CPUs of the development
+workstation. When value set to 1, means disable multi-thread build, and value set
+to more than 1, means user specify the thread number to build.
 
 **_BuildRulesFile_**
 

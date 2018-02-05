@@ -62,8 +62,11 @@ Options:
                         overriding SKUID_IDENTIFIER in DSC file.
   -n THREADNUMBER       Build the platform using multi-threaded compiler. The
                         value overrides target.txt's
-                        MAX_CONCURRENT_THREAD_NUMBER. Less than 2 will disable
-                        multi-thread builds.
+                        MAX_CONCURRENT_THREAD_NUMBER. When value is set to 0,
+                        tool automatically detect number of processor threads,
+                        set value to 1 means disable multi-thread build, and
+                        set value to more than 1 means user specify the threads
+                        number to build.
   -f FDFFILE, --fdf=FDFFILE
                         The name of the FDF file to use, which overrides the
                         setting in the DSC file.
