@@ -39,7 +39,9 @@ following items:
 * Platform DSC Path: %Path of platform DSC file%
 * Architectures : %List string of all architectures used in build%
 * Tool Chain : %Tool chain string%
-* Target : %Target String"
+* Target : %Target String%
+* SKUID: %Platform SKUID String%
+* DefaultStore: %Platform DefaultStore String%
 * Output Path : %Path to platform build directory%
 * Build Environment : %Environment string reported by Python%
 * Build Duration : %Build duration time string%
@@ -56,6 +58,8 @@ Platform DSC Path:  s:\edk2\Nt32Pkg\Nt32Pkg.dsc
 Architectures:      IA32
 Tool Chain:         VS2008x86
 Target:             DEBUG
+SKUID:              DEFAULT
+DefaultStore:       STANDARD
 Output Path:        s:\edk2\Build\NT32IA32
 Build Environment:  Windows-7-6.1.7601-SP1
 Build Duration:     00:01:29
@@ -106,6 +110,7 @@ The first line is required:
 * `*P` means the Pcd's value was obtained from the DSC file
 * `*F` means the PCD's value was obtained from the FDF file.
 * `*B` means the PCD's value set by a build option.
+**Note:** If the Pcd is a Structure PCD, <DatumType> is the Struct Name.
 
 Additional lines may be displayed showing default values when the value is not a
 default value.
@@ -137,11 +142,12 @@ report. Only the final value is displayed.
 
 The first line is required:
 
-`[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) = <PcdValue>`
+`[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
 
 * `*P` means the Pcd's value was obtained from the DSC file
 * `*F` means the PCD's value was obtained from the FDF file.
 * `*B` means the PCD's value set by a build option.
+**Note:** If the Pcd is a Structure PCD, <DatumType> is the Struct Name.
 
 Additional lines may be displayed showing default values when the value is not a
 default value.

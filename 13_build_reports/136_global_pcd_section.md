@@ -54,14 +54,15 @@ Each global PCD item contains one or more lines:
 
 The first line is required:
 
-`[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) = <PcdValue>`
+`[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
 
-* `*P` means the Pcd's value was obtained from the DSC file
+* `*P` means the PCD's value was obtained from the DSC file
 * `*F` means the PCD's value was obtained from the FDF file.
 * `*B` means the PCD's value was obtained from a build option.
 * If no `*P`, `*F` or `*B` is shown, the PCD's value comes from DEC file. If the
   value obtained from either a build option, the DSC or FDF is the same as the
   value in the DEC, then `*B`, `*P` or `*F` will not be shown in the report.
+**Note:** If the Pcd is a Structure PCD, <DatumType> is the Struct Name.
 
 #### Examples
 
@@ -73,6 +74,10 @@ The first line is required:
 gTokenSpaceGuid
 *B LogEnable                            : FIXED   (UNIT32) = 0x1
                                                   DEC DEFAULT = 0x0
+*P TestDynamic                          :  DYN    (VOID*) (DEFAULT) = L"COM1!COM2"
+                                        :  DYN    (VOID*) (SKU1)    = L"COM3!COM4"
+                                        :  DYN    (VOID*) (SKU2)    = L"COM5!COM6"
+                                                  DEC DEFAULT = L"COM1!COM0"
 ```
 
 ### 13.6.2 Optional lines
@@ -141,3 +146,43 @@ These lines are formatted as:
 **Note:** Global PCD section is present when **PCD** is specified in **-Y**
 option.
 **********
+
+#### 13.6.2.4 Field value for Structure PCD
+If the Pcd is a Structure Pcd, every field value that user specified in DSC/DEC
+file and build command will print out. The field value is from DSC/DEC file or
+build command, not from the final structure byte array, and the field order is
+same as it in DSC/DEC file. when the field value is from build command, tool will
+additional print a *B Flag.
+
+#### Example
+
+```
+gEfiMdePkgTokenSpaceGuid
+*P TestFix                        :  FIXED   (TEST) = {
+    0xff,0x02,0x00,0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
+    0x00,0x64,0x00,0x00,0x00}
+           .A             = 0x2
+           .C             = 0x0
+           .Array         = {0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57}
+           .D             = 0x64
+                                        DEC DEFAULT = {0xFF,0xFF}
+           .A             = 0xF
+           .C             = 0xF
+*B TestDynamicExHii               : DEXHII    (TEST) (SKU1) (STANDARD) = {
+    0xff,0x01,0x00,0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
+    0x00,0x64,0x00,0x00,0x00}
+           .A             = 0x1
+       *B  .C             = 0x0
+           .Array         = {0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57}
+           .D             = 0x64
+                                  : DEXHII    (TEST) (SKU1) (Manufacturing) = {
+    0xff,0x02,0x00,0x2e,0xf6,0x08,0x6f,0x20,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
+    0x00,0x68,0x00,0x00,0x00}
+           .A             = 0x2
+       *B  .C             = 0x0
+           .Array         = {0x2e,0xf6,0x08,0x6f,0x20,0x5c,0x8e,0x49,0x91,0x57}
+           .D             = 0x68
+                                        DEC DEFAULT = {0xFF,0xFF}
+           .A             = 0xF
+           .C             = 0xF
+```

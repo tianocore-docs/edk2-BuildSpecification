@@ -240,7 +240,8 @@ gEfiMdeModulePkgTokenSpaceGuid
 Each PCD may contain up to four lines:
 
 1. The first line is a mandatory line with the following format:
-   `[*P|*M|*F| ] <PcdCName>: <PcdType> (<DatumType>) = <PcdValue>`
+   `[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
+   **Note:** If the Pcd is a Structure PCD, <DatumType> is the Struct Name.
    - \*P means the Pcd's value is the platform default (listed in DSC PCD common
      section or inherited from Module INF file).
    - \*M means the PCD's value in module INF was obtained from the `[Components]`
@@ -288,6 +289,12 @@ Each PCD may contain up to four lines:
                                 DSC DEFAULT = 0x80000040
                                 DEC DEFAULT = 0x80000000
    ```
+
+4. Additional lines may exist if the PCD is Structure PCD. Every field value
+that user specified in DSC/DEC file and build command will print out. The field
+value is from DSC/DEC file or build command, not from the final structure byte
+array, and the field order is same as it in DSC/DEC file. when the field value is
+from build command, tool will additional print a *B Flag.
 
 **********
 **Note:** This sub-section is present when **PCD** is specified in **-Y**
