@@ -1,7 +1,7 @@
 <!--- @file
   8.2 Auto-generation Process
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -869,7 +869,8 @@ architectural modifiers take precedence over PCD sections that are common to
 all architectures.
 
 When listed in the same section. If listed multiple times, the last one will be
-used.
+used. If PCD field value is listed, it will override PCD value even if PCD value 
+is after PCD field value.
 
 A PCD value set on the command-line has the highest precedence. It overrides
 all instances of the PCD value specified in the DSC or FDF file. The following
