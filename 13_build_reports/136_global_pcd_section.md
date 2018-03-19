@@ -108,7 +108,12 @@ gTokenSpaceGuid
 
 #### 13.6.2.2 Default (optional) line
 
-The second optional line is present if the value from the DEC was overridden.
+The second optional line is present if the value from the DSC was overridden
+by build option. It is formatted as follows:
+
+`DSC DEFAULT = <Value in PCD SectionSection in DSC>`
+
+The third optional line is present if the value from the DEC was overridden.
 It is formatted as follows:
 
 `DEC DEFAULT = <Value in DEC>`
