@@ -1,7 +1,7 @@
 <!--- @file
   13.4 Platform Summary
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -74,31 +74,10 @@ Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, FLASH, FIXED_ADDRESS
 report.
 **********
 
-If the DSC or FDF file contains conditional directive statements (`!if`,
-`!elseif`, `!ifdef` or `!ifndef`) or the value of PCD is not used by a module is
-set in the DSC file (PCD Sections) or the FDF file (`SET` statements for
-example), the following sub-section is generated.
-
-```
-==========================================================================<
-Conditional Directives used by the build system
-============================================================================
-```
-
-If the DSC or FDF file define values for PCDs that are not used by any module
-and are not used in conditional directive statements, the following sub-section
-is generated.
-
-```
-==========================================================================<
-PCDs not used by modules or in conditional directives
-============================================================================
-```
-
 ### 13.4.1 PCDs in Conditional Directives
 
-If a PCD is used in a conditional directive statement, the PCD section is
-generated.
+If a PCD is used in a conditional directive statement in DSC or FDF file, this
+PCD section is generated. This is optional section.
 
 PCD values derived from expressions or other PCDs are not differentiated in the
 report. Only the final value is displayed.
@@ -110,7 +89,11 @@ The first line is required:
 * `*P` means the Pcd's value was obtained from the DSC file
 * `*F` means the PCD's value was obtained from the FDF file.
 * `*B` means the PCD's value set by a build option.
-**Note:** If the Pcd is a Structure PCD, <DatumType> is the Struct Name.
+* If no `*P`, `*F` or `*B` is shown, the PCD's value comes from DEC file. If the
+  value obtained from either a build option, the DSC or FDF is the same as the
+  value in the DEC, then `*B`, `*P` or `*F` will not be shown in the report.
+
+**Note: ** If the Pcd is a Structure PCD, `<DatumType>` is the Struct Name.
 
 Additional lines may be displayed showing default values when the value is not a
 default value.
@@ -134,8 +117,9 @@ gMyTokenSpaceGuid
 
 ### 13.4.2 PCDs not used
 
-If a PCD is not used in a conditional directive statement or by a module, the
-not used PCD section is generated.
+If a PCD defined in DSC or FDF file, but the PCD is not used in a conditional
+directive statement and not used by any module, the not used PCD section is
+generated. This is optional section.
 
 PCD values derived from expressions or other PCDs are not differentiated in the
 report. Only the final value is displayed.
@@ -147,7 +131,11 @@ The first line is required:
 * `*P` means the Pcd's value was obtained from the DSC file
 * `*F` means the PCD's value was obtained from the FDF file.
 * `*B` means the PCD's value set by a build option.
-**Note:** If the Pcd is a Structure PCD, <DatumType> is the Struct Name.
+* If no `*P`, `*F` or `*B` is shown, the PCD's value comes from DEC file. If the
+  value obtained from either a build option, the DSC or FDF is the same as the
+  value in the DEC, then `*B`, `*P` or `*F` will not be shown in the report.
+
+**Note: ** If the Pcd is a Structure PCD, `<DatumType>` is the Struct Name.
 
 Additional lines may be displayed showing default values when the value is not a
 default value.

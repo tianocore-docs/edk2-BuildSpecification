@@ -1,7 +1,7 @@
 <!--- @file
   13.6 Global PCD Section
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -62,7 +62,8 @@ The first line is required:
 * If no `*P`, `*F` or `*B` is shown, the PCD's value comes from DEC file. If the
   value obtained from either a build option, the DSC or FDF is the same as the
   value in the DEC, then `*B`, `*P` or `*F` will not be shown in the report.
-**Note:** If the Pcd is a Structure PCD, <DatumType> is the Struct Name.
+
+**Note: ** If the Pcd is a Structure PCD, `<DatumType>` is the Struct Name.
 
 #### Examples
 
@@ -111,7 +112,7 @@ gTokenSpaceGuid
 The second optional line is present if the value from the DSC was overridden
 by build option. It is formatted as follows:
 
-`DSC DEFAULT = <Value in PCD SectionSection in DSC>`
+`DSC DEFAULT = <Value in PCD Section in DSC>`
 
 The third optional line is present if the value from the DEC was overridden.
 It is formatted as follows:

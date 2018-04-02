@@ -1,7 +1,7 @@
 <!--- @file
   13.8 Module Section
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -240,14 +240,17 @@ gEfiMdeModulePkgTokenSpaceGuid
 Each PCD may contain up to four lines:
 
 1. The first line is a mandatory line with the following format:
-   `[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
-   **Note:** If the Pcd is a Structure PCD, <DatumType> is the Struct Name.
+   `[*P|*F|*B|*M] <PcdCName>: <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
+
+   **Note: ** If the Pcd is a Structure PCD, `<DatumType>` is the Struct Name.
+
    - \*P means the Pcd's value is the platform default (listed in DSC PCD common
      section or inherited from Module INF file).
    - \*M means the PCD's value in module INF was obtained from the `[Components]`
      section of the DSC file.
    - \*F means the PCD's value is override in FDF file.
-   - If no \*P or \*F, mean the PCD's value comes from DEC file.
+   - \*B means the PCD's value is override in build option.
+   - If no \*P or \*F or \*B or \*M, mean the PCD's value comes from DEC file.
    - For example:
      ```
      *P PcdWinNtFirmwareVolume : FIXED (VOID*) = L"..\\Fv\\Nt32.fd"
