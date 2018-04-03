@@ -2,7 +2,7 @@
   "variables" : {
     "draft"   : "yes",
     "title"   : "EDK II Build Specification",
-    "version" : "Revision 1.27"
+    "version" : "Revision 1.28"
   },
 
   "plugins": ["puml"],
