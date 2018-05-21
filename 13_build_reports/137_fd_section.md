@@ -1,7 +1,7 @@
 <!--- @file
   13.7 FD Section
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -42,7 +42,7 @@ more FD region subsection.
 
 The line format is: "`%-20(key)s: %(value)s`" to ensure vertical alignment.
 
-* FD Name : %FD UI name: FD file base name%
+* FD Name : %FD file base name%
 * Base Address: %Base address for the FD image%
 * Size : %Size of the FD image%
 
@@ -63,15 +63,15 @@ Size:             0x2a0000(2688KB)
 
 This sub-section contains FD region information of platform flash device. If
 the region is a firmware volume, it lists the set of modules and its space
-information; otherwise, it only lists its region name, base address and size in
+information; otherwise, it only lists its region type, base address and size in
 its sub-section header.
 
 The line format is: "`%-20(key)s: %(values)s`" to ensure vertical alignment.
 
-* Region Type : %The type of the FD region (FV, Data, File or None)%
-* Base Address: %Base address for the FD region%
+* Type : %The type of the FD region (FV, DATA, FILE or None)%
+* Base Address : %Base address for the FD region%
 * Size : %Size of the FD region%
-* FV Name*: %FV name and occupation percentage%
+* Fv Name*: %FV name and occupation percentage%
 * Occupied Size*: %The occupied size of the FV%
 * Free Size*: %The free size of the FV%
 
@@ -89,7 +89,7 @@ FD Region
 Type:             FV
 Base Address:     0x0
 Size:             0x280000 (2560K)
-FV Name:          FvRecovery (65.9% Full)
+Fv Name:          FvRecovery (65.9% Full)
 Occupied Size:    0x1A6028 (1688K)
 Free Size:        0xD9FD8 (872K)
 Offset     Module
@@ -127,8 +127,8 @@ Size:             0x2000 (8K)
 This section lists, in Offset order, every VPD PCD specified in the DSC file.
 The line format for this section is PcdName SkuId Offset PcdSize PcdValue.
 
-* Base Address:%Base address from the start of the FD file%
-* Size :%Size of the FD region%
+* Base Address : %Base address from the start of the FD file%
+* Size : %Size of the FD VPD region%
 
 For each PCD in this region:
 

@@ -1,7 +1,7 @@
 <!--- @file
   13 Build Reports
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -36,7 +36,7 @@ output report format. It describes the external behaviors of the tool, i.e. the
 accepted command line options and the detailed output report format.
 
 Unless the quiet or silent options are given to the build command, the build
-system automatically reports the following:
+system automatically reports the following in build log file:
 
 * Each region, offset and size defined in the FD.
 * The location of the GUID cross reference file.

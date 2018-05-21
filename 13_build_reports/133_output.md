@@ -1,7 +1,7 @@
 <!--- @file
   13.3 Output
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -100,9 +100,14 @@ Platform DSC Path:  s:\edk2\Nt32Pkg\Nt32Pkg.dsc
 Architectures:      IA32
 Tool Chain:         VS2008x86
 Target:             DEBUG
+SKUID:              DEFAULT
+DefaultStore:       STANDARD
 Output Path:        s:\edk2\Build\NT32IA32
 Build Environment:  Windows-7-6.1.7601-SP1
-Build Duration:     00:01:53
+Build Duration:     00:01:29
+AutoGen Duration:   00:00:10
+Make Duration:      00:01:02
+GenFds Duration:    00:00:15
 Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, HASH, FLASH, FIXED_ADDRESS
 >==========================================================================<
 Firmware Device (FD)

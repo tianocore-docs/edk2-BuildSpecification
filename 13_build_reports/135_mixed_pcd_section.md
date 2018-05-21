@@ -1,7 +1,7 @@
 <!--- @file
   13.5 Mixed PCD Section
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -31,13 +31,13 @@
 
 ## 13.5 Mixed PCD Section
 
-There is an optional sub-section that, when present, lists the PCDs in the
-platform that use multiple access methods. This sub-section is only present if
+There is an optional section that, when present, lists the PCDs in the
+platform that use multiple access methods. This section is only present if
 there are Binary modules included in the platform build and the binary module
 uses a different PCD access method than other modules in the same platform
 build.
 
-The sub-section header is:
+The section header is:
 
 ```
 >===============================================================================<

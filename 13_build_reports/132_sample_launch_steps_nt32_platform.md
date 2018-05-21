@@ -1,7 +1,7 @@
 <!--- @file
   13.2 Sample Launch Steps: NT32 platform
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -34,7 +34,7 @@
 BRG functionality is switched on by **-y** or **-Y** option from **build**
 command. The following steps output the build report for NT32 platform:
 
-1. Check out edk2 packages from https://svn.code.sf.net/p/edk2/code/trunk/edk2
+1. Check out edk2 packages from git@github.com:tianocore/edk2.git
    to `c:\Users\YourLogin\Documents\edk2` directory[^1].
 2. Run **cmd.exe**, cd to your Documents directory and enter `subst s:`.
 3. Cd to `s:\edk2`

@@ -38,34 +38,29 @@ sections are listed according to their DSC position.
 
 ### 13.8.1 Module Section Summary
 
-This sub-section lists the module basic information: Module name: INF file,
-file GUID, module size, module build time stamp and driver type.
+This sub-section lists the module basic information: Module name, INF file
+path, File GUID, Size, hash value, module build time stamp, module build time
+and driver type.
 
-* `Module Name` : %Module UI name: '`BASE_NAME`' in INF `[Defines]` section%
-* Module INF Path: %Path of Module INF file%
-* File GUID: %Module GUID: '`FILE_GUID`' in INF `[Defines]` section%
-* Size: %Module EFI image size%
-* Build time stamp: %The time stamp in module PE32 image% (If the time stamp is
-  cleared to be zero, the build time stamp is 1970-01-01 00:00:00 UTC time.)
-* Module Build Time: %The time string for this module's build%
-* Driver Type: %The driver's file type code[^2] and name in firmware volume%
+* Module Name : %`BASE_NAME` in INF `[Defines]` section%
+* Module INF Path : %Path of Module INF file%
+* File GUID : %`FILE_GUID` in INF `[Defines]` section%
+* Size : %Module EFI image size%
+* SHA1 HASH : %SHA1 hash value and efi file name with \* character%
+* Build Time Stamp : %The time stamp in module PE32 image% (If the time stamp is
+  cleared to be zero, the build time stamp is 1970-01-01 08:00:00 UTC time.)
+* Module Build Time : %The time string for this module's build%
+* Driver Type : %The driver's file type code[^3] and name in firmware volume%
 
 The following entries are options:
 
-* If using defaults or the `HASH` flag is specified:
-  - SHA1 HASH: %SHA1 HASH% and *%Module .efi file name%
-* UEFI Specification Version: %The UEFI specification
-  version:'`UEFI_SPECIFICATION_VERSION`' in INF `[Defines]` section%
-* PI Specification Version: %The PI specification
-  version:'`PI_SPECIFICATION_VERSION`' in the INF `[Defines]` section%
-* `PCI Device ID`: %The PCI device ID for the device: '`PCI_DEVICE_ID`' in INF
-  `[Defines]` section%
-* `PCI Vendor ID`: %The PCI vendor ID for the device: '`PCI_VENDOR_ID`' in INF
-  `[Defines]` section%
-* `PCI Class Code`: %The PCI class code for the device: '`PCI_CLASS_CODE`' in
-  INF `[Defines]` section%
+* UEFI Spec Version : %`UEFI_SPECIFICATION_VERSION` in INF `[Defines]` section%
+* PI Spec Version : %`PI_SPECIFICATION_VERSION` in INF `[Defines]` section%
+* PCI Device ID : %`PCI_DEVICE_ID` in INF `[Defines]` section%
+* PCI Vendor ID : %`PCI_VENDOR_ID` in INF `[Defines]` section%
+* PCI Class Code : %`PCI_CLASS_CODE` in INF `[Defines]` section%
 
-[^2] The hex value in this field is the Firmware File Type value defined in
+[^3] The hex value in this field is the Firmware File Type value defined in
 Volume 3 of the PI Specification (Table 3 Defined File Types).
 
 
@@ -79,7 +74,7 @@ Module INF Path:    MdeModule\Universal\SmbiosDxe\SmbiosDxe.inf
 File GUID:          F9D88642-0737-49BC-81B5-6889CD57D9EA
 Size:               0x7000 (28.00K)
 SHA1 HASH:          d94c3f180f25d6b562f477bc4a16b286cb66a8b6 *SmbiosDxe.efi
-Build Time Stamp:   1969-12-31 16:00:00
+Build Time Stamp:   1970-01-01 08:00:00
 Module Build Time:  1060ms
 Driver Type:        0x7 (DRIVER)
 ============================================================================
@@ -97,7 +92,7 @@ Module INF Path:    MdeModule\Universal\EbcDxe\EbcDxe.inf
 File GUID:          13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
 Size:               0x9000 (36.00K)
 SHA1 HASH:          ff4c019345614afe5c88e7fc37219c30a07f4af4 *EbcDxe.efi
-Time Stamp:         1969-12-31 16:00:00
+Time Stamp:         1970-01-01 08:00:00
 Module Build Time:  1731ms
 Driver Type:        0x7 (DRIVER)
 ============================================================================
@@ -130,8 +125,7 @@ An example of the module's library instance section is shown below.
 Following the subsection header, for each library instance that was linked, the
 format is:
 
-1. The first line is the INF file name; this is the fully qualified path and
-   file name of the library instance
+1. The first line is the INF file path of the library instance
 
 2. {ClassName} - the name of the library class that the above INF file provides
 
@@ -152,7 +146,7 @@ format is:
      Time = TimeString
      ```
 
-#### Example1:
+#### Example:
 
 ```c
 >--------------------------------------------------------------------------<
@@ -195,27 +189,6 @@ s:\edk2\MdePkg\Library\UefiRuntimeLib\UefiRuntimeLib.inf
 <-------------------------------------------------------------------------->
 ```
 
-#### Example2:
-
-```
->--------------------------------------------------------------------------<
-Library
----------------------------------------------------------------------------
-s:\edk2\R8MyPlatformPkg\Guid\GuidLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Guid\EdkGuidLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Protocol\EdkProtocolLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Library\RuntimeDxe\EfiRuntimeLib\EfiRuntimeLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Core\Dxe\ArchProtocol\ArchProtocolLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Library\CompilerStub\CompilerStubLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Guid\EdkGuidLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Framework\Protocol\EdkFrameworkProtocolLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Efi\Guid\EfiGuidLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Efi\Protocol\EfiProtocolLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Library\EfiCommonLib\EfiCommonLib.inf
-s:\edk2\EdkCompatibilityPkg\Foundation\Framework\Guid\EdkFrameworkGuidLib.inf
-<-------------------------------------------------------------------------->
-```
-
 **********
 **Note:** This sub-section is present when **LIBRARY** is specified in **-Y**
 option.
@@ -228,30 +201,24 @@ information for all PCDs used in this module. The content of module PCD
 sub-section is divided by token space such as:
 
 ```
-gEfiNt32PkgTokenSpaceGuid
-...
-...
 gEfiMdeModulePkgTokenSpaceGuid
+...
+...
+gEfiNt32PkgTokenSpaceGuid
 ...
 ...
 ...
 ```
 
-Each PCD may contain up to four lines:
+Each PCD may contain up to following lines:
 
 1. The first line is a mandatory line with the following format:
-   `[*P|*F|*B|*M] <PcdCName>: <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
+
+   `[*B|*F|*P|*M] <PcdCName> : <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
 
    **Note: ** If the Pcd is a Structure PCD, `<DatumType>` is the Struct Name.
 
-   - \*P means the Pcd's value is the platform default (listed in DSC PCD common
-     section or inherited from Module INF file).
-   - \*M means the PCD's value in module INF was obtained from the `[Components]`
-     section of the DSC file.
-   - \*F means the PCD's value is override in FDF file.
-   - \*B means the PCD's value is override in build option.
-   - If no \*P or \*F or \*B or \*M, mean the PCD's value comes from DEC file.
-   - For example:
+   For example:
      ```
      *P PcdWinNtFirmwareVolume : FIXED (VOID*) = L"..\\Fv\\Nt32.fd"
      ```
@@ -263,7 +230,7 @@ Each PCD may contain up to four lines:
      ```
      For example:
      ```
-     *P PcdGMchDvmtTotalSize : DYN-HII (UINT8) = 0
+     *P PcdGMchDvmtTotalSize : DYN-HII (UINT8) = 0x0 (0)
                                gSysConfigGuid: L"Setup": 0xAA
      ```
    - if `<PcdType>` is DYN-VPD
@@ -272,7 +239,7 @@ Each PCD may contain up to four lines:
      ```
      For example:
      ```
-     *F PcdVpdSample : DYN-VPD (UINT32) = 1
+     *F PcdVpdSample : DYN-VPD (UINT32) = 0x1 (1)
                        0x0001FFF
      ```
 
@@ -285,12 +252,12 @@ Each PCD may contain up to four lines:
    ```
    For example:
    ```
-   *P PcdPlatformBootTimeOut : DYNHII (UINT16) = 10
+   *M PcdDebugPrintErrorLevel : FIXED   (UINT32) = 0x80000042 (2147483714)
+                                DSC DEFAULT = 0x80000040 (2147483712)
+                                DEC DEFAULT = 0x80000000 (2147483648)
+   *P PcdPlatformBootTimeOut : DYNHII (UINT16) = 0xA (10)
                      gEfiGlobalVariableGuid: L"Timeout": 0x0
-                                                   DEC DEFAULT = 0xffff
-   *M PcdDebugPrintErrorLevel : FIXED   (UINT32) = 0x80000042
-                                DSC DEFAULT = 0x80000040
-                                DEC DEFAULT = 0x80000000
+                                DEC DEFAULT = 0xffff (65535)
    ```
 
 4. Additional lines may exist if the PCD is Structure PCD. Every field value

@@ -34,14 +34,13 @@
 Platform summary displays at the beginning of the output report, including the
 following items:
 
-* Platform Name : %Platform UI name: '`PLATFORM_NAME`' in DSC `[Defines]`
-  section%
-* Platform DSC Path: %Path of platform DSC file%
+* Platform Name : %`PLATFORM_NAME` in DSC `[Defines]` section%
+* Platform DSC Path : %Path of platform DSC file%
 * Architectures : %List string of all architectures used in build%
 * Tool Chain : %Tool chain string%
 * Target : %Target String%
-* SKUID: %Platform SKUID String%
-* DefaultStore: %Platform DefaultStore String%
+* SKUID : %Platform SKUID String%
+* DefaultStore : %Platform DefaultStore String%
 * Output Path : %Path to platform build directory%
 * Build Environment : %Environment string reported by Python%
 * Build Duration : %Build duration time string%
@@ -66,7 +65,7 @@ Build Duration:     00:01:29
 AutoGen Duration:   00:00:10
 Make Duration:      00:01:02
 GenFds Duration:    00:00:15
-Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, FLASH, FIXED_ADDRESS
+Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, HASH, FLASH, FIXED_ADDRESS
 ```
 
 **********
@@ -74,7 +73,28 @@ Report Contents:    PCD, LIBRARY, BUILD_FLAGS, DEPEX, FLASH, FIXED_ADDRESS
 report.
 **********
 
-### 13.4.1 PCDs in Conditional Directives
+### 13.4.1 Common PCD rules
+
+There have several PCD sections in the report file, following rules are apply
+to all those PCD sections.
+1. The content of PCD section in the report is grouped by token space, and the
+order of PCD is sorted by token space first, then by PcdCName.
+2. `*B` means the PCD's value was obtained from build option.
+3. `*F` means the PCD's value was obtained from the FDF file.
+4. `*P` means the PCD's value was obtained from the DSC file PCD sections.
+5. `*M` means the PCD's value was obtained from the INF file or from the DSC
+file [Components] sections <Pcd*> scope.[^2]
+6. If no `*B`, `*F`, `*P` or `*M` is shown, the PCD's value comes from DEC file.
+If the value obtained from either a build option, DSC, FDF or INF is the same as
+the value in the DEC, then `*B`, `*F`, `*P` or `*M` will not be shown in the report.
+7. If the PCD's datum type is UINT8, UINT16, UINT32 or UINT64, then in the report
+will display both hexadecimal format and integer format of PCD value.
+
+[^2] If both INF file and DSC file [Components] sections <Pcd*> scope have this PCD,
+the value would obtained from DSC file [Components] sections <Pcd*> scope base on PCD
+value precedence rule.
+
+### 13.4.2 PCDs in Conditional Directives
 
 If a PCD is used in a conditional directive statement in DSC or FDF file, this
 PCD section is generated. This is optional section.
@@ -85,13 +105,6 @@ report. Only the final value is displayed.
 The first line is required:
 
 `[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) = <PcdValue>`
-
-* `*P` means the Pcd's value was obtained from the DSC file
-* `*F` means the PCD's value was obtained from the FDF file.
-* `*B` means the PCD's value set by a build option.
-* If no `*P`, `*F` or `*B` is shown, the PCD's value comes from DEC file. If the
-  value obtained from either a build option, the DSC or FDF is the same as the
-  value in the DEC, then `*B`, `*P` or `*F` will not be shown in the report.
 
 **Note: ** If the Pcd is a Structure PCD, `<DatumType>` is the Struct Name.
 
@@ -107,15 +120,15 @@ Conditional Directives used by the build system
 PCD statements
 >--------------------------------------------------------------------------<
 gMyTokenSpaceGuid
+*B LogEnable                   : FIXED   (UNIT32) = 0x1 (1)
+                                         DEC DEFAULT = 0x0 (0)
 *P SmmEnable                   : FEATURE (BOOLEAN) = 0x0
                                          DEC DEFAULT = 0x1
-*B LogEnable                   : FIXED   (UNIT32) = 0x1
-                                         DEC DEFAULT = 0x0
 <-------------------------------------------------------------------------->
 >==========================================================================<
 ```
 
-### 13.4.2 PCDs not used
+### 13.4.3 PCDs not used
 
 If a PCD defined in DSC or FDF file, but the PCD is not used in a conditional
 directive statement and not used by any module, the not used PCD section is
@@ -127,13 +140,6 @@ report. Only the final value is displayed.
 The first line is required:
 
 `[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
-
-* `*P` means the Pcd's value was obtained from the DSC file
-* `*F` means the PCD's value was obtained from the FDF file.
-* `*B` means the PCD's value set by a build option.
-* If no `*P`, `*F` or `*B` is shown, the PCD's value comes from DEC file. If the
-  value obtained from either a build option, the DSC or FDF is the same as the
-  value in the DEC, then `*B`, `*P` or `*F` will not be shown in the report.
 
 **Note: ** If the Pcd is a Structure PCD, `<DatumType>` is the Struct Name.
 
@@ -156,8 +162,8 @@ PCD statements
 gMyTokenSpaceGuid
 *P SmmEnable                   : FEATURE (BOOLEAN) = 0x0
                                          DEC DEFAULT = 0x1
-*B UsbEnable                   : FIXED   (UNIT32) = 0x1
-                                         DEC DEFAULT = 0x0
+*B UsbEnable                   : FIXED   (UNIT32) = 0x1 (1)
+                                         DEC DEFAULT = 0x0 (0)
 <-------------------------------------------------------------------------->
 >==========================================================================<
 ```

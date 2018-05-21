@@ -31,15 +31,14 @@
 
 ## 13.6 Global PCD Section
 
-This section contains the information for all PCDs whose values are the same
-for all modules in a platform. The content of global PCD sub-section is grouped
-by token space:
+This section contains the information for all PCDs that used for all modules in
+a platform. The content of global PCD section is grouped by token space:
 
 ```
-gEfiNt32PkgTokenSpaceGuid
-...
-...
 gEfiMdeModulePkgTokenSpaceGuid
+...
+...
+gEfiNt32PkgTokenSpaceGuid
 ...
 ...
 ...
@@ -56,25 +55,18 @@ The first line is required:
 
 `[*P|*F|*B] <PcdCName>: <PcdType> (<DatumType>) [(<SKUID>)][(<DefaultStore>)] = <PcdValue>`
 
-* `*P` means the PCD's value was obtained from the DSC file
-* `*F` means the PCD's value was obtained from the FDF file.
-* `*B` means the PCD's value was obtained from a build option.
-* If no `*P`, `*F` or `*B` is shown, the PCD's value comes from DEC file. If the
-  value obtained from either a build option, the DSC or FDF is the same as the
-  value in the DEC, then `*B`, `*P` or `*F` will not be shown in the report.
-
 **Note: ** If the Pcd is a Structure PCD, `<DatumType>` is the Struct Name.
 
 #### Examples
 
 ```
 *P PcdWinNtFirmwareVolume               : FIXED   (VOID*) = L"..\\Fv\\Nt32.fd"
-*F PcdWinNtFlashNvStorageFtwWorkingBase : FIXED   (UINT32) = 0x0028E000
-                                                  DEC DEFAULT = 0x0
+*F PcdWinNtFlashNvStorageFtwWorkingBase : FIXED   (UINT32) = 0x0028E000 (2678784)
+                                                  DEC DEFAULT = 0x0 (0)
 
 gTokenSpaceGuid
-*B LogEnable                            : FIXED   (UNIT32) = 0x1
-                                                  DEC DEFAULT = 0x0
+*B LogEnable                            : FIXED   (UNIT32) = 0x1 (1)
+                                                  DEC DEFAULT = 0x0 (0)
 *P TestDynamic                          :  DYN    (VOID*) (DEFAULT) = L"COM1!COM2"
                                         :  DYN    (VOID*) (SKU1)    = L"COM3!COM4"
                                         :  DYN    (VOID*) (SKU2)    = L"COM5!COM6"
@@ -92,7 +84,7 @@ gTokenSpaceGuid
 #### Example
 
 ```
-*P PcdGMchDvmtTotalSize : DYN-HII (UINT8) = 0
+*P PcdGMchDvmtTotalSize : DYN-HII (UINT8) = 0x0 (0)
                           gSysConfigGuid: L"Setup": 0xAA
 ```
 
@@ -103,7 +95,7 @@ gTokenSpaceGuid
 #### Example
 
 ```
-*F PcdVpdSample : DYN-VPD (UINT32) = 1
+*F PcdVpdSample : DYN-VPD (UINT32) = 0x1 (1)
                   0x0001FFF
 ```
 
@@ -122,18 +114,18 @@ It is formatted as follows:
 #### Example
 
 ```
-*P PcdWinNtFirmwareFdSize   : FIXED (UINT32) = 0x2a0000
-                              DEC DEFAULT = 0x0
+*P PcdWinNtFirmwareFdSize   : FIXED (UINT32) = 0x2a0000 (2752512)
+                              DEC DEFAULT = 0x0 (0)
 ```
 
 #### 13.6.2.3 Additional optional lines
 
 Additional lines are optional and show if the PCD's value was obtained from the
-INF file. This will be listed if the module's final PCD value is not the same
-as the first line. The value can be obtained from the INF file only if a single
-module uses the PCD.
+INF file or DSC file components module scoped PCD section. This will be listed
+if the module's final PCD value is not the same as the first line.
 
-*M means the PCD's value was obtained from the INF file.
+*M means the PCD's value was obtained from the INF file or DSC file components
+module scoped PCD section.
 
 These lines are formatted as:
 
@@ -142,10 +134,9 @@ These lines are formatted as:
 #### Example
 
 ```
-*P PcdDebugPrintErrorLevel : PATCH (UINT32) = 0x80000042
-                                DEC DEFAULT = 0x80000000
-                                            = 0x80000000
-*M Tcp4Dxe.inf                              = 0x0
+*P PcdDebugPrintErrorLevel : PATCH (UINT32) = 0x80000042 (2147483714)
+                                DEC DEFAULT = 0x80000000 (2147483648)
+*M     Tcp4Dxe.inf                          = 0x0 (0)
 ```
 
 **********
@@ -164,16 +155,6 @@ additional print a *B Flag.
 
 ```
 gEfiMdePkgTokenSpaceGuid
-*P TestFix                        :  FIXED   (TEST) = {
-    0xff,0x02,0x00,0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
-    0x00,0x64,0x00,0x00,0x00}
-           .A             = 0x2
-           .C             = 0x0
-           .Array         = {0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57}
-           .D             = 0x64
-                                        DEC DEFAULT = {0xFF,0xFF}
-           .A             = 0xF
-           .C             = 0xF
 *B TestDynamicExHii               : DEXHII    (TEST) (SKU1) (STANDARD) = {
     0xff,0x01,0x00,0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
     0x00,0x64,0x00,0x00,0x00}
@@ -188,6 +169,16 @@ gEfiMdePkgTokenSpaceGuid
        *B  .C             = 0x0
            .Array         = {0x2e,0xf6,0x08,0x6f,0x20,0x5c,0x8e,0x49,0x91,0x57}
            .D             = 0x68
+                                        DEC DEFAULT = {0xFF,0xFF}
+           .A             = 0xF
+           .C             = 0xF
+*P TestFix                        :  FIXED   (TEST) = {
+    0xff,0x02,0x00,0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
+    0x00,0x64,0x00,0x00,0x00}
+           .A             = 0x2
+           .C             = 0x0
+           .Array         = {0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57}
+           .D             = 0x64
                                         DEC DEFAULT = {0xFF,0xFF}
            .A             = 0xF
            .C             = 0xF
