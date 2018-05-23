@@ -260,7 +260,7 @@ modules (INF files) specified for the platform, and the build output directory.
 Optionally, the name of the flash image layout description (FDF) file and build
 options specific to the platform are also obtained. Parsing FDF file at this
 time is just for the PCD information which might be used by some modules, and
-merge these PDC values into the information set of PCDs in DSC file.
+merge these PCD values into the information set of PCDs in DSC file.
 
 A PCD entry must only be listed once per section in the DSC or FDF files.
 
@@ -840,6 +840,11 @@ default method.
 
 * If not listed in any of the previous sections, and the PCD is listed in the
   `PcdsDynamic` section, then use Dynamic.
+
+If the Platform Integrator does not specify the format, and the PCD state is
+in Platform DSC file `[Components]` section module scoped `<Pcd*>` section, 
+then the PCD used in `[Components]` section module or its linked library INF
+files will use the module scoped `<Pcd*>` type as default type.
 
 Build tools are required to process PCD values for `VOID*` PCDs into byte
 arrays, C format GUIDs or as C format strings (either ASCII or [L]"string")
