@@ -1060,6 +1060,12 @@ files from the binary source directory at the build phase. If the cached binary 
 the same hash value, it will be directly used. Otherwise, build tool will compile the
 source files and generate the binary files.
 
+#### 8.2.4.16 !error Statement
+
+The DSC and FDF file can use `!error` statement. The argument of this statement is an
+error message, it causes build tool to stop at the location where the statement is
+encountered and error message following the `!error` statement is output as a message.
+
 ### 8.2.5 Post processing
 
 Once all files are parsed, the build tools will do following work for each EDK
