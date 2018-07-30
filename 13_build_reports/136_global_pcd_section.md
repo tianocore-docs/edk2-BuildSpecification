@@ -144,12 +144,26 @@ These lines are formatted as:
 option.
 **********
 
-#### 13.6.2.4 Field value for Structure PCD
-If the Pcd is a Structure Pcd, every field value that user specified in DSC/DEC
-file and build command will print out. The field value is from DSC/DEC file or
-build command, not from the final structure byte array, and the field order is
-same as it in DSC/DEC file. when the field value is from build command, tool will
-additional print a *B Flag.
+#### 13.6.2.4 Rules for Structure PCD
+If the Pcd is a Structure Pcd, it display in the report file would have two parts.
+One is the final Pcd value and its field value, the field value is from FDF file,
+DSC file PCD Section or build option, not from the final structure byte array,
+and the field order is sorted by the field name. When the field value from DSC file
+PCD Section, it will not have additional *P Flag, when the field value from FDF file,
+it will have additional *F Flag before the field name, when the field value from
+build option, it will have additional *B Flag before the field name. The other part
+is the DEC default value and its field value, this part is optional. The field value
+in this part is from DEC file, and the field order is sorted by the field name.
+
+**********
+**Note:** When the structure Pcd have some value from build option, no matter whether
+the value is same with FDF or DSC file or DEC file, there will display a *B Flag before
+the PCD name. When the structure Pcd have some value from FDF file, no matter whether
+the value is same with DSC file or DEC file, there will display a *F Flag before the
+PCD name. When the structure Pcd value have some value from DSC file PCD section, no
+matter whether the value is same with DEC file, there will display a *P Flag before
+the PCD name.
+**********
 
 #### Example
 
@@ -159,15 +173,15 @@ gEfiMdePkgTokenSpaceGuid
     0xff,0x01,0x00,0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
     0x00,0x64,0x00,0x00,0x00}
            .A             = 0x1
-       *B  .C             = 0x0
            .Array         = {0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57}
+       *B  .C             = 0x0
            .D             = 0x64
                                   : DEXHII    (TEST) (SKU1) (Manufacturing) = {
     0xff,0x02,0x00,0x2e,0xf6,0x08,0x6f,0x20,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
     0x00,0x68,0x00,0x00,0x00}
            .A             = 0x2
-       *B  .C             = 0x0
            .Array         = {0x2e,0xf6,0x08,0x6f,0x20,0x5c,0x8e,0x49,0x91,0x57}
+       *B  .C             = 0x0
            .D             = 0x68
                                         DEC DEFAULT = {0xFF,0xFF}
            .A             = 0xF
@@ -176,8 +190,8 @@ gEfiMdePkgTokenSpaceGuid
     0xff,0x02,0x00,0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57,0x00,0x00,0x00,
     0x00,0x64,0x00,0x00,0x00}
            .A             = 0x2
-           .C             = 0x0
            .Array         = {0x2e,0xf6,0x08,0x6f,0x19,0x5c,0x8e,0x49,0x91,0x57}
+           .C             = 0x0
            .D             = 0x64
                                         DEC DEFAULT = {0xFF,0xFF}
            .A             = 0xF
