@@ -270,7 +270,7 @@ DSC file.
 
 #### 8.2.4.1 !include Files
 
-The DSC (and FDF) file can use `!include` statements to include text files that
+The DSC and FDF file can use `!include` statements to include text files that
 contain content that would appear in the DSC file. When gathering the content
 from the DSC (or FDF) file, the file pointed to by the !include statement is
 read before any other information that appears later in the file.
@@ -284,6 +284,8 @@ as the DSC or FDF file. Use of `$(WORKSPACE)/<Path>/<Filename>` is allowed
 for include files outside of the directory tree containing the DSC or FDF file,
 or `<Path>/<Filename>` if the include file is in the directory tree
 containing the DSC or FDF file.
+
+The keyword `!include` is case-insensitive.
 
 #### 8.2.4.2 INF and DEC Parsing
 
@@ -596,14 +598,14 @@ When testing values for PCDs, only the PCD name is required:
 permitted.
 
 Supported statements are: `!ifdef`, `!ifndef`, `!if`, `!else`, `!elseif` and
-`!endif`. These control statements are used to either include or exclude lines
-as the parsing tool processes these files. The `!ifdef` and `!ifndef`
-statements test whether a Macro has been defined or not defined (PCDs are
-always defined - the build will break if a PCD is used by a module specified in
-the DSC file that cannot be located in any of the dependent DEC files, from the
-`[Packages]` section of an INF specified in the DSC file). FeatureFlag and
-FixedAtBuild access methods are the only PCDs that can be used in conditional
-directives.
+`!endif`, and those keywords are case-insensitive. These control statements are
+used to either include or exclude lines as the parsing tool processes these files.
+The `!ifdef` and `!ifndef` statements test whether a Macro has been defined or
+not defined (PCDs are always defined - the build will break if a PCD is used by
+a module specified in the DSC file that cannot be located in any of the dependent
+DEC files, from the `[Packages]` section of an INF specified in the DSC file). 
+FeatureFlag and FixedAtBuild access methods are the only PCDs that can be used in
+conditional directives.
 
 The build system will process the DSC and FDF files more than once. The first
 pass is to pick up all macros and PCD values for macros and PCDs used in
@@ -1065,6 +1067,8 @@ source files and generate the binary files.
 The DSC and FDF file can use `!error` statement. The argument of this statement is an
 error message, it causes build tool to stop at the location where the statement is
 encountered and error message following the `!error` statement is output as a message.
+
+The keyword `!error` is case-insensitive.
 
 ### 8.2.5 Post processing
 
