@@ -659,11 +659,7 @@ Blocks_" section for additional details of how directives must be processed.
 #### 8.2.4.6 Expressions
 
 Expressions can be used in conditional directive comparison statements and in
-value fields for PCDs in the DSC and FDF files.
-
-**********
-**Note:** Expressions are not supported in the INF and DEC files.
-**********
+value fields for PCDs in the meta-data files.
 
 Expressions follow C relation, equality, logical and bitwise precedence and
 associativity. Not all C operators are supported, only operators in the
@@ -683,18 +679,22 @@ shown in the table below.
 
 ###### Table 12 Operator Precedence and Supported Operands
 
-| Operator                                     | Use with Data Types   | Notes                                                                                                                                                                                                                         | Priority |
-| -------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `or`, `OR`, <code>&#124;&#124;</code>        | Number, Boolean       |                                                                                                                                                                                                                               | Lowest   |
-| `and`, `AND`, `&&`                           | Number, Boolean       |                                                                                                                                                                                                                               |          |
-| <code>&#124;</code>                          | Number, Boolean       | Bitwise OR                                                                                                                                                                                                                    |          |
-| `^`, `xor`, `XOR`                            | Number, Boolean       | Exclusive OR                                                                                                                                                                                                                  |          |
-| `&`                                          | Number, Boolean       | Bitwise AND                                                                                                                                                                                                                   |          |
-| `==`, `!=`, `EQ`, `NE`, `IN`                 | All                   | The IN operator can only be used to test a quoted unary literal string for membership in a list.                                                                                                                              |          |
-|                                              |                       | Space characters must be used before and after the letter operators Strings compared to boolean or numeric values using "==" or "EQ" will always return FALSE, while using the "!=" or "NE" operators will always return TRUE |          |
-| `<=`, `>=`, `<`, `>`, `LE`, `GE`, `LT`, `GT` | All                   | Space characters must be used before and after the letter operators.                                                                                                                                                          |          |
-| `+`, `-`                                     | Number, Boolean       | Cannot be used with strings - the system does not automatically do concatenation. Tools should report a warning message if these operators are used with both a boolean and number value                                      |          |
-| `!`, `not`, `NOT`                            | Number, Boolean       |                                                                                                                                                                                                                               | Highest  |
+| Operator                                     | Use with Data Types | Notes                                                                                                                                                     | Priority |
+| -------------------------------------------- | ------------------- | -------------------------------------------------------------------------       ------------------------------------------------------------------------- | -------- |
+| `? :`                                        | All                 | Conditional operator                                                                                                                                      |  Lowest  |
+| `or`, `OR`, <code>&#124;&#124;</code>        | Number, Boolean     |                                                                                                                                                           |          |
+| `XOR`, `xor`                                 | Number, Boolean     |                                                                                                                                                           |          |
+| `and`, `AND`, `&&`                           | Number, Boolean     |                                                                                                                                                           |          |
+| <code>&#124;</code>                          | Number, Boolean     | Bitwise OR                                                                                                                                                |          |
+| `^`                                          | Number, Boolean     | Bitwise XOR                                                                                                                                               |          |
+| `&`                                          | Number, Boolean     | Bitwise AND                                                                                                                                               |          |
+| `==`, `!=`, `EQ`, `NE`, `IN`                 | All                 | The IN operator can only be used to test a quoted unary literal string for membership in a list.                                                          |          |
+|                                              |                     | Strings compared to boolean or numeric values using "==" or "EQ" will always return FALSE, while using the "!=" or "NE" operators will always return TRUE |          |
+| `<=`, `>=`, `<`, `>`, `LE`, `GE`, `LT`, `GT` | All                 |                                                                                                                                                           |          |
+| `<<`, `>>`                                   | Number, Boolean     |                                                                                                                                                           |          |
+| `+`, `-`                                     | Number, Boolean     | Cannot be used with strings - the system does not automatically do concatenation.                                                                         |          |
+| `*`, `/`, `%`                                | Number, Boolean     | Cannot be used with strings                                                                                                                               |          |
+| `!`, `not`, `NOT`, `~`                       | Number, Boolean     |                                                                                                                                                           |  Highest |
 
 The `IN` operator can only be used to test a literal string against elements
 in the following global variables:
