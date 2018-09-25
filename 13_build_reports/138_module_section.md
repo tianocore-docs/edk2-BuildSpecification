@@ -243,11 +243,13 @@ Each PCD may contain up to following lines:
                        0x0001FFF
      ```
 
-3. The third and fourth lines are both option if the module's final
-   `<PcdValue>` is not equal to the PCD value in the PCD common section in the
-   DSC file and the PCD value in the DEC file respectively.
+3. The `DSC DEFAULT` `INF DEFAULT` and `DEC DEFAULT` are option if the module's
+   final `<PcdValue>` is not equal to the PCD value in the PCD common section in
+   DSC file, the PCD value in the module INF file and the PCD value in the DEC
+   file respectively.
    ```
    DSC DEFAULT = <Value in PCD Common Section in DSC>
+   INF DEFAULT = <Value in module INF>
    DEC DEFAULT = <Value in DEC>
    ```
    For example:

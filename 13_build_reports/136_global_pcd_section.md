@@ -47,6 +47,19 @@ gEfiNt32PkgTokenSpaceGuid
 PCD values derived from expressions or other PCDs are not differentiated in the
 report. Only the final value is displayed.
 
+The section header is:
+```
+>===============================================================================<
+Platform Configuration Database Report
+  *B  - PCD override in the build option
+  *P  - Platform scoped PCD override in DSC file
+  *F  - Platform scoped PCD override in FDF file
+  *M  - Module scoped PCD override
+=================================================================================
+.. (List of PCDs)
+<===============================================================================>
+```
+
 Each global PCD item contains one or more lines:
 
 ### 13.6.1 Required line
