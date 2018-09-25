@@ -216,8 +216,8 @@ precedence over PCD provided in DSC, FDF, INF, and DEC files.
 <True>            ::= {"TRUE"} {"True"} {"true"} {"1"} {"0x1"} {"0x01"}
 <False>           ::= {"FALSE"} {"False"} {"false"} {"0"} {"0x0"} {"0x00"}
 <String>          ::= {<QuotedStr>} {<SglQuotedStr>}
-<QuotedStr>       ::= ["L"] <DblQuote> <PrintChars>* <DblQuote>
-<SglQuotedStr>    ::= ["L"] <DblQuote> "\" <SglQuote> <PrintChars>*
+<QuotedStr>       ::= ["L"] <DblQuote> <PrintChars>+ <DblQuote>
+<SglQuotedStr>    ::= ["L"] <DblQuote> "\" <SglQuote> <PrintChars>+
                       "\" <SglQuote> <DblQuote>
 <PrintChars>      ::= {<TS>} {<CChars>}
 <DblQuote>        ::= 0x22
