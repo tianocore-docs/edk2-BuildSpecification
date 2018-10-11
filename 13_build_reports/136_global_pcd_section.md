@@ -162,19 +162,19 @@ If the Pcd is a Structure Pcd, it display in the report file would have two part
 One is the final Pcd value and its field value, the field value is from FDF file,
 DSC file PCD Section or build option, not from the final structure byte array,
 and the field order is sorted by the field name. When the field value from DSC file
-PCD Section, it will not have additional *P Flag, when the field value from FDF file,
-it will have additional *F Flag before the field name, when the field value from
-build option, it will have additional *B Flag before the field name. The other part
+PCD Section, it will not have additional `*P` Flag, when the field value from FDF file,
+it will have additional `*F` Flag before the field name, when the field value from
+build option, it will have additional `*B` Flag before the field name. The other part
 is the DEC default value and its field value, this part is optional. The field value
 in this part is from DEC file, and the field order is sorted by the field name.
 
 **********
 **Note:** When the structure Pcd have some value from build option, no matter whether
-the value is same with FDF or DSC file or DEC file, there will display a *B Flag before
+the value is same with FDF or DSC file or DEC file, there will display a `*B` Flag before
 the PCD name. When the structure Pcd have some value from FDF file, no matter whether
-the value is same with DSC file or DEC file, there will display a *F Flag before the
+the value is same with DSC file or DEC file, there will display a `*F` Flag before the
 PCD name. When the structure Pcd value have some value from DSC file PCD section, no
-matter whether the value is same with DEC file, there will display a *P Flag before
+matter whether the value is same with DEC file, there will display a `*P` Flag before
 the PCD name.
 **********
 

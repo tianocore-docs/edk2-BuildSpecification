@@ -262,11 +262,8 @@ Each PCD may contain up to following lines:
                                 DEC DEFAULT = 0xffff (65535)
    ```
 
-4. Additional lines may exist if the PCD is Structure PCD. Every field value
-that user specified in DSC/DEC file and build command will print out. The field
-value is from DSC/DEC file or build command, not from the final structure byte
-array, and the field order is same as it in DSC/DEC file. when the field value is
-from build command, tool will additional print a *B Flag.
+4. Additional lines may exist if the PCD is Structure PCD. Please refer to 
+13.6.2.4 Rules for Structure PCD for details.
 
 **********
 **Note:** This sub-section is present when **PCD** is specified in **-Y**
