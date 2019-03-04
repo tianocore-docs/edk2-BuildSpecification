@@ -1,7 +1,7 @@
 <!--- @file
   4.6 File Specifications
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -36,24 +36,6 @@ reference modules may conform to Intel Framework Specifications only if there
 are no applicable UEFI or PI specification modules.
 
 The EDK II Build Tools will only generate UEFI/PI compliant images.
-
-The EDK II Compatibility Package provides libraries and header files to permit
-building some* EDK Libraries and EDK Components referenced in an EDK II
-platform (DSC) file.
-
-**********
-**Note:** \* indicates any EDK libraries or components that do not include
-assembly files and do not access flash memory can use the EDK II compatibility
-Package
-**********
-
-For some development activities, the EDK II Compatibility package can be used
-to develop and maintain original EDK platforms, components and libraries. This
-package also provides all of the tool source code used in the EDK. These tools
-are for building components and platform using the original EDK code. None of
-these tools is used for the EDK II build process. This EDK Compatibility
-package can also be used to generate files conforming to earlier releases of
-EFI and UEFI specifications.
 
 This build specification does not cover the tools or build processes for EDK
 builds nor tools provide by the EDK II Compatibility Package.

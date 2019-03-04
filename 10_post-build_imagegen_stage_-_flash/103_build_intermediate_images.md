@@ -1,7 +1,7 @@
 <!--- @file
   10.3 Build Intermediate Images
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -45,7 +45,6 @@ one below:
   FILE_GUID                 = 7BB28B99-61BB-11D5-9A5D-0090273FC14D
   MODULE_TYPE               = USER_DEFINED
   VERSION_STRING            = 1.0
-  EDK_RELEASE_VERSION       = 0x00020000
   EFI_SPECIFICATION_VERSION = 0x00020000
 
 [Binaries.common]

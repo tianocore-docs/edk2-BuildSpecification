@@ -1,7 +1,7 @@
 <!--- @file
   9 Build or $(MAKE) Stage
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -33,10 +33,9 @@
 
 This chapter describes the processing of the source files into EFI files.
 
-The make stage starts out by building required libraries, followed by the EDK
-components and finally, EDK II modules. The outputs of this stage are linked
-PE32+/COFF images that have been processed to replace the standard header with
-an appropriate EFI header.
+The make stage starts out by building required libraries, followed by EDK II modules. 
+The outputs of this stage are linked PE32+/COFF images that have been processed 
+to replace the standard header with an appropriate EFI header.
 
 How a file will be processed is defined in the file specified by the
 `BUILD_RULE_CONF` statement in target.txt or the default file

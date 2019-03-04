@@ -1,7 +1,7 @@
 <!--- @file
   8.3 Auto-generated code
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -160,12 +160,9 @@ defined by early Intel Framework documents.
 
 #### 8.3.3.1 Reference Implementation: Compatibility
 
-The EDK II Vfr compiler tools can process EDK and EDK II VFR and Unicode files
+The EDK II Vfr compiler tools can process EDK II VFR and Unicode files
 and to generate UEFI/PI compliant IFR files. EDK II Unicode files can use the
-UEFI defined Unicode extended grammar. The EDK VFR and Unicode files are a
-subset of the EDK II versions. EDK II VFR and Unicode files may not be used
-with an EDK build unless they do not include the extended grammar. Table 15
-shows the compatibility matrix.
+UEFI defined Unicode extended grammar. Table 15 shows the compatibility matrix.
 
 ###### Table 15 VFR Compatibility Matrix
 
@@ -195,8 +192,6 @@ information into HII string pack data structure.
 * For EDK II modules, their Unicode files must use RFC 4646 language codes. If
   an EDK II module's Unicode file contains a three character ISO 639-2 language
   code, the build will break with an appropriate warning message.
-
-* For EDK components, their Unicode files must use the ISO 639-2 language codes.
 
 **********
 **Note:** Tools must not refactor the EDK component ISO 639-2 language codes to
@@ -380,23 +375,7 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-#### 8.3.6.2 Global macro definitions
-
-If they are defined in INF file, un-defining them first is for backward
-compatibility with EDK module build, because these macros are not defined in
-INF file of EDK modules but passed via compiler option.
-
-```c
-include_statement (AutoGen.h, "
-  #undef EFI_SPECIFICATION_VERSION
-  #define EFI_SPECIFICATION_VERSION 0x00020000
-
-  #undef EDK_RELEASE_VERSION
-  #define EDK_RELEASE_VERSION 0x00020000
-");
-```
-
-#### 8.3.6.3 Header file inclusion.
+#### 8.3.6.2 Header file inclusion.
 
 Only one header file is included.
 
@@ -406,7 +385,7 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-#### 8.3.6.4 Caller ID GUID definition.
+#### 8.3.6.3 Caller ID GUID definition.
 
 The GUID value is the same as INF file GUID. The macro, `EFI_CALLER_ID_GUID`,
 is generated only for non - library module.
@@ -421,12 +400,12 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-#### 8.3.6.5 PCD definitions
+#### 8.3.6.4 PCD definitions
 
 There are differences in the generated code for library and non-library
 modules, which are illustrated in pseudo-code below.
 
-##### 8.3.6.5.1 Non-library Module
+##### 8.3.6.4.1 Non-library Module
 
 ```c
 include_statement(AutoGen.h, "
@@ -543,7 +522,7 @@ If (PCD_type == DYNAMIC_EX) {
 }
 ```
 
-##### 8.3.6.5.2 Library Module
+##### 8.3.6.4.2 Library Module
 
 ```c
 nclude_statement(AutoGen.h, "
@@ -628,7 +607,7 @@ If (PCD_type == DYNAMIC_EX) {
 }
 ```
 
-##### 8.3.6.5.3 HII string pack definitions,
+##### 8.3.6.4.3 HII string pack definitions,
 
 These are generated only if `.uni` files are found. For details, please refer
 to section 7.3.2.
@@ -653,7 +632,7 @@ include_statement (AutoGen.h, "
 ");
 ```
 
-##### 8.3.6.5.4 HII image pack definitions
+##### 8.3.6.4.4 HII image pack definitions
 
 These are generated only if `.idf` files are found.
 ```
@@ -670,7 +649,7 @@ include_statement(AutoGen.h, "
 ");
 ```
 
-#### 8.3.6.6 AutoGen Epilogue
+#### 8.3.6.5 AutoGen Epilogue
 
 ```c
 #ifdef __cplusplus

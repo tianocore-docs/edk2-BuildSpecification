@@ -1,7 +1,7 @@
 <!--- @file
   4.2 Build Process Overview
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -32,9 +32,7 @@
 ## 4.2 Build Process Overview
 
 Prior to executing a build command, specific system environment variables must
-be initialized: `WORKSPACE`, `EDK_TOOLS_PATH` are required for all builds,
-while `ECP_SOURCE`, `EFI_SOURCE` and `EDK_SOURCE` are only required to build
-EDK II platforms that contain EDK components and EDK libraries. Additionally,
+be initialized: `WORKSPACE`, `EDK_TOOLS_PATH` are required for all builds. Additionally,
 the provided EDK II tool set must be present in a directory that is in the
 system environment variable: PATH. The edksetup scripts provided in the root
 directory of the EDK II development tree will set the `WORKSPACE` and

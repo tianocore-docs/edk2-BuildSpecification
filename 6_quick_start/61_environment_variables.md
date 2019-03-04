@@ -1,7 +1,7 @@
 <!--- @file
   6.1 Environment Variables
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -73,13 +73,6 @@ include the trailing backslash character:
 
 ### 6.1.2 Optional Environment Variables
 
-There are two types of optional environment variables. The first type are used
-for complex development trees, while the second type of optional environment
-variables are needed build EDK components and libraries for use in an EDK II
-platform. Some EDK components and libraries can be used without modifications,
-while other EDK components and libraries will require porting to the new EDK II
-development environment.
-
 When EDK II Packages are distributed within different directory trees on a
 developer's workstation, the `PACKAGES_PATH` environment variable is used to list
 directories (prioritized from left to right) that contain EDK II Package
@@ -100,16 +93,6 @@ and run the Python based tools from source, this environment variable is not
 required. The edksetup script is used to add the path to the binaries to the
 system PATH environment variable.
 
-The `EDK_SOURCE` environment variable must point to either the head of an
-existing EDK directory tree (not the EDK II directory) or the EDK II's
-`EdkCompatibilityPkg` directory.
-
-Another optional environment variable, `EFI_SOURCE`, is needed if the
-`EDK_SOURCE` environment variable is set and an EDK component and/or library is
-located outside of the `EDK_SOURCE` tree. If these values are not set, the EDK
-II build system will automatically set both values to point to the
-`EdkCompatibilityPkg` directory in the `WORKSPACE`.
-
 The final optional environment variable, `ECP_SOURCE`, is used to define the
 location of the EDK Compatibility Package content for building EDK modules. If
 these values are not set, the build system will automatically set the value to
@@ -126,11 +109,6 @@ If a more complex development environment is used (multiple directories
 containing EDK II Packages), then the `WORKSPACE`, `PACKAGES_PATH` and
 `EDK_TOOLS_BIN` environment variables must be set before running the edksetup
 script.
-
-The three optional environment variables, `ECP_SOURCE`, `EDK_SOURCE` and
-`EFI_SOURCE` which are required when building EDK libraries and components in
-the context of an EDK II platform will also be set if they have not been set
-previously.
 
 The script must be executed prior to building in a new command prompt window or
 new terminal shell.

@@ -1,7 +1,7 @@
 <!--- @file
   8.5 Auto-generated Makefiles
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -48,8 +48,8 @@ GenFds tool to regenerate an FD file.
 ### 8.5.1 Module Makefile
 
 This section describe the formats of the individual component/module Makefiles.
-Users may generate a custom makefile for their EDK component or EDK II module
-based on the information provided by this section.
+Users may generate a custom makefile for their EDK II module based on the information 
+provided by this section.
 
 The module `Makefile` is composed by two parts: macro definitions and target
 definitions.
@@ -299,12 +299,9 @@ system has to build libraries that the current module needs in module's
 ```
 mbuild: $(INIT_TARGET) gen_libs $(CODA_TARGET)
 gen_libs:
-    cd $(BUILD_DIR)\IPF\MdePkg\Library\DxePcdLib\DxePcdLib && "$(MAKE)"
+    cd $(BUILD_DIR)\X64\MdePkg\Library\DxePcdLib\DxePcdLib && "$(MAKE)"
 $(MAKE_FLAGS)
-    cd $(BUILD_DIR)\IPF\MdePkg\Library\BaseLib\BaseLib && "$(MAKE)"
-$(MAKE_FLAGS)
-    cd $(BUILD_DIR)\IPF\CsiCpuUncorePkg\Library\ItcTimerLib\ItcTimerLib
-&& "$(MAKE)" $(MAKE_FLAGS)
+    cd $(BUILD_DIR)\X64\MdePkg\Library\BaseLib\BaseLib && "$(MAKE)"
     cd $(MODULE_BUILD_DIR)
 ```
 
@@ -344,8 +341,8 @@ $(DEBUG_DIR)\$(MODULE_NAME).efi : $(DEBUG_DIR)\$(MODULE_NAME).dll
     -$(CP) $(DEBUG_DIR)\*.map $(OUTPUT_DIR)
 
 $(OUTPUT_DIR)\AutoGen.obj : \
-$(WORKSPACE)\Build\MyPlatform\DEBUG_ICC\IPF\MyPlatformPkg\MyModDir\MyModDir\DEBUG\AutoGen.c
-    "$(CC)" /Fo$(OUTPUT_DIR)\AutoGen.obj $(CC_FLAGS) $(INC) $(WORKSPACE)\Build\MyPlatform\DEBUG_ICC\IPF\MyPlatformPkg\MyModDir\MyMod Dir\DEBUG\AutoGen.c
+$(WORKSPACE)\Build\MyPlatform\DEBUG_ICC\X64\MyPlatformPkg\MyModDir\MyModDir\DEBUG\AutoGen.c
+    "$(CC)" /Fo$(OUTPUT_DIR)\AutoGen.obj $(CC_FLAGS) $(INC) $(WORKSPACE)\Build\MyPlatform\DEBUG_ICC\X64\MyPlatformPkg\MyModDir\MyMod Dir\DEBUG\AutoGen.c
 ```
 
 ##### 8.5.1.2.6 clean, cleanall, cleanlib
@@ -362,11 +359,9 @@ cleanall:
     del /f /q *.pdb *.idb > NUL 2>&1
 
 cleanlib:
-    cd $(BUILD_DIR)\IPF\MdePkg\Library\DxePcdLib\DxePcdLib && \
+    cd $(BUILD_DIR)\X64\MdePkg\Library\DxePcdLib\DxePcdLib && \
       "$(MAKE)" $(MAKE_FLAGS) cleanall
-    cd $(BUILD_DIR)\IPF\MdePkg\Library\BaseLib\BaseLib && \
-      "$(MAKE)" $(MAKE_FLAGS) cleanall
-    cd $(BUILD_DIR)\IPF\CsiCpuUncorePkg\Library\ItcTimerLib\ItcTimerLib && \
+    cd $(BUILD_DIR)\X64\MdePkg\Library\BaseLib\BaseLib && \
       "$(MAKE)" $(MAKE_FLAGS) cleanall
     cd $(MODULE_BUILD_DIR)
 ```

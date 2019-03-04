@@ -1,7 +1,7 @@
 <!--- @file
   8.2 Auto-generation Process
 
-  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -248,9 +248,6 @@ directory.
 * All EDK II content used to create PE32/PE32+ images must reside in the
   directory tree pointed to by the `WORKSPACE`.
 
-* EDK content must reside in directories pointed to by the `EFI_SOURCE`,
-  `EDK_SOURCE` and `ECP_SOURCE` system environment variables.
-
 * The build system's output directory is not required to be within the
   `WORKSPACE`.
 
@@ -382,10 +379,7 @@ be altered.
 | Macro Style Used in Meta-Data files | Windows Environment Variable | Linux & OS/X Environment Variable |
 |:-----------------------------------:|:----------------------------:|:---------------------------------:|
 | `$(WORKSPACE)`                      | `%WORKSPACE%`                | `$WORKSPACE`                      |
-| `$(EFI_SOURCE)`                     | `%EFI_SOURCE%`               | `$EFI_SOURCE`                     |
-| `$(EDK_SOURCE)`                     | `%EDK_SOURCE%`               | `$EDK_SOURCE`                     |
 | `$(EDK_TOOLS_PATH)`                 | `%EDK_TOOLS_PATH%`           | `$EDK_TOOLS_PATH`                 |
-| `$(ECP_SOURCE)`                     | `%ECP_SOURCE%`               | `$ECP_SOURCE`                     |
 
 **********
 **Note:** The `PACKAGES_PATH` and `EDK_TOOLS_BIN` system environment variables
@@ -414,9 +408,6 @@ conditional directives. Macros can also be defined or used in the `[Defines]`,
 
 Macros defined by the user may be used in the !include statements in DSC and
 FDF files.
-
-`EDK_GLOBAL` type macros defined in the DSC file can be used in later sections
-of the DSC, FDF and any of the included EDK INF files.
 
 Macro values must be defined prior to using them in directive statements or for
 PCD values. The following provides the precedence (high to low) for obtaining
@@ -482,11 +473,7 @@ internal build tools. These macros must not be redefined.
 | `$(BASE_NAME)`        | The file name of the module binary.                                                                                                                                                                                 |
 | `$(BUILD_DIR)`        | All files for building a platform will be put in this directory                                                                                                                                                     |
 | `$(BUILD_NUMBER)`     | Used in FDF file `[Rules]` sections to identify a build number used in a UEFI Version section. This is a value that is defined in the DSC file.                                                                     |
-| `$(ECP_SOURCE)`       | The system environment variable that points to a version of the Edk Compatibility Package. This is only required if there are EDK components and libraries included in an EDK II platform build.                    |
-| `$(EDK_SOURCE)`       | The system environment variable that points to an EDK tree containing the Foundation elements of an EDK tree. This is only required if there are EDK components and libraries included in an EDK II platform build. |
 | `$(EDK_TOOLS_PATH)`   | The system environment variable that points to the path of build tools                                                                                                                                              |
-| `$(EFI_SOURCE)`       | The system environment variable that points to an EDK tree containing EDK components and libraries. This is only required if there are EDK components and libraries included in an EDK II platform build.           |
-| `$(FILE_GUID)`        | An EDK component's GUID value                                                                                                                                                                                       |
 | `$(INF_OUTPUT)`       | Used in FDF file `[Rules]` sections to identify the location of UEFI compliant binary leaf section content                                                                                                          |
 | `$(INF_VERSION)`      | Used in FDF file `[Rules]` sections to identify the version string used in a UEFI Version section.                                                                                                                  |
 | `$(MODULE_NAME)`      | Current module name                                                                                                                                                                                                 |
@@ -546,23 +533,7 @@ will perform any needed tests.
   DEFINE MDEMEM = $(MDE)/PeiMemoryAllocationLib
   MemoryAllocationLib|$(MDEMEM)/PeiMemoryAllocationLib.inf
 
-[LibraryClasses.IPF]
-  # Cannot use $(PERF) or $(MDEMEM)
-  # Can use $(MDE) from the common section
-  PalLib|$(MDE)/UefiPalLib/UefiPalLib.inf
-  TimerLib|$(MDE)/BaseTimerLibNullTemplate/BaseTimerLibNullTemplate.inf
 ```
-
-#### EDK_GLOBAL
-
-The `EDK_GLOBAL` statements defined in the DSC file can be used during the
-processing of the DSC, FDF and EDK INF files. The definition of the
-`EDK_GLOBAL` name must only be done in the DSC `[Defines]` section. These
-special macros can be used in path statements, `[BuildOptions]` and `[Rule]`
-sections. These statements are used to replace the environment variables that
-were defined for the EDK build tools. They must never be used in a conditional
-directive statement in the DSC and FDF files, nor can they be used by EDK II
-INF files.
 
 #### 8.2.4.5 Conditional Directive Blocks
 
@@ -729,23 +700,10 @@ For logical expressions, any non-zero value must be considered `TRUE`.
 
 Invalid expressions must cause a build break with an appropriate error message.
 
-#### 8.2.4.7 EDK Overrides
-
-For EDK component INF files, an optional sub-element of `<SOURCE_OVERRIDE_PATH>`
-has been defined. If this element is specified, files listed in the directory
-are used instead of the "same-named" files in the component's directory. If an
-EDK component directory lists files, `A.c`, `B.c` and `C.h`, and the directory
-specified in this sub-element contains the file `B.c`, then the component will
-be built using files from the component directory: `A.c` and `C.h`, and the file
-`B.c` from the override directory. Any other files listed in the override
-directory will NOT be included in the build (no new or additional files are
-permitted).
-
-#### 8.2.4.8 DEPEX processing
+#### 8.2.4.7 DEPEX processing
 
 EDK II modules that have dependencies must use the `[Depex]` section to define
-the dependency expressions, however both EDK and EDK II may specify a
-dependency expression file. If the file specified, the complete dependency
+the dependency expressions. If the file specified, the complete dependency
 expression must be defined in the file. For EDK II modules, the build tools
 will create the complete dependency expression using the information in the
 `[Depex]` section along with all `[Depex]` sections from the linked in library
@@ -767,7 +725,7 @@ precedence for dependency expressions.
 | `SOR`             | TRUE, FALSE, GUID or Encapsulation                    | Only valid for DXE and SMM dependency expressions and must be the first statement followed by either a GUID, encapsulation or an expression                               |            |
 | `AFTER`, `BEFORE` | GUID                                                  | Only valid for DXE and SMM dependency expressions. These must be the only operator in the dependency expression. Only one of these is permitted per dependency expression |            |
 
-#### 8.2.4.9 PCD Access Methods
+#### 8.2.4.8 PCD Access Methods
 
 A PCD is defined as `TokenSpaceGuidCName.PcdCName`. Each PcdCName must be
 unique to the Token Space declaring the PCD. The token space is a name space
@@ -856,7 +814,7 @@ PCD values stored in VPD regions are processed prior to completing the final
 PCD parsing. Refer to Section 8.4 for additional rules for processing PCDs to
 create a platform scoped PCD Database.
 
-#### 8.2.4.10 Precedence of PCD Values
+#### 8.2.4.9 Precedence of PCD Values
 
 The values that are assigned to individual PCDs required by a build may come
 from different locations and different meta-data files. The following provides
@@ -927,7 +885,7 @@ L"Module Length"` 26 bytes, 2 bytes for null termination character).
 aligned if the value is a Unicode string or 8-byte aligned in the value is a
 byte array.
 
-#### 8.2.4.11 Section Handling
+#### 8.2.4.10 Section Handling
 
 The INF and DEC file parsing routines must process the sections so that common
 architecture sections are logically merged with the architecturally specific
@@ -954,9 +912,6 @@ Common Section + Architectural Section + Common Section w/extra Modifier + Archi
 [BuildOptions.Common]
   MSFT:*_*_*_CC_FLAGS = /nologo
 
-[BuildOptions.Common.EDK]
-  MSFT:*_*_*_CC_FLAGS = /Od
-
 [BuildOptions.IA32]
   MSFT:*_*_IA32_CC_FLAGS = /D EFI32
 ```
@@ -965,16 +920,7 @@ For IA32 architecture builds of an EDK II INF file would logically be:
 
 `MSFT:*_*_IA32_CC_FLAGS = /nologo /D EFI32`
 
-For non-IA32 architecture EDK INF files, tool parsing would logically be:
-
-`MSFT:*_*_*_CC_FLAGS = /nologo /Od`
-
-For IA32 architecture builds of an EDK INF file, tool parsing would logically
-be:
-
-`MSFT:*_*_IA32_CC_FLAGS = /nologo /D EFI32 /Od`
-
-#### 8.2.4.12 PCD INFO Generation
+#### 8.2.4.11 PCD INFO Generation
 
 The UEFI Platform Initialization specification defines a PEIM and Protocol that
 can retrieve the PCD Token number and the PCD Token Name (the PCD C Name)
@@ -989,7 +935,7 @@ If the `[Defines]` section has the `PCD_VAR_CHECK_GENERATION` entry set to
 TRUE, then a binary file will be created in the FV directory for Dynamic and
 DynamicEx PCD HII Variable checking.
 
-#### 8.2.4.13 Pre Build Processing
+#### 8.2.4.12 Pre Build Processing
 
 The DSC file is parsed after the tool meta-data files. If the `[Defines]`
 section of the DSC file contains a `PREBUILD = entry` statement, processing
@@ -1022,7 +968,7 @@ or special characters. Quotes may be used for arguments that have spaces or
 special characters.
 **********
 
-#### 8.2.4.14 NMAKE Command line limitation handling
+#### 8.2.4.13 NMAKE Command line limitation handling
 
 `NMAKE` is limited to command-line length of 4096 characters.  Due to the large
 number of `/I` directives specified on command line (one per include directory),
@@ -1042,7 +988,7 @@ maximum command line length.  The default value is 4096.
 and `ASM_FLAGS`.
 **********
 
-#### 8.2.4.15 Build with Binary Cache
+#### 8.2.4.14 Build with Binary Cache
 
 **build** tool provides three new options for binary cache feature.
 --hash enables hash-based caching during build process. when --hash is enabled,
@@ -1062,7 +1008,7 @@ files from the binary source directory at the build phase. If the cached binary 
 the same hash value, it will be directly used. Otherwise, build tool will compile the
 source files and generate the binary files.
 
-#### 8.2.4.16 !error Statement
+#### 8.2.4.15 !error Statement
 
 The DSC and FDF file can use `!error` statement. The argument of this statement is an
 error message, it causes build tool to stop at the location where the statement is

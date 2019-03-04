@@ -1,7 +1,7 @@
 <!--- @file
   12 Build Changes and Customizations
 
-  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -32,4 +32,4 @@
 # 12 Build Changes and Customizations
 
 This chapter deals with customizing a build, including options and settings for
-debugging, using custom tools as well as how to customize EDK component builds
+debugging, using custom tools.
