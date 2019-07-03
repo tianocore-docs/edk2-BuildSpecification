@@ -684,6 +684,7 @@ Which files are included is determined by module type.
 ```c
 Switch MODULE_TYPE {
   case "BASE":
+  case "HOST_APPLICATION":
   case "USER_DEFINED":
     include_statement (AutoGen.c, "
       #include <Base.h>
