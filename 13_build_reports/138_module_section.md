@@ -38,11 +38,12 @@ sections are listed according to their DSC position.
 
 ### 13.8.1 Module Section Summary
 
-This sub-section lists the module basic information: Module name, INF file
-path, File GUID, Size, hash value, module build time stamp, module build time
-and driver type.
+This sub-section lists the module basic information: Module name, Module Arch,
+INF file path, File GUID, Size, hash value, module build time stamp, module
+build time and driver type.
 
 * Module Name : %`BASE_NAME` in INF `[Defines]` section%
+* Module Arch : %Architecture of current module%
 * Module INF Path : %Path of Module INF file%
 * File GUID : %`FILE_GUID` in INF `[Defines]` section%
 * Size : %Module EFI image size%
@@ -70,6 +71,7 @@ Volume 3 of the PI Specification (Table 3 Defined File Types).
 >==========================================================================<
 Module Summary
 Module Name:        SmbiosDxe
+Module Arch:        X64
 Module INF Path:    MdeModule\Universal\SmbiosDxe\SmbiosDxe.inf
 File GUID:          F9D88642-0737-49BC-81B5-6889CD57D9EA
 Size:               0x7000 (28.00K)
@@ -88,6 +90,7 @@ Driver Type:        0x7 (DRIVER)
 >==========================================================================<
 Module Summary
 Module Name:        EbcDxe
+Module Arch:        X64
 Module INF Path:    MdeModule\Universal\EbcDxe\EbcDxe.inf
 File GUID:          13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
 Size:               0x9000 (36.00K)
