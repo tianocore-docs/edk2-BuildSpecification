@@ -3,7 +3,6 @@
     "title"   : "EDK II Build Specification",
     "version" : "Revision 1.28"
   },
-
-  "plugins": ["puml"],
+  "plugins": ["puml-aleung"],
   "pluginsConfig": {}
 }
