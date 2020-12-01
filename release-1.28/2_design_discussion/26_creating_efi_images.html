@@ -1,0 +1,2349 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.6 Creating EFI Images · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="27_sku_support.html" />
+    
+    
+    <link rel="prev" href="25_generic_build_process.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../#edk-ii-build-specification">
+            
+                    
+                    EDK II Build Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../TABLES.html">
+            
+                <a href="../TABLES.html#tables">
+            
+                    
+                    Tables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../FIGURES.html">
+            
+                <a href="../FIGURES.html#figures">
+            
+                    
+                    Figures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#1-introduction">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#11-overview">
+            
+                    
+                    1.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#12-target-audience">
+            
+                    
+                    1.2 Target Audience
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../1_introduction/13_terms.html">
+            
+                <a href="../1_introduction/13_terms.html#13-terms">
+            
+                    
+                    1.3 Terms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../1_introduction/14_related_information.html">
+            
+                <a href="../1_introduction/14_related_information.html#14-related-information">
+            
+                    
+                    1.4 Related Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../1_introduction/15_conventions_used_in_this_document.html">
+            
+                <a href="../1_introduction/15_conventions_used_in_this_document.html#15-conventions-used-in-this-document">
+            
+                    
+                    1.5 Conventions Used in this Document
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./#2-design-discussion">
+            
+                    
+                    2 Design Discussion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="21_development_environments.html">
+            
+                <a href="21_development_environments.html#21-development-environments">
+            
+                    
+                    2.1 Development Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="22_uefipi_firmware_images.html">
+            
+                <a href="22_uefipi_firmware_images.html#22-uefipi-firmware-images">
+            
+                    
+                    2.2 UEFI/PI Firmware Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="23_boot_sequence.html">
+            
+                <a href="23_boot_sequence.html#23-boot-sequence">
+            
+                    
+                    2.3 Boot Sequence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="24_typical_flash_part_layout.html">
+            
+                <a href="24_typical_flash_part_layout.html#24-typical-flash-part-layout">
+            
+                    
+                    2.4 Typical Flash Part Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="25_generic_build_process.html">
+            
+                <a href="25_generic_build_process.html#25-generic-build-process">
+            
+                    
+                    2.5 Generic Build Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="26_creating_efi_images.html">
+            
+                <a href="26_creating_efi_images.html#26-creating-efi-images">
+            
+                    
+                    2.6 Creating EFI Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="27_sku_support.html">
+            
+                <a href="27_sku_support.html#27-sku-support">
+            
+                    
+                    2.7 SKU Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../3_uefi_and_pi_image_specification.html">
+            
+                <a href="../3_uefi_and_pi_image_specification.html#3-uefi-and-pi-image-specification">
+            
+                    
+                    3 UEFI and PI Image Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../4_edk_ii_build_process_overview/">
+            
+                <a href="../4_edk_ii_build_process_overview/#4-edk-ii-build-process-overview">
+            
+                    
+                    4 EDK II Build Process Overview
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../4_edk_ii_build_process_overview/41_edk_ii_build_system.html">
+            
+                <a href="../4_edk_ii_build_process_overview/41_edk_ii_build_system.html#41-edk-ii-build-system">
+            
+                    
+                    4.1 EDK II Build System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../4_edk_ii_build_process_overview/42_build_process_overview.html">
+            
+                <a href="../4_edk_ii_build_process_overview/42_build_process_overview.html#42-build-process-overview">
+            
+                    
+                    4.2 Build Process Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../4_edk_ii_build_process_overview/43_pre-build_stage_overview.html">
+            
+                <a href="../4_edk_ii_build_process_overview/43_pre-build_stage_overview.html#43-pre-build-stage-overview">
+            
+                    
+                    4.3 Pre-Build Stage Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../4_edk_ii_build_process_overview/44_creating_binary_efi_images_-_make_stage.html">
+            
+                <a href="../4_edk_ii_build_process_overview/44_creating_binary_efi_images_-_make_stage.html#44-creating-binary-efi-images---make-stage">
+            
+                    
+                    4.4 Creating Binary EFI Images - $(MAKE) stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../4_edk_ii_build_process_overview/45_post-build_stage.html">
+            
+                <a href="../4_edk_ii_build_process_overview/45_post-build_stage.html#45-post-build-stage">
+            
+                    
+                    4.5 Post-Build Stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../4_edk_ii_build_process_overview/46_file_specifications.html">
+            
+                <a href="../4_edk_ii_build_process_overview/46_file_specifications.html#46-file-specifications">
+            
+                    
+                    4.6 File Specifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../4_edk_ii_build_process_overview/47_file_extensions.html">
+            
+                <a href="../4_edk_ii_build_process_overview/47_file_extensions.html#47-file-extensions">
+            
+                    
+                    4.7 File Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../5_meta-data_file_specifications/">
+            
+                <a href="../5_meta-data_file_specifications/#5-meta-data-file-specifications">
+            
+                    
+                    5 Meta-Data File Specifications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../5_meta-data_file_specifications/51_build_meta-data_file_formats.html">
+            
+                <a href="../5_meta-data_file_specifications/51_build_meta-data_file_formats.html#51-build-meta-data-file-formats">
+            
+                    
+                    5.1 Build Meta-Data File Formats
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../5_meta-data_file_specifications/52_tools_def_txt.html">
+            
+                <a href="../5_meta-data_file_specifications/52_tools_def_txt.html#52-tools-deftxt">
+            
+                    
+                    5.2 tools_def.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../5_meta-data_file_specifications/53_target_txt_file.html">
+            
+                <a href="../5_meta-data_file_specifications/53_target_txt_file.html#53-targettxt-file">
+            
+                    
+                    5.3 target.txt File
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../6_quick_start/">
+            
+                <a href="../6_quick_start/#6-quick-start">
+            
+                    
+                    6 Quick Start
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../6_quick_start/61_environment_variables.html">
+            
+                <a href="../6_quick_start/61_environment_variables.html#61-environment-variables">
+            
+                    
+                    6.1 Environment Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../6_quick_start/62_build_scope.html">
+            
+                <a href="../6_quick_start/62_build_scope.html#62-build-scope">
+            
+                    
+                    6.2 Build Scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../7_build_environment/">
+            
+                <a href="../7_build_environment/#7-build-environment">
+            
+                    
+                    7 Build Environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../7_build_environment/71_build_scope.html">
+            
+                <a href="../7_build_environment/71_build_scope.html#71-build-scope">
+            
+                    
+                    7.1 Build Scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../7_build_environment/72_third_party_tools.html">
+            
+                <a href="../7_build_environment/72_third_party_tools.html#72-third-party-tools">
+            
+                    
+                    7.2 Third Party Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../7_build_environment/73_guided_tools.html">
+            
+                <a href="../7_build_environment/73_guided_tools.html#73-guided-tools">
+            
+                    
+                    7.3 GUIDed Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../8_pre-build_autogen_stage/">
+            
+                <a href="../8_pre-build_autogen_stage/#8-pre-build-autogen-stage">
+            
+                    
+                    8 Pre-Build AutoGen Stage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../8_pre-build_autogen_stage/81_overview.html">
+            
+                <a href="../8_pre-build_autogen_stage/81_overview.html#81-overview">
+            
+                    
+                    8.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../8_pre-build_autogen_stage/82_auto-generation_process.html">
+            
+                <a href="../8_pre-build_autogen_stage/82_auto-generation_process.html#82-auto-generation-process">
+            
+                    
+                    8.2 Auto-generation Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../8_pre-build_autogen_stage/83_auto-generated_code.html">
+            
+                <a href="../8_pre-build_autogen_stage/83_auto-generated_code.html#83-auto-generated-code">
+            
+                    
+                    8.3 Auto-generated code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.html">
+            
+                <a href="../8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.html#84-auto-generated-pcd-database-file">
+            
+                    
+                    8.4 Auto-generated PCD Database File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../8_pre-build_autogen_stage/85_auto-generated_makefiles.html">
+            
+                <a href="../8_pre-build_autogen_stage/85_auto-generated_makefiles.html#85-auto-generated-makefiles">
+            
+                    
+                    8.5 Auto-generated Makefiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../8_pre-build_autogen_stage/86_binary_modules.html">
+            
+                <a href="../8_pre-build_autogen_stage/86_binary_modules.html#86-binary-modules">
+            
+                    
+                    8.6 Binary Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../8_pre-build_autogen_stage/87_generated_asbuilt_inf_files.html">
+            
+                <a href="../8_pre-build_autogen_stage/87_generated_asbuilt_inf_files.html#87-generated-asbuilt-inf-files">
+            
+                    
+                    8.7 Generated AsBuilt INF Files
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../9_build_or_make_stage/">
+            
+                <a href="../9_build_or_make_stage/#9-build-or-make-stage">
+            
+                    
+                    9 Build or $(MAKE) Stage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../9_build_or_make_stage/91_overview.html">
+            
+                <a href="../9_build_or_make_stage/91_overview.html#91-overview">
+            
+                    
+                    9.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../9_build_or_make_stage/92_preprocesstrim.html">
+            
+                <a href="../9_build_or_make_stage/92_preprocesstrim.html#92-preprocesstrim">
+            
+                    
+                    9.2 Preprocess/Trim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../9_build_or_make_stage/93_compileassembly.html">
+            
+                <a href="../9_build_or_make_stage/93_compileassembly.html#93-compileassembly">
+            
+                    
+                    9.3 Compile/Assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../9_build_or_make_stage/94_static_link.html">
+            
+                <a href="../9_build_or_make_stage/94_static_link.html#94-static-link">
+            
+                    
+                    9.4 Static Link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../9_build_or_make_stage/95_dynamic_link.html">
+            
+                <a href="../9_build_or_make_stage/95_dynamic_link.html#95-dynamic-link">
+            
+                    
+                    9.5 Dynamic Link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../9_build_or_make_stage/96_generate_module_images.html">
+            
+                <a href="../9_build_or_make_stage/96_generate_module_images.html#96-generate-module-images">
+            
+                    
+                    9.6 Generate Module Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../9_build_or_make_stage/97_generate_platform_images.html">
+            
+                <a href="../9_build_or_make_stage/97_generate_platform_images.html#97-generate-platform-images">
+            
+                    
+                    9.7 Generate Platform Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../10_post-build_imagegen_stage_-_flash/">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/#10-post-build-imagegen-stage---flash">
+            
+                    
+                    10 Post-Build ImageGen Stage - FLASH
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../10_post-build_imagegen_stage_-_flash/101_overview_of_flash_device_layout.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/101_overview_of_flash_device_layout.html#101-overview-of-flash-device-layout">
+            
+                    
+                    10.1 Overview of Flash Device Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../10_post-build_imagegen_stage_-_flash/102_parsing_fdf_meta-data_file.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/102_parsing_fdf_meta-data_file.html#102-parsing-fdf-meta-data-file">
+            
+                    
+                    10.2 Parsing FDF Meta-Data File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.html#103-build-intermediate-images">
+            
+                    
+                    10.3 Build Intermediate Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.html#104-create-the-fv-image-files">
+            
+                    
+                    10.4 Create the FV Image File(s)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.html#105-create-the-fd-image-files">
+            
+                    
+                    10.5 Create the FD image file(s)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../10_post-build_imagegen_stage_-_flash/106_post_build_processing.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/106_post_build_processing.html#106_post_build_processing">
+            
+                    
+                    10.6 Post Build Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../11_post-build_imagegen_stage_-_other/">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/#11-post-build-imagegen-stage---other">
+            
+                    
+                    11 Post-Build ImageGen Stage - Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.html#111-efi-pci-option-rom-images">
+            
+                    
+                    11.1 EFI PCI Option ROM Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../11_post-build_imagegen_stage_-_other/112_uefi_applications.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/112_uefi_applications.html#112-uefi-applications">
+            
+                    
+                    11.2 UEFI Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../11_post-build_imagegen_stage_-_other/113_capsules.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/113_capsules.html#113-capsules">
+            
+                    
+                    11.3 Capsules
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../12_build_changes_and_customizations/">
+            
+                <a href="../12_build_changes_and_customizations/#12-build-changes-and-customizations">
+            
+                    
+                    12 Build Changes and Customizations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../12_build_changes_and_customizations/121_building_for_debug.html">
+            
+                <a href="../12_build_changes_and_customizations/121_building_for_debug.html#121-building-for-debug">
+            
+                    
+                    12.1 Building for Debug
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../12_build_changes_and_customizations/122_adding_custom_compression_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/122_adding_custom_compression_tools.html#122-adding-custom-compression-tools">
+            
+                    
+                    12.2 Adding Custom Compression Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../12_build_changes_and_customizations/123_using_custom_build_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/123_using_custom_build_tools.html#123-using-custom-build-tools">
+            
+                    
+                    12.3 Using Custom Build Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../12_build_changes_and_customizations/124_customizing_compilation_for_a_component.html">
+            
+                <a href="../12_build_changes_and_customizations/124_customizing_compilation_for_a_component.html#124-customizing-compilation-for-a-component">
+            
+                    
+                    12.4 Customizing Compilation for a Component
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" data-path="../12_build_changes_and_customizations/125_platform_specific_asl_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/125_platform_specific_asl_tools.html#125-platform-specific-asl-tools">
+            
+                    
+                    12.5 Platform Specific ASL Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" data-path="../12_build_changes_and_customizations/126_build_reproducibility.html">
+            
+                <a href="../12_build_changes_and_customizations/126_build_reproducibility.html#126-build-reproducibility">
+            
+                    
+                    12.6 Build Reproducibility
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../13_build_reports/">
+            
+                <a href="../13_build_reports/#13-build-reports">
+            
+                    
+                    13 Build Reports
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../13_build_reports/131_build_report_generation_options.html">
+            
+                <a href="../13_build_reports/131_build_report_generation_options.html#131-build-report-generation-options">
+            
+                    
+                    13.1 Build Report Generation Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../13_build_reports/132_sample_launch_steps_nt32_platform.html">
+            
+                <a href="../13_build_reports/132_sample_launch_steps_nt32_platform.html#132-sample-launch-steps-nt32-platform">
+            
+                    
+                    13.2 Sample Launch Steps: NT32 platform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../13_build_reports/133_output.html">
+            
+                <a href="../13_build_reports/133_output.html#133-output">
+            
+                    
+                    13.3 Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../13_build_reports/134_platform_summary.html">
+            
+                <a href="../13_build_reports/134_platform_summary.html#134-platform-summary">
+            
+                    
+                    13.4 Platform Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.5" data-path="../13_build_reports/135_mixed_pcd_section.html">
+            
+                <a href="../13_build_reports/135_mixed_pcd_section.html#135-mixed-pcd-section">
+            
+                    
+                    13.5 Mixed PCD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.6" data-path="../13_build_reports/136_global_pcd_section.html">
+            
+                <a href="../13_build_reports/136_global_pcd_section.html#136-global-pcd-section">
+            
+                    
+                    13.6 Global PCD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.7" data-path="../13_build_reports/137_fd_section.html">
+            
+                <a href="../13_build_reports/137_fd_section.html#137-fd-section">
+            
+                    
+                    13.7 FD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.8" data-path="../13_build_reports/138_module_section.html">
+            
+                <a href="../13_build_reports/138_module_section.html#138-module-section">
+            
+                    
+                    13.8 Module Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.9" data-path="../13_build_reports/139_execution_order_prediction_section.html">
+            
+                <a href="../13_build_reports/139_execution_order_prediction_section.html#139-execution-order-prediction-section">
+            
+                    
+                    13.9 Execution Order Prediction Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../appendix_a_variables.html">
+            
+                <a href="../appendix_a_variables.html#appendix-a-variables">
+            
+                    
+                    Appendix A Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../appendix_b_toolsdef_txt.html">
+            
+                <a href="../appendix_b_toolsdef_txt.html#appendix-b-tools_deftxt">
+            
+                    
+                    Appendix B tools_def.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../appendix_c_targettxt.html">
+            
+                <a href="../appendix_c_targettxt.html#appendix-c-targettxt">
+            
+                    
+                    Appendix C target.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../appendix_d_buildexe_command/">
+            
+                <a href="../appendix_d_buildexe_command/#appendix-d-buildexe-command">
+            
+                    
+                    Appendix D build.exe command
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.20.1" data-path="../appendix_d_buildexe_command/d1_overview.html">
+            
+                <a href="../appendix_d_buildexe_command/d1_overview.html#d1-overview">
+            
+                    
+                    D.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.2" data-path="../appendix_d_buildexe_command/d2_makefile_actions.html">
+            
+                <a href="../appendix_d_buildexe_command/d2_makefile_actions.html#d2-makefile-actions">
+            
+                    
+                    D.2 Makefile actions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.3" data-path="../appendix_d_buildexe_command/d3_build_targets_and_options.html">
+            
+                <a href="../appendix_d_buildexe_command/d3_build_targets_and_options.html#d3-build-targets-and-options">
+            
+                    
+                    D.3 Build Targets and options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.4" data-path="../appendix_d_buildexe_command/d4_usage.html">
+            
+                <a href="../appendix_d_buildexe_command/d4_usage.html#d4-usage">
+            
+                    
+                    D.4 Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../appendix_e_nt32_platform_emulation.html">
+            
+                <a href="../appendix_e_nt32_platform_emulation.html#appendix-e-nt32-platform-emulation">
+            
+                    
+                    Appendix E NT32 Platform Emulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../appendix_f_firmware_volume_inf/">
+            
+                <a href="../appendix_f_firmware_volume_inf/#appendix-f-firmware-volume-inf">
+            
+                    
+                    Appendix F Firmware Volume INF
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.22.1" data-path="../appendix_f_firmware_volume_inf/f1_firmware_volume_inf_description.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f1_firmware_volume_inf_description.html#f1-firmware-volume-inf-description">
+            
+                    
+                    F.1 Firmware Volume INF Description
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.2" data-path="../appendix_f_firmware_volume_inf/f2_[attributes]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f2_[attributes]_section.html#f2-attributes-section">
+            
+                    
+                    F.2 [Attributes] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.3" data-path="../appendix_f_firmware_volume_inf/f3_[files]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f3_[files]_section.html#f3-files-section">
+            
+                    
+                    F.3 [Files] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.4" data-path="../appendix_f_firmware_volume_inf/f4_[options]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f4_[options]_section.html#f4-options-section">
+            
+                    
+                    F.4 [Options] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../appendix_g_vs2005_team_suite_performance/">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/#appendix-g-vs2005-team-suite-performance-profile">
+            
+                    
+                    Appendix G VS2005 Team Suite Performance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.23.1" data-path="../appendix_g_vs2005_team_suite_performance/g1_step_1_-_create_a_new_project.html">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/g1_step_1_-_create_a_new_project.html#g1-step-1---create-a-new-project">
+            
+                    
+                    G.1 Step 1 - Create a new project
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23.2" data-path="../appendix_g_vs2005_team_suite_performance/g2_step_2_-_update_the_project.html">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/g2_step_2_-_update_the_project.html#g2-step-2---update-the-project">
+            
+                    
+                    G.2 Step 2 - Update the project
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../appendix_h_module_types.html">
+            
+                <a href="../appendix_h_module_types.html#appendix-h-module-types">
+            
+                    
+                    Appendix H Module Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../appendix_i_vpd_tool/">
+            
+                <a href="../appendix_i_vpd_tool/#appendix-i-vpd-tool">
+            
+                    
+                    Appendix I VPD Tool
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.25.1" data-path="../appendix_i_vpd_tool/i1_build_system_output_file_format.html">
+            
+                <a href="../appendix_i_vpd_tool/i1_build_system_output_file_format.html#i1-build-system-output-file-format">
+            
+                    
+                    I.1 Build System Output File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25.2" data-path="../appendix_i_vpd_tool/i2_vpd_tool_map_file_format.html">
+            
+                <a href="../appendix_i_vpd_tool/i2_vpd_tool_map_file_format.html#i2-vpd-tool-map-file-format">
+            
+                    
+                    I.2 VPD Tool Map File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../appendix_j_makefiles.html">
+            
+                <a href="../appendix_j_makefiles.html#appendix-j-makefiles">
+            
+                    
+                    Appendix J Makefiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.26.1" data-path="../appendix_j_makefiles.html">
+            
+                <a href="../appendix_j_makefiles.html#j1-nmake-module-makefile-format">
+            
+                    
+                    J.1 NMAKE Module Makefile Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../appendix_k_third_party_tool_flags.html">
+            
+                <a href="../appendix_k_third_party_tool_flags.html#appendix-k-third-party-tool-flags">
+            
+                    
+                    Appendix K Third Party Tool Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.6 Creating EFI Images</a>
+    </h1>
+</div>
+<div>
+    <!-- 
+    <img style="float:left; align:middle; height:2em" src="media/TianocoreTitlePageLogo.jpg"/>
+     -->
+    
+      <h2>
+        <div style="position:absolute;text-align:left">EDK II Build Specification</div>
+        <div style="text-align:right">Revision 1.28</div>
+      </h2>  
+    
+    <hr>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <!--- @file
+  2.6 Creating EFI Images
+
+  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+
+  Redistribution and use in source (original document form) and 'compiled'
+  forms (converted to PDF, epub, HTML and other formats) with or without
+  modification, are permitted provided that the following conditions are met:
+
+  1) Redistributions of source code (original document form) must retain the
+     above copyright notice, this list of conditions and the following
+     disclaimer as the first lines of this file unmodified.
+
+  2) Redistributions in compiled form (transformed to other DTDs, converted to
+     PDF, epub, HTML and other formats) must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+
+  THIS DOCUMENTATION IS PROVIDED BY TIANOCORE PROJECT "AS IS" AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+  EVENT SHALL TIANOCORE PROJECT  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
+  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<h2 id="26-creating-efi-images">2.6 Creating EFI Images</h2>
+<h3 id="261-compiling-code">2.6.1 Compiling Code</h3>
+<p>EDK II modules include both libraries, drivers and applications. Library
+modules are compiled and linked as static libraries. Drivers and applications
+are compiled to object files, then linked with the static libraries they
+require. After the static image has been created, the resulting image is run
+through the dynamic linker to generate the relocateable binary images (DLL).
+All EFI images must be formatted PE32/PE32+/COFF.</p>
+<hr>
+<p><strong>Note:</strong> ELF images created by GCC on UNIX-based systems need additional
+processing to convert the image into the PE32+/COFF format.</p>
+<hr>
+<p>Since UEFI/PI images are not standard executables, these dynamically linked
+(DLL) files must be processed to become UEFI/PI compliant images. This
+processing involves replacing the standard header with an EFI header that
+reflects the <code>EFI_SECTION</code> type. Prior to creating the EFI section files, PEI
+Foundation and PEIM images may be processed into either a terse image, or have
+the .reloc section removed (for images that will always execute directly from
+ROM).</p>
+<h3 id="262-creating-a-terse-image">2.6.2 Creating a Terse Image</h3>
+<p>The following is an partial view of the process; omissions may exist.</p>
+<p>To create a Terse image:</p>
+<ol>
+<li><p>The DOS, PE and/or optional headers must be replaced with a minimal header.
+The TE header will have a signature of &quot;VZ&quot;. Per the PE/COFF specification,
+at offset 0x3C in the file is a 32-bit offset (from the start of the file) to
+the PE signature, which always follows the MSDOS stub. The PE signature is
+immediately followed by the COFF file header.</p>
+</li>
+<li><p>After verifying the DOS header&apos;s magic number (0x5A4D), the PE signature
+(&quot;PE\0\0&quot;)is verified, then obtains the Machine type from the optional
+header&apos;s subsystem field.</p>
+<ul>
+<li><p>Since this process removes bytes from the file, the number of bytes
+stripped must be calculated based on the location of the PESigOffset
+(0x3C) plus the 4 bytes containing the offset pointer plus the size of
+the Coff header plus the size of any Optional Header (from the Coff
+header&apos;s <code>SizeOfOptionalHeader</code>).</p>
+</li>
+<li><p>The number of bytes stripped must always be less than 64K bytes. The
+original file size minus the number of bytes stripped is then inserted
+into the TE header&apos;s StrippedSize value.</p>
+</li>
+<li><p>The optional header&apos;s magic number is used to determine whether the
+Optional Header data structure is IPF (<code>EFI_OPTIONAL_IMAGE_HEADER64</code>) or
+non-IPF (<code>EFI_OPTIONAL_IMAGE_HEADER32</code>) .</p>
+</li>
+<li><p>Using the correct optional header format, the TE header&apos;s
+<code>AddressOfEntryPoint</code> is set to the optional header&apos;s
+<code>AddressOfEntryPoint</code>. Additionally, the <code>Subsystem</code> entry from the
+optional header&apos;s <code>Subsystem</code> entry will be packed into one byte.</p>
+</li>
+<li><p>Additional entries, <code>BaseOfCode</code> and <code>ImageBase</code> in the TE header come
+from the optional Header. If the optional header&apos;s <code>NumberOfRvaAndSizes</code>
+is greater than 0, then the relocation data from the optional header
+<code>DataDirectory[0].VirtualAddress</code> and <code>Size</code> is set based on the content
+of the optional header&apos;s <code>DataDirectory[0]</code> values.</p>
+</li>
+<li><p>Likewise, if the <code>NumberOfRvaAndSizes</code> is greater than 1, then the debug
+data from the optional header&apos;s <code>DataDirectory[1].VirtualAddress</code> and
+<code>Size</code> is set in the TE header&apos;s <code>DataDirectory[1]</code> entry.</p>
+</li>
+</ul>
+</li>
+<li><p>As a last step before creating the image, the COFF header specifies the
+value of the <code>NumberOfSections</code> in the file which needs to be packed into a
+single byte of the TE header. The number of sections must be less than 255
+for this to succeed.</p>
+</li>
+<li><p>After the header is created, then the rest of the original image - all
+header information stripped is appended to the TE header.</p>
+</li>
+</ol>
+<p>Figure 10 shows the relationship of original image to the TE image.</p>
+<p><img src="../media/image12.png" alt=""></p>
+<h6 id="figure-12-standard-image-to-terse-image-comparison">Figure 12 Standard Image to Terse Image Comparison</h6>
+<h3 id="263-removing-reloc-sections">2.6.3 Removing .reloc sections</h3>
+<p>Removing the relocation section of either a PE or TE image can only be done if
+the <code>.reloc</code> section is at the end of the file. While most .reloc sections are
+fairly small in comparison to the other sections of the files, removing all of
+the .reloc sections in combination with using Terse images for the PEI
+foundation and PEIMs that do not register for shadow (see UEFI/PI specs) can
+shrink a platform image by several hundred bytes.</p>
+<p>For a TE image, the file size (<code>StrippedSize</code>) is adjusted by subtracting the
+length of the <code>.reloc</code> section. The <code>DataDirectory[0] VirtualAddress</code> is set to
+0, as is the <code>Size</code> parameter.</p>
+<p>Removing the relocation section of a PE image is slightly more complicated. The
+PE32+ image header (which contains both the <code>EFI_IMAGE_DOS_SIGNATURE</code> - <code>0x5A4D</code>
+and an <code>EFI_IMAGE_NT_SIGNATURE</code> - <code>0x00004545</code>) will be modified by setting the
+<code>EFI_IMAGE_FILE_HEADER</code> Characteristics&apos; <code>EFI_IMAGE_FILE_RELOCS_STRIPPED</code> bit.
+The IPF header uses a similar data structure to IA32, X64 and EBC data
+structures. The naming within the data structures is consistent. Therefore,
+regardless of the machine type, both the <code>SizeOfImage</code> and
+<code>SizeOfInitializedData</code> are adjusted by subtracting the length of the <code>.reloc</code>
+section. If the <code>NumberOfRvaAndSizes</code> is greater than the
+<code>EFI_IMAGE_DIRECTORY_ENTRY_BASERELOC</code>, then the <code>DataDirectory[0]</code>
+<code>VirtualAddress</code> and the <code>Size</code> are both set to 0. Finally, the <code>.reloc</code>
+section&apos;s header is modified, setting the <code>Misc.VirtualSize</code> and
+<code>SizeOfRawData</code> to 0.</p>
+<h3 id="264-generating-leaf-efisection-files">2.6.4 Generating LEAF EFI_SECTION Files</h3>
+<p>This section provides the overview for generating <code>EFI SECTION</code> files.
+EFI_SECTION headers must be present on all leaf sections. The EFI Section
+header (see above) will be prefixed to the file or data section (<code>VERSION</code> and
+<code>USER_INTERFACE</code> data can be generated &quot;on-the-fly&quot; rather than creating a
+separate Unicode file first).</p>
+<p>For the files that are PE32 code (<code>EFI_SECTION_PE32</code>, <code>EFI_SECTION_TE</code> and
+<code>EFI_SECTION_PIC</code>, the <code>.text</code>, <code>.debug</code>, <code>.reloc</code> and <code>.data</code> section headers
+(if they exist) are overwritten with the <code>EFI_IMAGE_SECTION_HEADER</code>.</p>
+<p>The section name (i.e., .<code>text</code>) is copied into the <code>Name</code> entry, while the
+remaining sections are set as follows:</p>
+<pre><code class="lang-c">Hdr-&gt;Misc.VirtualSize     = Size;
+Hdr-&gt;VirtualAddress       = Offset;
+Hdr-&gt;SizeOfRawData        = Size;
+Hdr-&gt;PointerToRawData     = Offset;
+Hdr-&gt;PointerToRelocations = <span class="hljs-number">0</span>;
+Hdr-&gt;PointerToLinenumbers = <span class="hljs-number">0</span>;
+Hdr-&gt;NumberOfRelocations  = <span class="hljs-number">0</span>;
+Hdr-&gt;NumberOfLinenumbers  = <span class="hljs-number">0</span>;
+Hdr-&gt;Characteristics      = Flags;
+</code></pre>
+<ul>
+<li><p>For a <code>.text</code> section, the <code>Flags</code> value is a bit-wise OR of
+<code>EFI_IMAGE_SCN_CNT_CODE</code>, <code>EFI_IMAGE_SCN_MEM_EXECUTE</code> and
+<code>EFI_IMGE_SCN_MEM_READ</code> (<code>0x60000020</code>).</p>
+</li>
+<li><p>For a <code>.data</code> section, the Flags value is a bit-wise OR of
+<code>EFI_IMAGE_SCN_CNT_INITIALIZED_DATA</code>, <code>EFI_IMAGE_SCN_MEM_WRITE</code> and
+<code>EFI_IMAGE_SCN_MEM_READ</code> (<code>0xC0000040</code>).</p>
+</li>
+<li><p>For a .<code>reloc</code> section, the Flags value is a bit-wise OR of
+<code>EFI_IMAGE_SCN_CNT_INITIALIZED_DATA, EFI_IMAGE_SCN_MEM_DISCARDABLE</code> and
+<code>EFI_IMAGE_SCN_MEM_READ</code> (<code>0x42000040</code>).</p>
+</li>
+<li><p>For a .<code>debug</code> section, the Flags value is a bit-wise OR of
+<code>EFI_IMAGE_SCN_CNT_INITIALIZED_DATA, EFI_IMAGE_SCN_MEM_DISCARDABLE</code> and
+<code>EFI_IMAGE_SCN_MEM_READ</code> (<code>0x42000040</code>).</p>
+</li>
+</ul>
+<p>Once these have been modified, the <code>EFI_COMMON_SECTION_HEADER</code> will be prefixed
+to the file.</p>
+<p>Each <code>EFI_COMMON_SECTION_HEADER</code> &quot;type&quot; field defines the data that follows.
+Table 4 lists the section type value. All EFI section files start with the
+<code>EFI_COMMON_SECTION_HEADER</code>.</p>
+<p><img src="../media/image13.png" alt=""></p>
+<h6 id="figure-13-efi-image-files">Figure 13 EFI Image Files</h6>
+<h6 id="table-4-basic-efi-section-type-codes">Table 4 Basic EFI SECTION Type Codes</h6>
+<table>
+<thead>
+<tr>
+<th>Section Type</th>
+<th style="text-align:center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EFI_SECTION_PE32</code></td>
+<td style="text-align:center">0x10</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_PIC</code></td>
+<td style="text-align:center">0x11</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_TE</code></td>
+<td style="text-align:center">0x12</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_VERSION</code></td>
+<td style="text-align:center">0x14</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_USER_INTERFACE</code></td>
+<td style="text-align:center">0x15</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_COMPATIBILITY16</code></td>
+<td style="text-align:center">0x16</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_FIRMWARE_VOLUME_IMAGE</code></td>
+<td style="text-align:center">0x17</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_FREEFORM_SUBTYPE_GUID</code></td>
+<td style="text-align:center">0x18</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_RAW</code></td>
+<td style="text-align:center">0x19</td>
+</tr>
+</tbody>
+</table>
+<p>The size for these standard sections is defined as a 24-bit unsigned integer
+that contains the total size of the section in bytes, including the
+<code>EFI_COMMON_SECTION_HEADER</code>. For example, a zero-length section has a <code>Size</code> of
+<code>4</code> bytes.</p>
+<p>Except for the <code>EFI_SECTION_VERSION</code> and the <code>EFI_SECTION_USER_INTERFACE</code>, the
+format of each section is the <code>EFI_COMMON_SECTION_HEADER</code> prefixed to a file
+containing data. Refer to the definitions for <code>EFI_SECTION_VERSION</code> and
+<code>EFI_SECTION_USER_INTERFACE</code> in the UEFI specifications for more information.</p>
+<h3 id="265-generating-encapsulation-efisection-files">2.6.5 Generating Encapsulation EFI_SECTION Files</h3>
+<p>This section provides the overview for generating the two Encapsulation
+<code>EFI_SECTION</code> files. The <code>EFI_SECTION</code> header must be present along with
+additional header information. The encapsulation EFI Section header will be
+prefixed to the file or data section. There are three encapsulation
+<code>EFI_SECTION</code> types. The first two types listed have extended header
+information.</p>
+<h6 id="table-5-encapsulation-efi-section-type-codes">Table 5 Encapsulation EFI SECTION Type Codes</h6>
+<table>
+<thead>
+<tr>
+<th>Section Type</th>
+<th style="text-align:center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EFI_SECTION_COMPRESSION</code></td>
+<td style="text-align:center">0x01</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_GUID_DEFINED</code></td>
+<td style="text-align:center">0x02</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_DISPOSABLE</code></td>
+<td style="text-align:center">0x03</td>
+</tr>
+</tbody>
+</table>
+<p>A compression section uses the <code>EFI_SECTION_COMPRESSION</code> header, while the GUID
+defined section uses an <code>EFI_SECTION_GUID_DEFINED</code> header.</p>
+<p>The size for these sections is defined as a 24-bit unsigned integer that
+contains the total size of the section in bytes, including the size of the
+header.</p>
+<p>For the <code>EFI_SECTION_COMPRESSION</code>, the <code>CompressionType</code> field must be set to
+0x01 for standard compression, or 0x00 if the image is not compressed.</p>
+<hr>
+<p><strong>Note:</strong> In the specification, only <code>PI_STD</code> compression is supported for
+this section type.</p>
+<hr>
+<p>For the <code>EFI_GUID_DEFINED_SECTION,</code> which is used for non-standard compression
+(see above) the named GUID that defines the section follows the
+<code>EFI_COMMON_SECTION_HEADER</code>. After this GUID are two additional <code>UINT16</code>
+parameters, the first is the <code>DataOffset</code> which contains the offset in bytes
+from the beginning of the common header to the first byte of the data. An
+<strong><em>Attributes</em></strong> parameter is a bit field code which declares specific
+characteristics of the section contents.</p>
+<p>These headers are prefixed to the data files, which may include the standard
+PE32 headers.</p>
+<h3 id="266-generating-depex-efisection-files">2.6.6 Generating DEPEX EFI_SECTION Files</h3>
+<p>This section provides the overview for creating PEI, DXE and SMM DEPEX
+sections. The DEPEX grammar is defined in the <em>PI Specification</em> Volume 1,
+Dependency Expression Grammar chapter, while the OP codes for the Mnemonic are
+defined in Volume 2, DXE Dispatcher chapter. The translation of the mnemonic
+and/or GUID involves creating a binary file using postfix notation. The file
+does not conform to PE32+/COFF, and no header information is attached prior to
+generating the <code>EFI_SECTION</code> files. The format of the binary data is 8-bit
+aligned, with a single byte per op-code, with op-codes that require a GUID value
+(<code>BEFORE</code>, <code>AFTER</code> and <code>PUSH</code>) being followed by 16 bytes to contain the GUID
+value. See Table 6 below.</p>
+<h6 id="table-6-dependency-section-type-codes">Table 6 Dependency Section Type Codes</h6>
+<table>
+<thead>
+<tr>
+<th>Section Type</th>
+<th style="text-align:center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EFI_SECTION_PEI_DEPEX</code></td>
+<td style="text-align:center">0x1B</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_DXE_DEPEX</code></td>
+<td style="text-align:center">0x13</td>
+</tr>
+<tr>
+<td><code>EFI_SECTION_SMM_DEPEX</code></td>
+<td style="text-align:center">0x1C</td>
+</tr>
+</tbody>
+</table>
+<p>Once the binary file is created an <code>EFI_SECTION</code> file can be created, and the
+<code>EFI_COMMON_SECTION_HEADER</code> will be prefixed to the file.</p>
+<p><img src="../media/image14.png" alt=""></p>
+<h6 id="figure-14-depex-file">Figure 14 Depex File</h6>
+<h3 id="267-generating-visual-forms-ifr---hii-files">2.6.7 Generating Visual Forms (IFR - HII) Files</h3>
+<p>This section covers the generation of the Human Interface Infrastructure (HII)
+format files used for displaying information on the console. While all error
+messages from the EFI drivers are written in English, displaying data on the
+console - selection and configuration menus - is performed using HII formats.
+This permits the user to select an alternate language for these displays.</p>
+<p>Strings intended for these displays must be written in Unicode (UCS-2LE)
+format, rather than plain ASCII text. The Unicode strings for these forms must
+be kept in separate files (.uni extension), or optionally, within C code
+(either .c source or .h header) files. Forms, strings, fonts and images are
+stored in an HII database encoded to an Internal Forms Representation (IFR) -
+with each object and attribute a byte stream.</p>
+<p>All HII files are included as part of a driver module&apos;s code - the data that
+makes up IFR content is compiled into standard object code and linked in to the
+driver.</p>
+<h3 id="268-generating-efi-ffs-files">2.6.8 Generating EFI FFS Files</h3>
+<p>This section provides the overview for generating an FFS file. Once the EFI
+Section files have been created, they need to be placed within an FFS file. An
+FFS file contains an FFS header and one or more section files. The ordering of
+the section files within the FFS is not specified by the PI specification, so
+sections may appear in any order. The Name of the FFS file, which is placed in
+the <code>FfsFileHeader</code> data structure is a GUID value with a structure of
+<code>UINT64</code>, <code>UINT32</code>, <code>UINT32</code>, <code>UINT8[8]</code>.</p>
+<p>The alignment of data within the FFS must match the alignment specified for a
+given section, so padding may be required between the FFS header and the
+section headers. Alignment must be set and padding inserted prior to
+calculating the size or performing the Integrity check (checksum on the header
+itself and all of the section data).</p>
+<p>The size of the FFS, in the <code>FfsFileHeader.Size</code> array is computed using the
+size of all files, including all pad files, plus the size of the header. The
+size value must be less than <code>0x01000000</code>(16MB).</p>
+<p>The <code>FfsFileHeader.IntegrityCheck.Checksum.Header</code> is set to <code>0</code>, as are the
+<code>Checksum.File</code> and <code>FileHeader.State</code>, prior to calculating (and setting) the
+checksum of the header. If the <code>FFS_ATTRIB_CHECKSUM</code> bit is set in the
+<code>FfsFileHeader.Attributes</code>, then the checksum for the remainder of the FFS
+content must be generated and placed in the <code>Checksum.File</code> part of the
+<code>FfsFileHead.IntegrityCheck</code> structure.</p>
+<p>The <code>FfsFileHeader.State</code> is zeroed, the <code>EFI_FILE_HEADER_CONSTRUCTION</code>,
+<code>EFI_FILE_HEADER_VALID</code> and <code>EFI_FILE_DATA_VALID</code> bits are set.</p>
+<h4 id="2681-fdf-file">2.6.8.1 FDF file</h4>
+<p>The build system uses the FDF file to specify construction of the FD, FVs and
+FFS files, as well as how to construct the different EFI Sections (what content
+is put into each section). Flags for attributes and alignment values are
+specified in the FDF file. These values are used to set the bits in FFS Header.
+As an example, if multiple sections are specified with different alignment
+values, only the maximum value of the alignment is used, and all sections are
+aligned to that value. Additionally, the sections are placed into the FFS in
+the order they appear in the FDF or specified by the Rules section of the FDF
+configuration file. Each driver is put into an FFS of its own. Also, EDK II
+expects the ordering of PEIM and DXE FFS files to start with an optional
+dependency section, followed by the PE32, user interface and finally the
+version sections.</p>
+<h3 id="269-apriori-files">2.6.9 APRIORI Files</h3>
+<p>At most, here can be at most one PEI <code>APRIORI</code> and one DXE <code>APRIORI</code> file in a
+given firmware volume.</p>
+<p>The PEI file, named by GUID of <code>PEI_APRIORI_FILE_NAME_GUID</code>, will specify the
+order of invocation of PEIMs by the PEI foundation. This is a special file, of
+the type, <code>EFI_FV_FILETYPE_FREEFORM</code> with a single <code>EFI_SECTION_RAW</code> and has the
+format:</p>
+<pre><code class="lang-c"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> {
+  EFI_GUID  FileNamesWithinVolume[NumberOfModulesInVolume];
+} PEI_APRIORI_FILE_CONTENTS;
+</code></pre>
+<p>The DXE file, named by GUID of <code>DXE_APRIORI_FILE_NAME_GUID</code>, will specify the
+dispatch order of drivers by the DXE foundation. This is a special file, of the
+type <code>EFI_FV_FILETYPE_FREEFORM</code> with a single <code>EFI_SECTION_RAW</code> and has the
+same format as the <code>PEI_APRIORI_FILE_CONTENTS</code>.</p>
+<h3 id="2610-generating-efi-firmware-volume-fv-files">2.6.10 Generating EFI Firmware Volume (FV) Files</h3>
+<p>This section provides the overview for generating an FV file, which contains an
+FV header and a sequence of FFS files. FVs are usually implemented so that the
+SEC and PEI Foundation are not compressed, while most PEIMs are executed from
+ROM (see above). As a result, these images are typically placed in a separate
+FV, with post-PEI phase modules placed in one or more FVs that are compressed.
+Reference Section 2.6.11 below.</p>
+<p>The FV files are combinations of FFS files. For SEC, PEI Foundation and most
+PEIMs that execute directly from ROM, will need to have the BaseAddress
+re-based to the location of the driver in ROM. There are three different types
+of rebase actions. The first action is for the initial Boot drivers, while the
+most common is for execute in place (XIP) drivers. Some Runtime drivers may
+also need to be re-based. As part of the rebase these execute from ROM drivers
+may need to be aligned to the natural alignment of the machine architecture (or
+section alignment).</p>
+<h4 id="26101-combining-ffs-files-into-fv-files">2.6.10.1 Combining FFS files into FV files</h4>
+<p>The build system uses the Flash Description File (FDF) to describe how to
+combine FFS files into different FV files, as well as the layout of the FD
+files within an FD description. Each FV definition within the FDF is used to
+complete a data structure for constructing the FV. The <code>FvName</code> in the
+<code>FV_INFO</code> structure is used to identify the name of the files that will be
+created in the FV directory.</p>
+<pre><code class="lang-c"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> {
+  BOOLEAN                 BaseAddressSet;
+  EFI_PHYSICAL_ADDRESS    BaseAddress;
+  EFI_GUID                FvFileSystemGuid;
+  BOOLEAN                 FvFileSystemGuidSet;
+  CHAR8                   FvExtHeaderFile[_MAX_PATH];
+  UINTN                   Size;
+  EFI_FVB_ATTRIBUTES      FvAttributes;
+  CHAR8                   FvName[_MAX_PATH];
+  EFI_FV_BLOCK_MAP_ENTRY  FvBlocks[MAX_NUMBER_OF_FV_BLOCKS];
+  CHAR8                   FvFiles[MAX_NUMBER_OF_FILES_IN_FV][_MAX_PATH];
+  UINT32                  SizeOfFvFiles[MAX_NUMBER_OF_FILES_IN_FV];
+  BOOLEAN                 IsPiFvImage;
+  INT8                    ForceRebase;
+} FV_INFO;
+</code></pre>
+<p>The FV file header (see <code>EFI_FIRMWARE_VOLUME_HEADER</code> definition in Section 3)
+is constructed using the following information.</p>
+<p>The first 16 bytes (<code>ZeroVector</code>) are set to zero. The <code>FvFileSystemGuid</code> is
+assigned a PI Specification defined GUID (<code>EFI_FIRMWARE_FILE_SYSTEM2_GUID</code>) that
+identifies it as a PI compliant Firmware Volume. The <code>Signature</code> is set to
+&quot;<code>_FVH</code>&quot; and the reserved byte is set to zero. The <em>PI Specification</em> defined
+<code>Revision</code> is set to <code>0x02</code>.</p>
+<p>As FFS files are added to the FV, the length of the FFS is added to the
+<code>FvLength</code> field, such that the final <code>FvLength</code> is complete length of the
+firmware volume, including the header (and extended header information). Also,
+as an FFS file is added to the FV, if the driver executes from ROM, the base
+address of the driver will be adjusted (re-based) within the FFS file to the
+physical location in ROM (<code>BaseAddress + offset</code>).</p>
+<p><code>Attributes</code> (defined in the FDF file) are set that define the capabilities and
+power-on defaults of this FV. These come from the <code>FvAttributes</code> of the FV_INFO
+data structure. The <code>HeaderLength</code> is set to size of header, including the size
+of the <code>{0,0}</code> terminated <code>BlockMap</code> data array.</p>
+<p>The <code>BlockMap</code> data array is a mapping of the FFS files - giving the length
+(in blocks) and block size for each FFS file in the FV, starting with the first
+FFS file. This is an index of the blocks, and does not specify each FFS by name.
+If an extended header is required, it must be placed immediately following the
+<code>BlockMap</code> data array. The <code>ExtHeaderOffset</code> is set to the location of the extended
+header. Each block will be aligned on the largest value specified by the
+<code>EFI_FVB2_ALIGNMENT</code> attribute. Note that it is permissible to use variable block
+length devices, and as such, each block entry would have the
+<code>BlockMap[index].NumBlocks = 1</code>, while the <code>BlockMap[index].BlockLength</code> would
+vary according to the size of the FFS file (plus any padding value needed to
+align the next block on a natural boundary).</p>
+<p>If the extended header is not included, then the <code>ExtHeaderOffset</code> is set to
+zero. If an extended header is present, it is followed by zero or more variable
+length extension (<code>EFI_FIRMWARE_VOLUME_EXT_ENTRY</code>) entries.</p>
+<p><img src="../media/image15.png" alt=""></p>
+<h6 id="figure-15-firmware-volume-layout">Figure 15 Firmware Volume Layout</h6>
+<p>Prior to adding the last FFS file (as specified in the FDF file), the FFS file
+must be modified to comply with the Volume Top File specification.</p>
+<p>After the last FFS file has been added (so that the <code>FvLength</code> is complete),
+the <code>Checksum</code> field is set to zero and a checksum is calculated on the header
+so that a valid header will sum to zero (and placed into the <code>Checksum</code> field).</p>
+<h3 id="2611-implementing-compression">2.6.11 Implementing Compression</h3>
+<p>As stated in earlier sections, images that are executed from ROM may not be
+compressed. Images that contain .reloc sections, or that are executed post PEI
+phase may be compressed to save space in ROM. For best space savings and
+performance, an entire FV (containing all post PEI phase code) can be
+compressed, rather than compressing individual drivers. Decompression routines
+take a finite amount of time which can be additive - especially on copy
+commands - which can result in an unacceptable boot speed. Additionally, most
+compression algorithms provide better compression over larger data sets.</p>
+<p>The EDK II Build system supports EFI standard compression as well as CRC32
+validation within the tools.</p>
+<p>For any other form of compression, encoding or signing must be through external
+tools. TianoCompress and LZMA tools are provided with the EDK II build system.</p>
+<p>The GUIDED encapsulation section method is used to control these additional
+tools. By definition (UEFI/PI specifications) a named GUID for a GUIDED
+encapsulation section is used to provide information about how to process the
+section.</p>
+<p>Assigning a GUID to a tool, such as <strong>TianoCompress</strong>, in the <code>tools_def.txt</code>
+file (refer to Section 5) the <strong>TianoCompress.exe</strong> application can be used to
+compress an EFI image - FV, FFS and/or SECTION. The following shows two lines
+that are in the <code>tools_def.txt</code> file to identify the <strong>TianoCompress</strong> tool.</p>
+<pre><code>*_MYTOOLS_*_TIANO_PATH = TianoCompress.exe
+*_MYTOOLS_*_TIANO_GUID = A31280AD-481E-41B6-95E8-127F4C984779
+</code></pre><h4 id="26111-guided-encapsulation-sections">2.6.11.1 GUIDED encapsulation sections</h4>
+<p>When the Build system encounters a GUIDED encapsulation section in the FDF
+file, the GUID is tested against GUIDs registered in the <code>tools_def.txt</code> file.
+If a match is found, then the executable tool associated in the GUID is
+executed on the encapsulated data defined in the FDF file. Since the tool is
+not present during a system boot, any optional tool must be able to provide
+code that can be used by any decompression, signing or verification drivers
+during boot. The following shows the use of the <code>TianoCompress</code> GUID in a
+sample FDF file for an FVMAIN image that contains all post-PEI modules.</p>
+<pre><code class="lang-ini">FILE FV_IMAGE = E76CB2EC-A71A-42e8-8F34-56237870BD12 DEBUG_MYTOOLS_IPF {
+  SECTION GUIDED A31280AD-481E-41B6-95E8-127F4C984779 {
+    SECTION FV_IMAGE = FVMAIN
+  }
+}
+</code></pre>
+<p>In the example above, the first GUID (starting with <code>E76CB2EC</code>) is the EFI Name
+for the firmware volume, while the second (following the <code>SECTION GUIDED</code>
+statement) identifies the tool (<strong>TianoCompress.exe</strong>) that will be used on the
+FV section specified within the curly brackets after the GUID.</p>
+<p>The EDK II build system requires that all such tools take a minimum of three
+options on the command line. The <strong>-e</strong> option specifies that the tool will
+encrypt, compress, encode or sign the file specified on the command line. The
+<strong>-o</strong> option specifies the name of the output file to be created when using the
+<strong>-e</strong> option. A third option, <strong>-d</strong>, is used to decrypt, decompress, decode or
+verify the file specified on the command line.</p>
+<hr>
+<p><strong>Note:</strong> Additional options may be included with the tool, however, the build
+system only requires these three options.</p>
+<hr>
+<h3 id="2612-implementing-encryption-or-signing">2.6.12 Implementing Encryption or Signing</h3>
+<p>The same techniques used for implementing custom compression can be used for
+tools that are used for signing or encrypting an image.</p>
+<h3 id="2613-generating-an-fd-image-file">2.6.13 Generating an FD image file</h3>
+<p>This section provides the overview for generating a platform flash file. When
+generating the FD file, the flash device is assumed to be &quot;partitioned&quot; into
+different areas, with the content of each added in sequence (with zero filled
+padding of any partial blocks to the next specified offset).</p>
+<h4 id="26131-data-structures">2.6.13.1 Data structures</h4>
+<p>The EDK II build system will create an FD file in the FV output directory, and
+using the information in the FDF file, will add all FV files, as well as any
+data structures that are specified in the FDF file. Each FV will be added to
+the FD file in the order specified by the <code>[FD]</code> section at the location
+specified. Data structures in the FDF are typically used to initialize the data
+area for use by EFI drivers, and as such, may require an FV header to identify
+the region (such as NV storage) in Flash.</p>
+<h3 id="2614-generating-applications">2.6.14 Generating Applications</h3>
+<p>This section provides an overview to generating UEFI applications which may or
+may not be resident in a flash device. Applications fall into three different
+types, applications that execute from within a flash image, applications that
+execute from the EFI Shell and applications that execute from an Operating
+System (accessing UEFI runtime services or need to access UEFI System Table
+fields). The build only provides support for UEFI applications that execute
+from within the flash image and applications that execute from the EFI Shell.
+These statically linked applications cannot make use of OS standard libraries
+or headers.</p>
+<p>Applications that are executed within the flash image must be stored in an FFS
+file, along with the optional version and user interface sections. These
+applications are installed as part of the standard shell commands. The only way
+to execute a command that is executed within the flash image is to install it
+along with the shell commands. Otherwise, they cannot be executed.</p>
+<p>Applications that execute from the EFI shell are PE32/COFF applications that
+have a modified header, and do not need to be placed within an FFS file. The
+.efi file generated by the $(MAKE) stage is capable of being executed from the
+shell command prompt.</p>
+<h3 id="2615-generating-an-option-rom-file">2.6.15 Generating an Option ROM file</h3>
+<p>This section provides the overview for generating an external PCI Option ROM,
+where the driver is on a PCI add-in card. PCI devices that are laid down on a
+platform board, rather than on an add-in card (Ethernet, Video, Audio, etc.
+devices), will most likely have the driver resident in an FFS/FV/FD with the
+device vendor providing the driver code to the board vendor. A PCI Option ROM
+is typically discovered during system initialization, and the driver will be
+dispatched by the DXE Foundation. PCI Option ROM drivers are constructed from
+either EFI files or Binary files or a combination of both.</p>
+<p>Most EFI implementations of PCI Option ROMs can use EFI compression for the
+driver, so that the ROM image fits into a smaller size device on the PCI add-in
+card. These drivers can use NV storage space in the primary on-board flash
+device, provided they register the system table data. If the driver is
+compressed, the size of the compressed file must be an even multiple of 512
+bytes.</p>
+<hr>
+<p><strong>Note:</strong> The maximum size for the driver code is 16MB, so drivers that are
+larger than 16MB must be compressed.</p>
+<hr>
+<p>The EFI file (PE32+ with modifications to the .data, .text, .reloc and .debug
+sections - see Generating Leaf <code>EFI_SECTION</code> Files above) will have an
+<code>EFI_PCI_EXPANSION_ROM_HEADER</code> prefixed to the EFI file (aligned on a 4-byte
+boundary). The header structure is defined in the PCI industry standard
+specification, and is shown below.</p>
+<pre><code class="lang-c"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> {
+  UINT16  Signature;
+  UINT16  InitializationSize;
+  UINT32  EfiSignature;
+  UINT16  EfiSubsystem;
+  UINT16  EfiMachineType;
+  UINT16  CompressionType;
+  UINT8   Reserved[<span class="hljs-number">8</span>];
+  UINT16  EfiImageHeaderOffset;
+  UINT16  PcirOffset;
+} EFI_PCI_EXPANSION_ROM_HEADER;
+</code></pre>
+<p>The <code>Signature</code> value of the PCI 3.0 version header is defined as <code>0xAA55</code>, and
+the <code>EfiSignature</code> is defined as <code>0x0EF1</code>. The <code>InitializationSize</code> is the
+number of 512-byte blocks of the driver image plus the size of this header. The
+<code>EfiSubsystem</code> is set to the value of PE32 Optional Header&apos;s Subsystem value,
+while the <code>EfiMachineType</code> is set to the <code>EFI_IMAGE_FILE_HEADER</code>&apos;s Machine
+Type. The <code>CompressionType</code> field is set to either <code>0x0000</code> for no compression,
+or <code>0x0001</code> for standard EFI compression - no other compression types are
+permitted. The reserved bits are typically set to 0 However they may be used.
+The <code>EfiImageHeaderOffset</code> is set to the size of this header, while the
+<code>PcirOffset</code> is the offset to the EFI header, (the Option ROM header size plus
+any padding bytes to align the driver on its natural alignment boundary).
+Additionally, the PCI Data Structure (PCI 3.0 compliant is the default) is also
+inserted. The Vendor ID and Device ID are inserted into the PCI Data Structure.
+The <code>ClassCode</code> and <code>CodeRevision</code> are determined from the input file header
+information, while the <code>ImageLength</code> field is set to the Option ROM Header&apos;s
+InitializationSize field. All other fields are currently set to 0 by the
+reference implementation&apos;s EfiRom tool.</p>
+<p>PCI device Expansion ROMs may contain code for multiple processor
+architectures. This may be implemented in a single physical ROM image, which
+can contain as many code images as desired for different system and processor
+architectures, Figure 16, below.</p>
+<p><img src="../media/image16.png" alt=""></p>
+<h6 id="figure-16-efi-pci-expansion-option-rom-layout">Figure 16 EFI PCI Expansion Option ROM layout</h6>
+<p>Each image must start on a 512-byte boundary and must contain the PCI Expansion
+ROM header. The starting point of each image depends on the size of previous
+images.</p>
+<p>The last image in a ROM has a special encoding in the header to identify it as
+the last image (<em>PCI Firmware Specification</em>, Revision 3.0).</p>
+<p>Legacy Option ROM images must be the first image in the ROM image. The
+following is a list of the image combinations that may be placed in a PCI
+option ROM. This is not an exhaustive list. Instead, it provides what will
+likely be the most common PCI option ROM layouts. EFI complaint system firmware
+must work with all of these PCI option ROM layouts, plus any other layouts that
+are possible within the PCI Specification. The format of a Legacy Option ROM
+image is defined in the PCI Specification.</p>
+<ul>
+<li>Legacy Option ROM image</li>
+<li>Legacy Option ROM image + IA-32 EFI driver</li>
+<li>Legacy Option ROM image + Itanium Processor Family EFI driver</li>
+<li>Legacy Option ROM image + IA-32 EFI driver + Itanium Processor Family EFI
+driver</li>
+<li>Legacy Option ROM image + IA-32 EFI driver + x64 EFI driver</li>
+<li>Legacy Option ROM image + EBC Driver</li>
+<li>IA-32 UEFI driver</li>
+<li>Itanium Processor Family EFI driver</li>
+<li>IA-32 UEFI driver + Itanium Processor Family EFI driver</li>
+<li>EBC Driver</li>
+</ul>
+<p>It is also possible to place an application in a PCI Option ROM. The exact
+mechanism by which applications can be loaded and executed from a PCI Option
+ROM is outside the scope of this document.</p>
+<h4 id="26151-binary-option-rom-code">2.6.15.1 Binary Option ROM code</h4>
+<p>Pre-existing Binary Option ROM code can also be provided by hardware vendors.
+These images are verified to be of the correct format and length. If the length
+of the provided image is not an exact 512-byte multiple, padding bytes are
+added to ensure the image is an exact multiple of 512 bytes. If this occurs, a
+new checksum is calculated and replaces an existing checksum value.</p>
+<h3 id="2616-generating-capsule-update-files">2.6.16 Generating Capsule Update Files</h3>
+<p>This section provides the overview for generating Capsule files. Capsules are
+formatted variable length data structures that are passed from runtime back to
+the pre boot phases (PEI, DXE, BDS). They are intended to be the major vehicle
+for delivering firmware volume changes. Capsules are constructed with a capsule
+header and the capsule volume. Content within the capsule volume usually
+includes a Firmware Volume as well as a Configuration Results (CR) file. The CR
+file is a string of Internal Forms Representation (IFR) name, value pairs as
+defined by the Human Interface Infrastructure (HII).</p>
+<p>After identifying and creating the Firmware Volume that will be included in the
+capsule, the capsule header will be constructed. The header is constructed as
+follows.</p>
+<p>The <code>CapsuleGuid</code> defines the format of the capsule data - including any
+optional header information. The format for a capsule is shown in Figure 15.</p>
+<p><img src="../media/image17.png" alt=""></p>
+<h6 id="figure-17-efi-capsule-layout">Figure 17 EFI Capsule Layout</h6>
+<p>2.6.16.1 Capsule generation and content</p>
+<p>The EDK II build system provides functionality to generate capsules. The
+capsule data content is defined in the FDF file for a given platform</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                    
+                    
+
+<div>
+    <hr>
+    
+      <h2>
+        <div style="position:absolute;text-align:left">EDK II Build Specification</div>
+        <div style="text-align:right">Revision 1.28</div>
+      </h2>  
+    
+</div>
+
+
+
+                
+            </div>
+
+            
+                
+                <a href="25_generic_build_process.html#25-generic-build-process" class="navigation navigation-prev " aria-label="Previous page: 2.5 Generic Build Process">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="27_sku_support.html#27-sku-support" class="navigation navigation-next " aria-label="Next page: 2.7 SKU Support">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.6 Creating EFI Images","level":"1.5.6","depth":2,"next":{"title":"2.7 SKU Support","level":"1.5.7","depth":2,"anchor":"#27-sku-support","path":"2_design_discussion/27_sku_support.md","ref":"2_design_discussion/27_sku_support.md#27-sku-support","articles":[]},"previous":{"title":"2.5 Generic Build Process","level":"1.5.5","depth":2,"anchor":"#25-generic-build-process","path":"2_design_discussion/25_generic_build_process.md","ref":"2_design_discussion/25_generic_build_process.md#25-generic-build-process","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"title":"EDK II Build Specification","version":"Revision 1.28"},"plugins":["puml-aleung"],"pluginsConfig":{"puml-aleung":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2_design_discussion/26_creating_efi_images.md","mtime":"2020-12-01T03:58:46.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-01T03:59:20.648Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

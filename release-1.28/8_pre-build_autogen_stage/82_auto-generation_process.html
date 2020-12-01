@@ -1,0 +1,2895 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>8.2 Auto-generation Process · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="83_auto-generated_code.html" />
+    
+    
+    <link rel="prev" href="81_overview.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../#edk-ii-build-specification">
+            
+                    
+                    EDK II Build Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../TABLES.html">
+            
+                <a href="../TABLES.html#tables">
+            
+                    
+                    Tables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../FIGURES.html">
+            
+                <a href="../FIGURES.html#figures">
+            
+                    
+                    Figures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#1-introduction">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#11-overview">
+            
+                    
+                    1.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#12-target-audience">
+            
+                    
+                    1.2 Target Audience
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../1_introduction/13_terms.html">
+            
+                <a href="../1_introduction/13_terms.html#13-terms">
+            
+                    
+                    1.3 Terms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../1_introduction/14_related_information.html">
+            
+                <a href="../1_introduction/14_related_information.html#14-related-information">
+            
+                    
+                    1.4 Related Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../1_introduction/15_conventions_used_in_this_document.html">
+            
+                <a href="../1_introduction/15_conventions_used_in_this_document.html#15-conventions-used-in-this-document">
+            
+                    
+                    1.5 Conventions Used in this Document
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../2_design_discussion/">
+            
+                <a href="../2_design_discussion/#2-design-discussion">
+            
+                    
+                    2 Design Discussion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../2_design_discussion/21_development_environments.html">
+            
+                <a href="../2_design_discussion/21_development_environments.html#21-development-environments">
+            
+                    
+                    2.1 Development Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../2_design_discussion/22_uefipi_firmware_images.html">
+            
+                <a href="../2_design_discussion/22_uefipi_firmware_images.html#22-uefipi-firmware-images">
+            
+                    
+                    2.2 UEFI/PI Firmware Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../2_design_discussion/23_boot_sequence.html">
+            
+                <a href="../2_design_discussion/23_boot_sequence.html#23-boot-sequence">
+            
+                    
+                    2.3 Boot Sequence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../2_design_discussion/24_typical_flash_part_layout.html">
+            
+                <a href="../2_design_discussion/24_typical_flash_part_layout.html#24-typical-flash-part-layout">
+            
+                    
+                    2.4 Typical Flash Part Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../2_design_discussion/25_generic_build_process.html">
+            
+                <a href="../2_design_discussion/25_generic_build_process.html#25-generic-build-process">
+            
+                    
+                    2.5 Generic Build Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../2_design_discussion/26_creating_efi_images.html">
+            
+                <a href="../2_design_discussion/26_creating_efi_images.html#26-creating-efi-images">
+            
+                    
+                    2.6 Creating EFI Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../2_design_discussion/27_sku_support.html">
+            
+                <a href="../2_design_discussion/27_sku_support.html#27-sku-support">
+            
+                    
+                    2.7 SKU Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../3_uefi_and_pi_image_specification.html">
+            
+                <a href="../3_uefi_and_pi_image_specification.html#3-uefi-and-pi-image-specification">
+            
+                    
+                    3 UEFI and PI Image Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../4_edk_ii_build_process_overview/">
+            
+                <a href="../4_edk_ii_build_process_overview/#4-edk-ii-build-process-overview">
+            
+                    
+                    4 EDK II Build Process Overview
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../4_edk_ii_build_process_overview/41_edk_ii_build_system.html">
+            
+                <a href="../4_edk_ii_build_process_overview/41_edk_ii_build_system.html#41-edk-ii-build-system">
+            
+                    
+                    4.1 EDK II Build System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../4_edk_ii_build_process_overview/42_build_process_overview.html">
+            
+                <a href="../4_edk_ii_build_process_overview/42_build_process_overview.html#42-build-process-overview">
+            
+                    
+                    4.2 Build Process Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../4_edk_ii_build_process_overview/43_pre-build_stage_overview.html">
+            
+                <a href="../4_edk_ii_build_process_overview/43_pre-build_stage_overview.html#43-pre-build-stage-overview">
+            
+                    
+                    4.3 Pre-Build Stage Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../4_edk_ii_build_process_overview/44_creating_binary_efi_images_-_make_stage.html">
+            
+                <a href="../4_edk_ii_build_process_overview/44_creating_binary_efi_images_-_make_stage.html#44-creating-binary-efi-images---make-stage">
+            
+                    
+                    4.4 Creating Binary EFI Images - $(MAKE) stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../4_edk_ii_build_process_overview/45_post-build_stage.html">
+            
+                <a href="../4_edk_ii_build_process_overview/45_post-build_stage.html#45-post-build-stage">
+            
+                    
+                    4.5 Post-Build Stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../4_edk_ii_build_process_overview/46_file_specifications.html">
+            
+                <a href="../4_edk_ii_build_process_overview/46_file_specifications.html#46-file-specifications">
+            
+                    
+                    4.6 File Specifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../4_edk_ii_build_process_overview/47_file_extensions.html">
+            
+                <a href="../4_edk_ii_build_process_overview/47_file_extensions.html#47-file-extensions">
+            
+                    
+                    4.7 File Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../5_meta-data_file_specifications/">
+            
+                <a href="../5_meta-data_file_specifications/#5-meta-data-file-specifications">
+            
+                    
+                    5 Meta-Data File Specifications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../5_meta-data_file_specifications/51_build_meta-data_file_formats.html">
+            
+                <a href="../5_meta-data_file_specifications/51_build_meta-data_file_formats.html#51-build-meta-data-file-formats">
+            
+                    
+                    5.1 Build Meta-Data File Formats
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../5_meta-data_file_specifications/52_tools_def_txt.html">
+            
+                <a href="../5_meta-data_file_specifications/52_tools_def_txt.html#52-tools-deftxt">
+            
+                    
+                    5.2 tools_def.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../5_meta-data_file_specifications/53_target_txt_file.html">
+            
+                <a href="../5_meta-data_file_specifications/53_target_txt_file.html#53-targettxt-file">
+            
+                    
+                    5.3 target.txt File
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../6_quick_start/">
+            
+                <a href="../6_quick_start/#6-quick-start">
+            
+                    
+                    6 Quick Start
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../6_quick_start/61_environment_variables.html">
+            
+                <a href="../6_quick_start/61_environment_variables.html#61-environment-variables">
+            
+                    
+                    6.1 Environment Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../6_quick_start/62_build_scope.html">
+            
+                <a href="../6_quick_start/62_build_scope.html#62-build-scope">
+            
+                    
+                    6.2 Build Scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../7_build_environment/">
+            
+                <a href="../7_build_environment/#7-build-environment">
+            
+                    
+                    7 Build Environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../7_build_environment/71_build_scope.html">
+            
+                <a href="../7_build_environment/71_build_scope.html#71-build-scope">
+            
+                    
+                    7.1 Build Scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../7_build_environment/72_third_party_tools.html">
+            
+                <a href="../7_build_environment/72_third_party_tools.html#72-third-party-tools">
+            
+                    
+                    7.2 Third Party Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../7_build_environment/73_guided_tools.html">
+            
+                <a href="../7_build_environment/73_guided_tools.html#73-guided-tools">
+            
+                    
+                    7.3 GUIDed Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="./">
+            
+                <a href="./#8-pre-build-autogen-stage">
+            
+                    
+                    8 Pre-Build AutoGen Stage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="81_overview.html">
+            
+                <a href="81_overview.html#81-overview">
+            
+                    
+                    8.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="82_auto-generation_process.html">
+            
+                <a href="82_auto-generation_process.html#82-auto-generation-process">
+            
+                    
+                    8.2 Auto-generation Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="83_auto-generated_code.html">
+            
+                <a href="83_auto-generated_code.html#83-auto-generated-code">
+            
+                    
+                    8.3 Auto-generated code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="84_auto-generated_pcd_database_file.html">
+            
+                <a href="84_auto-generated_pcd_database_file.html#84-auto-generated-pcd-database-file">
+            
+                    
+                    8.4 Auto-generated PCD Database File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="85_auto-generated_makefiles.html">
+            
+                <a href="85_auto-generated_makefiles.html#85-auto-generated-makefiles">
+            
+                    
+                    8.5 Auto-generated Makefiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="86_binary_modules.html">
+            
+                <a href="86_binary_modules.html#86-binary-modules">
+            
+                    
+                    8.6 Binary Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="87_generated_asbuilt_inf_files.html">
+            
+                <a href="87_generated_asbuilt_inf_files.html#87-generated-asbuilt-inf-files">
+            
+                    
+                    8.7 Generated AsBuilt INF Files
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../9_build_or_make_stage/">
+            
+                <a href="../9_build_or_make_stage/#9-build-or-make-stage">
+            
+                    
+                    9 Build or $(MAKE) Stage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../9_build_or_make_stage/91_overview.html">
+            
+                <a href="../9_build_or_make_stage/91_overview.html#91-overview">
+            
+                    
+                    9.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../9_build_or_make_stage/92_preprocesstrim.html">
+            
+                <a href="../9_build_or_make_stage/92_preprocesstrim.html#92-preprocesstrim">
+            
+                    
+                    9.2 Preprocess/Trim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../9_build_or_make_stage/93_compileassembly.html">
+            
+                <a href="../9_build_or_make_stage/93_compileassembly.html#93-compileassembly">
+            
+                    
+                    9.3 Compile/Assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../9_build_or_make_stage/94_static_link.html">
+            
+                <a href="../9_build_or_make_stage/94_static_link.html#94-static-link">
+            
+                    
+                    9.4 Static Link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../9_build_or_make_stage/95_dynamic_link.html">
+            
+                <a href="../9_build_or_make_stage/95_dynamic_link.html#95-dynamic-link">
+            
+                    
+                    9.5 Dynamic Link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../9_build_or_make_stage/96_generate_module_images.html">
+            
+                <a href="../9_build_or_make_stage/96_generate_module_images.html#96-generate-module-images">
+            
+                    
+                    9.6 Generate Module Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../9_build_or_make_stage/97_generate_platform_images.html">
+            
+                <a href="../9_build_or_make_stage/97_generate_platform_images.html#97-generate-platform-images">
+            
+                    
+                    9.7 Generate Platform Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../10_post-build_imagegen_stage_-_flash/">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/#10-post-build-imagegen-stage---flash">
+            
+                    
+                    10 Post-Build ImageGen Stage - FLASH
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../10_post-build_imagegen_stage_-_flash/101_overview_of_flash_device_layout.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/101_overview_of_flash_device_layout.html#101-overview-of-flash-device-layout">
+            
+                    
+                    10.1 Overview of Flash Device Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../10_post-build_imagegen_stage_-_flash/102_parsing_fdf_meta-data_file.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/102_parsing_fdf_meta-data_file.html#102-parsing-fdf-meta-data-file">
+            
+                    
+                    10.2 Parsing FDF Meta-Data File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.html#103-build-intermediate-images">
+            
+                    
+                    10.3 Build Intermediate Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.html#104-create-the-fv-image-files">
+            
+                    
+                    10.4 Create the FV Image File(s)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.html#105-create-the-fd-image-files">
+            
+                    
+                    10.5 Create the FD image file(s)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../10_post-build_imagegen_stage_-_flash/106_post_build_processing.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/106_post_build_processing.html#106_post_build_processing">
+            
+                    
+                    10.6 Post Build Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../11_post-build_imagegen_stage_-_other/">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/#11-post-build-imagegen-stage---other">
+            
+                    
+                    11 Post-Build ImageGen Stage - Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.html#111-efi-pci-option-rom-images">
+            
+                    
+                    11.1 EFI PCI Option ROM Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../11_post-build_imagegen_stage_-_other/112_uefi_applications.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/112_uefi_applications.html#112-uefi-applications">
+            
+                    
+                    11.2 UEFI Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../11_post-build_imagegen_stage_-_other/113_capsules.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/113_capsules.html#113-capsules">
+            
+                    
+                    11.3 Capsules
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../12_build_changes_and_customizations/">
+            
+                <a href="../12_build_changes_and_customizations/#12-build-changes-and-customizations">
+            
+                    
+                    12 Build Changes and Customizations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../12_build_changes_and_customizations/121_building_for_debug.html">
+            
+                <a href="../12_build_changes_and_customizations/121_building_for_debug.html#121-building-for-debug">
+            
+                    
+                    12.1 Building for Debug
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../12_build_changes_and_customizations/122_adding_custom_compression_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/122_adding_custom_compression_tools.html#122-adding-custom-compression-tools">
+            
+                    
+                    12.2 Adding Custom Compression Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../12_build_changes_and_customizations/123_using_custom_build_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/123_using_custom_build_tools.html#123-using-custom-build-tools">
+            
+                    
+                    12.3 Using Custom Build Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../12_build_changes_and_customizations/124_customizing_compilation_for_a_component.html">
+            
+                <a href="../12_build_changes_and_customizations/124_customizing_compilation_for_a_component.html#124-customizing-compilation-for-a-component">
+            
+                    
+                    12.4 Customizing Compilation for a Component
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" data-path="../12_build_changes_and_customizations/125_platform_specific_asl_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/125_platform_specific_asl_tools.html#125-platform-specific-asl-tools">
+            
+                    
+                    12.5 Platform Specific ASL Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" data-path="../12_build_changes_and_customizations/126_build_reproducibility.html">
+            
+                <a href="../12_build_changes_and_customizations/126_build_reproducibility.html#126-build-reproducibility">
+            
+                    
+                    12.6 Build Reproducibility
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../13_build_reports/">
+            
+                <a href="../13_build_reports/#13-build-reports">
+            
+                    
+                    13 Build Reports
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../13_build_reports/131_build_report_generation_options.html">
+            
+                <a href="../13_build_reports/131_build_report_generation_options.html#131-build-report-generation-options">
+            
+                    
+                    13.1 Build Report Generation Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../13_build_reports/132_sample_launch_steps_nt32_platform.html">
+            
+                <a href="../13_build_reports/132_sample_launch_steps_nt32_platform.html#132-sample-launch-steps-nt32-platform">
+            
+                    
+                    13.2 Sample Launch Steps: NT32 platform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../13_build_reports/133_output.html">
+            
+                <a href="../13_build_reports/133_output.html#133-output">
+            
+                    
+                    13.3 Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../13_build_reports/134_platform_summary.html">
+            
+                <a href="../13_build_reports/134_platform_summary.html#134-platform-summary">
+            
+                    
+                    13.4 Platform Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.5" data-path="../13_build_reports/135_mixed_pcd_section.html">
+            
+                <a href="../13_build_reports/135_mixed_pcd_section.html#135-mixed-pcd-section">
+            
+                    
+                    13.5 Mixed PCD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.6" data-path="../13_build_reports/136_global_pcd_section.html">
+            
+                <a href="../13_build_reports/136_global_pcd_section.html#136-global-pcd-section">
+            
+                    
+                    13.6 Global PCD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.7" data-path="../13_build_reports/137_fd_section.html">
+            
+                <a href="../13_build_reports/137_fd_section.html#137-fd-section">
+            
+                    
+                    13.7 FD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.8" data-path="../13_build_reports/138_module_section.html">
+            
+                <a href="../13_build_reports/138_module_section.html#138-module-section">
+            
+                    
+                    13.8 Module Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.9" data-path="../13_build_reports/139_execution_order_prediction_section.html">
+            
+                <a href="../13_build_reports/139_execution_order_prediction_section.html#139-execution-order-prediction-section">
+            
+                    
+                    13.9 Execution Order Prediction Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../appendix_a_variables.html">
+            
+                <a href="../appendix_a_variables.html#appendix-a-variables">
+            
+                    
+                    Appendix A Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../appendix_b_toolsdef_txt.html">
+            
+                <a href="../appendix_b_toolsdef_txt.html#appendix-b-tools_deftxt">
+            
+                    
+                    Appendix B tools_def.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../appendix_c_targettxt.html">
+            
+                <a href="../appendix_c_targettxt.html#appendix-c-targettxt">
+            
+                    
+                    Appendix C target.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../appendix_d_buildexe_command/">
+            
+                <a href="../appendix_d_buildexe_command/#appendix-d-buildexe-command">
+            
+                    
+                    Appendix D build.exe command
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.20.1" data-path="../appendix_d_buildexe_command/d1_overview.html">
+            
+                <a href="../appendix_d_buildexe_command/d1_overview.html#d1-overview">
+            
+                    
+                    D.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.2" data-path="../appendix_d_buildexe_command/d2_makefile_actions.html">
+            
+                <a href="../appendix_d_buildexe_command/d2_makefile_actions.html#d2-makefile-actions">
+            
+                    
+                    D.2 Makefile actions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.3" data-path="../appendix_d_buildexe_command/d3_build_targets_and_options.html">
+            
+                <a href="../appendix_d_buildexe_command/d3_build_targets_and_options.html#d3-build-targets-and-options">
+            
+                    
+                    D.3 Build Targets and options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.4" data-path="../appendix_d_buildexe_command/d4_usage.html">
+            
+                <a href="../appendix_d_buildexe_command/d4_usage.html#d4-usage">
+            
+                    
+                    D.4 Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../appendix_e_nt32_platform_emulation.html">
+            
+                <a href="../appendix_e_nt32_platform_emulation.html#appendix-e-nt32-platform-emulation">
+            
+                    
+                    Appendix E NT32 Platform Emulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../appendix_f_firmware_volume_inf/">
+            
+                <a href="../appendix_f_firmware_volume_inf/#appendix-f-firmware-volume-inf">
+            
+                    
+                    Appendix F Firmware Volume INF
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.22.1" data-path="../appendix_f_firmware_volume_inf/f1_firmware_volume_inf_description.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f1_firmware_volume_inf_description.html#f1-firmware-volume-inf-description">
+            
+                    
+                    F.1 Firmware Volume INF Description
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.2" data-path="../appendix_f_firmware_volume_inf/f2_[attributes]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f2_[attributes]_section.html#f2-attributes-section">
+            
+                    
+                    F.2 [Attributes] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.3" data-path="../appendix_f_firmware_volume_inf/f3_[files]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f3_[files]_section.html#f3-files-section">
+            
+                    
+                    F.3 [Files] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.4" data-path="../appendix_f_firmware_volume_inf/f4_[options]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f4_[options]_section.html#f4-options-section">
+            
+                    
+                    F.4 [Options] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../appendix_g_vs2005_team_suite_performance/">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/#appendix-g-vs2005-team-suite-performance-profile">
+            
+                    
+                    Appendix G VS2005 Team Suite Performance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.23.1" data-path="../appendix_g_vs2005_team_suite_performance/g1_step_1_-_create_a_new_project.html">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/g1_step_1_-_create_a_new_project.html#g1-step-1---create-a-new-project">
+            
+                    
+                    G.1 Step 1 - Create a new project
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23.2" data-path="../appendix_g_vs2005_team_suite_performance/g2_step_2_-_update_the_project.html">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/g2_step_2_-_update_the_project.html#g2-step-2---update-the-project">
+            
+                    
+                    G.2 Step 2 - Update the project
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../appendix_h_module_types.html">
+            
+                <a href="../appendix_h_module_types.html#appendix-h-module-types">
+            
+                    
+                    Appendix H Module Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../appendix_i_vpd_tool/">
+            
+                <a href="../appendix_i_vpd_tool/#appendix-i-vpd-tool">
+            
+                    
+                    Appendix I VPD Tool
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.25.1" data-path="../appendix_i_vpd_tool/i1_build_system_output_file_format.html">
+            
+                <a href="../appendix_i_vpd_tool/i1_build_system_output_file_format.html#i1-build-system-output-file-format">
+            
+                    
+                    I.1 Build System Output File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25.2" data-path="../appendix_i_vpd_tool/i2_vpd_tool_map_file_format.html">
+            
+                <a href="../appendix_i_vpd_tool/i2_vpd_tool_map_file_format.html#i2-vpd-tool-map-file-format">
+            
+                    
+                    I.2 VPD Tool Map File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../appendix_j_makefiles.html">
+            
+                <a href="../appendix_j_makefiles.html#appendix-j-makefiles">
+            
+                    
+                    Appendix J Makefiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.26.1" data-path="../appendix_j_makefiles.html">
+            
+                <a href="../appendix_j_makefiles.html#j1-nmake-module-makefile-format">
+            
+                    
+                    J.1 NMAKE Module Makefile Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../appendix_k_third_party_tool_flags.html">
+            
+                <a href="../appendix_k_third_party_tool_flags.html#appendix-k-third-party-tool-flags">
+            
+                    
+                    Appendix K Third Party Tool Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >8.2 Auto-generation Process</a>
+    </h1>
+</div>
+<div>
+    <!-- 
+    <img style="float:left; align:middle; height:2em" src="media/TianocoreTitlePageLogo.jpg"/>
+     -->
+    
+      <h2>
+        <div style="position:absolute;text-align:left">EDK II Build Specification</div>
+        <div style="text-align:right">Revision 1.28</div>
+      </h2>  
+    
+    <hr>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <!--- @file
+  8.2 Auto-generation Process
+
+  Copyright (c) 2008-2018, Intel Corporation. All rights reserved.<BR>
+
+  Redistribution and use in source (original document form) and 'compiled'
+  forms (converted to PDF, epub, HTML and other formats) with or without
+  modification, are permitted provided that the following conditions are met:
+
+  1) Redistributions of source code (original document form) must retain the
+     above copyright notice, this list of conditions and the following
+     disclaimer as the first lines of this file unmodified.
+
+  2) Redistributions in compiled form (transformed to other DTDs, converted to
+     PDF, epub, HTML and other formats) must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+
+  THIS DOCUMENTATION IS PROVIDED BY TIANOCORE PROJECT "AS IS" AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+  EVENT SHALL TIANOCORE PROJECT  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
+  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<h2 id="82-auto-generation-process">8.2 Auto-generation Process</h2>
+<p>This section covers, in sequence, the steps taken by the <code>build.exe</code> tool. When
+creating the auto-generated files, the build system must include either the &quot;u&quot;
+suffix or the &quot;ull&quot; suffix (UINT64 only) to indicate that the values are
+unsigned for all numeric values specified for PCDs.</p>
+<h3 id="821-determine-what-to-build">8.2.1 Determine What to Build</h3>
+<p>The build tool will use following algorithm to determine what will be built.
+The first step the build system performs is to open the <code>Conf/target.txt</code> file.</p>
+<hr>
+<p><strong>Note:</strong> The build system tools allow for specifying an alternate location and
+filename for <code>Conf/target.txt</code> on the command-line that can be either inside or
+outside of the <code>WORKSPACE</code> directory tree.</p>
+<hr>
+<p>The following pseudo-code demonstrates how the tools obtain command-line
+overrides of the information specified in <code>Conf/target.txt</code>.</p>
+<pre><code>If (&quot;-t  &lt;DscFile&gt;&quot;) {
+  // Command line option specified
+  ActivePlatform = &lt;DscFile&gt;;
+} ElseIf (&lt;ACTIVE_PLATFORM&gt; specified in $ (WORKSPACE)/Conf/target.txt) {
+  ActivePlatform = &lt;ACTIVE_PLATFORM&gt;;
+} ElseIf (one  &lt;DscFile&gt;   found in current working directory) {
+  ActivePlatform = &lt;DscFile&gt;;
+} Else {
+  // Unable to determine the Active Platform
+  if (Number of DscFiles &gt; 1) {
+    PrintError (
+      &quot;There are %s DSC files in the folder. &quot;
+      &quot;Use &apos;-p&apos; to specify one.&quot;, NumDscFiles
+      );
+  } else {
+    PrintError (
+      &quot;No active platform specified in target.txt &quot;
+      &quot;or command line!\n Nothing to build.&quot;
+      );
+  }
+  BreakTheBuild();
+}
+
+// Determine whether this is a module only build or the full platform
+If ((&quot;-m &lt;InfFile&gt;&quot;) || (one &lt;InfFile&gt; found in working directory)) {
+  // Either a command line option was specified, or one and only
+  // one INF file was found in the current working directory.
+  ActiveModule = &lt;InfFile&gt;;
+  BuildMode = &quot;SingleModuleBuild&quot;;
+} Else {
+  ActiveModule = NONE;
+  BuildMode = &quot;PlatformBuild&quot;;
+}
+
+Parse ( $ (WORKSPACE) / Conf / target.txt );
+Parse ( ActivePlatform );
+
+// Determine Architectures to build
+If (&quot;-a  &lt;ArchListFromCommandLine&gt;&quot;) {
+  // command line option given
+  ActiveArchList = Intersection (
+                     &lt;ArchListFromCommandLine&gt;,
+                     &lt;ArchListFrom (ActivePlatform)&gt;
+                     );
+} Else {
+  ActiveArchList = Intersection (
+                     &lt;ArchListFromTarget.Txt&gt;,
+                     &lt;ArchListFrom (ActivePlatform)&gt;
+                     );
+}
+
+If (ActiveArchList == NULL) {
+  if (ArchListFromCommandLine != NULL) {
+    PrintError (
+      &quot;The architecture(s) specified on the command line &quot;
+      &quot;(%s) are not valid for the active platform (%s\n&quot;,
+      ArchListFromCommandLine,
+      ArchListFrom (ActivePlatform)
+      );
+  } else {
+    PrintError (
+      &quot;The active platform cannot be built, the &quot;
+      &quot;architectures (%s) are not supported.\n&quot;,
+      ArchListFrom (ActivePlatform)
+      );
+  }
+  BreakTheBuild();
+}
+
+// Determine the target type, such as DEBUG and/or RELEASE
+If (&quot;-b  &lt;TargetListFromCommandLine&gt;&quot;) {
+  // command line option given
+  ActiveTargetList = Intersection (
+                       &lt;TargetListFromCommandLine&gt;,
+                       &lt;TargetListFrom (ActivePlatform)&gt;
+                       );
+} Else {
+  ActiveTargetList = Intersection (
+                       &lt;TargetListFromTarget.Txt&gt;,
+                       &lt;TargetListFrom (ActivePlatform)&gt;
+                       );
+}
+
+If (ActiveTargetList == NULL) {
+  if (TargetListFromCommandLine != NULL) {
+    PrintError (
+      &quot;Target (%s) specified on the command line is not &quot;
+      &quot;valid for this platform (%s).\n&quot;,
+      TargetListFromCommandLine,
+      TargetListFrom (ActivePlatform)
+      );
+  } else {
+    PrintError (
+      &quot;Target (%s) is not specified in the target.txt file.\n&quot;,
+      TargetListFrom (ActivePlatform)
+      );
+  }
+  BreakTheBuild();
+}
+
+// Determine the tool chain to use for the build
+If (&quot;-t  &lt;ToolChainTag&gt;&quot;) {
+  // command line option given
+  ActiveToolChain = &lt;ToolChainTag&gt;
+} ElseIf (&lt;TOOL_CHAIN_TAG&gt; specified in $ (WORKSPACE)/Conf/target.txt) {
+  ActiveToolChain = &lt;TOOL_CHAIN_TAG&gt;
+} Else {
+  if (ToolChainTag != NULL) {
+    PrintError (
+      &quot;Tool chain specified on the command line (%s) is &quot;
+      &quot;not specified in the tools_def.txt file.\n&quot;,
+      ToolChainTag
+      );
+  } else {
+    PrintError (
+      &quot;Tool chain specified in target.txt (%s) is not &quot;
+      &quot;specified in the tools_def.txt file.\n&quot;, TOOL_CHAIN_TAG
+      );
+  }
+  BreakTheBuild();
+}
+
+Build (ActivePlatform, ActiveModule, ActiveArchList, ActiveTargetList, ActiveToolChain, BuildMode);
+</code></pre><h3 id="822-parse-file-pointed-to-by-toolchainconf">8.2.2 Parse File Pointed to by TOOL_CHAIN_CONF</h3>
+<p>The file specified by <code>TOOL_CHAIN_CONF</code> (in <code>target.txt</code>) is the tool chain
+definition file (<code>tools_def.txt</code>) that contains all the definitions of external
+tools used to build modules and platforms, in the form of &quot;name=value&quot;. The
+definition of a tool includes the path of the executable, the path of dynamic
+libraries the executable needs, and command line options. Each set of tools can
+be referenced by a tag name either in the command line or in <code>target.txt</code>. For
+example, WINDDK3790x1830 is used to refer a set of tools from WINDDK of version
+3790x1830.</p>
+<p>The parser of the tool chain definition file needs to expand macros and wild
+cards (&quot;*&quot;) in the tool definitions. The expanded definitions are put in a
+database for easier access later. For example, if one overrides a tool&apos;s
+options in DSC or INF file, the tool will look up the tool&apos;s definition in the
+database and append the options to the end of options in the file specified by
+<code>TOOL_CHAIN_CONF</code>.</p>
+<hr>
+<p><strong>Note:</strong> The supported third party compiler tools will use the right most (or
+last) option it encounters, permitting appended options to override options
+specified first. For example, specifying a compiler option (FLAG) line: <strong>/Od /c
+/Og</strong> will result the compiler only processing <strong>/c /Og</strong>, ignoring the <strong>/Od</strong> flag.</p>
+<hr>
+<p>The final result after AutoGen stage is that macros named by <code>&lt;TOOLCODE&gt;</code> and</p>
+<p><code>&lt;TOOLCODE&gt;_FLAGS</code> will be generated in module&apos;s makefile. For example, &quot;CC&quot;
+and &quot;CC_FLAGS&quot; macros will be generated in the makefile for the compiler tool.
+The path of dynamic libraries will be prefixed to system&apos;s PATH environment by
+the build tools, so that the tools used in the <code>Makefile</code> can be called
+correctly.</p>
+<h3 id="823-parse-buildruletxt">8.2.3 Parse build_rule.txt</h3>
+<p>The file specified by <code>BUILD_RULE_CONF</code> (in <code>target.txt</code>) contains command
+steps used to build the source files into intermediate files and then
+intermediate files into final image files to be put into FV/FD. The type of
+source files and intermediate files are determined by the file extension. That
+means the same extension cannot be used to represent different file types. But
+one type of file can have more than one file extension. A single file can only
+have a single extension.</p>
+<p>The parser of this file will convert the contents of the file into a build rule
+database. Each item in this database will have tool chain family, input file
+information, output file information and command information. Whenever a source
+file is found in module&apos;s INF file, the build tools will attempt to find a
+build rule in the database corresponding to the input file&apos;s extension, and
+then use the output file as input file information to find another build rule,
+until no build rule uses the output file information as its input file. If
+there&apos;s no build rule for a type of source file, the build tools just skip it.
+But if there&apos;s build rule for it, one or more makefile targets will be
+generated for it.</p>
+<p>The sequence of build rules applied to source files and intermediate files
+determines the dependency relationship between targets in makefile. One type of
+file cannot be used in more than one build rule as an input file and the build
+rules must not be cyclic.</p>
+<h3 id="824-parse-dsc-fdf-inf-dec-files">8.2.4 Parse DSC, FDF, INF, DEC files</h3>
+<p>The platform description (DSC) file is used to instruct the build system what
+modules need to be processed in order to generate the PE32/PE32+ image files.</p>
+<p>The EDK II build system tools must be located in either the path pointed to by
+the EDK_TOOLS_BIN system environment variable (on Microsoft* operating systems)
+or located under a subdirectory of the Bin directory of the EDK_TOOLS_PATH
+directory.</p>
+<ul>
+<li><p>All EDK II content used to create PE32/PE32+ images must reside in the
+directory tree pointed to by the <code>WORKSPACE</code>.</p>
+</li>
+<li><p>EDK content must reside in directories pointed to by the <code>EFI_SOURCE</code>,
+<code>EDK_SOURCE</code> and <code>ECP_SOURCE</code> system environment variables.</p>
+</li>
+<li><p>The build system&apos;s output directory is not required to be within the
+<code>WORKSPACE</code>.</p>
+</li>
+</ul>
+<p>From the DSC file, the build tools collect the mapping between library classes
+and library instances (INF files), PCD data for the whole platform, the list of
+modules (INF files) specified for the platform, and the build output directory.
+Optionally, the name of the flash image layout description (FDF) file and build
+options specific to the platform are also obtained. Parsing FDF file at this
+time is just for the PCD information which might be used by some modules, and
+merge these PDC values into the information set of PCDs in DSC file.</p>
+<p>A PCD entry must only be listed once per section in the DSC or FDF files.</p>
+<p>Multiple library class instances for a single library class must not be
+specified in the same <code>[LibraryClasses]</code> or <code>&lt;LibraryClasses&gt;</code> section in the
+DSC file.</p>
+<h4 id="8241-include-files">8.2.4.1 !include Files</h4>
+<p>The DSC (and FDF) file can use <code>!include</code> statements to include text files that
+contain content that would appear in the DSC file. When gathering the content
+from the DSC (or FDF) file, the file pointed to by the !include statement is
+read before any other information that appears later in the file.</p>
+<p>The build system does not parse the files as the lines are read, but rather the
+lines are all read into a buffer prior to parsing the content. Therefore, the
+directory and file names for !include statements may not contain MACROs.</p>
+<p>If only a filename is provided, the file must be located in the same directory
+as the DSC or FDF file. Use of <code>$(WORKSPACE)/&lt;Path&gt;/&lt;Filename&gt;</code> is allowed
+for include files outside of the directory tree containing the DSC or FDF file,
+or <code>&lt;Path&gt;/&lt;Filename&gt;</code> if the include file is in the directory tree
+containing the DSC or FDF file.</p>
+<h4 id="8242-inf-and-dec-parsing">8.2.4.2 INF and DEC Parsing</h4>
+<p>The build tools try to parse the INF file one by one, including the INF file
+for library instances. From the INF file, the build tools collect information
+such as source file list, library class list, package list, GUID/Protocol/PPI
+list, PCD list, etc.</p>
+<p>After all INF files are parsed, the build tools retrieve the list of all of the
+dependent DEC files and then parse them. From the DEC file, the build tools
+will get the information such as common include folders, the values of
+GUID/Protocol/PPI, the default setting of all PCDs in the package, etc.</p>
+<p>The <code>[Packages]</code> section of the INF file is used by the build tools during the
+generation of the Makefiles. The <code>[Includes]</code> section of the DEC file specified
+in the <code>[Packages]</code> section will be added to the command-lines for compiler
+tools. The <code>MdePkg/MdePkg.dec</code> file must be included in all INF files listed in
+the DSC file.</p>
+<p>EDK II INF files must contain a valid name in the <code>MODULE_TYPE</code> element of
+their <code>[Defines]</code> sections. If the module type is not recognized, he build
+tools should break the build with an appropriate error message.</p>
+<p>EDK INF files must contain a valid name in the <code>COMPONENT_TYPE</code> element of
+their <code>[defines]</code> sections. If the component type is not recognized, the build
+tools should break the build with an appropriate error message.</p>
+<p>For entries in the [Sources] section of the INF file, in addition to the
+required file name field, there are optional fields for Family, Tool chain tag
+name and Tool Code that may contain modifiers that limit the scope of the file
+to a specific tool chain family, such as GCC, or tool code, such as ASM. If
+these fields are blank, then there is no restriction to what tools, tagname or
+tool chain family will process the file. The final field is for a FeatureFlag
+Expression. This field is an expression that must evaluate to True or False. If
+the field cannot be evaluated (such as an undeclared PCD used in the
+expression) the build parser must provide an appropriate error message and stop
+the build. If the field evaluates to False, the line is ignored. If the field
+evaluates to True, the build will use this line.</p>
+<p>For entries in the [Binaries] section of the INF file, in addition to the file
+type and name fields, there are optional fields for the target (DEBUG, RELEASE,
+etc.) and a FeatureFlagExpression field. This field is an expression that must
+evaluate to True or False. If the field cannot be evaluated (such as an
+undeclared PCD used in the expression) the build parser must provide an
+appropriate error message and stop the build. If the field evaluates to False,
+the line is ignored. If the field evaluates to True, the build will use this
+line.</p>
+<p>The <code>[Binaries]</code> section of an INF file may list files with a FileType of
+<code>DISPOSABLE</code>. The build tools must ignore files of this type.</p>
+<h4 id="8243-buildexe---ignore-sources-option">8.2.4.3 Build.exe --ignore-sources option</h4>
+<p>When the <code>--ignore-sources</code> option is present on the build.exe command-line,
+all modules specified in the DSC and FDF files must be either Binary INFs or
+Mixed INFs (that contain binary images). The build tools will ignore any
+content in a Mixed INF [Sources] section. If a Source INF is listed in the DSC
+file, the build must break during parsing with an appropriate error message. If
+an INF file is listed in the DSC file that does not contain a <code>[Binaries]</code>
+section, the build must break during parsing with an appropriate error message.
+The only code that will be generated during this build is the binary external
+PCD database file that will be added to the PEIM and DXE PCD driver FFS files.</p>
+<h4 id="8244-macros">8.2.4.4 Macros</h4>
+<p>The build and <code>GenFds</code> tools use the <code>-D</code>, <code>--define</code> command line options with
+an argument formatted: <code>MACRO_NAME &quot;=&quot; value</code>. If the <code>&quot;=&quot; value</code> is omitted,
+the <code>MACRO_NAME</code> is assigned a value of <code>0</code>.</p>
+<p>Token names (words defined in the EDK II meta-data file specifications) cannot
+be used as macro names. As an example, using <code>PLATFORM_NAME</code> as a macro name is
+not permitted, as it is a token defined in the DSC file&apos;s <code>[Defines]</code> section.</p>
+<p>Macros defined in INF files are local to the INF file. EDK II INF files must
+not use global macros except in build option flags. In INF files, macros can
+only be used for filenames, paths and, in the <code>[BuildOptions]</code> section, on the
+right (value) side of the statements.</p>
+<p>Macros can be defined or used in the INF file&apos;s <code>[Defines]</code>,
+<code>[LibraryClasses]</code>, <code>[Sources]</code>, <code>[Binaries]</code>, <code>[Packages]</code> and
+<code>[BuildOptions]</code> sections.</p>
+<p>Macros defined in DEC files are local to the DEC file. DEC files must not use
+global macros. In DEC files, macros can only be used for filenames and paths.</p>
+<p>Macros can be defined or used in the DEC file&apos;s <code>[Defines]</code>, <code>[Includes]</code> or
+<code>[LibraryClasses]</code> sections.</p>
+<p>System environment variables may be referenced, however their values must not
+be altered.</p>
+<h6 id="table-9-system-environment-variable-usage">Table 9 System Environment Variable Usage</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Macro Style Used in Meta-Data files</th>
+<th style="text-align:center">Windows Environment Variable</th>
+<th style="text-align:center">Linux &amp; OS/X Environment Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>$(WORKSPACE)</code></td>
+<td style="text-align:center"><code>%WORKSPACE%</code></td>
+<td style="text-align:center"><code>$WORKSPACE</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$(EFI_SOURCE)</code></td>
+<td style="text-align:center"><code>%EFI_SOURCE%</code></td>
+<td style="text-align:center"><code>$EFI_SOURCE</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$(EDK_SOURCE)</code></td>
+<td style="text-align:center"><code>%EDK_SOURCE%</code></td>
+<td style="text-align:center"><code>$EDK_SOURCE</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$(EDK_TOOLS_PATH)</code></td>
+<td style="text-align:center"><code>%EDK_TOOLS_PATH%</code></td>
+<td style="text-align:center"><code>$EDK_TOOLS_PATH</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$(ECP_SOURCE)</code></td>
+<td style="text-align:center"><code>%ECP_SOURCE%</code></td>
+<td style="text-align:center"><code>$ECP_SOURCE</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>Note:</strong> The <code>PACKAGES_PATH</code> and <code>EDK_TOOLS_BIN</code> system environment variables
+shall not be referenced in EDK II meta-data files.</p>
+<hr>
+<p>There are also four global MACRO statements that may be used in different
+portions of the DSC and FDF files, <code>$(TARGET)</code>, <code>$(TOOL_CHAIN_TAG)</code>,
+<code>$(OUTPUT_DIRECTORY)</code> and <code>$(ARCH)</code>.</p>
+<p>Macros defined in the FDF file are local to the FDF file. Macros are permitted
+in the entire FDF file.</p>
+<hr>
+<p><strong>Note:</strong> In the <code>[Rules]</code> section of the FDF, the macros listed in that
+section must match macro names defined for the <code>build_rule.txt</code> file.</p>
+<hr>
+<p>Macros defined in the DSC file&apos;s <code>[Defines]</code> section can be used in either the
+DSC file or in the FDF file. Macros defined in other sections of the DSC file
+can only be used in the DSC file - they cannot be used in the FDF file. Macros
+in the DSC file can be used for file names, paths, PCD values, in the
+<code>[BuildOptions]</code> section, on the right (value) side of the statements and in
+conditional directives. Macros can also be defined or used in the <code>[Defines]</code>,
+<code>[LibraryClasses]</code>, <code>[Libraries]</code>, <code>[Components]</code> and all PCD sections.</p>
+<p>Macros defined by the user may be used in the !include statements in DSC and
+FDF files.</p>
+<p><code>EDK_GLOBAL</code> type macros defined in the DSC file can be used in later sections
+of the DSC, FDF and any of the included EDK INF files.</p>
+<p>Macro values must be defined prior to using them in directive statements or for
+PCD values. The following provides the precedence (high to low) for obtaining
+macro values.</p>
+<ul>
+<li>Command-line, <code>-D</code> flags (left most has higher priority)</li>
+<li>FDF file, <code>DEFINE</code> statements override previous definitions in the
+<code>[Defines]</code> section</li>
+<li>FDF file, <code>DEFINE</code> statements in the <code>[Defines]</code> section</li>
+<li>DSC file, Component INF <code>DEFINE</code> statements embedded in <code>&lt;subsections&gt;</code></li>
+<li>DSC file, <code>DEFINE</code> statements in sections following the <code>[Defines]</code> section</li>
+<li>DSC file, <code>DEFINE</code> statements in the <code>[Defines]</code> section</li>
+</ul>
+<hr>
+<p><strong>Note:</strong> Macros defined in the DSC file&apos;s <code>[Defines]</code> section are common to
+both the DSC and FDF file. Macros defined in the FDF file are local to the FDF
+file. Macros defined in other sections of the DSC file are local to the section
+types that define them.</p>
+<hr>
+<p><strong>Note:</strong> Macros defined in INF and DEC files are local to the file that
+defined them.</p>
+<hr>
+<p><strong>Note:</strong> Note that all command line options for the build tool are passed to
+the GenFds tool after the make portion of the build completes.</p>
+<hr>
+<p>Macros defined in common sections may be used in the architecturally modified
+sections of the same section type. Macros defined in architectural sections
+cannot be used in other architectural sections, nor can they be used in the
+common section. Section modifiers in addition to the architectural modifier
+follow the same rules as architectural modifiers.</p>
+<p>When used in a <code>!if</code> or <code>!elseif</code> conditional expression statement or in an
+expression used in a value filed, a macro that has not been defined has a value
+of 0.</p>
+<p>The remaining MACRO definitions will be expanded by tools when they encounter
+the entry in the section except when the macro is within double quotation marks
+in build options sections. The expectation is that macros in the quoted values
+will be expanded by external build scripting tools, such as nmake or make; they
+will not be expanded by the build tools. If a macro that is not defined is used
+in locations that are not expressions or value fields (where the tools would
+just do macro expansion as in C flags in a <code>[BuildOptions]</code> section), nothing
+will be emitted. If the macro, <code>MACRO1</code>, has not been defined, then:</p>
+<p><code>MSFT:*_*_*_CC_FLAGS = /c /nologo $(MACRO1) /Od</code></p>
+<p>After macro expansion, the logical result would be equal to:</p>
+<p><code>MSFT:*_*_*_CC_FLAGS = /c /nologo /Od</code></p>
+<p>It is recommended that tools remove any excess space characters when processing
+these types of lines.</p>
+<p>The following table lists reserved global macro names that are completed by the
+internal build tools. These macros must not be redefined.</p>
+<h6 id="table-10-reserved-macros-expanded-by-tools">Table 10 Reserved Macros Expanded by Tools</h6>
+<table>
+<thead>
+<tr>
+<th>Macro String</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$(ARCH)</code></td>
+<td>Architecture of current module</td>
+</tr>
+<tr>
+<td><code>$(BASE_NAME)</code></td>
+<td>The file name of the module binary.</td>
+</tr>
+<tr>
+<td><code>$(BUILD_DIR)</code></td>
+<td>All files for building a platform will be put in this directory</td>
+</tr>
+<tr>
+<td><code>$(BUILD_NUMBER)</code></td>
+<td>Used in FDF file <code>[Rules]</code> sections to identify a build number used in a UEFI Version section. This is a value that is defined in the DSC file.</td>
+</tr>
+<tr>
+<td><code>$(ECP_SOURCE)</code></td>
+<td>The system environment variable that points to a version of the Edk Compatibility Package. This is only required if there are EDK components and libraries included in an EDK II platform build.</td>
+</tr>
+<tr>
+<td><code>$(EDK_SOURCE)</code></td>
+<td>The system environment variable that points to an EDK tree containing the Foundation elements of an EDK tree. This is only required if there are EDK components and libraries included in an EDK II platform build.</td>
+</tr>
+<tr>
+<td><code>$(EDK_TOOLS_PATH)</code></td>
+<td>The system environment variable that points to the path of build tools</td>
+</tr>
+<tr>
+<td><code>$(EFI_SOURCE)</code></td>
+<td>The system environment variable that points to an EDK tree containing EDK components and libraries. This is only required if there are EDK components and libraries included in an EDK II platform build.</td>
+</tr>
+<tr>
+<td><code>$(FILE_GUID)</code></td>
+<td>An EDK component&apos;s GUID value</td>
+</tr>
+<tr>
+<td><code>$(INF_OUTPUT)</code></td>
+<td>Used in FDF file <code>[Rules]</code> sections to identify the location of UEFI compliant binary leaf section content</td>
+</tr>
+<tr>
+<td><code>$(INF_VERSION)</code></td>
+<td>Used in FDF file <code>[Rules]</code> sections to identify the version string used in a UEFI Version section.</td>
+</tr>
+<tr>
+<td><code>$(MODULE_NAME)</code></td>
+<td>Current module name</td>
+</tr>
+<tr>
+<td><code>$(MODULE_TYPE)</code></td>
+<td>Current module type</td>
+</tr>
+<tr>
+<td><code>$(MODULE_GUID)</code></td>
+<td>Current module GUID</td>
+</tr>
+<tr>
+<td><code>$(NAMED_GUID)</code></td>
+<td>Used in FDF file <code>[Rules]</code> sections this macro is used by the build tools to create an FFS file named by the Module&apos;s GUID value.</td>
+</tr>
+<tr>
+<td><code>$(OUTPUT_DIRECTORY)</code></td>
+<td>This directory is where the output binary files will be generated, either an absolute path or relative to the <code>WORKSPACE</code>.</td>
+</tr>
+<tr>
+<td><code>$(TARGET)</code></td>
+<td>Target of current module (<code>DEBUG</code>/<code>RELEASE</code>/<code>NOOPT</code>)</td>
+</tr>
+<tr>
+<td><code>$(TOOL_CHAIN_TAG)</code></td>
+<td>Tool chain used to build current module</td>
+</tr>
+<tr>
+<td><code>$(WORKSPACE)</code></td>
+<td>The system environment variable that points to the current Workspace directory.</td>
+</tr>
+</tbody>
+</table>
+<p>The following table lists special Macros that may only be used in an FDF file&apos;s
+[Rules] section. Like the Macros in the previous table, they must never be
+redefined.</p>
+<ol>
+<li><p>The ${d_*} macros always mean OutputPath + ModuleGuild + .ffs</p>
+</li>
+<li><p>When starting to generate FFS, the ${s_*} macros mean source INF file full
+path, but in EfiSection.py, it is changed to the full path of efi file.</p>
+</li>
+</ol>
+<h6 id="table-11-reserved-fdf-rule-section-macro-strings">Table 11 Reserved FDF [Rule] Section Macro Strings</h6>
+<table>
+<thead>
+<tr>
+<th>Variable String</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;${src}&quot;</td>
+<td>Source file(s) to be built (full path)</td>
+</tr>
+<tr>
+<td>&quot;${s_path}&quot;</td>
+<td>Source INF file directory (absolute path)</td>
+</tr>
+<tr>
+<td>&quot;${s_dir}&quot;</td>
+<td>Source file relative directory within a module. NOTE: ${s_dir} is always equals to &quot;.&quot; if source file is given in absolute path.</td>
+</tr>
+<tr>
+<td>&quot;${s_name}&quot;</td>
+<td>Source file name without path.</td>
+</tr>
+<tr>
+<td>&quot;${s_base}&quot;</td>
+<td>Source file name without extension and path.</td>
+</tr>
+<tr>
+<td>&quot;${s_ext}&quot;</td>
+<td>Source file extension.</td>
+</tr>
+<tr>
+<td>&quot;${dst}&quot;</td>
+<td>Destination file(s) built from ${src} (full path)</td>
+</tr>
+<tr>
+<td>&quot;${d_path}&quot;</td>
+<td>Destination file directory (OutputPath + ModuleGuid.ffs)</td>
+</tr>
+<tr>
+<td>&quot;${d_name}&quot;</td>
+<td>Destination file name without path.</td>
+</tr>
+<tr>
+<td>&quot;${d_base}&quot;</td>
+<td>Destination file name without extension and path</td>
+</tr>
+<tr>
+<td>&quot;${d_ext}&quot;</td>
+<td>Destination file extension</td>
+</tr>
+</tbody>
+</table>
+<p>Macro evaluation is done at the time the macro is used in an expression,
+conditional directive or value field, not when a macro is defined. Macros in
+quoted strings will not be expanded by parsing tools; all other macro values
+will be expanded, without evaluation, as other elements of the build system
+will perform any needed tests.</p>
+<h4 id="example">Example</h4>
+<pre><code class="lang-ini">[LibraryClasses.common]
+  DEFINE MDE = MdePkg/Library
+  BaseLib|$(MDE)/BaseLib.inf
+
+[LibraryClasses.X64, LibraryClasses.IA32]
+  # Can use $(MDE), cannot use $(MDEMEM)
+  DEFINE PERF = PerformancePkg/Library
+  TimerLib|$(PERF)/DxeTscTimerLib/DxeTscTimerLib.inf
+
+[LibraryClasses.X64.PEIM]
+  # Can use $(MDE) and $(PERF)
+  DEFINE MDEMEM = $(MDE)/PeiMemoryAllocationLib
+  MemoryAllocationLib|$(MDEMEM)/PeiMemoryAllocationLib.inf
+
+[LibraryClasses.IPF]
+  # Cannot use $(PERF) or $(MDEMEM)
+  # Can use $(MDE) from the common section
+  PalLib|$(MDE)/UefiPalLib/UefiPalLib.inf
+  TimerLib|$(MDE)/BaseTimerLibNullTemplate/BaseTimerLibNullTemplate.inf
+</code></pre>
+<h4 id="edkglobal">EDK_GLOBAL</h4>
+<p>The <code>EDK_GLOBAL</code> statements defined in the DSC file can be used during the
+processing of the DSC, FDF and EDK INF files. The definition of the
+<code>EDK_GLOBAL</code> name must only be done in the DSC <code>[Defines]</code> section. These
+special macros can be used in path statements, <code>[BuildOptions]</code> and <code>[Rule]</code>
+sections. These statements are used to replace the environment variables that
+were defined for the EDK build tools. They must never be used in a conditional
+directive statement in the DSC and FDF files, nor can they be used by EDK II
+INF files.</p>
+<h4 id="8245-conditional-directive-blocks">8.2.4.5 Conditional Directive Blocks</h4>
+<p>Additional build scoping can be implemented using the DSC and FDF directive
+statements in combination with command line options for the build tool.
+Conditional directive blocks are not permitted in the EDK II DEC and INF files.</p>
+<p>Conditional directive statements are used by the build tools preprocessor
+function to include or exclude statements in the DSC and FDF files. A limited
+number of statements are supported, and nesting of conditionals is also
+supported. Statements are prefixed by the exclamation &quot;!&quot; character.
+Conditional statements may appear anywhere within the DSC and FDF files. They
+are not permitted in the DSC and INF files.</p>
+<p>Refer to the Macro Statement section for information on using Macros in
+conditional directives.</p>
+<p>Conditional directive statements are only permitted in the DSC and FDF files.</p>
+<p>Macro and PCD Names can be used in conditional directive statements.</p>
+<p>Only macros can be used in the <code>!ifdef</code> and <code>!ifndef</code> statements, PCDs are code
+elements which have been declared in the DEC files.</p>
+<p>When testing if a Macro has been defined, the only the Macro name is required,
+while in testing for values, the Macro name must be enclosed: <code>$(MacroName)</code>.
+When the Macro is a string value, the <code>$(MacroName)</code> must not be encapsulated in
+quotation marks, only string literals in directive statements need to be
+enclosed by double quotation marks.</p>
+<p>When testing values for PCDs, only the PCD name is required:
+<code>TokenSpaceGuidCname.PcdCname</code>; enclosing the PCD name in &quot;$(&quot; and &quot;)&quot; is not
+permitted.</p>
+<p>Supported statements are: <code>!ifdef</code>, <code>!ifndef</code>, <code>!if</code>, <code>!else</code>, <code>!elseif</code> and
+<code>!endif</code>. These control statements are used to either include or exclude lines
+as the parsing tool processes these files. The <code>!ifdef</code> and <code>!ifndef</code>
+statements test whether a Macro has been defined or not defined (PCDs are
+always defined - the build will break if a PCD is used by a module specified in
+the DSC file that cannot be located in any of the dependent DEC files, from the
+<code>[Packages]</code> section of an INF specified in the DSC file). FeatureFlag and
+FixedAtBuild access methods are the only PCDs that can be used in conditional
+directives.</p>
+<p>The build system will process the DSC and FDF files more than once. The first
+pass is to pick up all macros and PCD values for macros and PCDs used in
+conditional directives, then on the second pass, process the conditional
+directive content. This second pass is required as there is no required order
+for sections within these files, and some PCD values may be defined in sections
+that follow the use of the PCD in a conditional directive. Macros and PCDs used
+in conditional directives must not be encapsulated in a conditional comparison
+(<code>!if</code>) directive block. It is permissible to use an undefined macro prior to
+the definition of the macro, as in the following example.</p>
+<pre><code>!ifndef FOO
+DEFINE FOO=TRUE
+!endif
+</code></pre><p>When using PCDs in conditional directive statements or expressions, only the
+PCD name is required. Do not encapsulate the PCD name in the &quot;$(&quot; and &quot;)&quot;
+required for macro values as shown in the example below.</p>
+<pre><code>!if ( gTokenSpaceGuid.PcdCname == 1 ) AND ( $(MY_MACRO) == TRUE )
+DEFINE FOO=TRUE
+!endif
+</code></pre><p>In the above example, <code>FOO</code> must not be used in a conditional directive statement.</p>
+<p>When testing strings, the strings must to be encapsulated by double quotation
+marks, as shown in the following example.</p>
+<pre><code>!if $(SETUP) == &quot;SETUP&quot;
+DEFINE FOO=TRUE
+!endif
+</code></pre><p>For backward compatibility, the EDK II build system will process strings that
+are not encapsulated by the double quotation marks, however this will not be
+supported in future releases.</p>
+<p>Strings can only be compared to strings of a like type (testing an ASCII string
+against a Unicode format string must fail), numbers can only be compared
+against numbers and boolean objects can only evaluate to <code>TRUE</code> or <code>FALSE</code>. See
+the Operator Precedence table, below for a list of restrictions on comparisons.</p>
+<p>Refer to the DSC and FDF file form specifications &quot;<em>Conditional Directive
+Blocks</em>&quot; section for additional details of how directives must be processed.</p>
+<h4 id="8246-expressions">8.2.4.6 Expressions</h4>
+<p>Expressions can be used in conditional directive comparison statements and in
+value fields for PCDs in the DSC and FDF files.</p>
+<hr>
+<p><strong>Note:</strong> Expressions are not supported in the INF and DEC files.</p>
+<hr>
+<p>Expressions follow C relation, equality, logical and bitwise precedence and
+associativity. Not all C operators are supported, only operators in the
+following list can be used.</p>
+<hr>
+<p><strong>Note:</strong> Due to the flexibility of the build system, a new operator, <code>IN</code>
+has been added that can be used to test whether an element is in a list. The
+format for this is <code>&lt;Value&gt;</code> IN <code>&lt;MACRO_LIST&gt;</code>, where MACRO_LIST can only be
+one of <code>$(ARCH)</code>, <code>$(TOOL_CHAIN_TAG)</code> and <code>$(TARGET)</code>.</p>
+<hr>
+<p>Use of parenthesis is encouraged to remove ambiguity.</p>
+<p>Additional scripting style operators may be used in place of C operators as
+shown in the table below.</p>
+<h6 id="table-12-operator-precedence-and-supported-operands">Table 12 Operator Precedence and Supported Operands</h6>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Use with Data Types</th>
+<th>Notes</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>or</code>, <code>OR</code>, <code>||</code></td>
+<td>Number, Boolean</td>
+<td></td>
+<td>Lowest</td>
+</tr>
+<tr>
+<td><code>and</code>, <code>AND</code>, <code>&amp;&amp;</code></td>
+<td>Number, Boolean</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>Number, Boolean</td>
+<td>Bitwise OR</td>
+<td></td>
+</tr>
+<tr>
+<td><code>^</code>, <code>xor</code>, <code>XOR</code></td>
+<td>Number, Boolean</td>
+<td>Exclusive OR</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>Number, Boolean</td>
+<td>Bitwise AND</td>
+<td></td>
+</tr>
+<tr>
+<td><code>==</code>, <code>!=</code>, <code>EQ</code>, <code>NE</code>, <code>IN</code></td>
+<td>All</td>
+<td>The IN operator can only be used to test a quoted unary literal string for membership in a list.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Space characters must be used before and after the letter operators Strings compared to boolean or numeric values using &quot;==&quot; or &quot;EQ&quot; will always return FALSE, while using the &quot;!=&quot; or &quot;NE&quot; operators will always return TRUE</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;=</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>LE</code>, <code>GE</code>, <code>LT</code>, <code>GT</code></td>
+<td>All</td>
+<td>Space characters must be used before and after the letter operators.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>+</code>, <code>-</code></td>
+<td>Number, Boolean</td>
+<td>Cannot be used with strings - the system does not automatically do concatenation. Tools should report a warning message if these operators are used with both a boolean and number value</td>
+<td></td>
+</tr>
+<tr>
+<td><code>!</code>, <code>not</code>, <code>NOT</code></td>
+<td>Number, Boolean</td>
+<td></td>
+<td>Highest</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>IN</code> operator can only be used to test a literal string against elements
+in the following global variables:</p>
+<p><strong><em>$(FAMILY)</em></strong></p>
+<p><code>$(FAMILY)</code> is considered a list of families that different <code>TOOL_CHAIN_TAG</code>
+values belong to. The <code>TOOL_CHAIN_TAG</code> is defined in the <code>Conf/target.txt</code> or
+on the command-line. The FAMILY is associated with the <code>TOOL_CHAIN_TAG</code> in the
+<code>Conf/tools_def.txt</code> file (or the <code>TOOLS_DEF_CONF</code> file specified in the
+<code>Conf/target.txt</code> file) file. While different family names can be defined,
+<code>ARMGCC</code>, <code>GCC</code>, <code>INTEL</code>, <code>MSFT</code>, <code>RVCT</code>, <code>RVCTCYGWIN</code> and <code>XCODE</code> have been
+predefined in the <code>tools_def.txt</code> file.</p>
+<p><strong><em>$(ARCH)</em></strong></p>
+<p><code>$(ARCH)</code> is considered the list of architectures that are to be built, that
+were specified on the command line or come from the <code>Conf/target.txt</code> file.</p>
+<p><strong><em>$(TOOL_CHAIN_TAG)</em></strong></p>
+<p><code>$(TOOL_CHAIN_TAG)</code> is considered the list of tool chain tag names specified on
+the command line</p>
+<p><strong><em>$(TARGET)</em></strong></p>
+<p><code>$(TARGET)</code> is considered the list of target (such as <code>DEBUG</code>, <code>RELEASE</code> and
+<code>NOOPT</code>) names specified on the command line or come from the <code>Conf/target.txt</code>
+file.</p>
+<p>For logical expressions, any non-zero value must be considered <code>TRUE</code>.</p>
+<p>Invalid expressions must cause a build break with an appropriate error message.</p>
+<h4 id="8247-edk-overrides">8.2.4.7 EDK Overrides</h4>
+<p>For EDK component INF files, an optional sub-element of <code>&lt;SOURCE_OVERRIDE_PATH&gt;</code>
+has been defined. If this element is specified, files listed in the directory
+are used instead of the &quot;same-named&quot; files in the component&apos;s directory. If an
+EDK component directory lists files, <code>A.c</code>, <code>B.c</code> and <code>C.h</code>, and the directory
+specified in this sub-element contains the file <code>B.c</code>, then the component will
+be built using files from the component directory: <code>A.c</code> and <code>C.h</code>, and the file
+<code>B.c</code> from the override directory. Any other files listed in the override
+directory will NOT be included in the build (no new or additional files are
+permitted).</p>
+<h4 id="8248-depex-processing">8.2.4.8 DEPEX processing</h4>
+<p>EDK II modules that have dependencies must use the <code>[Depex]</code> section to define
+the dependency expressions, however both EDK and EDK II may specify a
+dependency expression file. If the file specified, the complete dependency
+expression must be defined in the file. For EDK II modules, the build tools
+will create the complete dependency expression using the information in the
+<code>[Depex]</code> section along with all <code>[Depex]</code> sections from the linked in library
+instances. Depex expressions listed in an INF file&apos;s <code>[Depex]</code> section are
+written as in-fix expressions, while the output of the <code>GenDepex</code> tool
+generating the EFI Depex section is a post-fix expression. If an INF file
+specifies a <code>DPX_SOURCE</code> entry in the INF file&apos;s <code>[Defines]</code> section, the file
+must also use an in-fix expression. The table below lists the operator
+precedence for dependency expressions.</p>
+<h6 id="table-13-depex-expression-operator-precedence">Table 13: [Depex] Expression Operator Precedence</h6>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Use with Data Types</th>
+<th>Notes</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>( )</code></td>
+<td>TRUE, FALSE, Expression, GUID, CName or Encapsulation</td>
+<td>Encapsulated items are processed from inner-most to outer-most</td>
+<td>Highest</td>
+</tr>
+<tr>
+<td><code>NOT</code></td>
+<td>TRUE, FALSE, Expression, GUID, CName or Encapsulation</td>
+<td>After identifying encapsulation parameters, the NOT operator must take precedence over any other items.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>AND</code>, <code>and</code></td>
+<td>TRUE, FALSE, GUID or Encapsulation</td>
+<td>These operators are used to create an expression</td>
+<td></td>
+</tr>
+<tr>
+<td><code>OR</code>, <code>or</code></td>
+<td>TRUE, FALSE, GUID or Encapsulation</td>
+<td>These operators are used to create an expression</td>
+<td>Lowest</td>
+</tr>
+<tr>
+<td><code>SOR</code></td>
+<td>TRUE, FALSE, GUID or Encapsulation</td>
+<td>Only valid for DXE and SMM dependency expressions and must be the first statement followed by either a GUID, encapsulation or an expression</td>
+<td></td>
+</tr>
+<tr>
+<td><code>AFTER</code>, <code>BEFORE</code></td>
+<td>GUID</td>
+<td>Only valid for DXE and SMM dependency expressions. These must be the only operator in the dependency expression. Only one of these is permitted per dependency expression</td>
+</tr>
+</tbody>
+</table>
+<h4 id="8249-pcd-access-methods">8.2.4.9 PCD Access Methods</h4>
+<p>A PCD is defined as <code>TokenSpaceGuidCName.PcdCName</code>. Each PcdCName must be
+unique to the Token Space declaring the PCD. The token space is a name space
+that is unique to the GUID known as the TokenSpaceGuidCName.</p>
+<p>The following list defines the five PCD access methods.</p>
+<ul>
+<li><p><strong>FeatureFlag PCD</strong> - used in conditional directive statements in code.</p>
+</li>
+<li><p><strong>PatchableInModule PCD</strong> - a volatile variable that can be updated either
+during a build or by a tool that knows the offset and data size of the
+variable.</p>
+</li>
+<li><p><strong>FixedAtBuild PCD</strong> - a static variable that is set during the build.</p>
+</li>
+<li><p><strong>Dynamic</strong> - a PCD that will use the standard PcdGet/PcdSet macros; the
+values for these PCDs are common to all modules in a platform and must be
+listed (with the storage method and value) in the DSC file.</p>
+</li>
+<li><p><strong>DynamicEx</strong> - a PCD that uses the PcdGetEx/PcdSetEx macros; the values for
+these PCDs are common to all modules in a platform and must be listed (with
+the storage method and value) in the DSC file.</p>
+</li>
+</ul>
+<p>How a PCD is coded also makes a difference as to how code is generated by the
+build system. FeatureFlag PCDs can only be used as FeatureFlag PCDs; very
+straight forward. Modules can code the remaining types of PCDs to be either
+FixedAtBuild (a const which is accessible via a <code>PcdGet</code> function),
+PatchableInModule (which can be modified using an external tool), Dynamic which
+is accessible via a <code>PcdSet</code>, <code>PcdGet</code> or <code>DynamicEx</code> which uses the token
+space GUID and token number of a PCD in the <code>PcdGetEx</code> and <code>PcdSetEx</code> access
+methods. The build system will record all (FixedAtBuild, PatchableInModule,
+Dynamic and DynamicEx) PCD data into one of the two PCD databases implemented
+in EDK II. Dynamic PCD definitions are an amalgamation of FixedAtBuild,
+PatchableInModule and DynamicEx.</p>
+<p>It is recommended that developers code their modules to use the Dynamic form.
+The Dynamic form allows the platform integrator to select how they want to use
+the PCD; selecting how they want to expose the data; FixedAtBuild,
+PatchableInModule, Dynamic or (PI compliant) DynamicEx. If the platform
+integrator selects the Dynamic or DynamicEx form for any PCD, then the platform
+must also contain a PEI and/or DXE PCD driver to maintain a volatile database
+of values that can be set or retrieved.</p>
+<p>Dynamic and DynamicEx PCD values are common to all modules in a platform and
+the storage mechanism for these PCDs must be defined by the platform developer,
+so the PCD values must be specified in the DSC file under a section that
+specifies the storage mechanism (Default, VPD or HII).</p>
+<p>The DynamicEx PCDs correspond to the <em>PI Specification</em>, while the other PCD
+forms are associated with EDK II.</p>
+<p>Modules that will be distributed in binary form must use either
+PatchableInModule or DynamicEx PCDs.</p>
+<p>PatchableInModule PCDs also require the build system to generate a map file for
+each module that is using PatchableInModule PCDs. This map file contains the
+offset from the start of the file to the location of the first byte of the PCD.</p>
+<p>If the Platform Integrator does not specify the format, and all of the INF
+files that use the PCD state that they have been coded to use the Dynamic PCD
+form, the tool must examine the methods available for a PCD that have been
+declared in the DEC file. The build system uses the following priority for the
+default method.</p>
+<ul>
+<li><p>If the PCD is listed in the DEC&apos;s <code>PcdsFixedAtBuild</code>, then use FixedAtBuild,
+otherwise,</p>
+</li>
+<li><p>If the PCD is listed in <code>PcdsPatchableInModule</code>, then use PatchableInModule.</p>
+</li>
+<li><p>If the PCD is not listed in either of the previous two sections, and it is
+listed in a <code>PcdsDynamicEx</code> section, then use DynamicEx.</p>
+</li>
+<li><p>If not listed in any of the previous sections, and the PCD is listed in the
+<code>PcdsDynamic</code> section, then use Dynamic.</p>
+</li>
+</ul>
+<p>Build tools are required to process PCD values for <code>VOID*</code> PCDs into byte
+arrays, C format GUIDs or as C format strings (either ASCII or [L]&quot;string&quot;)
+prior to autogenerating the code.</p>
+<p>PCD values stored in VPD regions are processed prior to completing the final
+PCD parsing. Refer to Section 8.4 for additional rules for processing PCDs to
+create a platform scoped PCD Database.</p>
+<h4 id="82410-precedence-of-pcd-values">8.2.4.10 Precedence of PCD Values</h4>
+<p>The values that are assigned to individual PCDs required by a build may come
+from different locations and different meta-data files. The following provides
+the precedence (high to low) to assign a value to a PCD.</p>
+<ul>
+<li>Command-line, <code>--pcd</code> flags (left most has higher priority)</li>
+<li>DSC file, Component INF <code>&lt;Pcd*&gt;</code> section statements</li>
+<li>FDF file, grammar describing automatic assignment of PCD values</li>
+<li>FDF file, SET statements within a section</li>
+<li>FDF file, SET statement in the [Defines] section</li>
+<li>DSC file, global [Pcd*] sections</li>
+<li>INF file, PCD sections, Default Values</li>
+<li>DEC file, PCD sections, Default Values</li>
+</ul>
+<p>In addition to the above precedence rules, PCDs set in sections with
+architectural modifiers take precedence over PCD sections that are common to
+all architectures.</p>
+<p>When listed in the same section. If listed multiple times, the last one will be
+used. If PCD field value is listed, it will override PCD value even if PCD value 
+is after PCD field value.</p>
+<p>A PCD value set on the command-line has the highest precedence. It overrides
+all instances of the PCD value specified in the DSC or FDF file. The following
+is the syntax to override the value of a PCD on the command line, please refer to
+appendix D.4 Usage for detail EBNF format.</p>
+<p><code>--pcd [&lt;TokenSpaceGuidCname&gt;.]&lt;PcdCName&gt;[.Field]=&lt;Value&gt;</code></p>
+<p><code>&lt;Value&gt;</code> supports the following syntax:</p>
+<ul>
+<li><p>ASCII string value for a PCD</p>
+<p><code>--pcd  [&lt;TokenSpaceGuidCname&gt;.]&lt;PcdCName&gt;[.Field]=&quot;String&quot;</code>
+<code>--pcd  [&lt;TokenSpaceGuidCname&gt;.]&lt;PcdCName&gt;[.Field]=&quot;&apos;String&apos;&quot;</code></p>
+</li>
+<li><p>Unicode string value for a PCD</p>
+<p><code>--pcd  [&lt;TokenSpaceGuidCname&gt;.]&lt;PcdCName&gt;[.Field]=L&quot;String&quot;</code>
+<code>--pcd  [&lt;TokenSpaceGuidCname&gt;.]&lt;PcdCName&gt;[.Field]=L&quot;&apos;String&apos;&quot;</code></p>
+</li>
+<li><p>Byte array value for a PCD</p>
+<p><code>--pcd  [&lt;TokenSpaceGuidCname&gt;.]&lt;PcdCName&gt;[.Field]= H&quot;{0x1, 0x2}&quot;</code></p>
+</li>
+</ul>
+<hr>
+<p><strong>Note:</strong> The EDK II meta-data specs have changed to permit a PCD entry (or any
+other entry) to be listed only one time per section.</p>
+<hr>
+<p>If the maximum size of a <code>VOID*</code> PCD is not specified in the DSC file, then the
+maximum size is calculated based on the largest size of 1) the string or array
+in the DSC file, 2) the string or array in the INF file and 3) the string or
+array in the DEC file. If the value is a quoted text string, the size of the
+string will be incremented by one to handle string termination. If the quoted
+string is preceded by L, as in <code>L&quot;This is a string&quot;</code>, then the size of the string
+will be incremented by two to handle unicode string termination. If the value
+is a byte array, then the size of the byte array is not modified. If the value is
+a single quoted string, as in &apos;string&apos; or L&apos;string&apos;, the size of the string doesn&apos;t
+need to include string null termination character.</p>
+<p>For example, if the string in the DSC file is <code>L&quot;DSC Length&quot;</code>, the INF file has
+<code>L&quot;Module Length&quot;</code> and the DEC file declares the default as <code>L&quot;Length&quot;</code>, then
+the maximum size that will be allocated for this PCD will be 28 bytes (<code>L&quot;Module Length&quot;</code> 26 bytes, 2 bytes for null termination character).</p>
+<p><code>VOID*</code> PCDs must be byte aligned if the value is an ASCII string, two-byte
+aligned if the value is a Unicode string or 8-byte aligned in the value is a
+byte array.</p>
+<h4 id="82411-section-handling">8.2.4.11 Section Handling</h4>
+<p>The INF and DEC file parsing routines must process the sections so that common
+architecture sections are logically merged with the architecturally specific
+sections. The architectural sections need to be processed so that they are
+logically after the common section. It is recommended that EDK II developers
+use a logical ordering of the sections.</p>
+<p>Other section modifiers must also be logically appended to the merged sections
+(for INFs that have architectural and common architecture sections) after the
+merge.</p>
+<p>For <code>[BuildOptions]</code> sections in the INF and DSC file, the entries with a
+common left side (of the &quot;=&quot;) will be either appended or replace previous
+entries based on the &quot;==&quot; replace or &quot;=&quot; append assignment character
+sequence.</p>
+<pre><code>Common Section + Architectural Section + Common Section w/extra Modifier + Architectural Section w/extra Modifier
+</code></pre><h4 id="example">Example</h4>
+<pre><code class="lang-ini">[BuildOptions.Common]
+  MSFT:*_*_*_CC_FLAGS = /nologo
+
+[BuildOptions.Common.EDK]
+  MSFT:*_*_*_CC_FLAGS = /Od
+
+[BuildOptions.IA32]
+  MSFT:*_*_IA32_CC_FLAGS = /D EFI32
+</code></pre>
+<p>For IA32 architecture builds of an EDK II INF file would logically be:</p>
+<p><code>MSFT:*_*_IA32_CC_FLAGS = /nologo /D EFI32</code></p>
+<p>For non-IA32 architecture EDK INF files, tool parsing would logically be:</p>
+<p><code>MSFT:*_*_*_CC_FLAGS = /nologo /Od</code></p>
+<p>For IA32 architecture builds of an EDK INF file, tool parsing would logically
+be:</p>
+<p><code>MSFT:*_*_IA32_CC_FLAGS = /nologo /D EFI32 /Od</code></p>
+<h4 id="82412-pcd-info-generation">8.2.4.12 PCD INFO Generation</h4>
+<p>The UEFI Platform Initialization specification defines a PEIM and Protocol that
+can retrieve the PCD Token number and the PCD Token Name (the PCD C Name)
+information from the PCD Database. In order to support these modules, a
+<code>PCD_INFO_GENERATION</code> entry in the DSC file&apos;s <code>[Defines]</code> section is used to
+enable generate the PCD Database with the required information (normally, only
+the PCD Token number is available). This feature does increase the size of the
+PCD drivers that contain the PCD database, so this capability is added as an
+optional feature rather than always generating the content.</p>
+<p>If the <code>[Defines]</code> section has the <code>PCD_VAR_CHECK_GENERATION</code> entry set to
+TRUE, then a binary file will be created in the FV directory for Dynamic and
+DynamicEx PCD HII Variable checking.</p>
+<h4 id="82413-pre-build-processing">8.2.4.13 Pre Build Processing</h4>
+<p>The DSC file is parsed after the tool meta-data files. If the <code>[Defines]</code>
+section of the DSC file contains a <code>PREBUILD = entry</code> statement, processing
+of the DSC file is suspended and the script specified in the <code>PREBUILD</code>
+statement is executed. The entry of <code>PREBUILD</code> support multiple arguments. And
+Tool will convert arguments that are <code>WORKSPACE</code> or <code>PACKAGES_PATH</code> relative
+paths to absolute paths. If the script file is not found, the <strong>build</strong> command
+exits with an appropriate error message. If the script fails, it must terminate
+with a non-zero exit code and the <strong>build</strong> command terminates with the exit
+value from the pre-build script. The script is required to generate error
+messages that provide the reason for the termination.</p>
+<p>All of the command line options passed into the <strong>build</strong> command are also
+passed into the script along with the options for <code>TARGET</code>, <code>ARCH</code>,
+<code>TOOL_CHAIN_TAG</code>, <code>ACTIVE_PLATFORM</code>, <code>Conf Directory</code>, and <code>build target</code>.</p>
+<p>If the script terminates successfully (exit value of 0), parsing of the DSC
+file continues, and build tools may retrieve environment variables that have
+been updated by the script.</p>
+<hr>
+<p><strong>Note:</strong> This entry may be wrapped in a conditional directive that uses the
+value of the <code>TOOL_CHAIN_TAG</code> determined earlier. Using a MACRO value other
+than <code>$(TOOL_CHAIN_TAG)</code> is prohibited, as the DSC file has not been processed
+at the time the ENTRY was found.</p>
+<hr>
+<p><strong>Note:</strong> Quotes are needed when the script&apos;s additional options are present.
+Quotes are also required if the path to the pre-build command contains space
+or special characters. Quotes may be used for arguments that have spaces or
+special characters.</p>
+<hr>
+<h4 id="82414-nmake-command-line-limitation-handling">8.2.4.14 NMAKE Command line limitation handling</h4>
+<p><code>NMAKE</code> is limited to command-line length of 4096 characters.  Due to the large
+number of <code>/I</code> directives specified on command line (one per include directory),
+the path length of <code>WORKSPACE</code> is multiplied by the number of <code>/I</code> directives
+and can exceed this command-line length limitation. When this issue occurs, the
+build tools pass the command line options via a response file instead of
+directly on the command line.  The contents of the response file is combination
+of <code>FLAGS</code> options and <code>INC</code> options. If a build fails, the build tools print
+the response file&apos;s file location and the contents of the response file.</p>
+<p>The <strong>build</strong> command supports the options <code>-l</code> and <code>--cmd-len</code> to set the
+maximum command line length.  The default value is 4096.</p>
+<hr>
+<p><strong>Note:</strong> The following <code>FLAGS</code> options are included in the response file:
+<code>PP_FLAGS</code>, <code>CC_FLAGS</code>, <code>VFRPP_FLAGS</code>, <code>APP_FLAGS</code>, <code>ASLPP_FLAGS</code>, <code>ASLCC_FLAGS</code>,
+and <code>ASM_FLAGS</code>.</p>
+<hr>
+<h4 id="82415-build-with-binary-cache">8.2.4.15 Build with Binary Cache</h4>
+<p><strong>build</strong> tool provides three new options for binary cache feature.
+--hash enables hash-based caching during build process. when --hash is enabled,
+build tool will base on the module hash value to do the incremental build, without
+--hash, build tool will base on the timestamp to do the incremental build. --hash
+option use md5 method to get every hash value, DSC/FDF, tools_def.txt, build_rule.txt
+and build command are calculated as global hash value, Package DEC and its include
+header files are calculated as package hash value, Module source files and its INF
+file are calculated as module hash value. Library hash value will combine the global
+hash value and its dependent package hash value. Driver hash value will combine the
+global hash value, its dependent package hash value and its linked library hash value.
+When --hash and --binary-destination are specified, build tool will copy each module&apos;s
+&quot;As Built&quot; inf file, binary files that in &quot;As built&quot; inf file&apos;s [Binaries] section and
+hash value file into the directory specified by binary-destination at the build phase.
+When --hash and --binary-source are specified, build tool will try to get the binary
+files from the binary source directory at the build phase. If the cached binary has
+the same hash value, it will be directly used. Otherwise, build tool will compile the
+source files and generate the binary files.</p>
+<h3 id="825-post-processing">8.2.5 Post processing</h3>
+<p>Once all files are parsed, the build tools will do following work for each EDK
+II module:</p>
+<ul>
+<li><p>Resolve the library classes to library instances, inherit and resolve library
+classes from them recursively, until no new library instances are found.</p>
+</li>
+<li><p>Re-order the library instances according to the consuming relationship and
+their constructors. For each EDK II module, the tools must select one library
+instance per required library class (with the exception of the NULL library
+class keyword) using the following precedence (high to low):</p>
+<ul>
+<li>The DSC file&apos;s component INF scoping <code>&lt;LibraryClasses&gt;</code> section</li>
+<li>The DSC file&apos;s <code>[LibraryClasses.arch.module_type]</code> section tags with both
+architecture and module type modifiers</li>
+<li>The DSC file&apos;s common arch with a module type modifier,<pre><code>[LibraryClasses.common.module_type]
+</code></pre></li>
+<li>DSC file&apos;s architecture specific modifier only <code>[LibraryClasses.arch]</code></li>
+<li>The DSC file&apos;s common <code>[LibraryClasses]</code> section</li>
+</ul>
+<hr>
+<p><strong>Note:</strong> For modules of type <strong>USER_DEFINED</strong>_, if a <code>NULL</code> library class
+is required, the library instance should be listed in the INF scoping
+<code>&lt;LibraryClasses&gt;</code> section of the component.</p>
+<hr>
+</li>
+<li><p>Inherit GUIDs, Protocols and PPIs from all library instances obtained above,
+and determine values or type of them. The value of a GUID, Protocol or PPI is
+defined in DEC file.</p>
+<hr>
+<p><strong>Note:</strong> If GUID, Protocol or PPI is listed in a DEC file, where the
+<code>Private</code> modifier is used in the section tag (<code>[Guids.common.Private]</code> for
+example), only modules within the package are permitted to use the GUID,
+Protocol or PPI. If a module or library instance outside of the package
+attempts to use the item, the build must fail with an appropriate error
+message.</p>
+<hr>
+</li>
+<li><p>Inherit PCDs from all library instances obtained above and determine values
+and type. The value and type of a PCD are obtained from a DSC file, INF file
+or DEC file if it cannot be found in the DSC or INF file. For each EDK II
+module, the tools must obtain unique PCD values using the following
+precedence (high to low):</p>
+<ul>
+<li>Command-line, <code>--pcd</code> flags (left most has higher priority)</li>
+<li>The DSC file&apos;s component INF scoping <code>&lt;Pcds*&gt;</code> sections</li>
+<li>FDF file, grammar describing automatic assignment of PCD values</li>
+<li>FDF file, SET statements within a section</li>
+<li>FDF file, SET statement in the [Defines] section</li>
+<li>The DSC file&apos;s <code>[Pcd*.arch.skuid]</code> sections</li>
+<li>The DSC file&apos;s <code>[Pcd*.common.skuid]</code> sections</li>
+<li>The DSC file&apos;s <code>[Pcd*.arch]</code> sections</li>
+<li>The DSC file&apos;s <code>[Pcd*.common]</code> sections</li>
+<li>The INF file&apos;s PCD sections</li>
+<li>The DEC file&apos;s PCD sections</li>
+</ul>
+<hr>
+<p><strong>Note:</strong> Values of PCDs using the FeatureFlag, PatchableInModule and
+FixedAtBuild access methods set for this INF file are local to the INF file and
+do not pertain to any other INF files. Dynamic and DynamicEx access method PCD
+values are global to a platform and should not be overridden by specifying them
+here. If, however, the dynamic PCDs are only valid for this INF, it is
+permissible to set them here.</p>
+<hr>
+</li>
+<li><p>Inherit library instance dependency (<code>[Depex]</code> sections) expressions if a
+module does not list a separate dependency file.</p>
+</li>
+<li><p>If the DSC file contains PCD sections for <code>DynamicVpd</code> or <code>DynamicExVpd</code>
+access methods, special processing is required. Refer to the appendix &quot;VPD
+PCD Intermediate Files&quot; for additional details.</p>
+</li>
+<li><p>Determine if a module has specified Unicode file names, designated by the
+<code>.uni</code> file extension, in the INF file.</p>
+</li>
+<li><p>Determine if a module has specified Image definition file names, designated
+by the <code>.idf</code> file extension, in the INF file.</p>
+</li>
+<li><p>Any Visual Forms Representation (.vfr) files found during the pre-processing
+steps will be processed during the $(MAKE) stage. Refer to the &quot;VFR
+Programming Language&quot; document for additional details.</p>
+</li>
+<li><p>Generate the Build Output Directory structure</p>
+</li>
+<li><p>Generate the code files</p>
+</li>
+<li><p>Generate the <code>Makefiles</code></p>
+</li>
+<li><p>Generate the &quot;AsBuilt&quot; INF files</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                    
+                    
+
+<div>
+    <hr>
+    
+      <h2>
+        <div style="position:absolute;text-align:left">EDK II Build Specification</div>
+        <div style="text-align:right">Revision 1.28</div>
+      </h2>  
+    
+</div>
+
+
+
+                
+            </div>
+
+            
+                
+                <a href="81_overview.html#81-overview" class="navigation navigation-prev " aria-label="Previous page: 8.1 Overview">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="83_auto-generated_code.html#83-auto-generated-code" class="navigation navigation-next " aria-label="Next page: 8.3 Auto-generated code">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"8.2 Auto-generation Process","level":"1.11.2","depth":2,"next":{"title":"8.3 Auto-generated code","level":"1.11.3","depth":2,"anchor":"#83-auto-generated-code","path":"8_pre-build_autogen_stage/83_auto-generated_code.md","ref":"8_pre-build_autogen_stage/83_auto-generated_code.md#83-auto-generated-code","articles":[]},"previous":{"title":"8.1 Overview","level":"1.11.1","depth":2,"anchor":"#81-overview","path":"8_pre-build_autogen_stage/81_overview.md","ref":"8_pre-build_autogen_stage/81_overview.md#81-overview","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"title":"EDK II Build Specification","version":"Revision 1.28"},"plugins":["puml-aleung"],"pluginsConfig":{"puml-aleung":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"8_pre-build_autogen_stage/82_auto-generation_process.md","mtime":"2020-12-01T03:58:46.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-01T03:59:20.648Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
