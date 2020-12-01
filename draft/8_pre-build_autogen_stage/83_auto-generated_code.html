@@ -1,0 +1,3197 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>8.3 Auto-generated code · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="84_auto-generated_pcd_database_file.html" />
+    
+    
+    <link rel="prev" href="82_auto-generation_process.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../#edk-ii-build-specification">
+            
+                    
+                    EDK II Build Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../TABLES.html">
+            
+                <a href="../TABLES.html#tables">
+            
+                    
+                    Tables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../FIGURES.html">
+            
+                <a href="../FIGURES.html#figures">
+            
+                    
+                    Figures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#1-introduction">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#11-overview">
+            
+                    
+                    1.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#12-target-audience">
+            
+                    
+                    1.2 Target Audience
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../1_introduction/13_terms.html">
+            
+                <a href="../1_introduction/13_terms.html#13-terms">
+            
+                    
+                    1.3 Terms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../1_introduction/14_related_information.html">
+            
+                <a href="../1_introduction/14_related_information.html#14-related-information">
+            
+                    
+                    1.4 Related Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../1_introduction/15_conventions_used_in_this_document.html">
+            
+                <a href="../1_introduction/15_conventions_used_in_this_document.html#15-conventions-used-in-this-document">
+            
+                    
+                    1.5 Conventions Used in this Document
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../2_design_discussion/">
+            
+                <a href="../2_design_discussion/#2-design-discussion">
+            
+                    
+                    2 Design Discussion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../2_design_discussion/21_development_environments.html">
+            
+                <a href="../2_design_discussion/21_development_environments.html#21-development-environments">
+            
+                    
+                    2.1 Development Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../2_design_discussion/22_uefipi_firmware_images.html">
+            
+                <a href="../2_design_discussion/22_uefipi_firmware_images.html#22-uefipi-firmware-images">
+            
+                    
+                    2.2 UEFI/PI Firmware Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../2_design_discussion/23_boot_sequence.html">
+            
+                <a href="../2_design_discussion/23_boot_sequence.html#23-boot-sequence">
+            
+                    
+                    2.3 Boot Sequence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../2_design_discussion/24_typical_flash_part_layout.html">
+            
+                <a href="../2_design_discussion/24_typical_flash_part_layout.html#24-typical-flash-part-layout">
+            
+                    
+                    2.4 Typical Flash Part Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../2_design_discussion/25_generic_build_process.html">
+            
+                <a href="../2_design_discussion/25_generic_build_process.html#25-generic-build-process">
+            
+                    
+                    2.5 Generic Build Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../2_design_discussion/26_creating_efi_images.html">
+            
+                <a href="../2_design_discussion/26_creating_efi_images.html#26-creating-efi-images">
+            
+                    
+                    2.6 Creating EFI Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../2_design_discussion/27_sku_support.html">
+            
+                <a href="../2_design_discussion/27_sku_support.html#27-sku-support">
+            
+                    
+                    2.7 SKU Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../3_uefi_and_pi_image_specification.html">
+            
+                <a href="../3_uefi_and_pi_image_specification.html#3-uefi-and-pi-image-specification">
+            
+                    
+                    3 UEFI and PI Image Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../4_edk_ii_build_process_overview/">
+            
+                <a href="../4_edk_ii_build_process_overview/#4-edk-ii-build-process-overview">
+            
+                    
+                    4 EDK II Build Process Overview
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../4_edk_ii_build_process_overview/41_edk_ii_build_system.html">
+            
+                <a href="../4_edk_ii_build_process_overview/41_edk_ii_build_system.html#41-edk-ii-build-system">
+            
+                    
+                    4.1 EDK II Build System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../4_edk_ii_build_process_overview/42_build_process_overview.html">
+            
+                <a href="../4_edk_ii_build_process_overview/42_build_process_overview.html#42-build-process-overview">
+            
+                    
+                    4.2 Build Process Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../4_edk_ii_build_process_overview/43_pre-build_stage_overview.html">
+            
+                <a href="../4_edk_ii_build_process_overview/43_pre-build_stage_overview.html#43-pre-build-stage-overview">
+            
+                    
+                    4.3 Pre-Build Stage Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../4_edk_ii_build_process_overview/44_creating_binary_efi_images_-_make_stage.html">
+            
+                <a href="../4_edk_ii_build_process_overview/44_creating_binary_efi_images_-_make_stage.html#44-creating-binary-efi-images---make-stage">
+            
+                    
+                    4.4 Creating Binary EFI Images - $(MAKE) stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../4_edk_ii_build_process_overview/45_post-build_stage.html">
+            
+                <a href="../4_edk_ii_build_process_overview/45_post-build_stage.html#45-post-build-stage">
+            
+                    
+                    4.5 Post-Build Stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../4_edk_ii_build_process_overview/46_file_specifications.html">
+            
+                <a href="../4_edk_ii_build_process_overview/46_file_specifications.html#46-file-specifications">
+            
+                    
+                    4.6 File Specifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../4_edk_ii_build_process_overview/47_file_extensions.html">
+            
+                <a href="../4_edk_ii_build_process_overview/47_file_extensions.html#47-file-extensions">
+            
+                    
+                    4.7 File Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../5_meta-data_file_specifications/">
+            
+                <a href="../5_meta-data_file_specifications/#5-meta-data-file-specifications">
+            
+                    
+                    5 Meta-Data File Specifications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../5_meta-data_file_specifications/51_build_meta-data_file_formats.html">
+            
+                <a href="../5_meta-data_file_specifications/51_build_meta-data_file_formats.html#51-build-meta-data-file-formats">
+            
+                    
+                    5.1 Build Meta-Data File Formats
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../5_meta-data_file_specifications/52_tools_def_txt.html">
+            
+                <a href="../5_meta-data_file_specifications/52_tools_def_txt.html#52-tools-deftxt">
+            
+                    
+                    5.2 tools_def.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../5_meta-data_file_specifications/53_target_txt_file.html">
+            
+                <a href="../5_meta-data_file_specifications/53_target_txt_file.html#53-targettxt-file">
+            
+                    
+                    5.3 target.txt File
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../6_quick_start/">
+            
+                <a href="../6_quick_start/#6-quick-start">
+            
+                    
+                    6 Quick Start
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../6_quick_start/61_environment_variables.html">
+            
+                <a href="../6_quick_start/61_environment_variables.html#61-environment-variables">
+            
+                    
+                    6.1 Environment Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../6_quick_start/62_build_scope.html">
+            
+                <a href="../6_quick_start/62_build_scope.html#62-build-scope">
+            
+                    
+                    6.2 Build Scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../7_build_environment/">
+            
+                <a href="../7_build_environment/#7-build-environment">
+            
+                    
+                    7 Build Environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../7_build_environment/71_build_scope.html">
+            
+                <a href="../7_build_environment/71_build_scope.html#71-build-scope">
+            
+                    
+                    7.1 Build Scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../7_build_environment/72_third_party_tools.html">
+            
+                <a href="../7_build_environment/72_third_party_tools.html#72-third-party-tools">
+            
+                    
+                    7.2 Third Party Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../7_build_environment/73_guided_tools.html">
+            
+                <a href="../7_build_environment/73_guided_tools.html#73-guided-tools">
+            
+                    
+                    7.3 GUIDed Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="./">
+            
+                <a href="./#8-pre-build-autogen-stage">
+            
+                    
+                    8 Pre-Build AutoGen Stage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="81_overview.html">
+            
+                <a href="81_overview.html#81-overview">
+            
+                    
+                    8.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="82_auto-generation_process.html">
+            
+                <a href="82_auto-generation_process.html#82-auto-generation-process">
+            
+                    
+                    8.2 Auto-generation Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="83_auto-generated_code.html">
+            
+                <a href="83_auto-generated_code.html#83-auto-generated-code">
+            
+                    
+                    8.3 Auto-generated code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="84_auto-generated_pcd_database_file.html">
+            
+                <a href="84_auto-generated_pcd_database_file.html#84-auto-generated-pcd-database-file">
+            
+                    
+                    8.4 Auto-generated PCD Database File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="85_auto-generated_makefiles.html">
+            
+                <a href="85_auto-generated_makefiles.html#85-auto-generated-makefiles">
+            
+                    
+                    8.5 Auto-generated Makefiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="86_binary_modules.html">
+            
+                <a href="86_binary_modules.html#86-binary-modules">
+            
+                    
+                    8.6 Binary Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="87_generated_asbuilt_inf_files.html">
+            
+                <a href="87_generated_asbuilt_inf_files.html#87-generated-asbuilt-inf-files">
+            
+                    
+                    8.7 Generated AsBuilt INF Files
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../9_build_or_make_stage/">
+            
+                <a href="../9_build_or_make_stage/#9-build-or-make-stage">
+            
+                    
+                    9 Build or $(MAKE) Stage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../9_build_or_make_stage/91_overview.html">
+            
+                <a href="../9_build_or_make_stage/91_overview.html#91-overview">
+            
+                    
+                    9.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../9_build_or_make_stage/92_preprocesstrim.html">
+            
+                <a href="../9_build_or_make_stage/92_preprocesstrim.html#92-preprocesstrim">
+            
+                    
+                    9.2 Preprocess/Trim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../9_build_or_make_stage/93_compileassembly.html">
+            
+                <a href="../9_build_or_make_stage/93_compileassembly.html#93-compileassembly">
+            
+                    
+                    9.3 Compile/Assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../9_build_or_make_stage/94_static_link.html">
+            
+                <a href="../9_build_or_make_stage/94_static_link.html#94-static-link">
+            
+                    
+                    9.4 Static Link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../9_build_or_make_stage/95_dynamic_link.html">
+            
+                <a href="../9_build_or_make_stage/95_dynamic_link.html#95-dynamic-link">
+            
+                    
+                    9.5 Dynamic Link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../9_build_or_make_stage/96_generate_module_images.html">
+            
+                <a href="../9_build_or_make_stage/96_generate_module_images.html#96-generate-module-images">
+            
+                    
+                    9.6 Generate Module Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../9_build_or_make_stage/97_generate_platform_images.html">
+            
+                <a href="../9_build_or_make_stage/97_generate_platform_images.html#97-generate-platform-images">
+            
+                    
+                    9.7 Generate Platform Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../10_post-build_imagegen_stage_-_flash/">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/#10-post-build-imagegen-stage---flash">
+            
+                    
+                    10 Post-Build ImageGen Stage - FLASH
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../10_post-build_imagegen_stage_-_flash/101_overview_of_flash_device_layout.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/101_overview_of_flash_device_layout.html#101-overview-of-flash-device-layout">
+            
+                    
+                    10.1 Overview of Flash Device Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../10_post-build_imagegen_stage_-_flash/102_parsing_fdf_meta-data_file.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/102_parsing_fdf_meta-data_file.html#102-parsing-fdf-meta-data-file">
+            
+                    
+                    10.2 Parsing FDF Meta-Data File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.html#103-build-intermediate-images">
+            
+                    
+                    10.3 Build Intermediate Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.html#104-create-the-fv-image-files">
+            
+                    
+                    10.4 Create the FV Image File(s)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.html#105-create-the-fd-image-files">
+            
+                    
+                    10.5 Create the FD image file(s)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../10_post-build_imagegen_stage_-_flash/106_post_build_processing.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/106_post_build_processing.html#106_post_build_processing">
+            
+                    
+                    10.6 Post Build Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../11_post-build_imagegen_stage_-_other/">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/#11-post-build-imagegen-stage---other">
+            
+                    
+                    11 Post-Build ImageGen Stage - Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.html#111-efi-pci-option-rom-images">
+            
+                    
+                    11.1 EFI PCI Option ROM Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../11_post-build_imagegen_stage_-_other/112_uefi_applications.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/112_uefi_applications.html#112-uefi-applications">
+            
+                    
+                    11.2 UEFI Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../11_post-build_imagegen_stage_-_other/113_capsules.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/113_capsules.html#113-capsules">
+            
+                    
+                    11.3 Capsules
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../12_build_changes_and_customizations/">
+            
+                <a href="../12_build_changes_and_customizations/#12-build-changes-and-customizations">
+            
+                    
+                    12 Build Changes and Customizations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../12_build_changes_and_customizations/121_building_for_debug.html">
+            
+                <a href="../12_build_changes_and_customizations/121_building_for_debug.html#121-building-for-debug">
+            
+                    
+                    12.1 Building for Debug
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../12_build_changes_and_customizations/122_adding_custom_compression_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/122_adding_custom_compression_tools.html#122-adding-custom-compression-tools">
+            
+                    
+                    12.2 Adding Custom Compression Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../12_build_changes_and_customizations/123_using_custom_build_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/123_using_custom_build_tools.html#123-using-custom-build-tools">
+            
+                    
+                    12.3 Using Custom Build Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../12_build_changes_and_customizations/124_customizing_compilation_for_a_component.html">
+            
+                <a href="../12_build_changes_and_customizations/124_customizing_compilation_for_a_component.html#124-customizing-compilation-for-a-component">
+            
+                    
+                    12.4 Customizing Compilation for a Component
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" data-path="../12_build_changes_and_customizations/125_platform_specific_asl_tools.html">
+            
+                <a href="../12_build_changes_and_customizations/125_platform_specific_asl_tools.html#125-platform-specific-asl-tools">
+            
+                    
+                    12.5 Platform Specific ASL Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" data-path="../12_build_changes_and_customizations/126_build_reproducibility.html">
+            
+                <a href="../12_build_changes_and_customizations/126_build_reproducibility.html#126-build-reproducibility">
+            
+                    
+                    12.6 Build Reproducibility
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../13_build_reports/">
+            
+                <a href="../13_build_reports/#13-build-reports">
+            
+                    
+                    13 Build Reports
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../13_build_reports/131_build_report_generation_options.html">
+            
+                <a href="../13_build_reports/131_build_report_generation_options.html#131-build-report-generation-options">
+            
+                    
+                    13.1 Build Report Generation Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../13_build_reports/132_sample_launch_steps_nt32_platform.html">
+            
+                <a href="../13_build_reports/132_sample_launch_steps_nt32_platform.html#132-sample-launch-steps-nt32-platform">
+            
+                    
+                    13.2 Sample Launch Steps: NT32 platform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../13_build_reports/133_output.html">
+            
+                <a href="../13_build_reports/133_output.html#133-output">
+            
+                    
+                    13.3 Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../13_build_reports/134_platform_summary.html">
+            
+                <a href="../13_build_reports/134_platform_summary.html#134-platform-summary">
+            
+                    
+                    13.4 Platform Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.5" data-path="../13_build_reports/135_mixed_pcd_section.html">
+            
+                <a href="../13_build_reports/135_mixed_pcd_section.html#135-mixed-pcd-section">
+            
+                    
+                    13.5 Mixed PCD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.6" data-path="../13_build_reports/136_global_pcd_section.html">
+            
+                <a href="../13_build_reports/136_global_pcd_section.html#136-global-pcd-section">
+            
+                    
+                    13.6 Global PCD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.7" data-path="../13_build_reports/137_fd_section.html">
+            
+                <a href="../13_build_reports/137_fd_section.html#137-fd-section">
+            
+                    
+                    13.7 FD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.8" data-path="../13_build_reports/138_module_section.html">
+            
+                <a href="../13_build_reports/138_module_section.html#138-module-section">
+            
+                    
+                    13.8 Module Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.9" data-path="../13_build_reports/139_execution_order_prediction_section.html">
+            
+                <a href="../13_build_reports/139_execution_order_prediction_section.html#139-execution-order-prediction-section">
+            
+                    
+                    13.9 Execution Order Prediction Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../appendix_a_variables.html">
+            
+                <a href="../appendix_a_variables.html#appendix-a-variables">
+            
+                    
+                    Appendix A Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../appendix_b_toolsdef_txt.html">
+            
+                <a href="../appendix_b_toolsdef_txt.html#appendix-b-tools_deftxt">
+            
+                    
+                    Appendix B tools_def.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../appendix_c_targettxt.html">
+            
+                <a href="../appendix_c_targettxt.html#appendix-c-targettxt">
+            
+                    
+                    Appendix C target.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../appendix_d_buildexe_command/">
+            
+                <a href="../appendix_d_buildexe_command/#appendix-d-buildexe-command">
+            
+                    
+                    Appendix D build.exe command
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.20.1" data-path="../appendix_d_buildexe_command/d1_overview.html">
+            
+                <a href="../appendix_d_buildexe_command/d1_overview.html#d1-overview">
+            
+                    
+                    D.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.2" data-path="../appendix_d_buildexe_command/d2_makefile_actions.html">
+            
+                <a href="../appendix_d_buildexe_command/d2_makefile_actions.html#d2-makefile-actions">
+            
+                    
+                    D.2 Makefile actions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.3" data-path="../appendix_d_buildexe_command/d3_build_targets_and_options.html">
+            
+                <a href="../appendix_d_buildexe_command/d3_build_targets_and_options.html#d3-build-targets-and-options">
+            
+                    
+                    D.3 Build Targets and options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.4" data-path="../appendix_d_buildexe_command/d4_usage.html">
+            
+                <a href="../appendix_d_buildexe_command/d4_usage.html#d4-usage">
+            
+                    
+                    D.4 Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../appendix_e_nt32_platform_emulation.html">
+            
+                <a href="../appendix_e_nt32_platform_emulation.html#appendix-e-nt32-platform-emulation">
+            
+                    
+                    Appendix E NT32 Platform Emulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../appendix_f_firmware_volume_inf/">
+            
+                <a href="../appendix_f_firmware_volume_inf/#appendix-f-firmware-volume-inf">
+            
+                    
+                    Appendix F Firmware Volume INF
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.22.1" data-path="../appendix_f_firmware_volume_inf/f1_firmware_volume_inf_description.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f1_firmware_volume_inf_description.html#f1-firmware-volume-inf-description">
+            
+                    
+                    F.1 Firmware Volume INF Description
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.2" data-path="../appendix_f_firmware_volume_inf/f2_[attributes]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f2_[attributes]_section.html#f2-attributes-section">
+            
+                    
+                    F.2 [Attributes] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.3" data-path="../appendix_f_firmware_volume_inf/f3_[files]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f3_[files]_section.html#f3-files-section">
+            
+                    
+                    F.3 [Files] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.4" data-path="../appendix_f_firmware_volume_inf/f4_[options]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f4_[options]_section.html#f4-options-section">
+            
+                    
+                    F.4 [Options] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../appendix_g_vs2005_team_suite_performance/">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/#appendix-g-vs2005-team-suite-performance-profile">
+            
+                    
+                    Appendix G VS2005 Team Suite Performance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.23.1" data-path="../appendix_g_vs2005_team_suite_performance/g1_step_1_-_create_a_new_project.html">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/g1_step_1_-_create_a_new_project.html#g1-step-1---create-a-new-project">
+            
+                    
+                    G.1 Step 1 - Create a new project
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23.2" data-path="../appendix_g_vs2005_team_suite_performance/g2_step_2_-_update_the_project.html">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/g2_step_2_-_update_the_project.html#g2-step-2---update-the-project">
+            
+                    
+                    G.2 Step 2 - Update the project
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../appendix_h_module_types.html">
+            
+                <a href="../appendix_h_module_types.html#appendix-h-module-types">
+            
+                    
+                    Appendix H Module Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../appendix_i_vpd_tool/">
+            
+                <a href="../appendix_i_vpd_tool/#appendix-i-vpd-tool">
+            
+                    
+                    Appendix I VPD Tool
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.25.1" data-path="../appendix_i_vpd_tool/i1_build_system_output_file_format.html">
+            
+                <a href="../appendix_i_vpd_tool/i1_build_system_output_file_format.html#i1-build-system-output-file-format">
+            
+                    
+                    I.1 Build System Output File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25.2" data-path="../appendix_i_vpd_tool/i2_vpd_tool_map_file_format.html">
+            
+                <a href="../appendix_i_vpd_tool/i2_vpd_tool_map_file_format.html#i2-vpd-tool-map-file-format">
+            
+                    
+                    I.2 VPD Tool Map File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../appendix_j_makefiles.html">
+            
+                <a href="../appendix_j_makefiles.html#appendix-j-makefiles">
+            
+                    
+                    Appendix J Makefiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.26.1" data-path="../appendix_j_makefiles.html">
+            
+                <a href="../appendix_j_makefiles.html#j1-nmake-module-makefile-format">
+            
+                    
+                    J.1 NMAKE Module Makefile Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../appendix_k_third_party_tool_flags.html">
+            
+                <a href="../appendix_k_third_party_tool_flags.html#appendix-k-third-party-tool-flags">
+            
+                    
+                    Appendix K Third Party Tool Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >8.3 Auto-generated code</a>
+    </h1>
+</div>
+<div>
+    <!-- 
+    <img style="float:left; align:middle; height:2em" src="media/TianocoreTitlePageLogo.jpg"/>
+     -->
+    
+      <h2>
+        <div style="position:absolute;text-align:left">EDK II Build Specification</div>
+        <div style="position:absolute;width:100%;text-align:center">DRAFT [12/01/2020 03:38:51]</div>
+        <div style="text-align:right">Revision 1.28</div>
+      </h2>  
+    
+    <hr>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <!--- @file
+  8.3 Auto-generated code
+
+  Copyright (c) 2008-2019, Intel Corporation. All rights reserved.<BR>
+
+  Redistribution and use in source (original document form) and 'compiled'
+  forms (converted to PDF, epub, HTML and other formats) with or without
+  modification, are permitted provided that the following conditions are met:
+
+  1) Redistributions of source code (original document form) must retain the
+     above copyright notice, this list of conditions and the following
+     disclaimer as the first lines of this file unmodified.
+
+  2) Redistributions in compiled form (transformed to other DTDs, converted to
+     PDF, epub, HTML and other formats) must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+
+  THIS DOCUMENTATION IS PROVIDED BY TIANOCORE PROJECT "AS IS" AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+  EVENT SHALL TIANOCORE PROJECT  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
+  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<h2 id="83-auto-generated-code">8.3 Auto-generated code</h2>
+<p>The section covers, in sequence, the processes used to generate code files that
+will be used during the build.</p>
+<h3 id="831-autogen-stage-file-extensions">8.3.1 AutoGen Stage File Extensions</h3>
+<p>The following table provides the extension and a description of files processed
+during the AutoGen stage of the build. The <code>build_rule.txt</code> file describes the
+processing rules for generating the Makefiles for the $(MAKE) stage.</p>
+<h6 id="table-14-autogen-stage-input-file-extensions">Table 14 AutoGen Stage Input File Extensions</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Extension</th>
+<th>Description</th>
+<th>File Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.c, .cpp</td>
+<td>C code files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.h</td>
+<td>C header files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.asm</td>
+<td>32 and 64-bit Windows assembly files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.s</td>
+<td>32 and 64-bit GCC assembly files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.S</td>
+<td>IPF GCC and Windows assembly files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.nasm</td>
+<td>32 and 64-bit NASM assembly files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.i</td>
+<td>IPF Assembly include files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.vfr</td>
+<td>Visual Forms Representation files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.uni</td>
+<td>HII Unicode string files</td>
+<td>UCS-2 Characters</td>
+</tr>
+<tr>
+<td style="text-align:center">.idf</td>
+<td>HII Image Definition files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.asl</td>
+<td>C formatted ACPI code files - these files are processed independent from the C code files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.asi</td>
+<td>ACPI Header Files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.aslc</td>
+<td>C formatted ACPI table files - these files are processed independent from the C code files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.txt</td>
+<td>Microcode text files</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.map</td>
+<td>VPD tool intermediate file</td>
+<td>ASCII Text, DOS EOL</td>
+</tr>
+<tr>
+<td style="text-align:center">.bin</td>
+<td>Binary files</td>
+<td>Binary</td>
+</tr>
+<tr>
+<td style="text-align:center">.bmp</td>
+<td>Logo files used in the ImageGen stage</td>
+<td>Binary</td>
+</tr>
+<tr>
+<td style="text-align:center">.ui</td>
+<td>Unicode User Interface files</td>
+<td>UCS-2 Characters</td>
+</tr>
+<tr>
+<td style="text-align:center">.ver</td>
+<td>Unicode Version files</td>
+<td>UCS-2 Characters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="832-dependency-expression-file">8.3.2 Dependency expression file</h3>
+<p>The dependency expression file (<code>.depex</code>) is generated from the <code>[Depex]</code>
+section in module&apos;s INF file, if the section presents, or <code>.dxs</code> file if
+<code>DPX_SOURCE</code> definition is found in INF file. If both the DPX_SOURCE definition
+and [Depex] section content is present, the content in the file specified in
+the DPX_SOURCE definition is used and the [Depex] section content will be
+ignored. The GUID used in <code>[Depex]</code> section must be the GUID C name.</p>
+<p>First, the GUID C name in the dependency expression string will be converted
+into its value in C structure format. Then the expression string will be
+converted into postfix notation. Before saving to a file, the operator and GUID
+value in the postfix notation will be converted to their binary value.</p>
+<p>Dependency expression sections listed in an INF file may be scoped via feature
+flag expressions (logical expressions which typically utilize PCDs using
+FeatureFlag or FixedAtBuild access methods). It is the module writer&apos;s
+responsibility to ensure the different sections are mutually exclusive. It is
+the platform integrator&apos;s responsibility to ensure that they do not override
+this exclusivity.</p>
+<p>For example, the following dependency expression</p>
+<p><code>NOT (gEfiHiiDatabaseProtocolGuid AND gEfiHiiStringProtocolGuid) OR gPcdProtocolGuid</code></p>
+<p>will be converted to</p>
+<pre><code>include_statement($(MODULE_BUILD_DIR)/OUTPUT/$(BASE_NAME).dxs, &quot;
+  // PUSH
+  02
+  // gEfiHiiDatabaseProtocolGuid
+  72 c1 9f ef b2 a1 93 46 b3 27 6d 32 fc 41 60 42
+  // PUSH
+  02
+  // gEfiHiiStringProtocolGuid
+  74 69 d9 0f aa 23 dc 4c b9 cb 98 d1 77 50 32 2a
+  // AND
+  03
+  // NOT
+  05
+  // PUSH
+  02
+  // gPcdProtocolGuid
+  06 40 b3 11 5b d8 0a 4d a2 90 d5 a5 71 31 0e f7
+  // OR
+  04
+  // END
+  08
+&quot;);
+</code></pre><p>The binary dependency expression file will be generated in
+<code>$(MODULE_BUILD_DIR)/OUTPUT</code> with <code>.depex</code> file extension.</p>
+<h4 id="8321-guidelines">8.3.2.1 Guidelines</h4>
+<p>Use of a separate file for describing the dependencies is discouraged. Grammar
+of the INF, DSC and FDF files permit specifying the dependency expressions.
+Libraries may also have a dependency, <code>[Depex]</code>, section. These dependencies
+must be appended to the module&apos;s <code>DEPEX</code> sections unless the module includes a
+depex (<em>.dxs</em>) file - even if the module does not contain a <code>[Depex]</code> section.
+When a developer chooses to write the .dxs file, the developer is responsible
+for specifying all dependencies in the .dxs file.</p>
+<p>Libraries that are linked to a UEFI DRIVER may have <code>DEPEX</code> sections. There are
+three &apos;rules&apos; for the tools.</p>
+<ul>
+<li><p>Tools are coded so that for a given module the <code>[Depex]</code> sections of all
+linked-in library instances are logically <code>AND</code>&apos;d with the <code>DEPEX</code> section of
+the module</p>
+<ul>
+<li>If no <code>DEPEX</code> section is specified in the module, then only the library
+instances DEPEX sections are logically <code>AND</code>&apos;d to create the <code>DEPEX</code> section
+for the module</li>
+</ul>
+</li>
+<li><p>Tools are also coded to ignore the depex sections of libraries that are
+linked to <code>UEFI_DRIVER</code> or PCI Option ROM code</p>
+</li>
+<li><p>The tools will break the build if one module, using one of the noted module
+types, contains a depex section in the INF file.</p>
+</li>
+</ul>
+<h3 id="833-vfr">8.3.3 VFR</h3>
+<p>The EDK II build system provides tools for processing formatted Unicode files
+and Visual Forms Representation (VFR) files in order to create the IFR files.
+Refer to the EDK II User&apos;s Manual for more information regarding the use of the
+Unicode and VFR files. Refer to the VfrCompiler description and the VFR
+Programming Language document for more detailed information on the provided
+implementation. Additionally, the EDK II build AutoGen tools are used to
+process Unicode files listed in a module&apos;s INF file. Also note that the IFR
+code is not compatible - UFI compliant IFR code is different from the IFR code
+defined by early Intel Framework documents.</p>
+<h4 id="8331-reference-implementation-compatibility">8.3.3.1 Reference Implementation: Compatibility</h4>
+<p>The EDK II Vfr compiler tools can process EDK II VFR and Unicode files
+and to generate UEFI/PI compliant IFR files. EDK II Unicode files can use the
+UEFI defined Unicode extended grammar. Table 15 shows the compatibility matrix.</p>
+<h6 id="table-15-vfr-compatibility-matrix">Table 15 VFR Compatibility Matrix</h6>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th style="text-align:center">non-UEFI Compliant VFR Tools</th>
+<th style="text-align:center">UEFI Compliant VFR Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pre-UEFI 2.1 Unicode</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td>pre-UEFI 2.1 VFR Source</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td>pre-UEFI 2.1 IFR - binaries</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td>UEFI 2.1 Unicode</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td>UEFI 2.1 Vfr</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td>UEFI 2.1 IFR - binaries</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="834-hii-string-pack">8.3.4 HII String Pack</h3>
+<p>The human-readable HII string pack data consists of UCS-2 characters in .uni
+files. The build tools will do following steps to convert the strings
+information into HII string pack data structure.</p>
+<ul>
+<li><p>The build tools will get all the string IDs, the associated string and
+language code from the <code>.uni</code> files. Note that the DSC file or options on the
+command-line may be used to filter the languages used for generating the
+AutoGen code. The <code>RFC_LANGUAGES</code> is a semi-colon separated, doubled quoted
+string of RFC 4646 language codes, while the <code>ISO_LANGUAGES</code> (for EDK
+components only) is a nonseparated double quoted string of three character
+ISO 639-2 language codes.</p>
+</li>
+<li><p>For EDK II modules, their Unicode files must use RFC 4646 language codes. If
+an EDK II module&apos;s Unicode file contains a three character ISO 639-2 language
+code, the build will break with an appropriate warning message.</p>
+</li>
+</ul>
+<hr>
+<p><strong>Note:</strong> Tools must not refactor the EDK component ISO 639-2 language codes to
+RFC 4646 language codes, as the DXE drivers are responsible for handling the
+different language code formats.</p>
+<hr>
+<ul>
+<li>Search all source files in the include path of the module to find out which
+string IDs are used.Macros will be generated in <code>AutoGen.h</code> for the string
+IDs used. Those string IDs not used will be generated but commented out. They
+is just for debug purposes. For example:</li>
+</ul>
+<pre><code class="lang-c">include_statement (AutoGen.h, &quot;
+  //
+  //Unicode String ID
+  //
+
+  // #define $LANGUAGE_NAME 0x0000  // not referenced
+  // #define $PRINTABLE_LANGUAGE_NAME 0x0001  //not referenced
+  #define STR_BOOT_FAILED 0x0002
+  #define STR_BOOT_SUCCEEDED 0x0003
+  #define STR_PERFORM_MEM_TEST 0x0004
+  // #define STR_INTERNAL_EFI_SHELL 0x009E  // not referenced
+  // #define STR_LEGACY_BOOT_A 0x009F  // not referenced
+  // #define STR_PROCESSED_ALL_BOOT_OPTIONS 0x00A0  // not referenced
+&quot;);
+</code></pre>
+<ul>
+<li><p>The font attribute specifies the default font that will be used for the
+characters in string. If <code>#font</code> is not specified, then the default font
+identifier will be used.</p>
+</li>
+<li><p>If the <code>#font</code> attribute appears before the first <code>#language</code> identifier,
+then it applies to all characters for all languages. If the <code>#font</code> attribute
+appears after a #language identifier, it applies only to the string
+characters in that language. It is permissible for <code>#font</code> to appear in more
+than one place, in which case the language-specific font identifier will have
+priority.</p>
+</li>
+<li><p>The HII string package data will be generated in <code>AutoGen.c</code> in the form of a
+data array, with array name <code>&lt;ModuleBaseName&gt;</code>Strings. For example:</p>
+</li>
+</ul>
+<pre><code class="lang-c">include_statement (AutoGen.c, &quot;
+  //
+  //Unicode String Pack Definition
+  //
+  unsigned char PlatformBdsDxeStrings[] = {
+  // Start of string definitions for fra
+    0x20, 0x1A, 0x00, 0x00, 0x02, 0x00, 0x8E, 0x02,
+    0x00, 0x00, 0x96, 0x02, 0x00, 0x00, 0x9E, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    // offset 0x16
+    0x8E, 0x02, 0x00, 0x00, // offset to string $LANGUAGE_NAME (0x0000)
+    0x96, 0x02, 0x00, 0x00, // offset to string
+                            //$PRINTABLE_LANGUAGE_NAME (0x0001)
+    ...
+    ...
+    // string $LANGUAGE_NAME offset 0x0000028E
+    0x66, 0x00, 0x72, 0x00, 0x61, 0x00, 0x00, 0x00,
+    // string $PRINTABLE_LANGUAGE_NAME offset 0x00000296
+    0x46, 0x00, 0x72, 0x00, 0x61, 0x00, 0x6E, 0x00,
+    0xE7, 0x00, 0x61, 0x00, 0x69, 0x00, 0x73, 0x00,
+    0x00, 0x00,
+    ...
+    ...
+    // strings terminator pack
+    0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  };
+&quot;);
+</code></pre>
+<h4 id="8341-more-than-one-unicode-file">8.3.4.1 More than One Unicode File</h4>
+<p>If more than one Unicode file is required by a module, the rules for including
+these files are as follows. If one Unicode file uses a <code>#include</code> statement to
+include other Unicode files, these secondary Unicode files must also be listed
+in the INF file&apos;s [Sources] section.</p>
+<h3 id="835-hii-image-pack">8.3.5 HII Image Pack</h3>
+<p>The HII Image package data is stored in <code>.idf</code> files. The build tools perform
+the following steps to convert the image information into an HII Image package
+data structure.</p>
+<ul>
+<li><p>The build tools retrieve all the image IDs, the optional <code>TRANSPARENT</code> setting
+and the associated image file name from the <code>.idf</code> files. The <code>TRANSPARENT</code>
+setting is optional. If it is specified, build tools apply the <code>TRANS</code> image
+block type to the input image file. The <em>UEFI Specification</em> does not define
+the <code>TRANS</code> block type for JPG or PNG images. The <code>TRANSPARENT</code> setting is
+ignored for JPG and PNG images. The image file name should be listed in the
+<code>[Sources]</code> section of the INF file, and the extension of the image file must
+be one of <code>.bmp</code>, <code>.jpg</code>, or <code>.png</code>. The extension is case insensitive.</p>
+</li>
+<li><p>Search all source files in the include path of the module to find out which
+image IDs are used. Macros are generated in <code>AutoGen.h</code> for the image IDs
+used. For example:</p>
+<pre><code class="lang-c">include_statement(AutoGen.h, &quot;
+  //
+  //Image ID
+  //
+  #define IMG_FULL_LOGO  0x0001
+  #define IMG_OEM_LOGO   0x0002
+&quot;);
+</code></pre>
+</li>
+<li><p>The HII Image package data is generated in <code>&lt;ModuleBaseName&gt;Idf.hpk</code> or in
+<code>AutoGen.c</code> in the form of a data array, with array name
+<code>&lt;ModuleBaseName&gt;Images</code>. For example:</p>
+<pre><code class="lang-c">include_statement(AutoGen.c, &quot;
+  //
+  //Image Pack Definition
+  //
+  unsigned char HelloWorldImages[] = {
+    // STRGATHER_OUTPUT_HEADER
+    0xD9, 0xCA, 0x01, 0x00,
+    // Image PACKAGE HEADER
+    0xD5, 0xCA, 0x01, 0x06, 0x0C, 0x00, 0x00, 0x00, 0x97, 0xC7, 0x01, 0x00,
+    // Image DATA
+    // 0x0001: IMG_FULL_LOGO: 0x0001
+    0x12, 0x01, 0x90, 0x01, 0xDC, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    ...
+    ...
+    // 0x0002: IMG_OEM_LOGO: 0x0002
+    0x14, 0x02, 0x25, 0x01, 0xDC, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    ...
+    ...
+    // End of the Image Info
+    0x00,
+    // Palette Header
+    0x03, 0x00,
+    // Palette Data
+    // 0x0001: IMG_FULL_LOGO: 0x0001
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x80, 0x80, 0x80, 0x00, 0x00, 0x80,
+    0x00, 0x80, 0x80, 0x80, 0x00, 0x80, 0x80, 0x80, 0xC0, 0xC0, 0xC0, 0x00, 0x00, 0xFF, 0x00, 0xFF,
+    ...
+    ...
+    // 0x0002: IMG_OEM_LOGO: 0x0002
+     0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x80, 0x80,
+    ...
+    ...
+  };
+&quot;);
+</code></pre>
+</li>
+<li><p>If more than one image definition file is required by a module, the build tools
+combine the images from the multiple <code>.idf</code> files into a single HII Image Pack.</p>
+</li>
+</ul>
+<h3 id="836-autogenh-file">8.3.6 AutoGen.h file</h3>
+<p>The code generated in AutoGen.h includes:</p>
+<ul>
+<li>Prototypes of constructor and destructor from the library instances the
+module will link against</li>
+<li>Prototypes of entry and unload image entry points</li>
+<li>Global variable definitions for GUID/Protocol/PPI values used as well as
+extern definitions</li>
+<li>Global variable definitions and the database of PCDs used</li>
+<li>Unicode string database definitions.</li>
+<li>Image package database definitions.</li>
+</ul>
+<p>The file will contain:</p>
+<h4 id="8361-header-prologue">8.3.6.1 Header prologue</h4>
+<p>The macro name is composed with GUID value of INF file.</p>
+<pre><code class="lang-c">include_statement (AutoGen.h, &quot;
+  #ifndef _AUTOGENH_6987936E_ED34_44db_AE97_1FA5E4ED2116
+  #define _AUTOGENH_6987936E_ED34_44db_AE97_1FA5E4ED2116
+
+  #ifdef __cplusplus
+  extern &quot;C&quot; {
+  #endif
+&quot;);
+</code></pre>
+<h4 id="8362-header-file-inclusion">8.3.6.2 Header file inclusion.</h4>
+<p>Only one header file is included.</p>
+<pre><code class="lang-c">include_statement (AutoGen.h, &quot;
+  #include &lt;Base.h&gt;
+&quot;);
+</code></pre>
+<h4 id="8363-caller-id-guid-definition">8.3.6.3 Caller ID GUID definition.</h4>
+<p>The GUID value is the same as INF file GUID. The macro, <code>EFI_CALLER_ID_GUID</code>,
+is generated only for non - library module.</p>
+<pre><code class="lang-c">include_statement (AutoGen.h, &quot;
+  extern GUID gEfiCallerIdGuid;
+  // following definition is not needed for library module
+  #define EFI_CALLER_ID_GUID \
+    { 0x6987936E, 0xED34, 0x44db, { 0xAE, 0x97, 0x1F, 0xA5, 0xE4, 0xED,
+      0x21, 0x16 } }
+&quot;);
+</code></pre>
+<h4 id="8364-pcd-definitions">8.3.6.4 PCD definitions</h4>
+<p>There are differences in the generated code for library and non-library
+modules, which are illustrated in pseudo-code below.</p>
+<h5 id="83641-non-library-module">8.3.6.4.1 Non-library Module</h5>
+<pre><code class="lang-c">include_statement(AutoGen.h, &quot;
+  #define _PCD_TOKEN_&lt;TokenCName&gt; &lt;TokenNumber&gt;
+&quot;);
+
+If ((PCD_type == FIXED_AT_BUILD) || (PCD_type == FEATURE_FLAG)) {
+  If ((DatumType == &apos;VOID*&apos;) &amp;&amp;
+      (
+        (PcdValue == array) ||
+        (PcdValue == C_FormatGuid) ||
+        (PcdValue == C_String)
+      )
+     ) {
+    include_statement (AutoGen.h, &quot;
+      &quot;#define _PCD_PATCHABLE_&lt;TokenCName&gt;_SIZE &lt;MaxDatumSize&gt;&quot;
+    );
+  }
+  include_statement (AutoGen.h, &quot;
+  #define _PCD_VALUE_&lt;TokenCName&gt; &lt;PcdValue&gt;
+  extern const &lt;DatumType&gt; _gPcd_FixedAtBuild_&lt;TokenCName&gt;;
+  #define _PCD_GET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt; _gPcd_FixedAtBuild_&lt;TokenCName&gt;
+  &quot;);
+}
+If (PCD_type == PATCHABLE_IN_MODULE) {
+
+  If ((DatumType == &apos;VOID*&apos;) &amp;&amp;
+      (
+        (PcdValue == array) ||
+        (PcdValue == C_FormatGuid) ||
+        (PcdValue == C_String)
+      )
+     ) {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_PATCHABLE_&lt;TokenCName&gt;_SIZE &lt;MaxDatumSize&gt;
+    &quot;);
+
+  }
+  include_statement (AutoGen.h, &quot;
+    #define _PCD_VALUE_&lt;TokenCName&gt; &lt;PcdValue&gt;
+    extern &lt;DatumType&gt; _gPcd_BinaryPatch_&lt;TokenCName&gt;;
+    #define _PCD_GET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt; _gPcd_BinaryPatch_&lt;TokenCName&gt;
+  &quot;);
+
+  If ((DatumType == &apos;VOID*&apos;) &amp;&amp;
+      (
+        (PcdValue == array) ||
+        (PcdValue == C_FormatGuid) ||
+        (PcdValue == C_String)
+      )
+     ) {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;(SizeOfBuffer,Buffer) \
+        LibPatchPcdSetPtr (_gPcd_BinaryPatch_&lt;TokenCName&gt;, \
+         (UINTN)_PCD_PATCHABLE_&lt;TokenCName&gt;_SIZE, \
+         (SizeOfBuffer), \
+         (Buffer) \
+        )
+    &quot;);
+  } Else {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;(Value) \
+        (_gPcd_BinaryPatch_&lt;TokenCName&gt; = (Value))
+    &quot;);
+  }
+}
+If (PCD_type == DYNAMIC) {
+  include_statement (AutoGen.h, &quot;
+    #define _PCD_GET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt; \
+      LibPcdGet&lt;DatumSize&gt;(_PCD_TOKEN_&lt;PcdTokenCName&gt;)
+  &quot;);
+  If (DatumType == &apos;VOID*&apos;) {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;(SizeOfBuffer, Buffer) \
+        LibPcdSet&lt;DatumSize&gt; ( \
+          _gPcd_BinaryPatch_&lt;TokenCName&gt;, \
+          (SizeOfBuffer), \
+          (Buffer) \
+        )
+    &quot;);
+  } Else {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;(Value) \
+        LibPcdSet&lt;DatumSize&gt;(_gPcd_BinaryPatch_&lt;TokenCName&gt;, (Value))
+    &quot;);
+  }
+}
+If (PCD_type == DYNAMIC_EX) {
+  include_statement (AutoGen.h, &quot;
+    #define _PCD_GET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt; \
+      LibPcdGetEx&lt;DatumSize&gt;(&amp;&lt;TokenSpaceGuidCName&gt;, \
+         _PCD_TOKEN_&lt;PcdTokenCName&gt; \
+       )
+  &quot;);
+  If (DatumType == &apos;VOID*&apos;) {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;( \
+        SizeOfBuffer, Buffer) \
+        LibPcdSetEx&lt;DatumSize&gt;(&amp;&lt;TokenSpaceGuidCName&gt;, \
+          _gPcd_BinaryPatch_&lt;TokenCName&gt;, \
+          (SizeOfBuffer), \
+          (Buffer) \
+          )
+    &quot;);
+  } Else {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;(Value) \
+        LibPcdSetEx&lt;DatumSize&gt;(&amp;&lt;TokenSpaceGuidCName&gt;, \
+          _gPcd_BinaryPatch_&lt;TokenCName&gt;, \
+          (Value) \
+          )
+    &quot;);
+  }
+}
+</code></pre>
+<h5 id="83642-library-module">8.3.6.4.2 Library Module</h5>
+<pre><code class="lang-c">nclude_statement(AutoGen.h, &quot;
+  #define _PCD_TOKEN_&lt;TokenCName&gt; &lt;TokenNumber&gt;
+&quot;);
+
+If ((PCD_TYPE == FIXED_AT_BUILD) &amp;&amp;
+    (ALL_MODULES_LINKED_W_THIS_LIB_USE_PCD_TYPE == FIXED_AT_BUILD) &amp;&amp;
+    (ALL_MODULES_LINKED_W_THIS_LIB_USE_PCD_VALUES == &lt;ThisPcdValue&gt;)) {
+  #define _PCD_VALUE_&lt;TokenCName&gt; &lt;PcdValue&gt;
+}
+
+If ((PCD_type == FIXED_AT_BUILD) || (PCD_type == FEATURE_FLAG)) {
+  include_statement (AutoGen.h, &quot;
+    extern const &lt;DatumType&gt; _gPcd_FixedAtBuild_&lt;TokenCName&gt;;
+
+    #define _PCD_GET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt; \
+      _gPcd_FixedAtBuild_&lt;TokenCName&gt;
+  &quot;);
+}
+
+If (PCD_type == PATCHABLE_IN_MODULE) {
+  include_statement (AutoGen.h, &quot;
+    extern &lt;DatumType&gt; _gPcd_BinaryPatch_&lt;TokenCName&gt;;
+
+    #define _PCD_GET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt; \
+      _gPcd_BinaryPatch_&lt;TokenCName&gt;
+    #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;(Value) \
+      (_gPcd_BinaryPatch_&lt;TokenCName&gt; = (Value))
+
+  &quot;);
+}
+
+If (PCD_type == DYNAMIC) {
+  include_statement (AutoGen.h, &quot;
+    #define _PCD_GET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt; \
+      LibPcdGet&lt;DatumSize&gt;(_PCD_TOKEN_&lt;PcdTokenCName&gt;)
+  &quot;);
+
+  If (DatumType == &apos;VOID*&apos;) {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;( \
+        SizeOfBuffer, Buffer) \
+        LibPcdSet&lt;DatumSize&gt;(_gPcd_BinaryPatch_&lt;TokenCName&gt;, \
+          (SizeOfBuffer), \
+          (Buffer) \
+          )
+    &quot;);
+  } Else {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;(Value) \
+        LibPcdSet&lt;DatumSize&gt;(_gPcd_BinaryPatch_&lt;TokenCName&gt;, (Value))
+    &quot;);
+  }
+}
+
+If (PCD_type == DYNAMIC_EX) {
+  include_statement (AutoGen.h, &quot;
+    #define _PCD_GET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt; \
+      LibPcdGetEx&lt;DatumSize&gt;( &amp;&lt;TokenSpaceGuidCName&gt;, \
+        _PCD_TOKEN_&lt;PcdTokenCName&gt; )
+  &quot;);
+  If (DatumType == &apos;VOID*&apos;) {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;( \
+        SizeOfBuffer, Buffer ) \
+        LibPcdSetEx&lt;DatumSize&gt;(&amp;&lt;TokenSpaceGuidCName&gt;, \
+          _gPcd_BinaryPatch_&lt;TokenCName&gt;, \
+          (SizeOfBuffer), \
+          (Buffer) \
+          )
+    &quot;);
+  } Else {
+    include_statement (AutoGen.h, &quot;
+      #define _PCD_SET_MODE_&lt;DatumSize&gt;_&lt;TokenCName&gt;(Value) \
+        LibPcdSetEx&lt;DatumSize&gt;(&amp;&lt;TokenSpaceGuidCName&gt;, \
+          _gPcd_BinaryPatch_&lt;TokenCName&gt;, \
+          (Value) \
+          )
+    &quot;);
+  }
+}
+</code></pre>
+<h5 id="83643-hii-string-pack-definitions">8.3.6.4.3 HII string pack definitions,</h5>
+<p>These are generated only if <code>.uni</code> files are found. For details, please refer
+to section 7.3.2.</p>
+<pre><code class="lang-c">include_statement (AutoGen.h, &quot;
+  //
+  //Unicode String ID
+  //
+  // #define $LANGUAGE_NAME 0x0000  // not referenced
+  // #define $PRINTABLE_LANGUAGE_NAME 0x0001  // not referenced
+  #define STR_MISC_BASE_BOARD_MANUFACTURER 0x0002
+  #define STR_MISC_BASE_BOARD_PRODUCT_NAME 0x0003
+  #define STR_MISC_BASE_BOARD_VERSION 0x0004
+  // ...
+  // ...
+  // ...
+  extern unsigned char MiscSubclassStrings[];
+
+  #define STRING_ARRAY_NAME MiscSubclassStrings
+
+&quot;);
+</code></pre>
+<h5 id="83644-hii-image-pack-definitions">8.3.6.4.4 HII image pack definitions</h5>
+<p>These are generated only if <code>.idf</code> files are found.</p>
+<pre><code>include_statement(AutoGen.h, &quot;
+  //
+  //Image ID
+  //
+  #define IMG_FULL_LOGO  0x0001
+  #define IMG_OEM_LOGO   0x0002
+
+  extern unsigned char  HelloWorldImages[];
+
+  #define IMAGE_ARRAY_NAME  HelloWorldImages
+&quot;);
+</code></pre><h4 id="8365-autogen-epilogue">8.3.6.5 AutoGen Epilogue</h4>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __cplusplus</span>
+}
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<h3 id="837-autogenc-file">8.3.7 AutoGen.c file</h3>
+<p>The code generated in AutoGen.c includes:</p>
+<ul>
+<li>Calling of constructor and destructor of library instances against which the
+module will link</li>
+<li>The module load and unload entry points</li>
+<li>Global variables for GUID/Protocol/PPIs value used, global variables and
+database for PCDs used</li>
+<li>Unicode string pack definition.</li>
+<li>Image pack definition.</li>
+</ul>
+<p><code>AutoGen.c</code> file is only generated for EDK II non-library modules. The following
+sections identify what lines of information are included in the file as well as
+pseudo-code to references on to how a variable (<var_name>) might be generated.</var_name></p>
+<p>The file will contain:</p>
+<h4 id="8371-header-files-inclusion">8.3.7.1 Header files inclusion.</h4>
+<p>Which files are included is determined by module type.</p>
+<pre><code class="lang-c">Switch MODULE_TYPE {
+  case &quot;BASE&quot;:
+  case &quot;HOST_APPLICATION&quot;:
+  case &quot;USER_DEFINED&quot;:
+    include_statement (AutoGen.c, &quot;
+      #include &lt;Base.h&gt;
+
+    );
+    break;
+  case &quot;SEC&quot;:
+  case &quot;PEI_CORE&quot;:
+  case &quot;PEIM&quot;:
+    include_statement (AutoGen.c, &quot;
+      #include &lt;PiPei.h&gt;
+      #include &lt;Library/DebugLib.h&gt;
+
+    &quot;);
+    break;
+  case &quot;DXE_CORE&quot;:
+    include_statement (AutoGen.c, &quot;
+      #include &lt;PiDxe.h&gt;
+      #include &lt;Library/DebugLib.h&gt;
+
+    &quot;);
+    break;
+  case &quot;DXE_DRIVER&quot;:
+  case &quot;DXE_SMM_DRIVER&quot;:
+  case &quot;DXE_RUNTIME_DRIVER&quot;:
+  case &quot;DXE_SAL_DRIVER&quot;:
+  case &quot;UEFI_DRIVER&quot;:
+  case &quot;UEFI_APPLICATION&quot;
+    include_statement (AutoGen.c, &quot;
+      #include &lt;PiDxe.h&gt;
+      #include &lt;Library/BaseLib.h&gt;
+      #include &lt;Library/DebugLib.h&gt;
+      #include &lt;Library/UefiBootServicesTableLib.h&gt;
+
+    &quot;);
+    break;
+  default:
+    PrintError ( &quot;%s\n&quot;, message);
+    BreakTheBuild();
+}
+</code></pre>
+<p>The following will be inserted in AutoGen.c after the header files have been
+included.</p>
+<p><code>GLOBAL_REMOVE_IF_UNREFERENCED CHAR8 *gEfiCallerBaseName = &quot;&lt;ModuleName&gt;&quot;;</code></p>
+<p>Where the <code>&lt;ModuleName&gt;</code> is the value of the <code>BASE_NAME</code> from the module INF
+file&apos;s <code>[Defines]</code> section.</p>
+<h4 id="8372-caller-id-guid-variable-definition">8.3.7.2 Caller ID GUID variable definition.</h4>
+<p>Because not all GUID variables are required, a link-time optimization removes
+items that are not referenced by other parts of the code to save on space in
+the image.</p>
+<pre><code class="lang-c">include_statement (AutoGen.c, &quot;
+  GLOBAL_REMOVE_IF_UNREFERENCED GUID gEfiCallerIdGuid = {0x4A9B9DB8,
+    0xEC62, 0x4A92, {0x81, 0x8F, 0x8A, 0xA0, 0x24, 0x6D, 0x24, 0x6E}};
+&quot;);
+</code></pre>
+<h4 id="8373-library-constructor-statements">8.3.7.3 Library Constructor Statements</h4>
+<p>If there are <code>CONSTRUCTOR</code>s defined in <code>[Defines]</code> section in INF file of the
+library instances that are being linked to.</p>
+<pre><code class="lang-c">If (CONSTRUCTOR defined in INF) {
+
+  If (MODULE_TYPE == &quot;BASE&quot;) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS
+      EFIAPI
+      &lt;CONSTRUCTOR&gt; (
+        VOID );
+
+      &quot;);
+
+  }
+
+  If ((MODULE_TYPE == &quot;PEI_CORE&quot;) || (MODULE_TYPE == &quot;PEIM&quot;)) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS
+      EFIAPI
+      &lt;CONSTRUCTOR&gt; (
+        IN EFI_PEI_FILE_HANDLE  FileHandle,
+        IN EFI_PEI_SERVICES     **PeiServices
+      );
+
+    &quot;);
+
+  If ((MODULE_TYPE == &apos;DXE_CORE&apos;) || (MODULE_TYPE == &apos;DXE_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;DXE_SMM_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;DXE_RUNTIME_DRIVER&apos; ||
+    (MODULE_TYPE == &apos;DXE_SAL_DRIVER&apos;) ||
+    (MOODULE_TYPE == &apos;UEFI_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;UEFI_APPLICATION&apos;)) {
+
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS
+      EFIAPI
+      &lt;CONSTRUCTOR&gt; (
+        IN EFI_HANDLE        ImageHandle,
+        IN EFI_SYSTEM_TABLE  *SystemTable
+      );
+
+    &quot;);
+  }
+
+} // End CONSTRUCTOR defined in INF
+
+If (MODULE_TYPE == &quot;BASE&quot;) {
+  include_statement (AutoGen.c, &quot;
+    VOID
+    EFIAPI
+    ProcessLibraryConstructorList (
+      VOID
+    )
+  &quot;);
+}
+
+If ((MODULE_TYPE == &quot;PEI_CORE&quot;) || (MODULE_TYPE == &quot;PEIM&quot;)) {
+  include_statement (AutoGen.c, &quot;
+    VOID
+    EFIAPI
+    ProcessLibraryConstructorList (
+      IN EFI_PEI_FILE_HANDLE  FileHandle,
+      IN EFI_PEI_SERVICES     **PeiServices
+    )
+
+  &quot;);
+}
+
+If ((MODULE_TYPE == &apos;DXE_CORE&apos;) || (MODULE_TYPE == &apos;DXE_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;DXE_SMM_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;DXE_RUNTIME_DRIVER&apos; ||
+    (MODULE_TYPE == &apos;DXE_SAL_DRIVER&apos;) ||
+    (MOODULE_TYPE == &apos;UEFI_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;UEFI_APPLICATION&apos;)) {
+  include_statement (AutoGen.c, &quot;
+    VOID
+    EFIAPI
+    ProcessLibraryConstructorList (
+      IN EFI_PEI_FILE_HANDLE  ImageHandle,
+      IN EFI_PEI_SERVICES     **SystemTable
+    )
+  &quot;);
+}
+
+include_statement (AutoGen.c, &quot;
+  {
+&quot;);
+
+If (CONSTRUCTOR defined in INF) {
+  If (MODULE_TYPE == &quot;BASE&quot;) {
+    include_statement (AutoGen.c, &quot;
+       EFI_STATUS Status;
+
+       Status = &lt;CONSTRUCTOR&gt;();
+       ASSERT_EFI_ERROR (Status);
+
+    &quot;);
+  }
+
+  If ((MODULE_TYPE == &quot;PEI_CORE&quot;) || (MODULE_TYPE == &quot;PEIM&quot;)) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS Status;
+
+      Status = &lt;CONSTRUCTOR&gt; (FileHandle, PeiServices);
+      ASSERT_EFI_ERROR (Status);
+
+    &quot;);
+  }
+
+  If ((MODULE_TYPE == &apos;DXE_CORE&apos;) || (MODULE_TYPE == &apos;DXE_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;DXE_SMM_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;DXE_RUNTIME_DRIVER&apos; ||
+      (MODULE_TYPE == &apos;DXE_SAL_DRIVER&apos;) ||
+      (MOODULE_TYPE == &apos;UEFI_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;UEFI_APPLICATION&apos;)) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS Status;
+
+      Status = &lt;CONSTRUCTOR&gt; (ImageHandle, SystemTable);
+      ASSERT_EFI_ERROR (Status);
+
+    &quot;);
+  }
+}
+
+include_statement (AutoGen.c, &quot;
+  }
+&quot;);
+</code></pre>
+<h4 id="8374-library-destructor-statements">8.3.7.4 Library Destructor Statements</h4>
+<p>Contained if there are <code>DESTRUCTOR</code>s defined in <code>[Defines]</code> section in INF file
+of the library instances that are being linked to.</p>
+<pre><code class="lang-c">If (DESTRUCTOR defined in INF) {
+  If (MODULE_TYPE == &quot;BASE&quot;) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS
+      EFIAPI
+      &lt;DESTRUCTOR&gt; (
+        VOID
+      );
+    &quot;);
+  }
+  If ((MODULE_TYPE == &quot;PEI_CORE&quot;) || (MODULE_TYPE == &quot;PEIM&quot;)) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS
+      EFIAPI
+      &lt;DESTRUCTOR&gt; (
+        IN EFI_PEI_FILE_HANDLE  FileHandle,
+        IN EFI_PEI_SERVICES     **PeiServices
+     );
+    &quot;);
+  }
+  If ((MODULE_TYPE == &apos;DXE_CORE&apos;) || (MODULE_TYPE == &apos;DXE_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;DXE_SMM_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;DXE_RUNTIME_DRIVER&apos; ||
+      (MODULE_TYPE == &apos;DXE_SAL_DRIVER&apos;) ||
+      (MOODULE_TYPE == &apos;UEFI_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;UEFI_APPLICATION&apos;)) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS
+      EFIAPI
+      &lt;DESTRUCTOR&gt; (
+        IN EFI_HANDLE        ImageHandle,
+        IN EFI_SYSTEM_TABLE  *SystemTable
+      );
+    &quot;);
+  }
+} // End DESTRUCTOR defined in INF
+
+If (MODULE_TYPE == &quot;BASE&quot;) {
+  include_statement (AutoGen.c, &quot;
+    VOID
+    EFIAPI
+    ProcessLibraryDestructorList (
+      VOID
+    )
+
+  &quot;);
+}
+
+If ((MODULE_TYPE == &quot;PEI_CORE&quot;) || (MODULE_TYPE == &quot;PEIM&quot;)) {
+  include_statement (AutoGen.c, &quot;
+    VOID
+    EFIAPI
+    ProcessLibraryDestructorList (
+      IN EFI_PEI_FILE_HANDLE  FileHandle,
+      IN EFI_PEI_SERVICES     **PeiServices
+    )
+
+  &quot;);
+}
+
+If ((MODULE_TYPE == &apos;DXE_CORE&apos;) || (MODULE_TYPE == &apos;DXE_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;DXE_SMM_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;DXE_RUNTIME_DRIVER&apos; ||
+    (MODULE_TYPE == &apos;DXE_SAL_DRIVER&apos;) ||
+    (MOODULE_TYPE == &apos;UEFI_DRIVER&apos;) ||
+    (MODULE_TYPE == &apos;UEFI_APPLICATION&apos;)) {
+  include_statement (AutoGen.c, &quot;
+    VOID
+    EFIAPI
+    ProcessLibraryDestructorList (
+     IN EFI_PEI_FILE_HANDLE  ImageHandle,
+     IN EFI_PEI_SERVICES     *SystemTable
+    )
+
+  &quot;);
+}
+
+include_statement (AutoGen.c, &quot;
+  {
+
+&quot;);
+
+If (DESTRUCTOR defined in INF) {
+  If (MODULE_TYPE == &quot;BASE&quot;) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS Status;
+
+      Status = &lt;DESTRUCTOR&gt;();
+      ASSERT_EFI_ERROR (Status);
+
+    &quot;);
+  }
+
+  If ((MODULE_TYPE == &quot;PEI_CORE&quot;) || (MODULE_TYPE == &quot;PEIM&quot;)) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS Status;
+
+      Status = &lt;DESTRUCTOR&gt; (FileHandle, PeiServices);
+      ASSERT_EFI_ERROR (Status);
+    &quot;);
+  }
+
+  If ((MODULE_TYPE == &apos;DXE_CORE&apos;) || (MODULE_TYPE == &apos;DXE_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;DXE_SMM_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;DXE_RUNTIME_DRIVER&apos; ||
+      (MODULE_TYPE == &apos;DXE_SAL_DRIVER&apos;) ||
+      (MOODULE_TYPE == &apos;UEFI_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;UEFI_APPLICATION&apos;)) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS Status;
+
+      Status = &lt;DESTRUCTOR&gt; (ImageHandle, SystemTable);
+      ASSERT_EFI_ERROR (Status);
+    &quot;);
+  }
+}
+
+include_statement (AutoGen.c, &quot;
+  }
+&quot;);
+</code></pre>
+<h4 id="8375-module-entry-point-statements">8.3.7.5 Module Entry Point Statements</h4>
+<p>Contained if there are <code>ENTRY_POINT</code>s defined <code>[Defines]</code> section in INF file.</p>
+<pre><code class="lang-c">If (ENTRY_POINT defined in INF) {
+  If (MODULE_TYPE == &apos;PEI_CORE&apos;) {
+    include_statement (AutoGen.c, &quot;
+      EFI_STATUS
+      &lt;ENTRY_POINT&gt; (
+        IN CONST EFI_SEC_PEI_HAND_OFF    *SecCoreData,
+        IN CONST EFI_PEI_PPI_DESCRIPTOR  *PpiList,
+        IN VOID                          *OldCoreData
+      );
+
+      EFI_STATUS
+      EFIAPI
+      ProcessModuleEntryPointList (
+        IN CONST EFI_SEC_PEI_HAND_OFF    *SecCoreData,
+        IN CONST EFI_PEI_PPI_DESCRIPTOR  *PpiList,
+        IN VOID                          *OldCoreData
+      )
+
+      {
+        return &lt;ENTRY_POINT&gt; (SecCoreData, PpiList, OldCoreData);
+      }
+
+    &quot;);
+  }
+
+  If (MODULE_TYPE == &apos;DXE_CORE&apos;) {
+    include_statement (AutoGen.c, &quot;
+      const UINT32 _gUefiDriverRevision = 0;
+
+      VOID
+      &lt;ENTRY_POINT&gt; (
+        IN VOID  *HobStart
+        );
+
+      VOID
+      EFIAPI
+      ProcessModuleEntryPointList (
+        IN VOID  *HobStart
+        )
+
+      {
+        &lt;ENTRY_POINT&gt; (HobStart);
+      }
+
+    &quot;);
+  }
+
+  If (MODULE_TYPE == &apos;PEIM&apos;) {
+    include_statement (AutoGen.c, &quot;
+      GLOBAL_REMOVE_IF_UNREFERENCED const UINT32 _gPeimRevision = 0;
+    &quot;);
+    If (Number of ENTRY_POINT == 0) {
+      include_statement (AutoGen.c, &quot;
+        EFI_STATUS
+        EFIAPI
+        ProcessModuleEntryPointList (
+          IN EFI_PEI_FILE_HANDLE  FileHandle,
+          IN EFI_PEI_SERVICES     **PeiServices
+          )
+        {
+          return EFI_SUCCESS;
+        }
+
+      &quot;);
+    }
+
+    If (Number of ENTRY_POINT == 1) {
+      include_statement (AutoGen.c, &quot;
+        EFI_STATUS
+        &lt;ENTRY_POINT&gt; (
+          IN EFI_PEI_FILE_HANDLE  FileHandle,
+          IN EFI_PEI_SERVICES     **PeiServices
+          );
+
+        EFI_STATUS
+        EFIAPI
+        ProcessModuleEntryPointList (
+          IN EFI_PEI_FILE_HANDLE  FileHandle,
+          IN EFI_PEI_SERVICES     **PeiServices
+          )
+        {
+          return &lt;ENTRY_POINT&gt; (FileHandle, PeiServices);
+        }
+
+      &quot;);
+    }
+
+    If (Number  of   ENTRY_POINT &gt; 1) {
+      include_statement (AutoGen.c, &quot;
+        &lt;ENTRY_POINT1&gt; (
+          IN EFI_PEI_FILE_HANDLE  FileHandle,
+          IN EFI_PEI_SERVICES     **PeiServices
+          );
+
+        &lt;ENTRY_POINT2&gt; (
+          IN EFI_PEI_FILE_HANDLE  FileHandle,
+          IN EFI_PEI_SERVICES     **PeiServices
+          );
+
+        EFI_STATUS
+        EFIAPI
+        ProcessModuleEntryPointList (
+          IN EFI_PEI_FILE_HANDLE FileHandle,
+          IN EFI_PEI_SERVICES **PeiServices
+          )
+
+        {
+          EFI_STATUS Status;
+          EFI_STATUS CombinedStatus;
+
+          CombinedStatus = EFI_LOAD_ERROR;
+
+          Status = &lt;ENTRY_POINT1&gt; (FileHandle, PeiServices);
+          if (!EFI_ERROR (Status) || EFI_ERROR (CombinedStatus)) {
+            CombinedStatus = Status;
+          }
+
+          Status = &lt;ENTRY_POINT2&gt; (FileHandle, PeiServices);
+          if (!EFI_ERROR (Status) || EFI_ERROR (CombinedStatus)) {
+            CombinedStatus = Status;
+          }
+
+          return CombinedStatus;
+        }
+
+      &quot;);
+    }
+  }
+
+  If (MODULE_TYPE == &apos;DXE_SMM_DRIVER&apos;) {
+    If (Number of ENTRY_POINT == 0) {
+      include_statement (AutoGen.c, &quot;
+        EFI_STATUS
+        EFIAPI
+        ProcessModuleEntryPointList (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          )
+
+        {
+          return EFI_SUCCESS;
+        }
+
+      &quot;);
+    }
+
+    If (Number of ENTRY_POINT == 1) {
+      include_statement (AutoGen.c, &quot;
+        EFI_STATUS
+        &lt;ENTRY_POINT&gt; (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          );
+
+        static BASE_LIBRARY_JUMP_BUFFER  mJumpContext;
+        static EFI_STATUS  mDriverEntryPointStatus = EFI_LOAD_ERROR;
+
+        VOID
+        EFIAPI
+        ExitDriver (
+          IN EFI_STATUS  Status
+          )
+
+        {
+          if (!EFI_ERROR (Status) || EFI_ERROR (mDriverEntryPointStatus)) {
+            mDriverEntryPointStatus = Status;
+          }
+          LongJump (&amp;mJumpContext, (UINTN) - 1);
+          ASSERT (FALSE);
+        }
+
+        EFI_STATUS
+        EFIAPI
+        ProcessModuleEntryPointList (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          )
+
+        {
+          if (SetJump (&amp;mJumpContext) == 0) {
+            ExitDriver (&lt;ENTRY_POINT&gt; (ImageHandle, SystemTable));
+            ASSERT (FALSE);
+          }
+
+          return mDriverEntryPointStatus;
+        }
+
+      &quot;);
+    }
+  }
+
+  If ((MODULE_TYPE == &apos;DXE_RUNTIME_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;DXE_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;DXE_SAL_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;UEFI_DRIVER&apos;) ||
+      (MODULE_TYPE == &apos;UEFI_APPLICATION&apos;)) {
+    include_statement (AutoGen.c, &quot;
+      const UINT32 _gUefiDriverRevision = 0;
+
+    &quot;);
+
+    If (Number of ENTRY_POINT == 0) {
+      include_statement (AutoGen.c, &quot;
+        EFI_STATUS
+        EFIAPI
+        ProcessModuleEntryPointList (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          )
+        {
+          return EFI_SUCCESS;
+        }
+
+      &quot;);
+    }
+
+    If (Number of ENTRY_POINT == 1) {
+      include_statement (AutoGen.c, &quot;
+        EFI_STATUS
+        ${Function} (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          );
+
+        EFI_STATUS
+        EFIAPI
+        ProcessModuleEntryPointList (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          )
+        {
+          return &lt;ENTRY_POINT&gt; (ImageHandle, SystemTable);
+        }
+
+        VOID
+        EFIAPI
+        ExitDriver (
+          IN EFI_STATUS  Status
+          )
+        {
+          if (EFI_ERROR (Status)) {
+            ProcessLibraryDestructorList (gImageHandle, gST);
+          }
+          gBS-&gt;Exit (gImageHandle, Status, 0, NULL);
+        }
+
+      &quot;);
+    }
+
+    If (Number of ENTRY_POINT &gt; 1) {
+      include_statement (AutoGen.c, &quot;
+        &lt;ENTRY_POINT1&gt; (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          );
+
+        &lt;ENTRY_POINT2&gt; (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          );
+
+        EFI_STATUS
+        EFIAPI
+        ProcessModuleEntryPointList (
+          IN EFI_HANDLE        ImageHandle,
+          IN EFI_SYSTEM_TABLE  *SystemTable
+          )
+        {
+          if (SetJump (&amp;mJumpContext) == 0) {
+            ExitDriver (&lt;ENTRY_POINT1&gt; (ImageHandle, SystemTable));
+            ASSERT (FALSE);
+          }
+
+          if (SetJump (&amp;mJumpContext) == 0) {
+            ExitDriver (&lt;ENTRY_POINT2&gt; (ImageHandle, SystemTable));
+            ASSERT (FALSE);
+          }
+
+          return mDriverEntryPointStatus;
+        }
+
+        static BASE_LIBRARY_JUMP_BUFFER mJumpContext;
+        static EFI_STATUS mDriverEntryPointStatus = EFI_LOAD_ERROR;
+
+        VOID
+        EFIAPI
+        ExitDriver (
+          IN EFI_STATUS Status
+          )
+        {
+          if (!EFI_ERROR (Status) || EFI_ERROR (mDriverEntryPointStatus)) {
+            mDriverEntryPointStatus = Status;
+          }
+          LongJump (&amp;mJumpContext, (UINTN) - 1);
+          ASSERT (FALSE);
+        }
+
+      &quot;);
+    }
+  }
+}
+</code></pre>
+<h4 id="8376-module-unload-image-statements">8.3.7.6 Module Unload Image Statements</h4>
+<p>The following algorithm is used to process potential <code>UNLOAD_IMAGE</code> statements
+that might be defined in the <code>[Defines]</code> section in the INF file.</p>
+<pre><code class="lang-c">If (Number of UNLOAD_IMAGE in INF == 0) {
+  include_statement (AutoGen.c, &quot;
+    GLOBAL_REMOVE_IF_UNREFERENCED const UINT8 _gDriverUnloadImageCount = 0;
+
+    EFI_STATUS
+    EFIAPI
+    ProcessModuleUnloadList (
+      IN EFI_HANDLE  ImageHandle
+      )
+    {
+      return EFI_SUCCESS;
+    }
+
+  &quot;);
+}
+
+If (Number of UNLOAD_IMAGE in INF == 1) {
+  include_statement (AutoGen.c, &quot;
+    GLOBAL_REMOVE_IF_UNREFERENCED const UINT8 _gDriverUnloadImageCount = 1;
+    EFI_STATUS
+    &lt;UNLOAD_IMAGE&gt; (
+      IN EFI_HANDLE  ImageHandle
+    );
+
+    EFI_STATUS
+    EFIAPI
+    ProcessModuleUnloadList (
+      IN EFI_HANDLE ImageHandle
+      )
+    {
+      return &lt;UNLOAD_IMAGE&gt; (ImageHandle);
+    }
+
+  &quot;);
+}
+
+If (Number of UNLOAD_IMAGE in INF &gt; 1) {
+  include_statement (AutoGen.c, &quot;
+    GLOBAL_REMOVE_IF_UNREFERENCED const UINT8 _gDriverUnloadImageCount = &lt;NumberOfUnloadImage&gt;;
+
+    EFI_STATUS
+    &lt;UNLOAD_IMAGE1&gt; (
+      IN EFI_HANDLE  ImageHandle
+      );
+
+    EFI_STATUS
+    &lt;UNLOAD_IMAGE2&gt; (
+      IN EFI_HANDLE  ImageHandle
+      );
+
+    EFI_STATUS
+    EFIAPI
+    ProcessModuleUnloadList (
+      IN EFI_HANDLE  ImageHandle
+      )
+    {
+      EFI_STATUS Status;
+
+      Status = EFI_SUCCESS;
+
+      if (EFI_ERROR (Status)) {
+        &lt;UNLOAD_IMAGE1&gt; (ImageHandle);
+      } else {
+        Status = &lt;UNLOAD_IMAGE1&gt; (ImageHandle);
+      }
+
+      if (EFI_ERROR (Status)) {
+        &lt;UNLOAD_IMAGE2&gt; (ImageHandle);
+      } else {
+        Status = &lt;UNLOAD_IMAGE2&gt; (ImageHandle);
+      }
+
+      return Status;
+    }
+
+  &quot;);
+}
+</code></pre>
+<h4 id="8377-global-variables">8.3.7.7 Global variables</h4>
+<p>These are generated from &quot;Guids&quot;, &quot;Protocols&quot;, &quot;Ppis&quot;, &quot;xxxPcd&quot; sections of the
+<code>.inf</code> file and <code>.uni</code> and <code>.idf</code> files.</p>
+<pre><code class="lang-c">InfList = [];
+
+add (ModuleInf, InfList);
+
+foreach LibraryInstance {
+  add (LibraryInf, InfList);
+  foreach DependentLibraryInstance {
+    add (LibraryInf, InfList);
+  }
+}
+
+foreach INF in InfList {
+  If (&quot;[Guids]&quot; defined in INF) {
+    foreach GuidCName {
+      include_statement (AutoGen.c, &quot;
+        GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID &lt;GuidCName&gt; = &lt;GuidValue&gt;;
+      &quot;);
+    }
+  }
+
+  If (&quot;[Protocols]&quot; defined in INF) {
+    foreach ProtocolGuidCName {
+      include_statement (AutoGen.c, &quot;
+        GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID &lt;ProtocolGuidCName&gt; = &lt;GuidValue&gt;;
+      &quot;);
+    }
+  }
+
+  If ((&quot;[Ppis]&quot; defined in INF) {
+    foreach PpiGuidCName {
+      include_statement (AutoGen.c, &quot;
+         LOBAL_REMOVE_IF_UNREFERENCED EFI_GUID &lt;PpiGuidCName&gt; = &lt;GuidValue&gt;;
+      &quot;);
+    }
+  }
+
+  If (&quot;[Pcd]&quot; defined in INF) {
+    foreach PcdCName {
+      If ((PcdDatumType == &apos;VOID*&apos;) &amp;&amp;
+          (
+           (PcdValue == array) ||
+           (PcdValue == C_FormatGuid) ||
+           (PcdValue == C_String)
+          )
+         ) {
+        include_statement (AutoGen.c, &quot;
+          GLOBAL_REMOVE_IF_UNREFERENCED UINT8 &lt;PcdCName&gt; = &lt;PcdValueMacro&gt;;
+        &quot;);
+      } Else {
+        include_statement (AutoGen.c, &quot;
+          GLOBAL_REMOVE_IF_UNREFERENCED &lt;PcdDatumType&gt; &lt;PcdCName&gt; = &lt;PcdValueMacro&gt;;
+        &quot;);
+      }
+    }
+  }
+
+  If (.UNI file found in INF SourcesSection) {
+    include_statement (AutoGen.c, &quot;
+      unsigned char MiscSubclassStrings[] = {
+        ......
+      }
+    &quot;);
+  }
+
+  If (.IDF file found in INF SourcesSection) {
+    include_statement (AutoGen.c, &quot;
+      unsigned char  HelloWorldImages[] = {
+        ......
+      }
+    &quot;);
+  }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                    
+                    
+
+<div>
+    <hr>
+    
+      <h2>
+        <div style="position:absolute;text-align:left">EDK II Build Specification</div>
+        <div style="position:absolute;width:100%;text-align:center">DRAFT [12/01/2020 03:38:51]</div>
+        <div style="text-align:right">Revision 1.28</div>
+      </h2>  
+    
+</div>
+
+
+
+                
+            </div>
+
+            
+                
+                <a href="82_auto-generation_process.html#82-auto-generation-process" class="navigation navigation-prev " aria-label="Previous page: 8.2 Auto-generation Process">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="84_auto-generated_pcd_database_file.html#84-auto-generated-pcd-database-file" class="navigation navigation-next " aria-label="Next page: 8.4 Auto-generated PCD Database File">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"8.3 Auto-generated code","level":"1.11.3","depth":2,"next":{"title":"8.4 Auto-generated PCD Database File","level":"1.11.4","depth":2,"anchor":"#84-auto-generated-pcd-database-file","path":"8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.md","ref":"8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.md#84-auto-generated-pcd-database-file","articles":[]},"previous":{"title":"8.2 Auto-generation Process","level":"1.11.2","depth":2,"anchor":"#82-auto-generation-process","path":"8_pre-build_autogen_stage/82_auto-generation_process.md","ref":"8_pre-build_autogen_stage/82_auto-generation_process.md#82-auto-generation-process","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"draft":"yes","title":"EDK II Build Specification","version":"Revision 1.28"},"plugins":["puml-aleung"],"pluginsConfig":{"puml-aleung":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"8_pre-build_autogen_stage/83_auto-generated_code.md","mtime":"2020-12-01T03:38:19.115Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-01T03:38:51.765Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

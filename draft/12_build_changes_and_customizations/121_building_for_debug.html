@@ -1,0 +1,1806 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>12.1 Building for Debug · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="122_adding_custom_compression_tools.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../#edk-ii-build-specification">
+            
+                    
+                    EDK II Build Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../TABLES.html">
+            
+                <a href="../TABLES.html#tables">
+            
+                    
+                    Tables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../FIGURES.html">
+            
+                <a href="../FIGURES.html#figures">
+            
+                    
+                    Figures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#1-introduction">
+            
+                    
+                    1 Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#11-overview">
+            
+                    
+                    1.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../1_introduction/">
+            
+                <a href="../1_introduction/#12-target-audience">
+            
+                    
+                    1.2 Target Audience
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../1_introduction/13_terms.html">
+            
+                <a href="../1_introduction/13_terms.html#13-terms">
+            
+                    
+                    1.3 Terms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../1_introduction/14_related_information.html">
+            
+                <a href="../1_introduction/14_related_information.html#14-related-information">
+            
+                    
+                    1.4 Related Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../1_introduction/15_conventions_used_in_this_document.html">
+            
+                <a href="../1_introduction/15_conventions_used_in_this_document.html#15-conventions-used-in-this-document">
+            
+                    
+                    1.5 Conventions Used in this Document
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../2_design_discussion/">
+            
+                <a href="../2_design_discussion/#2-design-discussion">
+            
+                    
+                    2 Design Discussion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../2_design_discussion/21_development_environments.html">
+            
+                <a href="../2_design_discussion/21_development_environments.html#21-development-environments">
+            
+                    
+                    2.1 Development Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../2_design_discussion/22_uefipi_firmware_images.html">
+            
+                <a href="../2_design_discussion/22_uefipi_firmware_images.html#22-uefipi-firmware-images">
+            
+                    
+                    2.2 UEFI/PI Firmware Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../2_design_discussion/23_boot_sequence.html">
+            
+                <a href="../2_design_discussion/23_boot_sequence.html#23-boot-sequence">
+            
+                    
+                    2.3 Boot Sequence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../2_design_discussion/24_typical_flash_part_layout.html">
+            
+                <a href="../2_design_discussion/24_typical_flash_part_layout.html#24-typical-flash-part-layout">
+            
+                    
+                    2.4 Typical Flash Part Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../2_design_discussion/25_generic_build_process.html">
+            
+                <a href="../2_design_discussion/25_generic_build_process.html#25-generic-build-process">
+            
+                    
+                    2.5 Generic Build Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../2_design_discussion/26_creating_efi_images.html">
+            
+                <a href="../2_design_discussion/26_creating_efi_images.html#26-creating-efi-images">
+            
+                    
+                    2.6 Creating EFI Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../2_design_discussion/27_sku_support.html">
+            
+                <a href="../2_design_discussion/27_sku_support.html#27-sku-support">
+            
+                    
+                    2.7 SKU Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../3_uefi_and_pi_image_specification.html">
+            
+                <a href="../3_uefi_and_pi_image_specification.html#3-uefi-and-pi-image-specification">
+            
+                    
+                    3 UEFI and PI Image Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../4_edk_ii_build_process_overview/">
+            
+                <a href="../4_edk_ii_build_process_overview/#4-edk-ii-build-process-overview">
+            
+                    
+                    4 EDK II Build Process Overview
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../4_edk_ii_build_process_overview/41_edk_ii_build_system.html">
+            
+                <a href="../4_edk_ii_build_process_overview/41_edk_ii_build_system.html#41-edk-ii-build-system">
+            
+                    
+                    4.1 EDK II Build System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../4_edk_ii_build_process_overview/42_build_process_overview.html">
+            
+                <a href="../4_edk_ii_build_process_overview/42_build_process_overview.html#42-build-process-overview">
+            
+                    
+                    4.2 Build Process Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../4_edk_ii_build_process_overview/43_pre-build_stage_overview.html">
+            
+                <a href="../4_edk_ii_build_process_overview/43_pre-build_stage_overview.html#43-pre-build-stage-overview">
+            
+                    
+                    4.3 Pre-Build Stage Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../4_edk_ii_build_process_overview/44_creating_binary_efi_images_-_make_stage.html">
+            
+                <a href="../4_edk_ii_build_process_overview/44_creating_binary_efi_images_-_make_stage.html#44-creating-binary-efi-images---make-stage">
+            
+                    
+                    4.4 Creating Binary EFI Images - $(MAKE) stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../4_edk_ii_build_process_overview/45_post-build_stage.html">
+            
+                <a href="../4_edk_ii_build_process_overview/45_post-build_stage.html#45-post-build-stage">
+            
+                    
+                    4.5 Post-Build Stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../4_edk_ii_build_process_overview/46_file_specifications.html">
+            
+                <a href="../4_edk_ii_build_process_overview/46_file_specifications.html#46-file-specifications">
+            
+                    
+                    4.6 File Specifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../4_edk_ii_build_process_overview/47_file_extensions.html">
+            
+                <a href="../4_edk_ii_build_process_overview/47_file_extensions.html#47-file-extensions">
+            
+                    
+                    4.7 File Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../5_meta-data_file_specifications/">
+            
+                <a href="../5_meta-data_file_specifications/#5-meta-data-file-specifications">
+            
+                    
+                    5 Meta-Data File Specifications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../5_meta-data_file_specifications/51_build_meta-data_file_formats.html">
+            
+                <a href="../5_meta-data_file_specifications/51_build_meta-data_file_formats.html#51-build-meta-data-file-formats">
+            
+                    
+                    5.1 Build Meta-Data File Formats
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../5_meta-data_file_specifications/52_tools_def_txt.html">
+            
+                <a href="../5_meta-data_file_specifications/52_tools_def_txt.html#52-tools-deftxt">
+            
+                    
+                    5.2 tools_def.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../5_meta-data_file_specifications/53_target_txt_file.html">
+            
+                <a href="../5_meta-data_file_specifications/53_target_txt_file.html#53-targettxt-file">
+            
+                    
+                    5.3 target.txt File
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../6_quick_start/">
+            
+                <a href="../6_quick_start/#6-quick-start">
+            
+                    
+                    6 Quick Start
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../6_quick_start/61_environment_variables.html">
+            
+                <a href="../6_quick_start/61_environment_variables.html#61-environment-variables">
+            
+                    
+                    6.1 Environment Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../6_quick_start/62_build_scope.html">
+            
+                <a href="../6_quick_start/62_build_scope.html#62-build-scope">
+            
+                    
+                    6.2 Build Scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../7_build_environment/">
+            
+                <a href="../7_build_environment/#7-build-environment">
+            
+                    
+                    7 Build Environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../7_build_environment/71_build_scope.html">
+            
+                <a href="../7_build_environment/71_build_scope.html#71-build-scope">
+            
+                    
+                    7.1 Build Scope
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../7_build_environment/72_third_party_tools.html">
+            
+                <a href="../7_build_environment/72_third_party_tools.html#72-third-party-tools">
+            
+                    
+                    7.2 Third Party Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../7_build_environment/73_guided_tools.html">
+            
+                <a href="../7_build_environment/73_guided_tools.html#73-guided-tools">
+            
+                    
+                    7.3 GUIDed Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../8_pre-build_autogen_stage/">
+            
+                <a href="../8_pre-build_autogen_stage/#8-pre-build-autogen-stage">
+            
+                    
+                    8 Pre-Build AutoGen Stage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../8_pre-build_autogen_stage/81_overview.html">
+            
+                <a href="../8_pre-build_autogen_stage/81_overview.html#81-overview">
+            
+                    
+                    8.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../8_pre-build_autogen_stage/82_auto-generation_process.html">
+            
+                <a href="../8_pre-build_autogen_stage/82_auto-generation_process.html#82-auto-generation-process">
+            
+                    
+                    8.2 Auto-generation Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../8_pre-build_autogen_stage/83_auto-generated_code.html">
+            
+                <a href="../8_pre-build_autogen_stage/83_auto-generated_code.html#83-auto-generated-code">
+            
+                    
+                    8.3 Auto-generated code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.html">
+            
+                <a href="../8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.html#84-auto-generated-pcd-database-file">
+            
+                    
+                    8.4 Auto-generated PCD Database File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../8_pre-build_autogen_stage/85_auto-generated_makefiles.html">
+            
+                <a href="../8_pre-build_autogen_stage/85_auto-generated_makefiles.html#85-auto-generated-makefiles">
+            
+                    
+                    8.5 Auto-generated Makefiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../8_pre-build_autogen_stage/86_binary_modules.html">
+            
+                <a href="../8_pre-build_autogen_stage/86_binary_modules.html#86-binary-modules">
+            
+                    
+                    8.6 Binary Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../8_pre-build_autogen_stage/87_generated_asbuilt_inf_files.html">
+            
+                <a href="../8_pre-build_autogen_stage/87_generated_asbuilt_inf_files.html#87-generated-asbuilt-inf-files">
+            
+                    
+                    8.7 Generated AsBuilt INF Files
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../9_build_or_make_stage/">
+            
+                <a href="../9_build_or_make_stage/#9-build-or-make-stage">
+            
+                    
+                    9 Build or $(MAKE) Stage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../9_build_or_make_stage/91_overview.html">
+            
+                <a href="../9_build_or_make_stage/91_overview.html#91-overview">
+            
+                    
+                    9.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../9_build_or_make_stage/92_preprocesstrim.html">
+            
+                <a href="../9_build_or_make_stage/92_preprocesstrim.html#92-preprocesstrim">
+            
+                    
+                    9.2 Preprocess/Trim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../9_build_or_make_stage/93_compileassembly.html">
+            
+                <a href="../9_build_or_make_stage/93_compileassembly.html#93-compileassembly">
+            
+                    
+                    9.3 Compile/Assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../9_build_or_make_stage/94_static_link.html">
+            
+                <a href="../9_build_or_make_stage/94_static_link.html#94-static-link">
+            
+                    
+                    9.4 Static Link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../9_build_or_make_stage/95_dynamic_link.html">
+            
+                <a href="../9_build_or_make_stage/95_dynamic_link.html#95-dynamic-link">
+            
+                    
+                    9.5 Dynamic Link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../9_build_or_make_stage/96_generate_module_images.html">
+            
+                <a href="../9_build_or_make_stage/96_generate_module_images.html#96-generate-module-images">
+            
+                    
+                    9.6 Generate Module Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../9_build_or_make_stage/97_generate_platform_images.html">
+            
+                <a href="../9_build_or_make_stage/97_generate_platform_images.html#97-generate-platform-images">
+            
+                    
+                    9.7 Generate Platform Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../10_post-build_imagegen_stage_-_flash/">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/#10-post-build-imagegen-stage---flash">
+            
+                    
+                    10 Post-Build ImageGen Stage - FLASH
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../10_post-build_imagegen_stage_-_flash/101_overview_of_flash_device_layout.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/101_overview_of_flash_device_layout.html#101-overview-of-flash-device-layout">
+            
+                    
+                    10.1 Overview of Flash Device Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../10_post-build_imagegen_stage_-_flash/102_parsing_fdf_meta-data_file.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/102_parsing_fdf_meta-data_file.html#102-parsing-fdf-meta-data-file">
+            
+                    
+                    10.2 Parsing FDF Meta-Data File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/103_build_intermediate_images.html#103-build-intermediate-images">
+            
+                    
+                    10.3 Build Intermediate Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/104_create_the_fv_image_files.html#104-create-the-fv-image-files">
+            
+                    
+                    10.4 Create the FV Image File(s)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/105_create_the_fd_image_files.html#105-create-the-fd-image-files">
+            
+                    
+                    10.5 Create the FD image file(s)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../10_post-build_imagegen_stage_-_flash/106_post_build_processing.html">
+            
+                <a href="../10_post-build_imagegen_stage_-_flash/106_post_build_processing.html#106_post_build_processing">
+            
+                    
+                    10.6 Post Build Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../11_post-build_imagegen_stage_-_other/">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/#11-post-build-imagegen-stage---other">
+            
+                    
+                    11 Post-Build ImageGen Stage - Other
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/111_efi_pci_option_rom_images.html#111-efi-pci-option-rom-images">
+            
+                    
+                    11.1 EFI PCI Option ROM Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../11_post-build_imagegen_stage_-_other/112_uefi_applications.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/112_uefi_applications.html#112-uefi-applications">
+            
+                    
+                    11.2 UEFI Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../11_post-build_imagegen_stage_-_other/113_capsules.html">
+            
+                <a href="../11_post-build_imagegen_stage_-_other/113_capsules.html#113-capsules">
+            
+                    
+                    11.3 Capsules
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="./">
+            
+                <a href="./#12-build-changes-and-customizations">
+            
+                    
+                    12 Build Changes and Customizations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="121_building_for_debug.html">
+            
+                <a href="121_building_for_debug.html#121-building-for-debug">
+            
+                    
+                    12.1 Building for Debug
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="122_adding_custom_compression_tools.html">
+            
+                <a href="122_adding_custom_compression_tools.html#122-adding-custom-compression-tools">
+            
+                    
+                    12.2 Adding Custom Compression Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="123_using_custom_build_tools.html">
+            
+                <a href="123_using_custom_build_tools.html#123-using-custom-build-tools">
+            
+                    
+                    12.3 Using Custom Build Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="124_customizing_compilation_for_a_component.html">
+            
+                <a href="124_customizing_compilation_for_a_component.html#124-customizing-compilation-for-a-component">
+            
+                    
+                    12.4 Customizing Compilation for a Component
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" data-path="125_platform_specific_asl_tools.html">
+            
+                <a href="125_platform_specific_asl_tools.html#125-platform-specific-asl-tools">
+            
+                    
+                    12.5 Platform Specific ASL Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" data-path="126_build_reproducibility.html">
+            
+                <a href="126_build_reproducibility.html#126-build-reproducibility">
+            
+                    
+                    12.6 Build Reproducibility
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../13_build_reports/">
+            
+                <a href="../13_build_reports/#13-build-reports">
+            
+                    
+                    13 Build Reports
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../13_build_reports/131_build_report_generation_options.html">
+            
+                <a href="../13_build_reports/131_build_report_generation_options.html#131-build-report-generation-options">
+            
+                    
+                    13.1 Build Report Generation Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../13_build_reports/132_sample_launch_steps_nt32_platform.html">
+            
+                <a href="../13_build_reports/132_sample_launch_steps_nt32_platform.html#132-sample-launch-steps-nt32-platform">
+            
+                    
+                    13.2 Sample Launch Steps: NT32 platform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../13_build_reports/133_output.html">
+            
+                <a href="../13_build_reports/133_output.html#133-output">
+            
+                    
+                    13.3 Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../13_build_reports/134_platform_summary.html">
+            
+                <a href="../13_build_reports/134_platform_summary.html#134-platform-summary">
+            
+                    
+                    13.4 Platform Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.5" data-path="../13_build_reports/135_mixed_pcd_section.html">
+            
+                <a href="../13_build_reports/135_mixed_pcd_section.html#135-mixed-pcd-section">
+            
+                    
+                    13.5 Mixed PCD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.6" data-path="../13_build_reports/136_global_pcd_section.html">
+            
+                <a href="../13_build_reports/136_global_pcd_section.html#136-global-pcd-section">
+            
+                    
+                    13.6 Global PCD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.7" data-path="../13_build_reports/137_fd_section.html">
+            
+                <a href="../13_build_reports/137_fd_section.html#137-fd-section">
+            
+                    
+                    13.7 FD Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.8" data-path="../13_build_reports/138_module_section.html">
+            
+                <a href="../13_build_reports/138_module_section.html#138-module-section">
+            
+                    
+                    13.8 Module Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.9" data-path="../13_build_reports/139_execution_order_prediction_section.html">
+            
+                <a href="../13_build_reports/139_execution_order_prediction_section.html#139-execution-order-prediction-section">
+            
+                    
+                    13.9 Execution Order Prediction Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../appendix_a_variables.html">
+            
+                <a href="../appendix_a_variables.html#appendix-a-variables">
+            
+                    
+                    Appendix A Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../appendix_b_toolsdef_txt.html">
+            
+                <a href="../appendix_b_toolsdef_txt.html#appendix-b-tools_deftxt">
+            
+                    
+                    Appendix B tools_def.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../appendix_c_targettxt.html">
+            
+                <a href="../appendix_c_targettxt.html#appendix-c-targettxt">
+            
+                    
+                    Appendix C target.txt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../appendix_d_buildexe_command/">
+            
+                <a href="../appendix_d_buildexe_command/#appendix-d-buildexe-command">
+            
+                    
+                    Appendix D build.exe command
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.20.1" data-path="../appendix_d_buildexe_command/d1_overview.html">
+            
+                <a href="../appendix_d_buildexe_command/d1_overview.html#d1-overview">
+            
+                    
+                    D.1 Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.2" data-path="../appendix_d_buildexe_command/d2_makefile_actions.html">
+            
+                <a href="../appendix_d_buildexe_command/d2_makefile_actions.html#d2-makefile-actions">
+            
+                    
+                    D.2 Makefile actions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.3" data-path="../appendix_d_buildexe_command/d3_build_targets_and_options.html">
+            
+                <a href="../appendix_d_buildexe_command/d3_build_targets_and_options.html#d3-build-targets-and-options">
+            
+                    
+                    D.3 Build Targets and options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.4" data-path="../appendix_d_buildexe_command/d4_usage.html">
+            
+                <a href="../appendix_d_buildexe_command/d4_usage.html#d4-usage">
+            
+                    
+                    D.4 Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../appendix_e_nt32_platform_emulation.html">
+            
+                <a href="../appendix_e_nt32_platform_emulation.html#appendix-e-nt32-platform-emulation">
+            
+                    
+                    Appendix E NT32 Platform Emulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../appendix_f_firmware_volume_inf/">
+            
+                <a href="../appendix_f_firmware_volume_inf/#appendix-f-firmware-volume-inf">
+            
+                    
+                    Appendix F Firmware Volume INF
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.22.1" data-path="../appendix_f_firmware_volume_inf/f1_firmware_volume_inf_description.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f1_firmware_volume_inf_description.html#f1-firmware-volume-inf-description">
+            
+                    
+                    F.1 Firmware Volume INF Description
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.2" data-path="../appendix_f_firmware_volume_inf/f2_[attributes]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f2_[attributes]_section.html#f2-attributes-section">
+            
+                    
+                    F.2 [Attributes] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.3" data-path="../appendix_f_firmware_volume_inf/f3_[files]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f3_[files]_section.html#f3-files-section">
+            
+                    
+                    F.3 [Files] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22.4" data-path="../appendix_f_firmware_volume_inf/f4_[options]_section.html">
+            
+                <a href="../appendix_f_firmware_volume_inf/f4_[options]_section.html#f4-options-section">
+            
+                    
+                    F.4 [Options] Section
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../appendix_g_vs2005_team_suite_performance/">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/#appendix-g-vs2005-team-suite-performance-profile">
+            
+                    
+                    Appendix G VS2005 Team Suite Performance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.23.1" data-path="../appendix_g_vs2005_team_suite_performance/g1_step_1_-_create_a_new_project.html">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/g1_step_1_-_create_a_new_project.html#g1-step-1---create-a-new-project">
+            
+                    
+                    G.1 Step 1 - Create a new project
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23.2" data-path="../appendix_g_vs2005_team_suite_performance/g2_step_2_-_update_the_project.html">
+            
+                <a href="../appendix_g_vs2005_team_suite_performance/g2_step_2_-_update_the_project.html#g2-step-2---update-the-project">
+            
+                    
+                    G.2 Step 2 - Update the project
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../appendix_h_module_types.html">
+            
+                <a href="../appendix_h_module_types.html#appendix-h-module-types">
+            
+                    
+                    Appendix H Module Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../appendix_i_vpd_tool/">
+            
+                <a href="../appendix_i_vpd_tool/#appendix-i-vpd-tool">
+            
+                    
+                    Appendix I VPD Tool
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.25.1" data-path="../appendix_i_vpd_tool/i1_build_system_output_file_format.html">
+            
+                <a href="../appendix_i_vpd_tool/i1_build_system_output_file_format.html#i1-build-system-output-file-format">
+            
+                    
+                    I.1 Build System Output File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25.2" data-path="../appendix_i_vpd_tool/i2_vpd_tool_map_file_format.html">
+            
+                <a href="../appendix_i_vpd_tool/i2_vpd_tool_map_file_format.html#i2-vpd-tool-map-file-format">
+            
+                    
+                    I.2 VPD Tool Map File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../appendix_j_makefiles.html">
+            
+                <a href="../appendix_j_makefiles.html#appendix-j-makefiles">
+            
+                    
+                    Appendix J Makefiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.26.1" data-path="../appendix_j_makefiles.html">
+            
+                <a href="../appendix_j_makefiles.html#j1-nmake-module-makefile-format">
+            
+                    
+                    J.1 NMAKE Module Makefile Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../appendix_k_third_party_tool_flags.html">
+            
+                <a href="../appendix_k_third_party_tool_flags.html#appendix-k-third-party-tool-flags">
+            
+                    
+                    Appendix K Third Party Tool Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >12.1 Building for Debug</a>
+    </h1>
+</div>
+<div>
+    <!-- 
+    <img style="float:left; align:middle; height:2em" src="media/TianocoreTitlePageLogo.jpg"/>
+     -->
+    
+      <h2>
+        <div style="position:absolute;text-align:left">EDK II Build Specification</div>
+        <div style="position:absolute;width:100%;text-align:center">DRAFT [12/01/2020 03:38:51]</div>
+        <div style="text-align:right">Revision 1.28</div>
+      </h2>  
+    
+    <hr>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <!--- @file
+  12.1 Building for Debug
+
+  Copyright (c) 2008-2017, Intel Corporation. All rights reserved.<BR>
+
+  Redistribution and use in source (original document form) and 'compiled'
+  forms (converted to PDF, epub, HTML and other formats) with or without
+  modification, are permitted provided that the following conditions are met:
+
+  1) Redistributions of source code (original document form) must retain the
+     above copyright notice, this list of conditions and the following
+     disclaimer as the first lines of this file unmodified.
+
+  2) Redistributions in compiled form (transformed to other DTDs, converted to
+     PDF, epub, HTML and other formats) must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+
+  THIS DOCUMENTATION IS PROVIDED BY TIANOCORE PROJECT "AS IS" AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+  EVENT SHALL TIANOCORE PROJECT  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
+  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<h2 id="121-building-for-debug">12.1 Building for Debug</h2>
+<p>The build tool defaults support three building targets: NOOPT, DEBUG and
+RELEASE. This section describes how to enable DEBUG target when building and
+how to setup compiler flags used for DEBUG. The NOOPT target disables all
+optimizations in addition to setting the flags for DEBUG.</p>
+<p>There are three ways provided in build tool to define the target that will be
+used in the building process.</p>
+<ul>
+<li><p>Situation A: Setup by overriding file &quot;target.txt&quot;</p>
+<ul>
+<li><p>After executing &quot;edksetup&quot; , there will be a file named &quot;target.txt&quot; under
+<code>$(WORKSPACE)/Conf</code>.</p>
+</li>
+<li><p>Users can edit this file and change the value of item <code>TARGET</code>.</p>
+</li>
+<li><p>A specific example of this is <code>TARGET = DEBUG</code>, which sets the current building method.</p>
+</li>
+<li><p>In this example, the default value of the <code>TARGET</code> is set to <code>DEBUG</code>.</p>
+</li>
+</ul>
+</li>
+<li><p>Situation B: Use a parameter <code>-b BUILDTARGET</code> when executing building command</p>
+<ul>
+<li><p>Users can type a command with the format <code>build -b BUILDTARGET</code> to specify
+the target used in current building.</p>
+</li>
+<li><p>A specific example of this command is <code>build -b DEBUG</code>.</p>
+</li>
+<li><p>In this example, the value set in the file <code>target.txt</code> will be ignored.</p>
+</li>
+</ul>
+</li>
+<li><p>Situation C: Setup in the DSC file of a platform</p>
+<ul>
+<li><p>When the <code>BUILDTARGET</code> is not specified in the command line or in the file
+<code>target.txt</code>, the build tool will attempt to build all valid targets
+specified in the DSC file.</p>
+</li>
+<li><p>This contrasts with situations A and B, where only the targets specified as
+valid in the DSC file can be used.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1211-debugging-files">12.1.1 Debugging Files</h3>
+<p>For a debugging build, the files created will be saved to
+<code>$(WORKSPACE)/$(OUTPUT_DIRECTORY)/$(BUILDTARGET)_$(TOOL_CHAIN_TAG)/$(ARCH)/</code>.
+For each single module, the temporary files created in <code>DEBUG</code> building process
+will be saved to
+<code>$(WORKSPACE)/$(OUTPUT_DIRECTORY)/$(BUILDTARGET)_$(TOOL_CHAIN_TAG)/$(ARCH)/$(PACKAGE_NAME)/$(MODULE_NAME)/DEBUG/</code>
+and <code>$(WORKSPACE)/$(OUTPUT_DIRECTORY)/$(BUILDTARGET)_$(TOOL_CHAIN_TAG)/$(ARCH)/$(PACKAGE_NAME)/$(MODULE_NAME)/OUTPUT/</code>,
+so such as .map, .pdb and other <code>DEBUG</code> files can be found in these two directories.</p>
+<p>User can also define a specific directory to save <code>DEBUG</code> files. A detailed
+example is given in the next subsection.</p>
+<h3 id="1212-debugging-options">12.1.2 Debugging Options</h3>
+<p>Build tool supports customized <code>DEBUG</code> flags in the <code>&lt;BuildOptions&gt;</code> section of
+the DSC file, the INF file and <code>tools_def.txt</code>. The highest priority for a same
+complier flag is the one defined in INF file, the medium is that in DSC file
+and the lowest is the one in <code>tools_def.txt</code>.</p>
+<p>For example, to generate the .cod files for the .obj files of a platform,
+user can add one line such as <code>*_MYTOOLS_*_CC_FLAGS = /FAcs /FA $(OUTPUT_DIR)\</code>
+in section <code>[BUILD_OPTIONS]</code> of DSC file. This option tells build tool to
+generate a .cod file for each .obj file and put them to $(OUTPUT_DIR).</p>
+<p>For only generating the .cod files for one single module, one way is to add
+the option in section <code>[BUILD_OPTIONS]</code> of the module&apos;s INF file; another way is
+to add the option to DSC file&apos;s <code>&lt;BuildOptions&gt;</code> for the INF file like below:</p>
+<pre><code>MdeModulePkg/Universal/PCD/Pei/Pcd.inf {
+  &lt;BuildOptions&gt;
+    *_MYTOOLS_*_CC_FLAGS = /FAcs /FA $(OUTPUT_DIR)\
+}
+</code></pre><h3 id="1213-advanced-debugging">12.1.3 Advanced Debugging</h3>
+<p>For generating disassembly (.cod) files for debugging, the following is one
+way to setup <strong>dumpbin -disasm</strong> for individual modules as well as using it for
+every .efi file generated.</p>
+<p>To generate the disasm for the efi files, the user can add two definitions in
+<code>tools_def.txt</code>:</p>
+<pre><code>DEBUG_MYTOOLS_IA32_DISASM_PATH = DEF(VS2005TEAMSUITE_BIN)\dumpbin.exe
+DEBUG_MYTOOLS_IA32_DISASM_FLAGS = -dump -disasm -out:$(DEST_DIR)
+</code></pre><p>Then user can use build option <code>-D</code>, <code>--define</code> with a reserved MACRO name:
+DISASM to start building. The build tool automatically detects if a <strong>DISASM</strong>
+tool defined in the TagName of Tool Chain, then after ever link command that
+generates an EFI file, the tool will run the <strong>DISASM</strong> tool (with the flags)
+against the EFI file. In the example, the output file will be next to the EFI
+file based on the FLAGS entry, <strong>-out:$(DEST_DIR)</strong> which is the same location
+as the <code>.efi</code> file.</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                    
+                    
+
+<div>
+    <hr>
+    
+      <h2>
+        <div style="position:absolute;text-align:left">EDK II Build Specification</div>
+        <div style="position:absolute;width:100%;text-align:center">DRAFT [12/01/2020 03:38:51]</div>
+        <div style="text-align:right">Revision 1.28</div>
+      </h2>  
+    
+</div>
+
+
+
+                
+            </div>
+
+            
+                
+                <a href="./#12-build-changes-and-customizations" class="navigation navigation-prev " aria-label="Previous page: 12 Build Changes and Customizations">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="122_adding_custom_compression_tools.html#122-adding-custom-compression-tools" class="navigation navigation-next " aria-label="Next page: 12.2 Adding Custom Compression Tools">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"12.1 Building for Debug","level":"1.15.1","depth":2,"next":{"title":"12.2 Adding Custom Compression Tools","level":"1.15.2","depth":2,"anchor":"#122-adding-custom-compression-tools","path":"12_build_changes_and_customizations/122_adding_custom_compression_tools.md","ref":"12_build_changes_and_customizations/122_adding_custom_compression_tools.md#122-adding-custom-compression-tools","articles":[]},"previous":{"title":"12 Build Changes and Customizations","level":"1.15","depth":1,"anchor":"#12-build-changes-and-customizations","path":"12_build_changes_and_customizations/README.md","ref":"12_build_changes_and_customizations/README.md#12-build-changes-and-customizations","articles":[{"title":"12.1 Building for Debug","level":"1.15.1","depth":2,"anchor":"#121-building-for-debug","path":"12_build_changes_and_customizations/121_building_for_debug.md","ref":"12_build_changes_and_customizations/121_building_for_debug.md#121-building-for-debug","articles":[]},{"title":"12.2 Adding Custom Compression Tools","level":"1.15.2","depth":2,"anchor":"#122-adding-custom-compression-tools","path":"12_build_changes_and_customizations/122_adding_custom_compression_tools.md","ref":"12_build_changes_and_customizations/122_adding_custom_compression_tools.md#122-adding-custom-compression-tools","articles":[]},{"title":"12.3 Using Custom Build Tools","level":"1.15.3","depth":2,"anchor":"#123-using-custom-build-tools","path":"12_build_changes_and_customizations/123_using_custom_build_tools.md","ref":"12_build_changes_and_customizations/123_using_custom_build_tools.md#123-using-custom-build-tools","articles":[]},{"title":"12.4 Customizing Compilation for a Component","level":"1.15.4","depth":2,"anchor":"#124-customizing-compilation-for-a-component","path":"12_build_changes_and_customizations/124_customizing_compilation_for_a_component.md","ref":"12_build_changes_and_customizations/124_customizing_compilation_for_a_component.md#124-customizing-compilation-for-a-component","articles":[]},{"title":"12.5 Platform Specific ASL Tools","level":"1.15.5","depth":2,"anchor":"#125-platform-specific-asl-tools","path":"12_build_changes_and_customizations/125_platform_specific_asl_tools.md","ref":"12_build_changes_and_customizations/125_platform_specific_asl_tools.md#125-platform-specific-asl-tools","articles":[]},{"title":"12.6 Build Reproducibility","level":"1.15.6","depth":2,"anchor":"#126-build-reproducibility","path":"12_build_changes_and_customizations/126_build_reproducibility.md","ref":"12_build_changes_and_customizations/126_build_reproducibility.md#126-build-reproducibility","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"draft":"yes","title":"EDK II Build Specification","version":"Revision 1.28"},"plugins":["puml-aleung"],"pluginsConfig":{"puml-aleung":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"12_build_changes_and_customizations/121_building_for_debug.md","mtime":"2020-12-01T03:38:19.111Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-01T03:38:51.765Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
