@@ -756,7 +756,7 @@ library instances that are being linked to.
 ```c
 If (CONSTRUCTOR defined in INF) {
 
-  If (MODULE_TYPE == "BASE") {
+  If ((MODULE_TYPE == "BASE") || (MODULE_TYPE == "SEC")) {
     include_statement (AutoGen.c, "
       EFI_STATUS
       EFIAPI
@@ -798,7 +798,7 @@ If (CONSTRUCTOR defined in INF) {
 
 } // End CONSTRUCTOR defined in INF
 
-If (MODULE_TYPE == "BASE") {
+If ((MODULE_TYPE == "BASE") || (MODULE_TYPE == "SEC")) {
   include_statement (AutoGen.c, "
     VOID
     EFIAPI
@@ -841,11 +841,11 @@ include_statement (AutoGen.c, "
 ");
 
 If (CONSTRUCTOR defined in INF) {
-  If (MODULE_TYPE == "BASE") {
+  If ((MODULE_TYPE == "BASE") || (MODULE_TYPE == "SEC")) {
     include_statement (AutoGen.c, "
        EFI_STATUS Status;
 
-       Status = <CONSTRUCTOR>();
+       Status = <CONSTRUCTOR> ();
        ASSERT_EFI_ERROR (Status);
 
     ");
@@ -889,7 +889,7 @@ of the library instances that are being linked to.
 
 ```c
 If (DESTRUCTOR defined in INF) {
-  If (MODULE_TYPE == "BASE") {
+  If ((MODULE_TYPE == "BASE") || (MODULE_TYPE == "SEC")) {
     include_statement (AutoGen.c, "
       EFI_STATUS
       EFIAPI
@@ -925,7 +925,7 @@ If (DESTRUCTOR defined in INF) {
   }
 } // End DESTRUCTOR defined in INF
 
-If (MODULE_TYPE == "BASE") {
+If ((MODULE_TYPE == "BASE") || (MODULE_TYPE == "SEC")) {
   include_statement (AutoGen.c, "
     VOID
     EFIAPI
@@ -971,11 +971,11 @@ include_statement (AutoGen.c, "
 ");
 
 If (DESTRUCTOR defined in INF) {
-  If (MODULE_TYPE == "BASE") {
+  If ((MODULE_TYPE == "BASE") || (MODULE_TYPE == "SEC")) {
     include_statement (AutoGen.c, "
       EFI_STATUS Status;
 
-      Status = <DESTRUCTOR>();
+      Status = <DESTRUCTOR> ();
       ASSERT_EFI_ERROR (Status);
 
     ");
