@@ -649,7 +649,31 @@ include_statement(AutoGen.h, "
 ");
 ```
 
-#### 8.3.6.5 AutoGen Epilogue
+#### 8.3.6.5 `ProcessLibraryConstructorList` function declaration
+
+Entry point functions of non-library SEC modules do not have standardized
+parameter lists, therefore edk2 does not offer an
+`MdePkg/Include/Library/*EntryPoint.h` header file for such modules.
+Consequently, `ProcessLibraryConstructorList` is not declared for them either,
+despite the fact that they must call `ProcessLibraryConstructorList` explicitly.
+Historically, each such module has declared `ProcessLibraryConstructorList`
+internally for itself, compensating for the lack of a central declaration.
+
+The `ProcessLibraryConstructorList` function is declared in `AutoGen.h` for
+non-library SEC modules, if `INF_VERSION` in the module's INF file is greater
+than or equal to `1.30`.
+
+```c
+include_statement (AutoGen.h, "
+  VOID
+  EFIAPI
+  ProcessLibraryConstructorList (
+    VOID
+  );
+");
+```
+
+#### 8.3.6.6 AutoGen Epilogue
 
 ```c
 #ifdef __cplusplus
