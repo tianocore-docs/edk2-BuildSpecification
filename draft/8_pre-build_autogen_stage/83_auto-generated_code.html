@@ -1594,7 +1594,7 @@
     
       <h2>
         <div style="position:absolute;text-align:left">EDK II Build Specification</div>
-        <div style="position:absolute;width:100%;text-align:center">DRAFT [12/01/2020 03:38:51]</div>
+        <div style="position:absolute;width:100%;text-align:center">DRAFT [03/01/2024 01:40:53]</div>
         <div style="text-align:right">Revision 1.28</div>
       </h2>  
     
@@ -2318,7 +2318,26 @@ to section 7.3.2.</p>
 
   #define IMAGE_ARRAY_NAME  HelloWorldImages
 &quot;);
-</code></pre><h4 id="8365-autogen-epilogue">8.3.6.5 AutoGen Epilogue</h4>
+</code></pre><h4 id="8365-processlibraryconstructorlist-function-declaration">8.3.6.5 <code>ProcessLibraryConstructorList</code> function declaration</h4>
+<p>Entry point functions of non-library SEC modules do not have standardized
+parameter lists, therefore edk2 does not offer an
+<code>MdePkg/Include/Library/*EntryPoint.h</code> header file for such modules.
+Consequently, <code>ProcessLibraryConstructorList</code> is not declared for them either,
+despite the fact that they must call <code>ProcessLibraryConstructorList</code> explicitly.
+Historically, each such module has declared <code>ProcessLibraryConstructorList</code>
+internally for itself, compensating for the lack of a central declaration.</p>
+<p>The <code>ProcessLibraryConstructorList</code> function is declared in <code>AutoGen.h</code> for
+non-library SEC modules, if <code>INF_VERSION</code> in the module&apos;s INF file is greater
+than or equal to <code>1.30</code>.</p>
+<pre><code class="lang-c">include_statement (AutoGen.h, &quot;
+  VOID
+  EFIAPI
+  ProcessLibraryConstructorList (
+    VOID
+  );
+&quot;);
+</code></pre>
+<h4 id="8366-autogen-epilogue">8.3.6.6 AutoGen Epilogue</h4>
 <pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __cplusplus</span>
 }
 <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
@@ -2405,7 +2424,7 @@ the image.</p>
 library instances that are being linked to.</p>
 <pre><code class="lang-c">If (CONSTRUCTOR defined in INF) {
 
-  If (MODULE_TYPE == &quot;BASE&quot;) {
+  If ((MODULE_TYPE == &quot;BASE&quot;) || (MODULE_TYPE == &quot;SEC&quot;)) {
     include_statement (AutoGen.c, &quot;
       EFI_STATUS
       EFIAPI
@@ -2447,7 +2466,7 @@ library instances that are being linked to.</p>
 
 } // End CONSTRUCTOR defined in INF
 
-If (MODULE_TYPE == &quot;BASE&quot;) {
+If ((MODULE_TYPE == &quot;BASE&quot;) || (MODULE_TYPE == &quot;SEC&quot;)) {
   include_statement (AutoGen.c, &quot;
     VOID
     EFIAPI
@@ -2490,11 +2509,11 @@ include_statement (AutoGen.c, &quot;
 &quot;);
 
 If (CONSTRUCTOR defined in INF) {
-  If (MODULE_TYPE == &quot;BASE&quot;) {
+  If ((MODULE_TYPE == &quot;BASE&quot;) || (MODULE_TYPE == &quot;SEC&quot;)) {
     include_statement (AutoGen.c, &quot;
        EFI_STATUS Status;
 
-       Status = &lt;CONSTRUCTOR&gt;();
+       Status = &lt;CONSTRUCTOR&gt; ();
        ASSERT_EFI_ERROR (Status);
 
     &quot;);
@@ -2534,7 +2553,7 @@ include_statement (AutoGen.c, &quot;
 <p>Contained if there are <code>DESTRUCTOR</code>s defined in <code>[Defines]</code> section in INF file
 of the library instances that are being linked to.</p>
 <pre><code class="lang-c">If (DESTRUCTOR defined in INF) {
-  If (MODULE_TYPE == &quot;BASE&quot;) {
+  If ((MODULE_TYPE == &quot;BASE&quot;) || (MODULE_TYPE == &quot;SEC&quot;)) {
     include_statement (AutoGen.c, &quot;
       EFI_STATUS
       EFIAPI
@@ -2570,7 +2589,7 @@ of the library instances that are being linked to.</p>
   }
 } // End DESTRUCTOR defined in INF
 
-If (MODULE_TYPE == &quot;BASE&quot;) {
+If ((MODULE_TYPE == &quot;BASE&quot;) || (MODULE_TYPE == &quot;SEC&quot;)) {
   include_statement (AutoGen.c, &quot;
     VOID
     EFIAPI
@@ -2616,11 +2635,11 @@ include_statement (AutoGen.c, &quot;
 &quot;);
 
 If (DESTRUCTOR defined in INF) {
-  If (MODULE_TYPE == &quot;BASE&quot;) {
+  If ((MODULE_TYPE == &quot;BASE&quot;) || (MODULE_TYPE == &quot;SEC&quot;)) {
     include_statement (AutoGen.c, &quot;
       EFI_STATUS Status;
 
-      Status = &lt;DESTRUCTOR&gt;();
+      Status = &lt;DESTRUCTOR&gt; ();
       ASSERT_EFI_ERROR (Status);
 
     &quot;);
@@ -3129,7 +3148,7 @@ foreach INF in InfList {
     
       <h2>
         <div style="position:absolute;text-align:left">EDK II Build Specification</div>
-        <div style="position:absolute;width:100%;text-align:center">DRAFT [12/01/2020 03:38:51]</div>
+        <div style="position:absolute;width:100%;text-align:center">DRAFT [03/01/2024 01:40:53]</div>
         <div style="text-align:right">Revision 1.28</div>
       </h2>  
     
@@ -3158,7 +3177,7 @@ foreach INF in InfList {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8.3 Auto-generated code","level":"1.11.3","depth":2,"next":{"title":"8.4 Auto-generated PCD Database File","level":"1.11.4","depth":2,"anchor":"#84-auto-generated-pcd-database-file","path":"8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.md","ref":"8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.md#84-auto-generated-pcd-database-file","articles":[]},"previous":{"title":"8.2 Auto-generation Process","level":"1.11.2","depth":2,"anchor":"#82-auto-generation-process","path":"8_pre-build_autogen_stage/82_auto-generation_process.md","ref":"8_pre-build_autogen_stage/82_auto-generation_process.md#82-auto-generation-process","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"draft":"yes","title":"EDK II Build Specification","version":"Revision 1.28"},"plugins":["puml-aleung"],"pluginsConfig":{"puml-aleung":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"8_pre-build_autogen_stage/83_auto-generated_code.md","mtime":"2020-12-01T03:38:19.115Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-01T03:38:51.765Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.3 Auto-generated code","level":"1.11.3","depth":2,"next":{"title":"8.4 Auto-generated PCD Database File","level":"1.11.4","depth":2,"anchor":"#84-auto-generated-pcd-database-file","path":"8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.md","ref":"8_pre-build_autogen_stage/84_auto-generated_pcd_database_file.md#84-auto-generated-pcd-database-file","articles":[]},"previous":{"title":"8.2 Auto-generation Process","level":"1.11.2","depth":2,"anchor":"#82-auto-generation-process","path":"8_pre-build_autogen_stage/82_auto-generation_process.md","ref":"8_pre-build_autogen_stage/82_auto-generation_process.md#82-auto-generation-process","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"draft":"yes","title":"EDK II Build Specification","version":"Revision 1.28"},"plugins":["puml-aleung"],"pluginsConfig":{"puml-aleung":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"8_pre-build_autogen_stage/83_auto-generated_code.md","mtime":"2024-03-01T13:40:24.884Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-03-01T13:40:53.553Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
