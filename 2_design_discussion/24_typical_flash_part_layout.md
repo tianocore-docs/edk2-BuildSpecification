@@ -42,7 +42,7 @@ the tools for creating a compressed image and a library for decompressing the
 image must be provided. These non-standard compression, encryption, signing or
 verification mechanisms are applied to a GUIED encapsulation section. Each
 method needs a unique GUID, however the methods may be applied to images more
-than once per FD image. This is done in order to facility recovery and updates
+than once per FD image. This is done in order to facilitate recovery and updates
 (called capsules). Other areas in flash may be reserved for non-volatile (NV)
 data storage, fault tolerant working (FTW) space or vital product data (VPD)
 areas. These other regions are not defined in the PI specification, and
