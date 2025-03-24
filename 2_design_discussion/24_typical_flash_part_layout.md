@@ -40,7 +40,7 @@ specification defines only standard EFI compression; if other compression
 mechanisms (or verification mechanisms, such as CRC32) are required, then both
 the tools for creating a compressed image and a library for decompressing the
 image must be provided. These non-standard compression, encryption, signing or
-verification mechanisms are applied to a GUIED encapsulation section. Each
+verification mechanisms are applied to a GUIDED encapsulation section. Each
 method needs a unique GUID, however the methods may be applied to images more
 than once per FD image. This is done in order to facilitate recovery and updates
 (called capsules). Other areas in flash may be reserved for non-volatile (NV)
